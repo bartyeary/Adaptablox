@@ -355,6 +355,11 @@ html { background-color: #10182E; }
   .logo {
     height: 30px;
   }
+  :root {
+    --card-w: 220px;
+    --card-h: 160px;
+    --gap: 20px;
+  }
 }
 @media (max-width:600px)
   {.card-container{grid-template-columns:repeat(1,var(--card-w));}
@@ -367,6 +372,11 @@ html { background-color: #10182E; }
   .logo {
     height: 22px;
     transform: translateY(-1px);
+  }
+  :root {
+    --card-w: 160px;
+    --card-h: 130px;
+    --gap: 14px;
   }
 }
 
