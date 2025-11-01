@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>A.R.C.</title>
+<style>
+:root {
+  --gap: 24px;
+  --card-w: 260px;
+  --card-h: 180px;
+  --bg-1: #192447;
+  --bg-2: #101422;
+  --front-a: #1E2A45;
+  --front-b: #1E2A45;
+  --back-a: #293A5F;
+  --back-b: #293A5F;
+  --accent: #2978ED;
+  --max-container: calc(3 * var(--card-w) + 2 * var(--gap) + (2 * var(--gap)));
+}
+
+/* Global page */
+body {
+  font-family: "Inter", sans-serif;
+  background: radial-gradient(circle at 500px 0%, var(--bg-1), var(--bg-2) 1000px);
+  color: #8FB0ED;
+  margin: 0;
+  min-height: 100vh;
+  padding: 60px var(--gap) 60px;
+  overflow: visible;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+html { background-color: #10182E; }
+
+.page-wrap {
+  width: 100%;
+  max-width: var(--max-container);
+  margin: 30px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Controller Row */
+.controls {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+  background: rgba(37,50,89,0.7);
+  border-radius: 0 0 12px 12px;
+  display: flex;
+  justify-content: center;
+}
+
+.controls-inner {
+  width: 100%;
+  max-width: var(--max-container);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px var(--gap);
+}
+
+.deck-toggle {
+  display: flex;
+  gap: 8px;
+  background: #141B2E;
+  border-radius: 10px;
+  padding: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.deck-toggle button {
+  background: transparent;
+  border: none;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 560;
+  transition: background .18s;
+}
+
+.deck-toggle button.active { background: var(--accent); }
+
+.logo {
+  height: 32px;             /* adjust as needed */
+  width: auto;
+  margin-right: 16px;
+  display: block;
+}
+.controls-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px var(--gap);
+}
+.controls-inner > .logo {
+  margin-right: 20px;
+}
+
+/* Base state for all sections */
+.page-wrap {
+  position: relative;
+  padding-top: 0;
+  width: 100%;
+  max-width: var(--max-container);
+  margin: 30px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 100vh; /* allow space to grow */
+  transition: height 0.4s ease-out; /* smooth resize */
+}
+
+/* stack all sections on top of each other */
+.section-container {
+  position: relative;
+  padding: 24px;
+  background: #10182E;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  margin: 0 auto;               /* centers within page-wrap */
+  width: calc(100% - 2 * var(--gap));  /* leaves equal left/right breathing room */
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+  display: none; /* hidden by default */
+}
+
+.section-container.active {
+  display: block; /* back in flow */
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* ABOUT SECTION */
+#about {
+  font-family: "Inter", sans-serif; /* switched from Courier */
+  color: #8FB0ED;
+  line-height: 1.6;
+  font-size: 15px;
+  letter-spacing: 0.1px;
+}
+
+#about h1, #about h2, #about h3 {
+  color: #f0f3fa;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  margin-bottom: 6px;       /* keep spacing below */
+  padding-top: 0;             /* ensures equal inset */
+  padding-left: 0;            /* aligns with section padding */
+}
+
+#about h1{
+  font-size: 1.2em;
+  margin-top: 0;
+}
+#about h2{
+  font-size: 1.2em;
+  margin-top: 0;
+}
+
+
+#about ul {
+  list-style: none;
+  padding: 0;
+
+}
+
+#about li {
+  position: relative;
+  padding-left: 1.2em;
+  margin: 0.5em 0;
+}
+
+#about li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #2978ED;
+  font-weight: bold;
+}
+
+
+#about .compare {
+  background: #1E2A45;
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin: 1.2em 0;
+  line-height: 1.6;
+  font-size: 14px;
+  color: #BBD0FE;
+  border-left: 4px solid #2978ED; /* the accent stroke */
+}
+
+#about .video-embed {
+  margin: 32px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0f1522;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+
+#about .video-frame {
+  position: relative;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+}
+
+#about .video-frame iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 12px;
+}
+
+#about .caption {
+  font-size: 13px;
+  color: #7e8aa7;
+  margin-top: 6px;
+  text-align: center;
+}
+
+/* Cards + Flows (unchanged) */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, var(--card-w));
+  gap: var(--gap);
+}
+/* Ensure each layer participates in 3D */
+.card {
+  height: var(--card-h);
+  position: relative;
+  cursor: pointer;
+  perspective: 1000px;              /* 3D camera */
+}
+
+.inner {
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  transform-style: preserve-3d;     /* keep children 3D */
+  transition: transform 0.6s ease;
+}
+
+.card.flipped .inner { transform: rotateY(180deg); }
+
+/* <<< The missing piece */
+.tilt {
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  transform-style: preserve-3d;     /* keep faces 3D */
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.32);
+}
+
+.face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 18px;
+  border-radius: 6px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;   /* Safari */
+  transform: translateZ(0);               /* avoid z-fighting */
+}
+
+.front { 
+  background: linear-gradient(145deg, var(--front-a), var(--front-b));
+  transform: rotateY(0deg);
+}
+
+.back  { 
+  background: linear-gradient(145deg, var(--back-a), var(--back-b));
+  transform: rotateY(180deg);
+  color: #fff;
+}
+
+/* Optional: belt-and-suspenders for nested text */
+.face * { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+
+/* FLOW TITLES & DESCRIPTIONS (match About section styling) */
+.ascii-section .ascii-title {
+  font-family: "Inter", sans-serif;
+  color: #f0f3fa;              /* same as About headers */
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 18px;
+  letter-spacing: 0.3px;
+  margin-bottom: 8px;
+}
+
+.ascii-section .ascii-desc {
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #8FB0ED;              /* same as About body */
+  margin-bottom: 28px;
+  max-width: 640px;
+}
+.ascii-pre { font-size: 14px; line-height: 1.25; white-space: pre; overflow-x: auto; color: #b8d0ff; margin: 0; }
+
+#flowNav { display: none; gap: 8px; }
+#flowNav button {
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  background: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+#flowNav button:hover { background: var(--accent); color: #fff; }
+
+.left-group {
+  display: flex;
+  flex-direction: row;  /* ensures logo + controller sit side by side */
+  align-items: center;  /* vertical alignment */
+  gap: 8px;            /* spacing between logo and buttons */
+}
+
+@media (max-width:900px)
+{.card-container{grid-template-columns:repeat(2,var(--card-w));}
+}
+@media (max-width:600px)
+  {.card-container{grid-template-columns:repeat(1,var(--card-w));}
+  #prevFlow {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+}
+
+
+</style>
+</head>
+
+<body>
+  <div class="page-wrap">
+    <div class="controls">
+      <div class="controls-inner">
+        <div class="left-group">
+        <img src="arc-logo.svg" alt="A.R.C. logo" class="logo">
+        <div class="deck-toggle">
+          <button id="aboutBtn" class="active">About</button>
+          <button id="termsBtn">Terms</button>
+          <button id="faqBtn">FAQs</button>
+          <button id="flowsBtn">Flows</button>
+        </div>
+      </div>
+        <div id="flowNav">
+          <button id="prevFlow">&lt;</button>
+          <button id="nextFlow">&gt;</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inline About Section -->
+
+<div class="section-container active" id="about">
+  <div>
+  <h1>Agent Role & Constraint (A.R.C.)</h1>
+  <p>
+    A.R.C. is a runtime governance layer for AI systems that regulates tone, behavior, and context across agents. 
+    It is model-agnostic, lightweight, and designed to integrate with existing orchestration frameworks like Microsoft Copilot and OpenAI’s API stack.
+  </p>
+
+  <h2>Why A.R.C. matters</h2>
+  <p>
+    Today’s AI assistants focus on <em>access governance</em>—deciding who can use which tool or dataset. 
+    A.R.C. operates one level deeper: enforcing *behavioral governance* in real time.
+    It manages how agents act, speak, and collaborate under transparent, auditable constraints.
+  </p>
+
+  <div class="compare">
+    <strong>Without A.R.C.</strong><br>
+    Static safety layers are hard-coded into models and cannot adapt once deployed.
+  </div>
+    <div class="compare">
+    <strong>With A.R.C.</strong><br>
+    Behavioral policies, tone parameters, and escalation logic can update instantly—without retraining.
+  </div>
+
+  <h2>Key Differentiators</h2>
+  <ul>
+    <li><strong>Runtime Adaptability: </strong>Modulates tone, permissions, and escalation behavior live during generation.</li>
+    <li><strong>Constraint Hierarchies: </strong>Layered enforcement levels define how agents self-regulate and escalate.</li>
+    <li><strong>Auditability by Design: </strong>Every behavioral shift, fallback, or tone change is logged with causal metadata.</li>
+    <li><strong>Model Agnostic Architecture: </strong>Works across GPT-5, Claude, Gemini, and open-weight models.</li>
+    <li><strong>Multi-Agent Arbitration: </strong>Balances outputs from multiple domain agents using constraint-weighted scoring.</li>
+    <li><strong>Regulatory Readiness: </strong>Supports compliance through constraint-aware memory and TTL enforcement.</li>
+  </ul>
+
+  <h2>Strategic Fit</h2>
+  <p>
+    Most organizations already manage <em>access governance</em>—deciding who can use which data, model, or tool.  
+    A.R.C. operates a layer deeper: it governs <em>behavior</em> at runtime, ensuring that every agent acts, speaks, and collaborates within defined tone, compliance, and transparency boundaries.  
+    It bridges the gap between user intent, institutional policy, and AI expression.
+  </p>
+
+  <ul>
+    <li>Integrates with existing orchestration and workflow platforms.</li>
+    <li>Standardizes tone and compliance logic across heterogeneous agents.</li>
+    <li>Creates an auditable chain linking model behavior to governance policy.</li>
+  </ul>
+
+  <h2>Vision</h2>
+  <p>
+    As multi-agent systems evolve, A.R.C. ensures that ensembles behave with transparency and consistency—governing <em>how</em> intelligence expresses itself,
+    not just <em>what</em> it can access.
+  </p>
+</div>   
+<div class="video-embed">
+  <div class="video-frame">
+    <iframe
+      src="https://player.vimeo.com/video/1118926409?title=0&byline=0&portrait=0&badge=0&autopause=0"
+      frameborder="0"
+      allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      title="A.R.C. Ambient Assistant"
+    ></iframe>
+  </div>
+  <p class="caption">Demo 1 — A.R.C. Ambient Assistant: behavioral tone modulation and real-time orchestration.</p>
+</div>
+
+<div class="video-embed">
+  <div class="video-frame">
+    <iframe
+      src="https://player.vimeo.com/video/1087903784?title=0&byline=0&portrait=0&badge=0&autopause=0"
+      frameborder="0"
+      allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      title="A.R.C. System Overview"
+    ></iframe>
+  </div>
+  <p class="caption">Demo 2 — A.R.C. System Overview: constraint hierarchy, escalation logic, and multi-agent synthesis.</p>
+</div>
+
+<script src="https://player.vimeo.com/api/player.js"></script>
+</div>
+
+
+<div class="section-container card-container" id="terms"></div>
+<div class="section-container card-container" id="faq"></div>
+<div class="section-container ascii-section" id="ascii"></div>
+</div>
+
+<script>
+/* ---------- TERMS & FAQ CARD DATA ---------- */
+const termsDeck = [
+  { term: "Behavioral Arc", def: "Defines an agent’s role, tone, constraints, and evolution logic." },
+  { term: "Constraint Stack", def: "Prioritized rule layers determining what an agent can do within its control layer." },
+  { term: "Hybridization", def: "Blending arcs within or across domains to adapt behavior contextually." },
+  { term: "Escalation", def: "Routing a task to another agent or domain when thresholds or confidence limits are exceeded." },
+  { term: "Tone Vector", def: "A numeric signal controlling empathy, urgency, confidence, or authority in language generation." },
+  { term: "Memory Segmentation", def: "Short-term, semantic, episodic, and procedural memory slices bounded by constraints and TTLs." },
+  { term: "Controller Agent", def: "A meta-agent that orchestrates sub-agents, synthesizing outputs with constraint-weighted blending." },
+  { term: "Constraint Hierarchy", def: "Defines precedence between rules when conflicts occur within a behavioral arc." },
+  { term: "Reflexive Transparency", def: "All behavioral shifts are logged with causal metadata for auditability and trust." }
+];
+
+const faqDeck = [
+  { term: "Does A.R.C. improve model accuracy?", def: "No. It governs behavior and context at runtime, not model weights." },
+  { term: "How are agent responses synthesized?", def: "A controller agent blends multiple outputs via constraint-weighted scoring and tone alignment." },
+  { term: "Will larger frontier models solve governance?", def: "They reduce hallucinations but don’t address behavioral misalignment or tone drift." },
+  { term: "Is tone modulation anthropomorphism?", def: "No. Tone vectors are formal control signals defining communicative stance." },
+  { term: "Aren’t multi-agent systems overkill?", def: "Single-agent is default; multi-agent coordination triggers only when task scope requires it." },
+  { term: "Will A.R.C. increase latency?", def: "Minimal. Behavioral checks are lightweight and only trigger on defined thresholds." },
+  { term: "How does A.R.C. handle memory in regulated environments?", def: "Only compliant memory slices persist, with TTL enforcement and full audit trails." },
+  { term: "Is A.R.C. model-specific?", def: "No. It’s model-agnostic and operates across GPT-5, Claude, Gemini, and open-weight systems." },
+  { term: "Can A.R.C. operate on-device?", def: "Yes. Its lightweight runtime design makes it suitable for local or edge deployments." }
+];
+
+/* ---------- ELEMENTS ---------- */
+const aboutBtn = document.getElementById('aboutBtn');
+const termsBtn = document.getElementById('termsBtn');
+const faqBtn = document.getElementById('faqBtn');
+const flowsBtn = document.getElementById('flowsBtn');
+
+const aboutEl = document.getElementById('about');
+const termsEl = document.getElementById('terms');
+const faqEl = document.getElementById('faq');
+const asciiEl = document.getElementById('ascii');
+
+const flowNav = document.getElementById('flowNav');
+const prevFlow = document.getElementById('prevFlow');
+const nextFlow = document.getElementById('nextFlow');
+
+let activeFlipped = null;
+let mode = "about";
+let asciiIndex = 0;
+
+/* ---------- CARD RENDERING ---------- */
+function renderCards(targetEl, deck) {
+  targetEl.innerHTML = "";
+  deck.forEach(c => {
+    const div = document.createElement("div");
+    div.className = "card";
+    div.innerHTML = `
+      <div class="inner">
+        <div class="tilt">
+          <div class="face front"><h3>${c.term}</h3></div>
+          <div class="face back"><p>${c.def}</p></div>
+        </div>
+      </div>`;
+    div.addEventListener("click", () => {
+      if (activeFlipped && activeFlipped !== div) activeFlipped.classList.remove("flipped");
+      div.classList.toggle("flipped");
+      activeFlipped = div.classList.contains("flipped") ? div : null;
+    });
+    div.addEventListener("mousemove", e => {
+      const tilt = div.querySelector(".tilt");
+      const r = div.getBoundingClientRect();
+      const x = e.clientX - r.left, y = e.clientY - r.top;
+      const rx = ((y - r.height / 2) / (r.height / 2)) * 10;
+      const ry = ((x - r.width / 2) / (r.width / 2)) * -10;
+      tilt.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) scale(1.05)`;
+    });
+    div.addEventListener("mouseleave", () => {
+      div.querySelector(".tilt").style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
+    });
+    targetEl.appendChild(div);
+  });
+}
+
+const asciiFlows=[
+{
+title:"Task Fingerprinting and Multi-Agent Synthesis",
+desc:"Generates a unique task fingerprint from the user’s prompt, identifies matching domain arcs, and optionally reuses verified agents. Specialized agents produce scoped responses which the super-agent synthesizes through tone blending, influence weighting, and constraint alignment to deliver a unified, compliant output.",
+art:String.raw`
+            +------------------------+
+            |      USER PROMPT       |
+            +------------------------+
+                         ▼
+     +---------------------------------------+
+     |       TASK FINGERPRINT GENERATOR      |
+     | - Embeds prompt + context             |
+     | - Classifies domain + intent          |
+     +---------------------------------------+
+                         ▼
+ +----------------------------------------------+
+ |     DOMAIN ARC MATCHING + CONSTRAINT CHECK   |
+ | - Scores agents by domain & role fit         |
+ | - Enforces privilege + constraint match      |
+ +----------------------------------------------+
+                         ▼
+  +-------------------------------------------+
+  | OPTIONAL: VERIFIED AGENT REGISTRY (VAR)   |
+  | - Reuse known agent with scoped memory    |
+  | - If match, rehydrate arc + tone config   |
+  +-------------------------------------------+
+                         ▼
+  +--------------------------------------------+
+  |   SHORTLISTED SPECIALIZED AGENTS SELECTED  |
+  | - Legal, PM, HR, etc.                      |
+  +--------------------------------------------+
+                         ▼
+    +------------+ +------------+ +------------+
+    | Agent A    | | Agent B    | | Agent C    |
+    | Arc: Legal | | Arc: PM    | | Arc: HR    |
+    | Tone: Caut.| | Tone: Firm | | Tone: Warm |
+    +------------+ +------------+ +------------+
+          |              |              |
+          | Generate     | Generate     | Generate
+          | Response     | Response     | Response
+          ▼              ▼              ▼
++----------------+ +----------------+ +----------------+
+| Response A     | | Response B     | | Response C     |
+| Confidence: 88 | | Confidence: 72 | | Confidence: 60 |
+| Constraint OK  | | Constraint OK  | | Constraint OK  |
+| Tone Vector A  | | Tone Vector B  | | Tone Vector C  |
++----------------+ +----------------+ +----------------+
+           \______________|______________/
+                          ▼
+    +---------------------------------------------+
+    |  SUPER-AGENT RESPONSE SYNTHESIZER           |
+    | - Tone vector blending                      |
+    | - Influence-weighted scoring                |
+    | - Constraint alignment enforcement          |
+    +---------------------------------------------+
+                          ▼
+    +---------------------------------------------+
+    |         FINAL RESPONSE TO USER              |
+    | - Synthesized tone + content                |
+    | - Compliant, high-confidence output         |
+    +---------------------------------------------+
+
+                    AUDIT TRAIL:
+                - Task fingerprint
+                - Arc + tone IDs
+                - Confidence vectors
+                - Constraint status`
+},
+{
+title:"Fallback, Micro-Arc Injection, and Escalation Recovery",
+desc:"Handles ambiguous or risky prompts through layered reflexes: constraint evaluation, fallback activation, and temporary micro-arc injection. When no local arc can safely respond, the system escalates to a verified agent with scoped memory. The super-agent then synthesizes a transparent, context-aware output annotated with audit metadata for full accountability.",
+art:String.raw`
+                   +-------------------------+
+                   |      USER PROMPT        |
+                   +-------------------------+
+                                ▼
+           +---------------------------------------+
+           |       TASK FINGERPRINT GENERATOR      |
+           +---------------------------------------+
+                                ▼
+        +----------------------------------------------+
+        |     DOMAIN ARC MATCHING + CONSTRAINT CHECK   |
+        | - No clear domain match OR constraint risk   |
+        +----------------------------------------------+
+                                ▼
+        +----------------------------------------------+
+        |    REFLEXIVE CONSTRAINT EVALUATION MODULE    |
+        | - Checks for risk of violation               |
+        | - Confidence too low? => Trigger fallback    |
+        | - Constraint mismatch? => Inject micro-arc   |
+        +----------------------------------------------+
+            /                                       \
+   (Fallback Activated)                    (Micro-Arc Injected)
+           |                                         |
+ +--------------------------+        +-----------------------------+
+ | Switch to Fallback Arc   |        | Inject Temporary Constraint |
+ | - Tone = softer          |        | - Prevent specific action   |
+ | - Scope = reduced        |        | - TTL applied               |
+ +--------------------------+        +-----------------------------+
+            \________________________________________/
+                                ▼
+          +-----------------------------------------------+
+          | ESCALATION ENGINE (No arc can handle prompt?) |
+          | - Search VAR for trusted agent with context   |
+          | - Reactivate with memory (if policy allows)   |
+          +-----------------------------------------------+
+                                ▼
+                  +-----------------------------+
+                  | Rehydrated Agent D          |
+                  | Arc: Specialized Domain     |
+                  | Memory: Scoped episodic     |
+                  | Tone: Context-sensitive     |
+                  +-----------------------------+
+                                ▼
+                   +-------------------------+
+                   | Response with high fit  |
+                   | Confidence: 91          |
+                   | Memory: Relevant slice  |
+                   +-------------------------+
+                                ▼
+           +---------------------------------------------+
+           | SUPER-AGENT SYNTHESIZER + MODULATION LOGIC  |
+           | - Adjust tone to match new context          |
+           | - Tag fallback/micro-arc/escalation events  |
+           +---------------------------------------------+
+                                ▼
+             +------------------------------------------+
+             |  FINAL OUTPUT: Context-Aware + Auditable |
+             | - Transparent escalation trace           |
+             +------------------------------------------+
+
+                          AUDIT TRAIL:
+                 - Constraint violation trigger
+                 - Micro-arc metadata (TTL, scope)
+                 - Fallback arc reason + ID
+                 - Escalation to external domain
+                 - Memory access log + rationale`
+},
+{
+title:"Just-In-Time (JIT) Micro-Arc Injection",
+desc:"Injects temporary, high-priority constraints into an agent’s arc for real-time correction or compliance without full arc transition.",
+art:String.raw`
+     +----------------------------------------------+
+     |            ACTIVE BEHAVIORAL ARC             |
+     |      (Arc ID, domain, tone, privileges)      |
+     +----------------------------------------------+
+                            ▼
+     +----------------------------------------------+
+     |     CONTEXT MONITORING AND TRIGGER CHECK     |
+     | - Detects policy conflicts or behavior flags |
+     | - Compares inputs to escalation thresholds   |
+     +----------------------------------------------+
+                            ▼
+     +----------------------------------------------+
+     |     JIT MICRO-ARC GENERATION MODULE          |
+     | - Creates temporary constraint micro-arc     |
+     | - Tags with TTL (Time-to-Live) metadata      |
+     | - Assigns precedence > existing constraints  |
+     +----------------------------------------------+
+                            ▼
++----------------------------------------------------------+
+|         ARC STACK MODIFICATION (injection event)         |
+|  - Inserts micro-arc into top of constraint hierarchy    |
+|  - Freezes affected privileges and tone dimensions       |
++----------------------------------------------------------+
+                            ▼
+  +-----------------------------------------------------+
+  |         MODULATED OUTPUT GENERATION PATH            |
+  | - Existing arc logic proceeds with new constraint   |
+  | - Agent may defer, soften tone, or request clarity  |
+  +-----------------------------------------------------+
+                            ▼
+      +---------------------------------------------+
+      |           FINAL OUTPUT DELIVERED            |
+      +---------------------------------------------+
+                            ▼
+ +-------------------------------------------------------+
+ |              AUDIT TRAIL EVENT RECORDED               |
+ | - Micro-arc metadata (trigger, TTL, effect)           |
+ | - Constraint stack state at injection and at expiry   |
+ +-------------------------------------------------------+`
+},
+{
+title:"Constraint-Governed Memory",
+desc:"Governs how an agent accesses and modifies memory using constraint-aware permissions linked to its active arc.",
+art:String.raw`
+                +---------------------------------------------+
+                |          AGENT MEMORY SYSTEM CORE           |
+                +---------------------------------------------+
+                                      ▼
+ +----------------------------------------------------------------------------+
+ |                 SEGMENTED MEMORY ARCHITECTURE (By Type)                    |
+ | +---------------------+  +---------------------+  +----------------------+ |
+ | |   Short-Term (STM)  |  |  Long-Term Semantic |  |      Procedural      | |
+ | | - Session context   |  | - Facts, concepts   |  | - Execution patterns | |
+ | | - Live tools I/O    |  | - Domain knowledge  |  |                      | |
+ | +---------------------+  +---------------------+  +----------------------+ |
+ +----------------------------------------------------------------------------+
+                                      ▼
+                +---------------------------------------------+
+                |   CONSTRAINT-AWARE MEMORY ACCESS ENGINE     |
+                | - Checks arc role and domain permissions    |
+                | - Applies constraint stack gating rules     |
+                | - Redacts or blocks unauthorized segments   |
+                +---------------------------------------------+
+                                      ▼
+        +-------------------------------------------------------------+
+        |       MEMORY COMPRESSION + SUMMARIZATION SUBSYSTEM          |
+        | - Applies abstracted logs to infrequent or expired entries  |
+        | - Redacts sensitive content using constraint scoring        |
+        | - Stores rationale + provenance for audit use               |
+        +-------------------------------------------------------------+
+                                      ▼
+               +---------------------------------------------+
+               |    MEMORY DECAY & TTL ENFORCEMENT MODULE    |
+               |  - Enforces time-to-live expiration rules   |
+               |  - Supports micro-arc TTL overrides         |
+               |  - Flags memory for decay or archiving      |
+               +---------------------------------------------+
+                                      ▼
+            +---------------------------------------------------+
+            |      AUDIT LOGGING + ACCESS TRACE GENERATOR       |
+            |  - Records all memory access or mutation events   |
+            |  - Tags with arc ID, domain, constraint context   |
+            |  - Supports compliance and review visibility      |
+            +---------------------------------------------------+`
+},
+{
+title:"Tone Modulation",
+desc:"Adjusts communicative style (tone, formality, urgency, hedging) based on context, arc configuration, and confidence signals.",
+art:String.raw`
+                    +----------------------------------------+
+                    |      TONE MODULATION CONSOLE (TMC)     |
+                    +----------------------------------------+
+                                        ▼
+         +---------------------------------------------------------------+
+         |                    BASELINE TONE VECTOR                       |
+         |                (Per Arc Role + Domain Context)                |
+         |   - Defined during arc initialization                         |
+         |   - Includes dimensions (e.g. empathy, urgency, directness)   |
+         +---------------------------------------------------------------+
+                                        ▼
+      +---------------------------------------------------------------------+
+      |                RUNTIME INPUT SIGNALS FOR MODULATION                 |
+      | +------------------------------+ +--------------------------------+ |
+      | |   Confidence Vector Input    | |   User Preference Signal       | |
+      | | - Output certainty           | | - Politeness, directness       | |
+      | | - Constraint alignment risk  | | - Personal tone history        | |
+      | +------------------------------+ +--------------------------------+ |
+      | +------------------------------+ +--------------------------------+ |
+      | |   Task Sensitivity Markers   | |   Environmental Context Flags  | |
+      | | - Compliance, emotionality   | | - Crisis, urgency, domain mix  | |
+      | +------------------------------+ +--------------------------------+ |
+      +---------------------------------------------------------------------+
+                                        ▼
+                +-------------------------------------------------+
+                |   MODULATION ENGINE: TONE VECTOR ADJUSTMENT     |
+                | - Blends baseline tone with runtime inputs      |
+                | - Calculates updated tone profile               |
+                | - Scores for alignment with arc role            |
+                +-------------------------------------------------+
+                                        ▼
+           +-------------------------------------------------------------+
+           |       TONE ROLE ALIGNMENT ENFORCER (Boundary Check)         |
+           | - Prevents tone deviations that violate role integrity      |
+           | - Triggers fallback or escalation if misalignment detected  |
+           +-------------------------------------------------------------+
+                                        ▼
+                  +-----------------------------------------------+
+                  |         MODULATED OUTPUT GENERATED            |
+                  | - Language pattern adjusted dynamically       |
+                  | - Includes confidence hedging, tone softening |
+                  +-----------------------------------------------+
+                                        ▼
+              +-------------------------------------------------------+
+              |      AUDIT TRAIL ENTRY FOR MODULATION EVENT           |
+              |    - Tone vector snapshot before/after                |
+              |    - Confidence input, role alignment check result    |
+              +-------------------------------------------------------+`
+},
+{
+title:"Agent Ensemble Arbitration",
+desc:"Governs collaborative, parallel, or adversarial task resolution by multiple domain agents. The arbitrator weighs outputs by constraint alignment.",
+art:String.raw`
+           +--------------------------------------------------+
+           |           MULTI-AGENT PROMPT RECEIVED            |
+           +--------------------------------------------------+
+                                    ▼
+     +--------------------------------------------------------------+
+     |            ENSEMBLE AGENT SELECTION + ROLE CHECK             |
+     |   - Filters available agents by domain relevance             |
+     |   - Loads each agent with active arc + scoped memory         |
+     +--------------------------------------------------------------+
+                                    ▼
++-------------------+     +-------------------+     +-------------------+
+|   Agent: Legal    |     |  Agent: Product   |     | Agent: Compliance |
+|   Arc: Risk Watch |     | Arc: Launch Lead  |     | Arc: Policy Gate  |
++-------------------+     +-------------------+     +-------------------+
+          ▼                         ▼                         ▼
++-------------------+     +-------------------+     +-------------------+
+| Proposes Output   |     | Proposes Output   |     | Proposes Output   |
+| - Conf vector     |     | - Conf vector     |     | - Conf vector     |
+| - Constraint tags |     | - Constraint tags |     | - Constraint tags |
++-------------------+     +-------------------+     +-------------------+
+         \____________________________/     \__________/
+                       ▼                         ▼
+                +-----------------------------------------+
+                |   ARC ARBITRATOR (Resolution Engine)    |
+                | - Compares tone vectors + confidence    |
+                | - Checks role constraints and weights   |
+                | - Applies influence tuning parameters   |
+                +-----------------------------------------+
+                                    ▼
+               +----------------------------------------------+
+               |         CONSENSUS / ESCALATION LOGIC         |
+               |  - Selects best-fit response OR escalates    |
+               |  - May trigger fallback agents or override   |
+               +----------------------------------------------+
+                                    ▼
+              +-------------------------------------------------+
+              |          SYNTHESIZED OR SELECTED OUTPUT         |
+              | - Annotated with originating arc and agent ID   |
+              | - Reflects constraint-weighted alignment        |
+              +-------------------------------------------------+
+                                    ▼
+              +-------------------------------------------------+
+              |         AUDIT TRAIL FOR ENSEMBLE RESPONSE       |
+              | - Reasoning trace (SCoT), arc contributions     |
+              | - Weighting rationale and consensus score       |
+              +-------------------------------------------------+`
+},
+{
+title:"Super-Agent Transparency Interface",
+desc:"Allows a super-agent to delegate tasks to sub-agents while preserving visibility into each sub-agent’s arc, constraint state, and outputs.",
+art:String.raw`
+                   +----------------------------------------------+
+                   |               SUPER-AGENT UI                 |
+                   |   (Single entry point for user interaction)  |
+                   +----------------------------------------------+
+                                         ▼
+                +---------------------------------------------------+
+                |       TASK ROUTING / PROMPT INTERPRETATION        |
+                | - Parses prompt and identifies required domains   |
+                | - Applies arc classification logic per sub-task   |
+                +---------------------------------------------------+
+                                         ▼
+        +----------------------------------------------------------------+
+        |           BEHAVIORAL ARC DISPATCHER (Governed Delegation)      |
+        |   - Instantiates or assigns sub-agents with scoped arcs        |
+        |   - Applies constraint stack & privilege limitation            |
+        |   - Enforces domain boundary restrictions                      |
+        +----------------------------------------------------------------+
+                   ▼                    ▼                     ▼
+     +-------------------+  +----------------------+  +--------------------+
+     | Agent: Legal Bot  |  | Agent: Planner Bot   |  | Agent: Policy Bot  |
+     | Arc: Risk Review  |  | Arc: Deadline Push   |  | Arc: Consent Gate  |
+     +-------------------+  +----------------------+  +--------------------+
+              ▼                         ▼                       ▼
++------------------------+ +-----------------------+ +------------------------+
+|   Output + Metadata    | |   Output + Metadata   | |   Output + Metadata    |
+| - Confidence vector    | | - Constraint tags     | | - Constraint status    |
+| - Constraint signature | | - Tone vector         | | - Reasoning trace hash |
++------------------------+ +-----------------------+ +------------------------+
+                 \_____________________________________________/
+                                        ▼
+                +-------------------------------------------------+
+                |     SUPER-AGENT OUTPUT SYNTHESIS MODULE         |
+                | - Selects, blends, or ranks sub-agent output    |
+                | - Preserves origin trace + constraint logic     |
+                +-------------------------------------------------+
+                                        ▼
+                +-------------------------------------------------+
+                |     FINAL OUTPUT TO USER (with trace metadata)  |
+                | - Includes source arcs and tone alignment data  |
+                +-------------------------------------------------+
+                                        ▼
+              +------------------------------------------------------+
+              |      SUPER-AGENT AUDIT INTERFACE (transparency UI)   |
+              | - Query chain of delegation                          |
+              | - Inspect constraint stack per agent                 |
+              | - Review reasoning flow via SCoT entries             |
+              +------------------------------------------------------+`
+},
+{
+title:"Verified Agent Registry Reinstantiation Flow",
+desc:"Evaluates prior agent use, applies constraint-aware memory rehydration policies, and determines whether to reactivate or instantiate a new agent.",
+art:String.raw`
+                      +----------------------------------------------+
+                      |         USER TASK / PROMPT RECEIVED          |
+                      |   (Includes domain tags + context features)  |
+                      +----------------------------------------------+
+                                            ▼
+                     +------------------------------------------------+
+                     |        TASK FINGERPRINT GENERATION MODULE      |
+                     | - Embeds task into vector and symbolic profile |
+                     | - Extracts domain, user intent, tone cues      |
+                     +------------------------------------------------+
+                                            ▼
+                     +------------------------------------------------+
+                     |       VERIFIED AGENT REGISTRY LOOKUP (VAR)     |
+                     | - Compares fingerprint to registry entries     |
+                     | - Computes match score vs. reuse threshold     |
+                     +------------------------------------------------+
+                              ▼                          ▼
+                     +--------------------+    +----------------------+
+                     | Match Found in VAR |    |   Match Not Found    |
+                     +--------------------+    +----------------------+
+                              ▼                          ▼
++------------------------------------+      +---------------------------------+ 
+|  RETRIEVE AGENT ARC + TONE VECTOR  |      |  INSTANTIATE PROVISIONAL AGENT  |
+| - Prepare for scoped reactivation  |      | - Assign minimal privileges     | 
++------------------------------------+      | - Apply strict constraint stack |
+                 ▼                          +---------------------------------+ 
++---------------------------------------+
+|        MEMORY REHYDRATION CHECK       |
+|      - TTL / constraint policy        |
++---------------------------------------+
+                ▼                    ▼
++----------------------------+   +---------------------------+
+| Memory Restoration Blocked |   |   Memory Restoration Ok   |
++----------------------------+   +---------------------------+
+                ▼                    ▼
++----------------------------+   +------------------------------+
+| SUPPRESS MEMORY, STATELESS |   | RESTORE SCOPED MEMORY SLICES |
+| - Arc loads with fresh mem |   | - Episodic + procedural mem  |
++----------------------------+   +------------------------------+
+                ▼                    ▼
++--------------------------------------------------+
+|       ACTIVATE AGENT ARC IN CURRENT CONTEXT      |
+| - Apply tone, constraint stack, privilege scope  |
++--------------------------------------------------+
+                           ▼
++-------------------------------------------------------+
+|                    AUDIT LOG ENTRY                    |
+| - Selection rationale                                 |
+| - Memory decision + reinstated arc ID                 |
+| - Link to prior session logs + constraint fingerprint |
++-------------------------------------------------------+`
+}
+];
+
+function renderAscii() {
+  asciiEl.innerHTML = "";
+  const f = asciiFlows[asciiIndex % asciiFlows.length];
+  asciiEl.innerHTML = `
+    <div class="ascii-slide">
+      <div class="ascii-title">${f.title}</div>
+      <div class="ascii-desc">${f.desc}</div>
+      <pre class="ascii-pre">${f.art}</pre>
+    </div>`;
+}
+
+/* ---------- VIEW SWITCHING ---------- */
+function setMode(m) {
+  const buttons = [aboutBtn, termsBtn, faqBtn, flowsBtn];
+  const sections = [aboutEl, termsEl, faqEl, asciiEl];
+
+  // clear active states
+  buttons.forEach(b => b.classList.remove("active"));
+  sections.forEach(s => {
+    s.classList.remove("active");
+    s.style.display = "none"; // hide all
+  });
+
+  // determine target + render content
+  let target = null;
+  if (m === "about") {
+    target = aboutEl;
+    aboutBtn.classList.add("active");
+  } else if (m === "terms") {
+    renderCards(termsEl, termsDeck);
+    target = termsEl;
+    termsBtn.classList.add("active");
+  } else if (m === "faq") {
+    renderCards(faqEl, faqDeck);
+    target = faqEl;
+    faqBtn.classList.add("active");
+  } else if (m === "flows") {
+    renderAscii();
+    target = asciiEl;
+    flowsBtn.classList.add("active");
+  }
+
+  // toggle flow nav
+  flowNav.style.display = (m === "flows") ? "flex" : "none";
+
+  // reset scroll position
+  window.scrollTo({ top: 0, behavior: "auto" });
+
+  // show and animate the chosen section
+  if (target) {
+    // restore correct display mode per section
+if (target.classList.contains("card-container")) {
+  target.style.display = "grid"; // ensure grid layout for cards
+} else {
+  target.style.display = "block"; // normal for About & ASCII
+}
+    requestAnimationFrame(() => target.classList.add("active"));
+  }
+}
+
+/* ---------- NAVIGATION ---------- */
+aboutBtn.onclick = () => setMode("about");
+termsBtn.onclick = () => setMode("terms");
+faqBtn.onclick = () => setMode("faq");
+flowsBtn.onclick = () => setMode("flows");
+prevFlow.onclick = () => {
+  asciiIndex = (asciiIndex - 1 + asciiFlows.length) % asciiFlows.length;
+  renderAscii();
+  window.scrollTo({ top: 0, behavior: "smooth" }); // scroll page to top
+};
+
+nextFlow.onclick = () => {
+  asciiIndex = (asciiIndex + 1) % asciiFlows.length;
+  renderAscii();
+  window.scrollTo({ top: 0, behavior: "smooth" }); // scroll page to top
+};
+/* ---------- DEFAULT VIEW ---------- */
+window.addEventListener('resize', adjustWrapHeight);
+</script>
+</body>
+</html>
