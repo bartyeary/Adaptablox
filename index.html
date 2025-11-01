@@ -93,6 +93,8 @@ html { background-color: #10182E; }
   width: auto;
   margin-right: 16px;
   display: block;
+  transition: height 0.25s ease, transform 0.25s ease;
+
 }
 .controls-inner {
   display: flex;
@@ -350,6 +352,9 @@ html { background-color: #10182E; }
 
 @media (max-width:900px)
 {.card-container{grid-template-columns:repeat(2,var(--card-w));}
+  .logo {
+    height: 30px;
+  }
 }
 @media (max-width:600px)
   {.card-container{grid-template-columns:repeat(1,var(--card-w));}
@@ -358,6 +363,10 @@ html { background-color: #10182E; }
     visibility: hidden;
     pointer-events: none;
     transition: opacity 0.2s ease;
+  }
+  .logo {
+    height: 22px;
+    transform: translateY(-1px);
   }
 }
 
