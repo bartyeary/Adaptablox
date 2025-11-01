@@ -334,6 +334,20 @@ html { background-color: #10182E; }
   gap: 8px;            /* spacing between logo and buttons */
 }
 
+.site-footer {
+  text-align: center;
+  font-size: 13px;
+  color: #6f84a8;
+  margin-top: 60px;
+  padding-top: 24px;
+  width: 100%;
+}
+
+.site-footer p {
+  margin: 0;
+  letter-spacing: 0.3px;
+}
+
 @media (max-width:900px)
 {.card-container{grid-template-columns:repeat(2,var(--card-w));}
 }
@@ -1059,5 +1073,8 @@ nextFlow.onclick = () => {
 /* ---------- DEFAULT VIEW ---------- */
 window.addEventListener('resize', adjustWrapHeight);
 </script>
+<footer class="site-footer">
+  <p>© 2025 Bart Yeary. All rights reserved. A.R.C.™ — Patent Pending.</p>
+</footer>
 </body>
 </html>
