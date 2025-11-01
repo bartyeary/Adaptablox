@@ -350,33 +350,56 @@ html { background-color: #10182E; }
   letter-spacing: 0.3px;
 }
 
-@media (max-width:900px)
-{.card-container{grid-template-columns:repeat(2,var(--card-w));}
-  .logo {
-    height: 30px;
-  }
+@media (max-width:900px){
+  /* Keep 3 columns — just shrink cards and logo */
   :root {
     --card-w: 220px;
     --card-h: 160px;
     --gap: 20px;
   }
+
+  .logo {
+    height: 30px;
+  }
+
+  .card .face.front h3 {
+    font-size: 15px;
+  }
+
+  .card .face.back p {
+    font-size: 13px;
+    line-height: 1.4;
+  }
 }
-@media (max-width:600px)
-  {.card-container{grid-template-columns:repeat(1,var(--card-w));}
+
+@media (max-width:600px){
+  /* Still 3 columns, smaller cards and type */
+  :root {
+    --card-w: 160px;
+    --card-h: 130px;
+    --gap: 14px;
+  }
+
+  /* Hide prev button on narrow view */
   #prevFlow {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
     transition: opacity 0.2s ease;
   }
+
   .logo {
     height: 22px;
     transform: translateY(-1px);
   }
-  :root {
-    --card-w: 160px;
-    --card-h: 130px;
-    --gap: 14px;
+
+  .card .face.front h3 {
+    font-size: 13px;
+  }
+
+  .card .face.back p {
+    font-size: 11.5px;
+    line-height: 1.3;
   }
 }
 
