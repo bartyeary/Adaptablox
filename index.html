@@ -52,7 +52,6 @@ width: 100%;
 z-index: 100;
 backdrop-filter: blur(8px);
 background: rgba(37,50,89,0.7);
-border-radius: 0 0 12px 12px;
 display: flex;
 justify-content: center;
 }
@@ -102,6 +101,7 @@ align-items: center;
 justify-content: space-between;
 padding: 12px var(--gap);
 }
+
 .controls-inner > .logo {
 margin-right: 20px;
 }
@@ -158,7 +158,7 @@ font-weight: 600;
 letter-spacing: 0.3px;
 text-transform: uppercase;
 margin-bottom: 6px;       /* keep spacing below */
-padding-top: 0;             /* ensures equal inset */
+padding-top: 10px;           
 padding-left: 0;            /* aligns with section padding */
 }
 
@@ -305,6 +305,7 @@ font-weight: 600;
 text-transform: uppercase;
 font-size: 18px;
 letter-spacing: 0.3px;
+padding-top: 10px; 
 margin-bottom: 8px;
 }
 
@@ -330,15 +331,28 @@ max-width: 100%;
 
 #flowNav { display: none; gap: 8px; }
 #flowNav button {
-width: 32px; height: 32px;
-border-radius: 8px;
-background: transparent;
-border: 2px solid var(--accent);
-color: var(--accent);
-cursor: pointer;
-transition: all 0.18s ease;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.18s ease;
 }
-#flowNav button:hover { background: var(--accent); color: #fff; }
+
+#flowNav button svg {
+  width: 18px;
+  height: 18px;
+}
+
+#flowNav button:hover {
+  background: var(--accent);
+  color: #fff;
+}
 
 .left-group {
 display: flex;
@@ -403,8 +417,8 @@ line-height: 1.4;
 }
 }
 
-/* --- 700px breakpoint --- */
-@media (max-width: 700px) {
+/* --- 750px breakpoint --- */
+@media (max-width: 750px) {
 :root {
 --card-w: 180px;
 --card-h: 140px;
@@ -424,17 +438,21 @@ line-height: 1.35;
 }
 }
 
-/* --- 500px breakpoint --- */
-@media (max-width: 500px) {
+/* --- 550px breakpoint --- */
+@media (max-width: 550px) {
 :root {
---card-w: 150px;
---card-h: 120px;
---gap: 12px;
+--card-w: 130px;
+--card-h: 100px;
+--gap: 8px;
 }
 
 .logo {
 height: 22px;
 transform: translateY(-1px);
+}
+
+.left-group {
+  gap: 4px;
 }
 
 /* Hide prev button on very small screens */
@@ -471,8 +489,16 @@ line-height: 1.3;
 </div>
 </div>
 <div id="flowNav">
-<button id="prevFlow">&lt;</button>
-<button id="nextFlow">&gt;</button>
+  <button id="prevFlow" aria-label="Previous diagram">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="15 18 9 12 15 6" />
+    </svg>
+  </button>
+  <button id="nextFlow" aria-label="Next diagram">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="9 18 15 12 9 6" />
+    </svg>
+  </button>
 </div>
 </div>
 </div>
@@ -683,8 +709,8 @@ art:String.raw`
 | Tone: Caut.| | Tone: Firm | | Tone: Warm |
 +------------+ +------------+ +------------+
 |              |              |
-| Generate     | Generate     | Generate
-| Response     | Response     | Response
+Generate       Generate       Generate
+Response       Response       Response
 ▼              ▼              ▼
 +----------------+ +----------------+ +----------------+
 | Response A     | | Response B     | | Response C     |
@@ -692,7 +718,7 @@ art:String.raw`
 | Constraint OK  | | Constraint OK  | | Constraint OK  |
 | Tone Vector A  | | Tone Vector B  | | Tone Vector C  |
 +----------------+ +----------------+ +----------------+
-\______________|______________/
+\_____________________________/
 ▼
 +---------------------------------------------+
 |  SUPER-AGENT RESPONSE SYNTHESIZER           |
@@ -710,7 +736,7 @@ art:String.raw`
 AUDIT TRAIL:
 - Task fingerprint
 - Arc + tone IDs
-- Confidence vectors
+- Confidence vectors 
 - Constraint status`
 },
 {
@@ -736,9 +762,9 @@ art:String.raw`
 | - Confidence too low? => Trigger fallback    |
 | - Constraint mismatch? => Inject micro-arc   |
 +----------------------------------------------+
-/                                       \
-(Fallback Activated)                    (Micro-Arc Injected)
-|                                         |
+  |                            |
+   Fallback Activated            Micro-Arc Injected
+  ▼                            ▼
 +--------------------------+        +-----------------------------+
 | Switch to Fallback Arc   |        | Inject Temporary Constraint |
 | - Tone = softer          |        | - Prevent specific action   |
@@ -949,8 +975,8 @@ art:String.raw`
 | - Conf vector     |     | - Conf vector     |     | - Conf vector     |
 | - Constraint tags |     | - Constraint tags |     | - Constraint tags |
 +-------------------+     +-------------------+     +-------------------+
-\____________________________/     \__________/
-▼                         ▼
+\____________________________/  \__________/
+          ▼                     ▼
 +-----------------------------------------+
 |   ARC ARBITRATOR (Resolution Engine)    |
 | - Compares tone vectors + confidence    |
@@ -997,12 +1023,12 @@ art:String.raw`
 |   - Applies constraint stack & privilege limitation            |
 |   - Enforces domain boundary restrictions                      |
 +----------------------------------------------------------------+
-▼                    ▼                     ▼
+▼                     ▼                    ▼
 +-------------------+  +----------------------+  +--------------------+
 | Agent: Legal Bot  |  | Agent: Planner Bot   |  | Agent: Policy Bot  |
 | Arc: Risk Review  |  | Arc: Deadline Push   |  | Arc: Consent Gate  |
 +-------------------+  +----------------------+  +--------------------+
-▼                         ▼                       ▼
+▼                        ▼                        ▼
 +------------------------+ +-----------------------+ +------------------------+
 |   Output + Metadata    | |   Output + Metadata   | |   Output + Metadata    |
 | - Confidence vector    | | - Constraint tags     | | - Constraint status    |
@@ -1053,11 +1079,13 @@ art:String.raw`
 | Match Found in VAR |    |   Match Not Found    |
 +--------------------+    +----------------------+
 ▼                          ▼
-+------------------------------------+      +---------------------------------+ 
++------------------------------------+      +---------------------------------+
 |  RETRIEVE AGENT ARC + TONE VECTOR  |      |  INSTANTIATE PROVISIONAL AGENT  |
-| - Prepare for scoped reactivation  |      | - Assign minimal privileges     | 
-+------------------------------------+      | - Apply strict constraint stack |
-▼                          +---------------------------------+ 
+| - Prepare for scoped reactivation  |      | - Assign minimal privileges     |
+|                                    |      | - Apply strict constraint stack |
++------------------------------------+      +---------------------------------+
+|                     
+▼                     
 +---------------------------------------+
 |        MEMORY REHYDRATION CHECK       |
 |      - TTL / constraint policy        |
