@@ -23,7 +23,7 @@
 body {
 font-family: "Inter", sans-serif;
 background: radial-gradient(circle at 500px 0%, var(--bg-1), var(--bg-2) 1000px);
-color: #8FB0ED;
+color: #6A8FD4;
 margin: 0;
 min-height: 100vh;
 padding: 60px var(--gap) 60px;
@@ -123,7 +123,7 @@ transition: height 0.4s ease-out; /* smooth resize */
 /* stack all sections on top of each other */
 .section-container {
 position: relative;
-padding: 24px;
+padding: 32px;
 background: #10182E;
 border-radius: 12px;
 margin-bottom: 24px;
@@ -314,7 +314,6 @@ font-size: 15px;
 line-height: 1.6;
 color: #8FB0ED;              /* same as About body */
 margin-bottom: 28px;
-max-width: 640px;
 }
 .ascii-pre {
 display: block;
@@ -471,6 +470,19 @@ line-height: 1.3;
 }
 }
 
+/* emphasize with your accent color and italic */
+em {
+  color: #BBD0FE;          
+  font-style: italic;
+  font-weight: 600;
+}
+
+/* strong emphasis with brighter color and weight */
+strong {
+  color: #BBD0FE;          /* a lighter or more luminous accent */
+  font-weight: 600;        /* keep it bold but not too heavy */
+}
+
 </style>
 </head>
 
@@ -514,8 +526,8 @@ It is model-agnostic, lightweight, and designed to integrate with existing orche
 
 <h2>Why A.R.C. matters</h2>
 <p>
-Today’s AI assistants focus on "<em>access governance</em>" deciding who can use which tool or dataset. 
-A.R.C. operates one level deeper: enforcing "<em>behavioral governance</em>" in real time.
+Today’s AI assistants focus on <em>access governance</em> deciding who can use which tool or dataset. 
+A.R.C. operates one level deeper: enforcing <em>behavioral governance</em> in real time.
 It manages how agents act, speak, and collaborate under transparent, auditable constraints.
 </p>
 
@@ -540,8 +552,8 @@ Behavioral policies, tone parameters, and escalation logic can update instantly�
 
 <h2>Strategic Fit</h2>
 <p>
-Most organizations already manage "<em>access governance</em>" deciding who can use which data, model, or tool.  
-A.R.C. operates a layer deeper: it governs "<em>behavior</em>"" at runtime, ensuring that every agent acts, speaks, and collaborates within defined tone, compliance, and transparency boundaries.  
+Most organizations already manage <em>access governance</em> deciding who can use which data, model, or tool.  
+A.R.C. operates a layer deeper: it governs <em>behavior</em> at runtime, ensuring that every agent acts, speaks, and collaborates within defined tone, compliance, and transparency boundaries.  
 It bridges the gap between user intent, institutional policy, and AI expression.
 </p>
 
@@ -761,9 +773,9 @@ art:String.raw`
 | - Confidence too low? => Trigger fallback    |
 | - Constraint mismatch? => Inject micro-arc   |
 +----------------------------------------------+
-  |                            |
-   Fallback Activated            Micro-Arc Injected
-  ▼                            ▼
+ |                            |
+Fallback Activated           Micro-Arc Injected
+ ▼                            ▼
 +----------------------------+            +-----------------------------+
 | Switch to Fallback Arc     |            | Inject Temporary Constraint |
 | - Tone = softer            |            | - Prevent specific action   |
@@ -912,18 +924,18 @@ art:String.raw`
 |   - Includes dimensions (e.g. empathy, urgency, directness)   |
 +---------------------------------------------------------------+
 ▼
-+---------------------------------------------------------------------+
-|                RUNTIME INPUT SIGNALS FOR MODULATION                 |
-| +------------------------------+ +--------------------------------+ |
-| |   Confidence Vector Input    | |   User Preference Signal       | |
-| | - Output certainty           | | - Politeness, directness       | |
-| | - Constraint alignment risk  | | - Personal tone history        | |
-| +------------------------------+ +--------------------------------+ |
-| +------------------------------+ +--------------------------------+ |
-| |   Task Sensitivity Markers   | |   Environmental Context Flags  | |
-| | - Compliance, emotionality   | | - Crisis, urgency, domain mix  | |
-| +------------------------------+ +--------------------------------+ |
-+---------------------------------------------------------------------+
++-----------------------------------------------------------------------+
+|                 RUNTIME INPUT SIGNALS FOR MODULATION                  |
+| +--------------------------------+ +--------------------------------+ |
+| |   Confidence Vector Input      | |   User Preference Signal       | |
+| | - Output certainty             | | - Politeness, directness       | |
+| | - Constraint alignment risk    | | - Personal tone history        | |
+| +--------------------------------+ +--------------------------------+ |
+| +--------------------------------+ +--------------------------------+ |
+| |   Task Sensitivity Markers     | |   Environmental Context Flags  | |
+| | - Compliance, emotionality     | | - Crisis, urgency, domain mix  | |
+| +--------------------------------+ +--------------------------------+ |
++-----------------------------------------------------------------------+
 ▼
 +-------------------------------------------------+
 |   MODULATION ENGINE: TONE VECTOR ADJUSTMENT     |
@@ -1073,10 +1085,8 @@ art:String.raw`
 | - Compares fingerprint to registry entries     |
 | - Computes match score vs. reuse threshold     |
 +------------------------------------------------+
-▼                          ▼
-+--------------------+    +----------------------+
-| Match Found in VAR |    |   Match Not Found    |
-+--------------------+    +----------------------+
+|                          |
+ Match Found in VAR          Match Not Found
 ▼                          ▼
 +------------------------------------+      +---------------------------------+
 |  RETRIEVE AGENT ARC + TONE VECTOR  |      |  INSTANTIATE PROVISIONAL AGENT  |
