@@ -692,8 +692,60 @@ targetEl.appendChild(div);
 
 const asciiFlows=[
 {
+title:"Super-Agent Transparency Interface",
+desc:"Enables a super-agent to delegate tasks to sub-agents while preserving full visibility into each sub-agent’s arc, constraint state, and reasoning trace.",
+art:String.raw`
++----------------------------------------------+
+|               SUPER-AGENT UI                 |
+|   (Single entry point for user interaction)  |
++----------------------------------------------+
+▼
++---------------------------------------------------+
+|       TASK ROUTING / PROMPT INTERPRETATION        |
+| - Parses prompt and identifies required domains   |
+| - Applies arc classification logic per sub-task   |
++---------------------------------------------------+
+▼
++----------------------------------------------------------------+
+|           BEHAVIORAL ARC DISPATCHER (Governed Delegation)      |
+|   - Instantiates or assigns sub-agents with scoped arcs        |
+|   - Applies constraint stack & privilege limitation            |
+|   - Enforces domain boundary restrictions                      |
++----------------------------------------------------------------+
+▼                     ▼                    ▼
++-------------------+  +----------------------+  +--------------------+
+| Agent: Legal Bot  |  | Agent: Planner Bot   |  | Agent: Policy Bot  |
+| Arc: Risk Review  |  | Arc: Deadline Push   |  | Arc: Consent Gate  |
++-------------------+  +----------------------+  +--------------------+
+▼                        ▼                        ▼
++------------------------+ +-----------------------+ +------------------------+
+|   Output + Metadata    | |   Output + Metadata   | |   Output + Metadata    |
+| - Confidence vector    | | - Constraint tags     | | - Constraint status    |
+| - Constraint signature | | - Tone vector         | | - Reasoning trace hash |
++------------------------+ +-----------------------+ +------------------------+
+\_____________________________________________/
+▼
++-------------------------------------------------+
+|     SUPER-AGENT OUTPUT SYNTHESIS MODULE         |
+| - Selects, blends, or ranks sub-agent output    |
+| - Preserves origin trace + constraint logic     |
++-------------------------------------------------+
+▼
++-------------------------------------------------+
+|     FINAL OUTPUT TO USER (with trace metadata)  |
+| - Includes source arcs and tone alignment data  |
++-------------------------------------------------+
+▼
++------------------------------------------------------+
+|      SUPER-AGENT AUDIT INTERFACE (transparency UI)   |
+| - Query chain of delegation                          |
+| - Inspect constraint stack per agent                 |
+| - Review reasoning flow via SCoT entries             |
++------------------------------------------------------+<br><br>`
+},
+{
 title:"Task Fingerprinting and Multi-Agent Synthesis",
-desc:"Generates a unique task fingerprint from the user’s prompt, identifies matching domain arcs, and optionally reuses verified agents. Specialized agents produce scoped responses which the super-agent synthesizes through tone blending, influence weighting, and constraint alignment to deliver a unified, compliant output.",
+desc:"Generates a unique task fingerprint from the user’s prompt, classifies domain and intent, and reuses verified agents when applicable. Specialized agents produce scoped outputs, which the super-agent synthesizes through tone blending, influence weighting, and constraint alignment to deliver a unified, compliant response.",
 art:String.raw`
 +------------------------+
 |       USER PROMPT      |
@@ -760,7 +812,7 @@ AUDIT TRAIL:<br>
 },
 {
 title:"Fallback, Micro-Arc Injection, and Escalation Recovery",
-desc:"Handles ambiguous or risky prompts through layered reflexes: constraint evaluation, fallback activation, and temporary micro-arc injection. When no local arc can safely respond, the system escalates to a verified agent with scoped memory. The super-agent then synthesizes a transparent, context-aware output annotated with audit metadata for full accountability.",
+desc:"Manages ambiguous or risky prompts through layered reflexes—constraint evaluation, fallback activation, and temporary micro-arc injection. When no local arc can safely respond, the system escalates to a verified agent with scoped memory, then synthesizes a transparent, auditable output annotated with reasoning metadata.",
 art:String.raw`
 +-------------------------+
 |       USER PROMPT       |
@@ -830,7 +882,7 @@ AUDIT TRAIL:<br>
 },
 {
 title:"Just-In-Time (JIT) Micro-Arc Injection",
-desc:"Inserts short-lived, high-priority constraints into an agent’s active arc for immediate behavioral correction or compliance enforcement, without triggering a full arc transition.",
+desc:"Injects short-lived, high-priority constraints into an agent’s active arc for real-time behavioral correction or compliance enforcement—without requiring a full arc transition.",
 art:String.raw`
 +----------------------------------------------+
 |            ACTIVE BEHAVIORAL ARC             |
@@ -874,7 +926,7 @@ art:String.raw`
 },
 {
 title:"Constraint-Governed Memory",
-desc:"Governs how an agent accesses and modifies memory using constraint-aware permissions linked to its active arc.",
+desc:"Controls how an agent accesses, stores, and modifies memory through constraint-aware permissions linked to its active arc, ensuring compliant retention, decay, and auditability.",
 art:String.raw`
 +---------------------------------------------+
 |          AGENT MEMORY SYSTEM CORE           |
@@ -919,7 +971,7 @@ art:String.raw`
 },
 {
 title:"Tone Modulation",
-desc:"Dynamically adapts an agent’s communicative stance — tone, formality, urgency, and hedging — according to context, role configuration, and confidence feedback.",
+desc:"Continuously adjusts an agent’s communicative stance—tone, formality, urgency, and hedging—based on context, arc configuration, and confidence signals.",
 art:String.raw`
 +----------------------------------------+
 |      TONE MODULATION CONSOLE (TMC)     |
@@ -972,7 +1024,7 @@ art:String.raw`
 },
 {
 title:"Agent Ensemble Arbitration",
-desc:"Governs collaborative, parallel, or adversarial task resolution by multiple domain agents. The arbitrator weighs outputs by constraint alignment.",
+desc:"Resolves tasks collaboratively across multiple domain agents. The arbitrator compares tone vectors, confidence scores, and constraint alignment to synthesize a single, balanced output.",
 art:String.raw`
 +--------------------------------------------------+
 |           MULTI-AGENT PROMPT RECEIVED            |
@@ -1022,60 +1074,8 @@ art:String.raw`
 +-------------------------------------------------+<br><br>`
 },
 {
-title:"Super-Agent Transparency Interface",
-desc:"Allows a super-agent to delegate tasks to sub-agents while preserving visibility into each sub-agent’s arc, constraint state, and outputs.",
-art:String.raw`
-+----------------------------------------------+
-|               SUPER-AGENT UI                 |
-|   (Single entry point for user interaction)  |
-+----------------------------------------------+
-▼
-+---------------------------------------------------+
-|       TASK ROUTING / PROMPT INTERPRETATION        |
-| - Parses prompt and identifies required domains   |
-| - Applies arc classification logic per sub-task   |
-+---------------------------------------------------+
-▼
-+----------------------------------------------------------------+
-|           BEHAVIORAL ARC DISPATCHER (Governed Delegation)      |
-|   - Instantiates or assigns sub-agents with scoped arcs        |
-|   - Applies constraint stack & privilege limitation            |
-|   - Enforces domain boundary restrictions                      |
-+----------------------------------------------------------------+
-▼                     ▼                    ▼
-+-------------------+  +----------------------+  +--------------------+
-| Agent: Legal Bot  |  | Agent: Planner Bot   |  | Agent: Policy Bot  |
-| Arc: Risk Review  |  | Arc: Deadline Push   |  | Arc: Consent Gate  |
-+-------------------+  +----------------------+  +--------------------+
-▼                        ▼                        ▼
-+------------------------+ +-----------------------+ +------------------------+
-|   Output + Metadata    | |   Output + Metadata   | |   Output + Metadata    |
-| - Confidence vector    | | - Constraint tags     | | - Constraint status    |
-| - Constraint signature | | - Tone vector         | | - Reasoning trace hash |
-+------------------------+ +-----------------------+ +------------------------+
-\_____________________________________________/
-▼
-+-------------------------------------------------+
-|     SUPER-AGENT OUTPUT SYNTHESIS MODULE         |
-| - Selects, blends, or ranks sub-agent output    |
-| - Preserves origin trace + constraint logic     |
-+-------------------------------------------------+
-▼
-+-------------------------------------------------+
-|     FINAL OUTPUT TO USER (with trace metadata)  |
-| - Includes source arcs and tone alignment data  |
-+-------------------------------------------------+
-▼
-+------------------------------------------------------+
-|      SUPER-AGENT AUDIT INTERFACE (transparency UI)   |
-| - Query chain of delegation                          |
-| - Inspect constraint stack per agent                 |
-| - Review reasoning flow via SCoT entries             |
-+------------------------------------------------------+<br><br>`
-},
-{
 title:"Verified Agent Registry Reinstantiation Flow",
-desc:"Evaluates prior agent use, applies constraint-aware memory rehydration policies, and determines whether to reactivate or instantiate a new agent.",
+desc:"Determines whether to reactivate or instantiate an agent by comparing task fingerprints against the verified registry, applying constraint-aware memory rehydration policies to maintain continuity and compliance.",
 art:String.raw`
 +----------------------------------------------+
 |         USER TASK / PROMPT RECEIVED          |
