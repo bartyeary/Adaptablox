@@ -24,6 +24,7 @@ body {
 font-family: "Inter", sans-serif;
 background: radial-gradient(circle at 500px 0%, var(--bg-1), var(--bg-2) 1000px);
 color: #6A8FD4;
+font-weight: 400;
 margin: 0;
 min-height: 100vh;
 padding: 60px var(--gap) 60px;
@@ -480,7 +481,7 @@ em {
 /* strong emphasis with brighter color and weight */
 strong {
   color: #BBD0FE;          /* a lighter or more luminous accent */
-  font-weight: 600;        /* keep it bold but not too heavy */
+  font-weight: 700;        /* keep it bold but not too heavy */
 }
 
 </style>
@@ -520,15 +521,13 @@ strong {
 <div>
 <h1>Agent Role & Constraint (A.R.C.)</h1>
 <p>
-A.R.C. is a runtime governance layer for AI systems that regulates tone, behavior, and context across agents. 
-It is model-agnostic, lightweight, and designed to integrate with existing orchestration frameworks like Microsoft Copilot and OpenAI’s API stack.
+A.R.C. is a runtime governance layer for AI systems that regulates tone, behavior, and context across collaborating agents. It’s model-agnostic, lightweight, and designed to plug into orchestration frameworks like Microsoft Copilot and OpenAI’s API stack.
+Think of it as the conductor in a multi-agent ensemble—coordinating how specialized agents negotiate, harmonize, and speak with one coherent voice.
 </p>
 
 <h2>Why A.R.C. matters</h2>
 <p>
-Today’s AI assistants focus on <em>access governance</em> deciding who can use which tool or dataset. 
-A.R.C. operates one level deeper: enforcing <em>behavioral governance</em> in real time.
-It manages how agents act, speak, and collaborate under transparent, auditable constraints.
+Most AI platforms stop at access governance—deciding who can use which data or tool. A.R.C. operates one layer higher, enforcing <em>behavioral governance</em> in real time. It manages how agents act, speak, and collaborate under transparent, auditable constraints—transforming model coordination into <em>governed consensus</em>.
 </p>
 
 <div class="compare">
@@ -537,36 +536,29 @@ Static safety layers are hard-coded into models and cannot adapt once deployed.
 </div>
 <div class="compare">
 <strong>With A.R.C.</strong><br>
-Behavioral policies, tone parameters, and escalation logic can update instantly—without retraining.
+Behavioral policies, tone modulation, and escalation logic update instantly—<em>so tone and judgment evolve with context</em> rather than waiting for retraining.
 </div>
 
 <h2>Key Differentiators</h2>
 <ul>
 <li><strong>Runtime Adaptability: </strong> Modulates tone, permissions, and escalation behavior live during generation.</li>
-<li><strong>Constraint Hierarchies: </strong> Layered enforcement levels define how agents self-regulate and escalate.</li>
+<li><strong>Constraint Hierarchies: </strong> Layered enforcement levels define how agents self-regulate and arbitrate conflicts.</li>
 <li><strong>Auditability by Design: </strong> Every behavioral shift, fallback, or tone change is logged with causal metadata.</li>
 <li><strong>Model Agnostic Architecture: </strong> Works across GPT-5, Claude, Gemini, and open-weight models.</li>
-<li><strong>Multi-Agent Arbitration: </strong> Balances outputs from multiple domain agents using constraint-weighted scoring.</li>
+<li><strong>Multi-Agent Arbitration: </strong> Balances outputs from multiple domain agents using constraint-weighted scoring to produce a single coherent response.</li>
 <li><strong>Regulatory Readiness: </strong> Supports compliance through constraint-aware memory and TTL enforcement.</li>
 </ul>
 
 <h2>Strategic Fit</h2>
 <p>
-Most organizations already manage <em>access governance</em> deciding who can use which data, model, or tool.  
-A.R.C. operates a layer deeper: it governs <em>behavior</em> at runtime, ensuring that every agent acts, speaks, and collaborates within defined tone, compliance, and transparency boundaries.  
-It bridges the gap between user intent, institutional policy, and AI expression.
+Most organizations already manage <em>who</em> can access <em>what</em>. A.R.C. governs <em>how</em> intelligent systems behave once access is granted—bridging the gap between user intent, institutional policy, and AI expression.
+It integrates with orchestration and workflow platforms, standardizes tone and compliance logic across heterogeneous agents, and creates an auditable chain linking behavior to governance policy.
 </p>
-
-<ul>
-<li>Integrates with existing orchestration and workflow platforms.</li>
-<li>Standardizes tone and compliance logic across heterogeneous agents.</li>
-<li>Creates an auditable chain linking model behavior to governance policy.</li>
-</ul>
 
 <h2>Vision</h2>
 <p>
-As multi-agent systems evolve, A.R.C. ensures that ensembles behave with transparency and consistency—governing <em>how</em> intelligence expresses itself,
-not just <em>what</em> it can access.
+As multi-agent systems evolve, A.R.C. ensures that ensembles behave with transparency and consistency—<em>one voice, many minds</em>.
+It governs how intelligence expresses itself, not just what it can access.
 </p>
 </div>   
 <div class="video-embed">
