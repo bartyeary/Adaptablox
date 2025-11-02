@@ -615,15 +615,15 @@ title="A.R.C. System Overview"
 <script>
 /* ---------- TERMS & FAQ CARD DATA ---------- */
 const termsDeck = [
-{ term: "Behavioral Arc", def: "A structured profile defining an agent’s role, tone, and behavioral limits. Each arc shapes how the agent expresses reasoning and adapts over time." },
-{ term: "Constraint Stack", def: "Prioritized rule layers determining what an agent can do within its control layer." },
-{ term: "Hybridization", def: "The system’s ability to merge insights from different agent roles into one adaptive, balanced response." },
+{ term: "Behavioral Arc", def: "A structured profile defining an agent’s role, tone, and behavioral limits. Each arc governs how reasoning and behavior evolve over time." },
+{ term: "Constraint Stack", def: "Prioritized rule layers that define what an agent can or cannot do within its control layer." },
+{ term: "Hybridization", def: "The system’s ability to merge insights from different agent roles (arcs) into one adaptive, constraint-aligned response." },
 { term: "Escalation", def: "Routing a task to another agent or domain when thresholds or confidence limits are exceeded." },
-{ term: "Tone Vector", def: "A numeric signal controlling empathy, urgency, confidence, or authority in language generation." },
+{ term: "Tone Vector", def: "A numeric signal that modulates empathy, urgency, confidence, or authority in an agent’s language." },
 { term: "Memory Segmentation", def: "Short-term, semantic, episodic, and procedural memory slices bounded by constraints and TTLs." },
-{ term: "Controller Agent", def: "A meta-agent that orchestrates sub-agents, synthesizing outputs with constraint-weighted blending." },
+{ term: "Controller Agent", def: "A meta-agent that orchestrates sub-agents, blending their outputs using constraint-weighted synthesis." },
 { term: "Constraint Hierarchy", def: "A layered rule system that determines how one agent’s arc constraints take precedence over another’s when agents collaborate or hybridize." },
-{ term: "Reflexive Transparency", def: "All behavioral shifts are logged with causal metadata for auditability and trust." }
+{ term: "Reflexive Transparency", def: "Every behavioral shift is logged with causal metadata, ensuring auditability and trust." }
 ];
 
 const faqDeck = [
@@ -631,10 +631,9 @@ const faqDeck = [
 { term: "How are agent responses synthesized?", def: "A controller agent blends multiple outputs via constraint-weighted scoring and tone alignment." },
 { term: "Will larger frontier models solve governance?", def: "No. Model training improves accuracy, but not behavior. Runtime governance enables dynamic modulation and policy updates without retraining, ensuring consistency across changing contexts." },
 { term: "Can A.R.C. prevent harmful or off-policy outputs?", def: "A.R.C. enforces behavioral constraints in real time, reducing tone drift and policy violations through escalation, fallback, and constraint-aware synthesis." },
-{ term: "How does the system assemble multiple agents?", 
-  def: "A compact signature derived from a task’s semantics, tone, and context. The system matches the task to relevant domains and agents, guiding whether to invoke a single arc or a full ensemble." },
-{ term: "Will A.R.C. increase latency?", def: "Minimal. Behavioral checks are lightweight and only trigger on defined thresholds." },
-{ term: "How does A.R.C. handle memory in regulated environments?", def: "Only compliant memory slices persist, with TTL enforcement and full audit trails." },
+{ term: "How does the system assemble multiple agents?", def: "A compact fingerprint derived from a task’s semantics, tone, and context. The system uses it to match relevant domains and agents, deciding whether to invoke a single arc or a full ensemble." },
+{ term: "Will A.R.C. increase latency?", def: "Minimal. Behavioral checks are lightweight and activate only when thresholds are met." },
+{ term: "How does A.R.C. handle memory in regulated environments?", def: "A.R.C. segments memory by type and applies constraint-aware rules for access, retention, and redaction. In regulated environments, it enforces time-to-live limits, removes sensitive content, and logs every access for auditability." },
 { term: "Is A.R.C. model-specific?", def: "No. It’s model-agnostic and operates across GPT-5, Claude, Gemini, and open-weight systems." },
 { term: "How does A.R.C. differ from access governance?", def: "Access governance controls who can use a tool or dataset. A.R.C. governs how agents behave once access is granted, modulating tone, permissions, and escalation at runtime." }
 ];
