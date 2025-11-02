@@ -12,7 +12,7 @@
 --bg-1: #192447;
 --bg-2: #101422;
 --front-a: #1E2A45;
---front-b: #1E2A45;
+--front-b: #293A5F;
 --back-a: #293A5F;
 --back-b: #293A5F;
 --accent: #2978ED;
@@ -283,7 +283,7 @@ transform: translateZ(0);               /* avoid z-fighting */
 }
 
 .front { 
-background: linear-gradient(145deg, var(--front-a), var(--front-b));
+background: linear-gradient(145deg, var(--front-b), var(--front-a));
 transform: rotateY(0deg);
 }
 
@@ -744,11 +744,11 @@ Response       Response       Response
 | - Compliant, high-confidence output         |
 +---------------------------------------------+
 
-AUDIT TRAIL:
-- Task fingerprint
-- Arc + tone IDs
-- Confidence vectors 
-- Constraint status`
+AUDIT TRAIL:<br>
+• Task fingerprint<br>
+• Arc + tone IDs<br>
+• Confidence vectors<br> 
+• Constraint status<br><br>`
 },
 {
 title:"Fallback, Micro-Arc Injection, and Escalation Recovery",
@@ -813,16 +813,16 @@ Fallback Activated           Micro-Arc Injected
 | - Transparent escalation trace           |
 +------------------------------------------+
 
-AUDIT TRAIL:
-- Constraint violation trigger
-- Micro-arc metadata (TTL, scope)
-- Fallback arc reason + ID
-- Escalation to external domain
-- Memory access log + rationale`
+AUDIT TRAIL:<br>
+• Constraint violation trigger<br>
+• Micro-arc metadata (TTL, scope)<br>
+• Fallback arc reason + ID<br>
+• Escalation to external domain<br>
+• Memory access log + rationale<br><br>`
 },
 {
 title:"Just-In-Time (JIT) Micro-Arc Injection",
-desc:"Injects temporary, high-priority constraints into an agent’s arc for real-time correction or compliance without full arc transition.",
+desc:"Inserts short-lived, high-priority constraints into an agent’s active arc for immediate behavioral correction or compliance enforcement, without triggering a full arc transition.",
 art:String.raw`
 +----------------------------------------------+
 |            ACTIVE BEHAVIORAL ARC             |
@@ -862,7 +862,7 @@ art:String.raw`
 |              AUDIT TRAIL EVENT RECORDED               |
 | - Micro-arc metadata (trigger, TTL, effect)           |
 | - Constraint stack state at injection and at expiry   |
-+-------------------------------------------------------+`
++-------------------------------------------------------+<br><br>`
 },
 {
 title:"Constraint-Governed Memory",
@@ -907,11 +907,11 @@ art:String.raw`
 |  - Records all memory access or mutation events   |
 |  - Tags with arc ID, domain, constraint context   |
 |  - Supports compliance and review visibility      |
-+---------------------------------------------------+`
++---------------------------------------------------+<br><br>`
 },
 {
 title:"Tone Modulation",
-desc:"Adjusts communicative style (tone, formality, urgency, hedging) based on context, arc configuration, and confidence signals.",
+desc:"Dynamically adapts an agent’s communicative stance — tone, formality, urgency, and hedging — according to context, role configuration, and confidence feedback.",
 art:String.raw`
 +----------------------------------------+
 |      TONE MODULATION CONSOLE (TMC)     |
@@ -960,7 +960,7 @@ art:String.raw`
 |      AUDIT TRAIL ENTRY FOR MODULATION EVENT           |
 |    - Tone vector snapshot before/after                |
 |    - Confidence input, role alignment check result    |
-+-------------------------------------------------------+`
++-------------------------------------------------------+<br><br>`
 },
 {
 title:"Agent Ensemble Arbitration",
@@ -1011,7 +1011,7 @@ art:String.raw`
 |         AUDIT TRAIL FOR ENSEMBLE RESPONSE       |
 | - Reasoning trace (SCoT), arc contributions     |
 | - Weighting rationale and consensus score       |
-+-------------------------------------------------+`
++-------------------------------------------------+<br><br>`
 },
 {
 title:"Super-Agent Transparency Interface",
@@ -1063,7 +1063,7 @@ art:String.raw`
 | - Query chain of delegation                          |
 | - Inspect constraint stack per agent                 |
 | - Review reasoning flow via SCoT entries             |
-+------------------------------------------------------+`
++------------------------------------------------------+<br><br>`
 },
 {
 title:"Verified Agent Registry Reinstantiation Flow",
@@ -1119,7 +1119,7 @@ art:String.raw`
 | - Selection rationale                                 |
 | - Memory decision + reinstated arc ID                 |
 | - Link to prior session logs + constraint fingerprint |
-+-------------------------------------------------------+`
++-------------------------------------------------------+<br><br>`
 }
 ];
 
