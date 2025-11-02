@@ -147,7 +147,6 @@ pointer-events: auto;
 /* ABOUT SECTION */
 #about {
 font-family: "Inter", sans-serif; /* switched from Courier */
-color: #8FB0ED;
 line-height: 1.6;
 font-size: 15px;
 letter-spacing: 0.1px;
@@ -182,7 +181,7 @@ padding: 0;
 #about li {
 position: relative;
 padding-left: 1.2em;
-margin: 0.5em 0;
+margin: 1em 0;
 }
 
 #about li::before {
@@ -196,12 +195,16 @@ font-weight: bold;
 
 #about .compare {
 background: #1E2A45;
+color: #8FB0ED;
 padding: 10px 20px;
 border-radius: 8px;
 margin: 1.2em 0;
 line-height: 1.6;
 font-size: 14px;
 border-left: 4px solid #2978ED; /* the accent stroke */
+}
+#about .compare strong{
+  color: #ffffff;
 }
 
 #about .video-embed {
@@ -540,12 +543,12 @@ Behavioral policies, tone modulation, and escalation logic update instantly—<e
 
 <h2>Key Differentiators</h2>
 <ul>
-<li><strong>Runtime Adaptability: </strong> Modulates tone, permissions, and escalation behavior live during generation.</li>
-<li><strong>Constraint Hierarchies: </strong> Layered enforcement levels define how agents self-regulate and arbitrate conflicts.</li>
-<li><strong>Auditability by Design: </strong> Every behavioral shift, fallback, or tone change is logged with causal metadata.</li>
-<li><strong>Model Agnostic Architecture: </strong> Works across GPT-5, Claude, Gemini, and open-weight models.</li>
-<li><strong>Multi-Agent Arbitration: </strong> Balances outputs from multiple domain agents using constraint-weighted scoring to produce a single coherent response.</li>
-<li><strong>Regulatory Readiness: </strong> Supports compliance through constraint-aware memory and TTL enforcement.</li>
+<li><strong>Runtime Adaptability </strong><br>Modulates tone, permissions, and escalation behavior live during generation.</li>
+<li><strong>Constraint Hierarchies </strong><br>Layered enforcement levels define how agents self-regulate and arbitrate conflicts.</li>
+<li><strong>Auditability by Design </strong><br>Every behavioral shift, fallback, or tone change is logged with causal metadata.</li>
+<li><strong>Model Agnostic Architecture </strong><br>Works across GPT-5, Claude, Gemini, and open-weight models.</li>
+<li><strong>Multi-Agent Arbitration </strong><br>Enables domain agents to debate and align before responding—producing answers that reflect balanced judgment rather than a single model’s bias.</li>
+<li><strong>Regulatory Readiness </strong><br> upports compliance through constraint-aware memory and TTL enforcement.</li>
 </ul>
 
 <h2>Strategic Fit</h2>
