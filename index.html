@@ -1147,53 +1147,78 @@ asciiEl.innerHTML = `
 }
 
 /* ---------- VIEW SWITCHING ---------- */
-function setMode(m) {
-const buttons = [aboutBtn, termsBtn, faqBtn, flowsBtn];
-const sections = [aboutEl, termsEl, faqEl, asciiEl];
+function setMode(m, fromHash = false) {
+  const buttons = [aboutBtn, termsBtn, faqBtn, flowsBtn];
+  const sections = [aboutEl, termsEl, faqEl, asciiEl];
 
-// clear active states
-buttons.forEach(b => b.classList.remove("active"));
-sections.forEach(s => {
-s.classList.remove("active");
-s.style.display = "none"; // hide all
+  // Clear all active states
+  buttons.forEach(b => b.classList.remove("active"));
+  sections.forEach(s => {
+    s.classList.remove("active");
+    s.style.display = "none"; // hide all
+  });
+
+  // Determine target and render content
+  let target = null;
+  if (m === "about") {
+    target = aboutEl;
+    aboutBtn.classList.add("active");
+  } else if (m === "terms") {
+    renderCards(termsEl, termsDeck);
+    target = termsEl;
+    termsBtn.classList.add("active");
+  } else if (m === "faq") {
+    renderCards(faqEl, faqDeck);
+    target = faqEl;
+    faqBtn.classList.add("active");
+  } else if (m === "flows") {
+    renderAscii();
+    target = asciiEl;
+    flowsBtn.classList.add("active");
+  } else {
+    // fallback
+    target = aboutEl;
+    aboutBtn.classList.add("active");
+  }
+
+  // Toggle flow nav visibility
+  flowNav.style.display = (m === "flows") ? "flex" : "none";
+
+  // Reset scroll
+  window.scrollTo({ top: 0, behavior: "auto" });
+
+  // Show and animate the selected section
+  if (target) {
+    // Ensure correct display type
+    if (target.classList.contains("card-container")) {
+      target.style.display = "grid";
+    } else {
+      target.style.display = "block";
+    }
+
+    requestAnimationFrame(() => target.classList.add("active"));
+  }
+
+  // Update the URL hash unless triggered by hash navigation
+  if (!fromHash) {
+    history.pushState(null, "", `#${m}`);
+  }
+}
+
+/* ---------- HASH-BASED NAVIGATION ---------- */
+window.addEventListener("DOMContentLoaded", () => {
+  const hash = window.location.hash.replace("#", "");
+  if (["about", "terms", "faq", "flows"].includes(hash)) {
+    setMode(hash, true);
+  } else {
+    setMode("about", true);
+  }
 });
 
-// determine target + render content
-let target = null;
-if (m === "about") {
-target = aboutEl;
-aboutBtn.classList.add("active");
-} else if (m === "terms") {
-renderCards(termsEl, termsDeck);
-target = termsEl;
-termsBtn.classList.add("active");
-} else if (m === "faq") {
-renderCards(faqEl, faqDeck);
-target = faqEl;
-faqBtn.classList.add("active");
-} else if (m === "flows") {
-renderAscii();
-target = asciiEl;
-flowsBtn.classList.add("active");
-}
-
-// toggle flow nav
-flowNav.style.display = (m === "flows") ? "flex" : "none";
-
-// reset scroll position
-window.scrollTo({ top: 0, behavior: "auto" });
-
-// show and animate the chosen section
-if (target) {
-// restore correct display mode per section
-if (target.classList.contains("card-container")) {
-target.style.display = "grid"; // ensure grid layout for cards
-} else {
-target.style.display = "block"; // normal for About & ASCII
-}
-requestAnimationFrame(() => target.classList.add("active"));
-}
-}
+window.addEventListener("popstate", () => {
+  const hash = window.location.hash.replace("#", "");
+  setMode(hash || "about", true);
+});
 
 /* ---------- NAVIGATION ---------- */
 aboutBtn.onclick = () => setMode("about");
