@@ -537,7 +537,7 @@ strong {
 <div>
 <h1>Agent Role & Constraint (A.R.C.)</h1>
 <p>
-A.R.C. is a runtime governance layer for AI systems that regulates tone, behavior, and context across collaborating agents. It’s model-agnostic, lightweight, and designed to plug into orchestration frameworks like Microsoft Copilot and OpenAI’s API stack.
+A.R.C. is a runtime governance layer for AI systems that regulates tone, behavior, and context across collaborating agents—while optimizing cost and consistency at runtime. It’s model-agnostic, lightweight, and designed to plug into orchestration frameworks like Microsoft Copilot and OpenAI’s API stack.
 Think of it as <em>the conductor in a multi-agent ensemble</em>—coordinating how specialized agents negotiate, harmonize, and speak with one coherent voice.
 </p>
 
@@ -552,7 +552,8 @@ Static safety layers are hard-coded into models and cannot adapt once deployed.
 </div>
 <div class="compare">
 <strong>With A.R.C.</strong><br>
-Behavioral policies, tone modulation, and escalation logic update instantly—<em>so tone and judgment evolve with context</em> rather than waiting for retraining.
+Behavioral policies, tone modulation, and escalation logic update instantly—<em>so tone and judgment evolve with context</em> rather than waiting for retraining.<br><br>
+By minimizing redundant reasoning, runaway loops, and over-generation, A.R.C. also curbs compute waste—keeping agent ensembles performant and cost-efficient in production.
 </div>
 
 <h2>Key Differentiators</h2>
@@ -562,7 +563,9 @@ Behavioral policies, tone modulation, and escalation logic update instantly—<e
 <li><strong>Auditability by Design </strong><br>Every behavioral shift, fallback, or tone change is logged with causal metadata.</li>
 <li><strong>Model Agnostic Architecture </strong><br>Works across GPT-5, Claude, Gemini, and open-weight models.</li>
 <li><strong>Multi-Agent Arbitration </strong><br>Enables domain agents to debate and align before responding—producing answers that reflect balanced judgment rather than a single model’s bias.</li>
-<li><strong>Regulatory Readiness </strong><br> upports compliance through constraint-aware memory and TTL enforcement.</li>
+<li><strong>Cost-Aware Governance </strong><br> Tracks token usage and detects recursive or low-value loops across agents, enforcing budget and iteration limits to prevent runaway costs.</li>
+<li><strong>Regulatory Readiness </strong><br> Supports compliance through constraint-aware memory and TTL enforcement.</li>
+</ul>
 </ul>
 
 <h2>Strategic Fit</h2>
