@@ -812,6 +812,57 @@ AUDIT TRAIL:<br>
 • Constraint status<br><br>`
 },
 {
+title:"Agent Ensemble Arbitration",
+desc:"Resolves tasks collaboratively across multiple domain agents. The arbitrator compares tone vectors, confidence scores, and constraint alignment to synthesize a single, balanced output.",
+art:String.raw`
++--------------------------------------------------+
+|           MULTI-AGENT PROMPT RECEIVED            |
++--------------------------------------------------+
+▼
++--------------------------------------------------------------+
+|            ENSEMBLE AGENT SELECTION + ROLE CHECK             |
+|   - Filters available agents by domain relevance             |
+|   - Loads each agent with active arc + scoped memory         |
++--------------------------------------------------------------+
+▼
++-------------------+     +-------------------+     +-------------------+
+|  Agent: Legal     |     |  Agent: Product   |     | Agent: Compliance |
+|  Arc: Risk Watch  |     | Arc: Launch Lead  |     | Arc: Policy Gate  |
++-------------------+     +-------------------+     +-------------------+
+▼                         ▼                         ▼
++-------------------+     +-------------------+     +-------------------+
+| Proposes Output   |     | Proposes Output   |     | Proposes Output   |
+| - Conf vector     |     | - Conf vector     |     | - Conf vector     |
+| - Constraint tags |     | - Constraint tags |     | - Constraint tags |
++-------------------+     +-------------------+     +-------------------+
+\____________________________/  \__________/
+          ▼                     ▼
++-----------------------------------------+
+|   ARC ARBITRATOR (Resolution Engine)    |
+| - Compares tone vectors + confidence    |
+| - Checks role constraints and weights   |
+| - Applies influence tuning parameters   |
++-----------------------------------------+
+▼
++----------------------------------------------+
+|         CONSENSUS / ESCALATION LOGIC         |
+|  - Selects best-fit response OR escalates    |
+|  - May trigger fallback agents or override   |
++----------------------------------------------+
+▼
++-------------------------------------------------+
+|          SYNTHESIZED OR SELECTED OUTPUT         |
+| - Annotated with originating arc and agent ID   |
+| - Reflects constraint-weighted alignment        |
++-------------------------------------------------+
+▼
++-------------------------------------------------+
+|         AUDIT TRAIL FOR ENSEMBLE RESPONSE       |
+| - Reasoning trace (SCoT), arc contributions     |
+| - Weighting rationale and consensus score       |
++-------------------------------------------------+<br><br>`
+},
+{
 title:"Fallback, Micro-Arc Injection, and Escalation Recovery",
 desc:"Manages ambiguous or risky prompts through layered reflexes—constraint evaluation, fallback activation, and temporary micro-arc injection. When no local arc can safely respond, the system escalates to a verified agent with scoped memory, then synthesizes a transparent, auditable output annotated with reasoning metadata.",
 art:String.raw`
@@ -1022,57 +1073,6 @@ art:String.raw`
 |    - Tone vector snapshot before/after                |
 |    - Confidence input, role alignment check result    |
 +-------------------------------------------------------+<br><br>`
-},
-{
-title:"Agent Ensemble Arbitration",
-desc:"Resolves tasks collaboratively across multiple domain agents. The arbitrator compares tone vectors, confidence scores, and constraint alignment to synthesize a single, balanced output.",
-art:String.raw`
-+--------------------------------------------------+
-|           MULTI-AGENT PROMPT RECEIVED            |
-+--------------------------------------------------+
-▼
-+--------------------------------------------------------------+
-|            ENSEMBLE AGENT SELECTION + ROLE CHECK             |
-|   - Filters available agents by domain relevance             |
-|   - Loads each agent with active arc + scoped memory         |
-+--------------------------------------------------------------+
-▼
-+-------------------+     +-------------------+     +-------------------+
-|   Agent: Legal    |     |  Agent: Product   |     | Agent: Compliance |
-|   Arc: Risk Watch |     | Arc: Launch Lead  |     | Arc: Policy Gate  |
-+-------------------+     +-------------------+     +-------------------+
-▼                         ▼                         ▼
-+-------------------+     +-------------------+     +-------------------+
-| Proposes Output   |     | Proposes Output   |     | Proposes Output   |
-| - Conf vector     |     | - Conf vector     |     | - Conf vector     |
-| - Constraint tags |     | - Constraint tags |     | - Constraint tags |
-+-------------------+     +-------------------+     +-------------------+
-\____________________________/  \__________/
-          ▼                     ▼
-+-----------------------------------------+
-|   ARC ARBITRATOR (Resolution Engine)    |
-| - Compares tone vectors + confidence    |
-| - Checks role constraints and weights   |
-| - Applies influence tuning parameters   |
-+-----------------------------------------+
-▼
-+----------------------------------------------+
-|         CONSENSUS / ESCALATION LOGIC         |
-|  - Selects best-fit response OR escalates    |
-|  - May trigger fallback agents or override   |
-+----------------------------------------------+
-▼
-+-------------------------------------------------+
-|          SYNTHESIZED OR SELECTED OUTPUT         |
-| - Annotated with originating arc and agent ID   |
-| - Reflects constraint-weighted alignment        |
-+-------------------------------------------------+
-▼
-+-------------------------------------------------+
-|         AUDIT TRAIL FOR ENSEMBLE RESPONSE       |
-| - Reasoning trace (SCoT), arc contributions     |
-| - Weighting rationale and consensus score       |
-+-------------------------------------------------+<br><br>`
 },
 {
 title:"Verified Agent Registry Reinstantiation Flow",
