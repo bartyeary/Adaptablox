@@ -745,6 +745,62 @@ art:String.raw`
 +------------------------------------------------------+<br><br>`
 },
 {
+title:"Verified Agent Registry Reinstantiation Flow",
+desc:"Determines whether to reactivate or instantiate an agent by comparing task fingerprints against the verified registry, applying constraint-aware memory rehydration policies to maintain continuity and compliance.",
+art:String.raw`
++----------------------------------------------+
+|         USER TASK / PROMPT RECEIVED          |
+|   (Includes domain tags + context features)  |
++----------------------------------------------+
+▼
++------------------------------------------------+
+|        TASK FINGERPRINT GENERATION MODULE      |
+| - Embeds task into vector and symbolic profile |
+| - Extracts domain, user intent, tone cues      |
++------------------------------------------------+
+▼
++------------------------------------------------+
+|       VERIFIED AGENT REGISTRY LOOKUP (VAR)     |
+| - Compares fingerprint to registry entries     |
+| - Computes match score vs. reuse threshold     |
++------------------------------------------------+
+|                          |
+ Match Found in VAR          Match Not Found
+▼                          ▼
++------------------------------------+      +---------------------------------+
+|  RETRIEVE AGENT ARC + TONE VECTOR  |      |  INSTANTIATE PROVISIONAL AGENT  |
+| - Prepare for scoped reactivation  |      | - Assign minimal privileges     |
+|                                    |      | - Apply strict constraint stack |
++------------------------------------+      +---------------------------------+
+|                     
+▼                     
++---------------------------------------+
+|        MEMORY REHYDRATION CHECK       |
+|      - TTL / constraint policy        |
++---------------------------------------+
+▼                    ▼
++----------------------------+   +---------------------------+
+| Memory Restoration Blocked |   |   Memory Restoration Ok   |
++----------------------------+   +---------------------------+
+▼                    ▼
++----------------------------+   +------------------------------+
+| SUPPRESS MEMORY, STATELESS |   | RESTORE SCOPED MEMORY SLICES |
+| - Arc loads with fresh mem |   | - Episodic + procedural mem  |
++----------------------------+   +------------------------------+
+▼                    ▼
++--------------------------------------------------+
+|       ACTIVATE AGENT ARC IN CURRENT CONTEXT      |
+| - Apply tone, constraint stack, privilege scope  |
++--------------------------------------------------+
+▼
++-------------------------------------------------------+
+|                    AUDIT LOG ENTRY                    |
+| - Selection rationale                                 |
+| - Memory decision + reinstated arc ID                 |
+| - Link to prior session logs + constraint fingerprint |
++-------------------------------------------------------+<br><br>`
+}
+{
 title:"Task Fingerprinting and Multi-Agent Synthesis",
 desc:"Generates a unique task fingerprint from the user’s prompt, classifies domain and intent, and reuses verified agents when applicable. Specialized agents produce scoped outputs, which the super-agent synthesizes through tone blending, influence weighting, and constraint alignment to deliver a unified, compliant response.",
 art:String.raw`
@@ -1074,62 +1130,6 @@ art:String.raw`
 |    - Confidence input, role alignment check result    |
 +-------------------------------------------------------+<br><br>`
 },
-{
-title:"Verified Agent Registry Reinstantiation Flow",
-desc:"Determines whether to reactivate or instantiate an agent by comparing task fingerprints against the verified registry, applying constraint-aware memory rehydration policies to maintain continuity and compliance.",
-art:String.raw`
-+----------------------------------------------+
-|         USER TASK / PROMPT RECEIVED          |
-|   (Includes domain tags + context features)  |
-+----------------------------------------------+
-▼
-+------------------------------------------------+
-|        TASK FINGERPRINT GENERATION MODULE      |
-| - Embeds task into vector and symbolic profile |
-| - Extracts domain, user intent, tone cues      |
-+------------------------------------------------+
-▼
-+------------------------------------------------+
-|       VERIFIED AGENT REGISTRY LOOKUP (VAR)     |
-| - Compares fingerprint to registry entries     |
-| - Computes match score vs. reuse threshold     |
-+------------------------------------------------+
-|                          |
- Match Found in VAR          Match Not Found
-▼                          ▼
-+------------------------------------+      +---------------------------------+
-|  RETRIEVE AGENT ARC + TONE VECTOR  |      |  INSTANTIATE PROVISIONAL AGENT  |
-| - Prepare for scoped reactivation  |      | - Assign minimal privileges     |
-|                                    |      | - Apply strict constraint stack |
-+------------------------------------+      +---------------------------------+
-|                     
-▼                     
-+---------------------------------------+
-|        MEMORY REHYDRATION CHECK       |
-|      - TTL / constraint policy        |
-+---------------------------------------+
-▼                    ▼
-+----------------------------+   +---------------------------+
-| Memory Restoration Blocked |   |   Memory Restoration Ok   |
-+----------------------------+   +---------------------------+
-▼                    ▼
-+----------------------------+   +------------------------------+
-| SUPPRESS MEMORY, STATELESS |   | RESTORE SCOPED MEMORY SLICES |
-| - Arc loads with fresh mem |   | - Episodic + procedural mem  |
-+----------------------------+   +------------------------------+
-▼                    ▼
-+--------------------------------------------------+
-|       ACTIVATE AGENT ARC IN CURRENT CONTEXT      |
-| - Apply tone, constraint stack, privilege scope  |
-+--------------------------------------------------+
-▼
-+-------------------------------------------------------+
-|                    AUDIT LOG ENTRY                    |
-| - Selection rationale                                 |
-| - Memory decision + reinstated arc ID                 |
-| - Link to prior session logs + constraint fingerprint |
-+-------------------------------------------------------+<br><br>`
-}
 ];
 
 function renderAscii() {
