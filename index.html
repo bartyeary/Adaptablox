@@ -786,10 +786,10 @@ Match Found in VAR           Match Not Found
 | Memory Restoration Blocked |   |   Memory Restoration Ok   |
 +----------------------------+   +---------------------------+
 ▼                    ▼
-+----------------------------+   +------------------------------+
-| SUPPRESS MEMORY, STATELESS |   | RESTORE SCOPED MEMORY SLICES |
-| - Arc loads with fresh mem |   | - Episodic + procedural mem  |
-+----------------------------+   +------------------------------+
++-------------------------------+   +------------------------------+
+|  SUPPRESS MEMORY, STATELESS   |   | RESTORE SCOPED MEMORY SLICES |
+|  - Arc loads with fresh mem   |   | - Episodic + procedural mem  |
++-------------------------------+   +------------------------------+
 ▼                    ▼
 +--------------------------------------------------+
 |       ACTIVATE AGENT ARC IN CURRENT CONTEXT      |
