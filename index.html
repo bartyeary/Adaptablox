@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="A.R.C. — Agent Role & Constraint. A runtime governance layer that regulates tone, behavior, and memory across multi-agent AI systems, ensuring transparency, compliance, and coherence at scale."/>
 <title>A.R.C.</title>
 <style>
 :root {
@@ -81,7 +82,7 @@ color: #fff;
 padding: 8px 14px;
 border-radius: 6px;
 cursor: pointer;
-font-weight: 560;
+font-weight: 600;
 transition: background .18s;
 }
 
@@ -510,10 +511,10 @@ strong {
 <div class="left-group">
 <img src="arc-logo.svg" alt="A.R.C. logo" class="logo">
 <div class="deck-toggle">
-<button id="aboutBtn" class="active">About</button>
-<button id="termsBtn">Terms</button>
-<button id="faqBtn">FAQs</button>
-<button id="flowsBtn">Flows</button>
+  <button id="aboutBtn" class="active" aria-label="View About section">About</button>
+  <button id="termsBtn" aria-label="View Terms section">Terms</button>
+  <button id="faqBtn" aria-label="View FAQs section">FAQs</button>
+  <button id="flowsBtn" aria-label="View Flows section">Flows</button>
 </div>
 </div>
 <div id="flowNav">
@@ -537,35 +538,34 @@ strong {
 <div>
 <h1>Agent Role & Constraint (A.R.C.)</h1>
 <p>
-A.R.C. is a runtime governance layer for AI systems that regulates tone, behavior, and memory across collaborating agents—while optimizing cost and consistency at runtime. It’s model-agnostic, lightweight, and designed to plug into orchestration frameworks like Microsoft Copilot and OpenAI’s API stack. Think of it as <em>the conductor in a multi-agent ensemble</em>—coordinating how specialized agents negotiate, harmonize, and speak with one coherent voice.
+A.R.C. is a runtime governance layer for AI systems that regulates tone, behavior, and memory across collaborating agents—while optimizing efficiency and consistency during operation. It’s model-agnostic, lightweight, and designed to integrate with orchestration frameworks such as Microsoft Copilot and OpenAI’s API stack. Think of it as <em>the conductor in a multi-agent ensemble</em>—coordinating how specialized agents negotiate, harmonize, and speak with one coherent voice.
 </p>
 
 <h2>Why A.R.C. matters</h2>
 <p>
-Most AI platforms stop at access governance—deciding who can use which data or tool. A.R.C. operates one layer higher, enforcing <em>behavioral and memory governance</em> in real time. It manages how agents act, remember, and collaborate under transparent, auditable constraints—transforming model coordination into <em>governed consensus</em>.
+Most AI platforms stop at access governance—deciding who can use which data or tool. A.R.C. operates one layer higher, enforcing <em>behavioral and memory governance</em> in real time. It manages how agents act, recall, and collaborate under transparent, auditable constraints—transforming model coordination into <em>governed consensus</em>.
 </p>
 
 <div class="compare">
 <strong>Without A.R.C.</strong><br>
-Static safety layers and ephemeral sessions can’t adapt or remember context once deployed.
+Static safety layers and short-lived sessions can’t adapt or maintain context once deployed.
 </div>
 <div class="compare">
 <strong>With A.R.C.</strong><br>
-Behavioral policies, tone modulation, and scoped memory slices update instantly—<em>so judgement, tone and recall evolve with context</em> rather than waiting for retraining.<br><br>
-By minimizing redundant reasoning, runaway loops, and over-generation, A.R.C. also curbs compute waste—keeping agent ensembles performant and cost-efficient in production.
+Behavioral policies, tone modulation, and scoped memory update instantly—<em>so judgment, tone, and recall evolve with context</em> rather than waiting for retraining.<br><br>
+By reducing redundant reasoning and uncontrolled iteration, A.R.C. also limits computational waste—keeping agent ensembles responsive and cost-efficient in production.
 </div>
 
 <h2>Key Differentiators</h2>
 <ul>
-<li><strong>Runtime Adaptability </strong><br>Modulates tone, permissions, and escalation behavior live during generation.</li>
-<li><strong>Constraint-Aware Memory </strong><br>Controls what agents can retain, recall, and forget under policy—supporting TTL, redaction, and provenance logging for every memory slice.</li>
-<li><strong>Constraint Hierarchies </strong><br>Layered enforcement levels define how agents self-regulate and arbitrate conflicts.</li>
-<li><strong>Auditability by Design </strong><br>Every behavioral shift, fallback, or tone change is logged with causal metadata.</li>
-<li><strong>Model Agnostic Architecture </strong><br>Works across GPT-5, Claude, Gemini, and open-weight models.</li>
-<li><strong>Multi-Agent Arbitration </strong><br>Lets domain agents debate and align before responding—producing answers that reflect balanced judgment rather than a single model’s bias.</li>
-<li><strong>Cost-Aware Governance </strong><br> Tracks token usage and detects recursive or low-value loops across agents, enforcing budget and iteration limits to prevent runaway costs.</li>
-<li><strong>Regulatory Readiness </strong><br> Delivers compliance through constraint-governed memory, TTL enforcement, and auditable traceability.</li>
-</ul>
+<li><strong>Runtime Adaptability</strong><br>Modulates tone, permissions, and escalation behavior dynamically during interaction.</li>
+<li><strong>Constraint-Aware Memory</strong><br>Governs what agents can retain, recall, and release under policy—supporting retention limits, redaction, and provenance logging for every memory segment.</li>
+<li><strong>Constraint Hierarchies</strong><br>Layered enforcement levels define how agents self-regulate and arbitrate behavioral conflicts.</li>
+<li><strong>Auditability by Design</strong><br>Every behavioral shift, fallback, or tone change is recorded with contextual metadata for traceability.</li>
+<li><strong>Model-Agnostic Architecture</strong><br>Operates across large-scale or open models such as GPT-5, Claude, Gemini, or custom fine-tunes.</li>
+<li><strong>Multi-Agent Arbitration</strong><br>Enables domain agents to deliberate and align before responding—producing outcomes that reflect balanced reasoning rather than a single model’s perspective.</li>
+<li><strong>Cost-Aware Governance</strong><br>Monitors operational efficiency and detects recursive or low-value reasoning loops, enforcing resource and iteration limits to maintain performance.</li>
+<li><strong>Regulatory Readiness</strong><br>Delivers compliance through constraint-governed memory, retention policies, and full audit transparency.</li>
 </ul>
 
 <h2>Strategic Fit</h2>
@@ -576,8 +576,8 @@ It integrates with orchestration and workflow platforms, standardizes tone and c
 
 <h2>Vision</h2>
 <p>
-As multi-agent systems evolve, A.R.C. ensures that ensembles behave with transparency and coherence<em>one voice, many minds</em>.
-It governs how intelligence remembers, reasons, and expresses itself.
+As multi-agent ecosystems mature, A.R.C. ensures they operate with transparency and coherence—<em>one voice, many minds</em>—.
+It governs how intelligence remembers, reasons, and expresses itself responsibly.
 </p>
 </div>   
 
@@ -619,27 +619,81 @@ title="A.R.C. Ambient Assistant"
 <script>
 /* ---------- TERMS & FAQ CARD DATA ---------- */
 const termsDeck = [
-{ term: "Behavioral Arc", def: "A structured profile defining an agent’s role, tone, and behavioral limits. Each arc governs how reasoning and behavior evolve over time." },
-{ term: "Constraint Stack", def: "Prioritized rule layers that define what an agent can or cannot do within its control layer." },
-{ term: "Hybridization", def: "The system’s ability to merge insights from different agent roles (arcs) into one adaptive, constraint-aligned response." },
-{ term: "Escalation", def: "Routing a task to another agent or domain when thresholds or confidence limits are exceeded." },
-{ term: "Tone Vector", def: "A numeric signal that modulates empathy, urgency, confidence, or authority in an agent’s language." },
-{ term: "Memory Segmentation", def: "Short-term, semantic, episodic, and procedural memory slices bounded by constraints and TTLs." },
-{ term: "Controller Agent", def: "A meta-agent that orchestrates sub-agents, blending their outputs using constraint-weighted synthesis." },
-{ term: "Constraint Hierarchy", def: "A layered rule system that determines how one agent’s arc constraints take precedence over another’s when agents collaborate or hybridize." },
-{ term: "Reflexive Transparency", def: "Every behavioral shift is logged with causal metadata, ensuring auditability and trust." }
+{
+  term: "Behavioral Arc",
+  def: "A structured profile that defines an agent’s role, tone, and behavioral boundaries. Each arc governs how reasoning and interaction evolve within policy over time."
+},
+{
+  term: "Constraint Stack",
+  def: "A prioritized collection of rule layers that specify what an agent may or may not do within its control layer."
+},
+{
+  term: "Hybridization",
+  def: "The system’s ability to combine perspectives from different agent roles (arcs) into one adaptive, constraint-aligned response."
+},
+{
+  term: "Escalation",
+  def: "The governed process of routing a task to another agent or domain when assurance levels or policy limits are exceeded."
+},
+{
+  term: "Tone Profile",
+  def: "A dynamic configuration that shapes empathy, urgency, confidence, or authority in an agent’s language according to context and policy."
+},
+{
+  term: "Memory Segmentation",
+  def: "Short-term, semantic, episodic, and procedural memory regions managed under constraint and retention policies."
+},
+{
+  term: "Controller Agent",
+  def: "A coordinating agent that orchestrates sub-agents, harmonizing their outputs through constraint-aware synthesis."
+},
+{
+  term: "Constraint Hierarchy",
+  def: "A layered rule structure that determines how one agent’s arc constraints take precedence over another’s when agents collaborate or hybridize."
+},
+{
+  term: "Reflexive Transparency",
+  def: "Each behavioral change is recorded with contextual metadata, creating a verifiable audit trail of reasoning and control."
+}
 ];
 
 const faqDeck = [
-{ term: "Does A.R.C. improve model accuracy?", def: "No. It governs behavior and context at runtime, not model weights." },
-{ term: "How are agent responses synthesized?", def: "A controller agent blends multiple outputs via constraint-weighted scoring and tone alignment." },
-{ term: "Will larger frontier models solve governance?", def: "No. Model training improves accuracy, but not behavior. Runtime governance enables dynamic modulation and policy updates without retraining, ensuring consistency across changing contexts." },
-{ term: "Can A.R.C. prevent harmful or off-policy outputs?", def: "A.R.C. enforces behavioral constraints in real time, reducing tone drift and policy violations through escalation, fallback, and constraint-aware synthesis." },
-{ term: "How does the system assemble multiple agents?", def: "A compact fingerprint derived from a task’s semantics, tone, and context. The system uses it to match relevant domains and agents, deciding whether to invoke a single arc or a full ensemble." },
-{ term: "Will A.R.C. increase latency and cost?", def: "No. A.R.C. runs lightweight checks that trigger only when needed, preventing redundant reasoning and runaway loops. It keeps agent ensembles fast and cost-efficient." },
-{ term: "How does A.R.C. handle memory in regulated environments?", def: "A.R.C. segments memory by type and applies constraint-aware rules for access, retention, and redaction. In regulated environments, it enforces time-to-live limits, removes sensitive content, and logs every access for auditability." },
-{ term: "Can A.R.C. support multistep chaining of agent tasks?", def: "Yes. A.R.C. governs behavioral and tonal continuity across chained agents, ensuring each step maintains consistent context, tone, and constraint compliance as tasks progress through the sequence." },
-{ term: "How does A.R.C. differ from access governance?", def: "Access governance controls who can use a tool or dataset. A.R.C. governs how agents behave once access is granted, modulating tone, permissions, and escalation at runtime." }
+{
+  term: "Does A.R.C. improve model accuracy?",
+  def: "No. It governs behavior and context at runtime rather than modifying model weights."
+},
+{
+  term: "How are agent responses synthesized?",
+  def: "A controller agent reconciles multiple outputs through constraint-informed arbitration and tone alignment."
+},
+{
+  term: "Will larger frontier models solve governance?",
+  def: "No. Training improves factual accuracy, but not behavior. Runtime governance enables adaptive modulation and policy updates without retraining, maintaining consistency across changing contexts."
+},
+{
+  term: "Can A.R.C. prevent harmful or off-policy outputs?",
+  def: "A.R.C. enforces behavioral constraints in real time, reducing tone drift and policy violations through escalation, fallback, and constraint-aware synthesis."
+},
+{
+  term: "How does the system assemble multiple agents?",
+  def: "It derives a compact context signature from task semantics and tone, matching it to relevant domains and agents to determine whether to invoke a single arc or a coordinated ensemble."
+},
+{
+  term: "Will A.R.C. increase latency or cost?",
+  def: "No. A.R.C. performs lightweight policy checks that activate only when needed, preventing redundant reasoning and ensuring efficient agent coordination."
+},
+{
+  term: "How does A.R.C. handle memory in regulated environments?",
+  def: "It segments memory by type and applies constraint-aware rules for access, retention, and redaction. In regulated contexts, it enforces retention limits, filters sensitive content, and logs every access for audit review."
+},
+{
+  term: "Can A.R.C. support multistep chaining of agent tasks?",
+  def: "Yes. A.R.C. preserves behavioral and tonal continuity across chained agents so that each stage maintains consistent context, tone, and policy compliance as tasks progress."
+},
+{
+  term: "How does A.R.C. differ from access governance?",
+  def: "Access governance controls who can use a resource. A.R.C. governs how agents behave once access is granted, modulating tone, permissions, and escalation in real time."
+}
 ];
 
 /* ---------- ELEMENTS ---------- */
@@ -714,7 +768,7 @@ art:String.raw`
 |           BEHAVIORAL ARC DISPATCHER (Governed Delegation)      |
 |   - Activates or assigns sub-agents with scoped arcs           |
 |   - Applies constraint hierarchy & privilege controls          |
-|   - Enforces domain-specific boundries                         |
+|   - Enforces domain-specific boundaries                        |
 +----------------------------------------------------------------+
 ▼                     ▼                    ▼
 +-------------------+  +----------------------+  +--------------------+
@@ -995,7 +1049,7 @@ desc:"Temporarily introduces focused constraints into an active behavioral arc t
 art:String.raw`
 +----------------------------------------------+
 |            ACTIVE BEHAVIORAL ARC             |
-|   (Arc ID, domain, tone, privilege sscope)   |
+|   (Arc ID, domain, tone, privilege scope)    |
 +----------------------------------------------+
 ▼
 +----------------------------------------------+
@@ -1235,7 +1289,6 @@ renderAscii();
 window.scrollTo({ top: 0, behavior: "smooth" }); // scroll page to top
 };
 /* ---------- DEFAULT VIEW ---------- */
-window.addEventListener('resize', adjustWrapHeight);
 </script>
 <footer class="site-footer">
 <p>© 2025 Bart Yeary. All rights reserved. A.R.C.™ — Patent Pending.</p>
