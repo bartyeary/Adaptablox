@@ -636,7 +636,7 @@ const faqDeck = [
 { term: "Will larger frontier models solve governance?", def: "No. Model training improves accuracy, but not behavior. Runtime governance enables dynamic modulation and policy updates without retraining, ensuring consistency across changing contexts." },
 { term: "Can A.R.C. prevent harmful or off-policy outputs?", def: "A.R.C. enforces behavioral constraints in real time, reducing tone drift and policy violations through escalation, fallback, and constraint-aware synthesis." },
 { term: "How does the system assemble multiple agents?", def: "A compact fingerprint derived from a task’s semantics, tone, and context. The system uses it to match relevant domains and agents, deciding whether to invoke a single arc or a full ensemble." },
-{ term: "Will A.R.C. increase latency and cost?", def: "No. A.R.C. runs lightweight checks that trigger only when needed, preventing redundant reasoning and runaway loops. It keeps agent ensembles fast and cost-efficient." },
+{ term: "Will A.R.C. increase latency and cost??", def: "No. A.R.C. runs lightweight checks that trigger only when needed, preventing redundant reasoning and runaway loops. It keeps agent ensembles fast and cost-efficient." },
 { term: "How does A.R.C. handle memory in regulated environments?", def: "A.R.C. segments memory by type and applies constraint-aware rules for access, retention, and redaction. In regulated environments, it enforces time-to-live limits, removes sensitive content, and logs every access for auditability." },
 { term: "Can A.R.C. support multistep chaining of agent tasks?", def: "Yes. A.R.C. governs behavioral and tonal continuity across chained agents, ensuring each step maintains consistent context, tone, and constraint compliance as tasks progress through the sequence." },
 { term: "How does A.R.C. differ from access governance?", def: "Access governance controls who can use a tool or dataset. A.R.C. governs how agents behave once access is granted, modulating tone, permissions, and escalation at runtime." }
@@ -707,14 +707,14 @@ art:String.raw`
 +---------------------------------------------------+
 |       TASK ROUTING / PROMPT INTERPRETATION        |
 | - Parses prompt and identifies required domains   |
-| - Applies arc classification for each sub-task    |
+| - Applies arc classification logic per sub-task   |
 +---------------------------------------------------+
 ▼
 +----------------------------------------------------------------+
 |           BEHAVIORAL ARC DISPATCHER (Governed Delegation)      |
-|   - Activates or assigns sub-agents with scoped arcs           |
-|   - Applies constraint hierarchy & privilege controls          |
-|   - Enforces domain-specific boundries                         |
+|   - Instantiates or assigns sub-agents with scoped arcs        |
+|   - Applies constraint stack & privilege limitation            |
+|   - Enforces domain boundary restrictions                      |
 +----------------------------------------------------------------+
 ▼                     ▼                    ▼
 +-------------------+  +----------------------+  +--------------------+
@@ -724,110 +724,110 @@ art:String.raw`
 ▼                        ▼                        ▼
 +------------------------+ +-----------------------+ +------------------------+
 |   Output + Metadata    | |   Output + Metadata   | |   Output + Metadata    |
-| - Confidence indicator | | - Constraint labels   | | - Constraint outcome   |
-| - Constraint record    | | - Tone vector         | | - Reasoning trace ref. |
+| - Confidence vector    | | - Constraint tags     | | - Constraint status    |
+| - Constraint signature | | - Tone vector         | | - Reasoning trace hash |
 +------------------------+ +-----------------------+ +------------------------+
 \_____________________________________________/
 ▼
 +-------------------------------------------------+
-|         SUPER-AGENT OUTPUT ARBITRATOR           |
-| - Harmonizes or prioritizes sub-agent results   |
-| - Preserves origin context and constraint logic |
+|     SUPER-AGENT OUTPUT SYNTHESIS MODULE         |
+| - Selects, blends, or ranks sub-agent output    |
+| - Preserves origin trace + constraint logic     |
 +-------------------------------------------------+
 ▼
 +-------------------------------------------------+
 |     FINAL OUTPUT TO USER (with trace metadata)  |
-| - Includes contributing arcs and tone alignment |
+| - Includes source arcs and tone alignment data  |
 +-------------------------------------------------+
 ▼
 +------------------------------------------------------+
 |      SUPER-AGENT AUDIT INTERFACE (transparency UI)   |
-| - Trace chain of delegation                          |
-| - Inspect constraint hierarchy per agent             |
-| - Review reasoning flow through stored trace entries |
+| - Query chain of delegation                          |
+| - Inspect constraint stack per agent                 |
+| - Review reasoning flow via SCoT entries             |
 +------------------------------------------------------+<br><br>`
 },
 {
 title:"Verified Agent Registry Reinstantiation Flow",
-desc:"Determines whether to reactivate or initialize an agent by referencing its verified registry entry and evaluating policy-based continuity conditions. Uses constraint-aware memory handling to preserve compliant context when appropriate.",
+desc:"Determines whether to reactivate or instantiate an agent by comparing task fingerprints against the verified registry, applying constraint-aware memory rehydration policies to maintain continuity and compliance.",
 art:String.raw`
 +----------------------------------------------+
 |         USER TASK / PROMPT RECEIVED          |
 |   (Includes domain tags + context features)  |
 +----------------------------------------------+
 ▼
-+-------------------------------------------------+
-|        TASK FINGERPRINT GENERATION MODULE       |
-| - Derives a context signature from task details |
-| - Identifies domain, intent, and tonal context  |
-+-------------------------------------------------+
++------------------------------------------------+
+|        TASK FINGERPRINT GENERATION MODULE      |
+| - Embeds task into vector and symbolic profile |
+| - Extracts domain, user intent, tone cues      |
++------------------------------------------------+
 ▼
 +------------------------------------------------+
 |       VERIFIED AGENT REGISTRY LOOKUP (VAR)     |
-| - Compares signature against registered agents |
-| - Evaluates suitability for reuse under policy |
+| - Compares fingerprint to registry entries     |
+| - Computes match score vs. reuse threshold     |
 +------------------------------------------------+
 |                          |
 Match Found in VAR           Match Not Found
 ▼                          ▼
 +------------------------------------+      +---------------------------------+
-|  RETRIEVE AGENT ARC + TONE PROFILE |      |  INSTANTIATE PROVISIONAL AGENT  |
-| - Prepare for scoped reactivation  |      | - Assign minimal permissions    |
-|                                    |      | - Apply baseline constraint set |
+|  RETRIEVE AGENT ARC + TONE VECTOR  |      |  INSTANTIATE PROVISIONAL AGENT  |
+| - Prepare for scoped reactivation  |      | - Assign minimal privileges     |
+|                                    |      | - Apply strict constraint stack |
 +------------------------------------+      +---------------------------------+
 |                     
 ▼                     
 +---------------------------------------+
-|        MEMORY CONTINUITY CHECK        |
-|   - Time-to-live and policy gates     |
+|        MEMORY REHYDRATION CHECK       |
+|      - TTL / constraint policy        |
 +---------------------------------------+
 ▼                    ▼
 +----------------------------+   +---------------------------+
 | Memory Restoration Blocked |   |   Memory Restoration Ok   |
 +----------------------------+   +---------------------------+
 ▼                    ▼
-+--------------------------------+   +--------------------------------+
-|  SUPPRESS MEMORY (STATELESS)   |   | RESTORE SCOPED MEMORY SEGMENTS |
-| - Arc loads with fresh context |   | - Episodic + procedural data   |
-+--------------------------------+   +--------------------------------+
++-------------------------------+   +------------------------------+
+|  SUPPRESS MEMORY, STATELESS   |   | RESTORE SCOPED MEMORY SLICES |
+|  - Arc loads with fresh mem   |   | - Episodic + procedural mem  |
++-------------------------------+   +------------------------------+
 ▼                    ▼
 +--------------------------------------------------+
 |       ACTIVATE AGENT ARC IN CURRENT CONTEXT      |
-| - Apply tone, constraint hierarchy, and scope    |
+| - Apply tone, constraint stack, privilege scope  |
 +--------------------------------------------------+
 ▼
 +-------------------------------------------------------+
 |                    AUDIT LOG ENTRY                    |
-| - Records selection rationale                         |
-| - Memory handling decision + reinstated arc ID        |
-| - Link to prior session and constraint references     |
+| - Selection rationale                                 |
+| - Memory decision + reinstated arc ID                 |
+| - Link to prior session logs + constraint fingerprint |
 +-------------------------------------------------------+<br><br>`
 },
 {
-title:"Task Signature and Multi-Agent Synthesis",
-desc:"Identifies domain and intent from a user prompt to generate a context signature and determine which verified agents to engage. Specialized agents produce scoped outputs that the super-agent reconciles through tone alignment and constraint-governed arbitration to form a unified, policy-compliant response.",
+title:"Task Fingerprinting and Multi-Agent Synthesis",
+desc:"Generates a unique task fingerprint from the user’s prompt, classifies domain and intent, and reuses verified agents when applicable. Specialized agents produce scoped outputs, which the super-agent synthesizes through tone blending, influence weighting, and constraint alignment to deliver a unified, compliant response.",
 art:String.raw`
 +------------------------+
 |       USER PROMPT      |
 +------------------------+
 ▼
 +---------------------------------------+
-|        CONTEXT SIGNATURE MODULE       |
-| - Derives context and intent cues     |
-| - Classifies domain relevance         |
+|       TASK FINGERPRINT GENERATOR      |
+| - Embeds prompt + context             |
+| - Classifies domain + intent          |
 +---------------------------------------+
 ▼
 +----------------------------------------------+
 |     DOMAIN ARC MATCHING + CONSTRAINT CHECK   |
-| - Evaluates agents by role and policy fit    |
-| - Applies privilege and constraint controls  |
+| - Scores agents by domain & role fit         |
+| - Enforces privilege + constraint match      |
 +----------------------------------------------+
 ▼
-+---------------------------------------------+
-|  OPTIONAL: VERIFIED AGENT REGISTRY (VAR)    |
-| - Reuse compatible agent with scoped memory |
-| - If match, restore prior arc context       |
-+---------------------------------------------+
++-------------------------------------------+
+| OPTIONAL: VERIFIED AGENT REGISTRY (VAR)   |
+| - Reuse known agent with scoped memory    |
+| - If match, rehydrate arc + tone config   |
++-------------------------------------------+
 ▼
 +--------------------------------------------+
 |   SHORTLISTED SPECIALIZED AGENTS SELECTED  |
@@ -845,31 +845,34 @@ Response       Response       Response
 ▼              ▼              ▼
 +----------------+ +----------------+ +----------------+
 | Response A     | | Response B     | | Response C     |
-| Confidence tag | | Confidence tag | | Confidence tag |
+| Confidence: 88 | | Confidence: 72 | | Confidence: 60 |
 | Constraint OK  | | Constraint OK  | | Constraint OK  |
-| Tone profile A | | Tone profile B | | Tone profile C |
+| Tone Vector A  | | Tone Vector B  | | Tone Vector C  |
 +----------------+ +----------------+ +----------------+
 \_____________________________/
 ▼
 +---------------------------------------------+
-|      SUPER-AGENT RESPONSE ARBITRATOR        |
-| - Reconciles tone and constraint alignment  |
-| - Balances confidence and policy indicators |
+|  SUPER-AGENT RESPONSE SYNTHESIZER           |
+| - Tone vector blending                      |
+| - Influence-weighted scoring                |
+| - Constraint alignment enforcement          |
 +---------------------------------------------+
 ▼
 +---------------------------------------------+
-|           FINAL RESPONSE TO USER            |
-| - Unified, context-aware, compliant output  |
+|         FINAL RESPONSE TO USER              |
+| - Synthesized tone + content                |
+| - Compliant, high-confidence output         |
 +---------------------------------------------+
 
 AUDIT TRAIL:<br>
-• Task signature<br>
-• Arc + tone Identifiers<br>
-• Confidence and constraints outcomes<br><br>`
+• Task fingerprint<br>
+• Arc + tone IDs<br>
+• Confidence vectors<br> 
+• Constraint status<br><br>`
 },
 {
 title:"Agent Ensemble Arbitration",
-desc:"Coordinates collaborative decision-making across multiple domain agents. The arbitration process evaluates tone and policy alignment, applies constraint-aware prioritization, and produces a unified, context-appropriate outcome.",
+desc:"Resolves tasks collaboratively across multiple domain agents. The arbitrator compares tone vectors, confidence scores, and constraint alignment to synthesize a single, balanced output.",
 art:String.raw`
 +--------------------------------------------------+
 |           MULTI-AGENT PROMPT RECEIVED            |
@@ -877,259 +880,258 @@ art:String.raw`
 ▼
 +--------------------------------------------------------------+
 |            ENSEMBLE AGENT SELECTION + ROLE CHECK             |
-|   - Filters participating agents by domain relevance         |
-|   - Loads each agent with its active arc and scoped context  |
+|   - Filters available agents by domain relevance             |
+|   - Loads each agent with active arc + scoped memory         |
 +--------------------------------------------------------------+
 ▼
 +-------------------+     +-------------------+     +-------------------+
-|  Agent: Legal     |     | Agent: Product    |     | Agent: Compliance |
+|  Agent: Legal     |     |  Agent: Product   |     | Agent: Compliance |
 |  Arc: Risk Watch  |     | Arc: Launch Lead  |     | Arc: Policy Gate  |
 +-------------------+     +-------------------+     +-------------------+
 ▼                         ▼                         ▼
 +-------------------+     +-------------------+     +-------------------+
 | Proposes Output   |     | Proposes Output   |     | Proposes Output   |
-| - Confidence tag  |     | - Confidence tag  |     | - Confidence tag  |
-| - Constraint data |     | - Constraint data |     | - Constraint data |
+| - Conf vector     |     | - Conf vector     |     | - Conf vector     |
+| - Constraint tags |     | - Constraint tags |     | - Constraint tags |
 +-------------------+     +-------------------+     +-------------------+
 \_________________/      \________________/
  ▼                       ▼
-+----------------------------------------------+
-|      ARC ARBITRATOR (Resolution Engine)      |
-| - Evaluates tone and policy consistency      |
-| - Applies constraint-informed prioritization |
-| - Ensures domain and role alignment          |
-+----------------------------------------------+
++-----------------------------------------+
+|   ARC ARBITRATOR (Resolution Engine)    |
+| - Compares tone vectors + confidence    |
+| - Checks role constraints and weights   |
+| - Applies influence tuning parameters   |
++-----------------------------------------+
 ▼
 +----------------------------------------------+
 |         CONSENSUS / ESCALATION LOGIC         |
-| - Determines unified response or escalation  |
-| - May defer to fallback or oversight agent   |
+|  - Selects best-fit response OR escalates    |
+|  - May trigger fallback agents or override   |
 +----------------------------------------------+
 ▼
 +-------------------------------------------------+
 |          SYNTHESIZED OR SELECTED OUTPUT         |
-| - Annotated with contributing arcs and agents   |
-| - Reflects governed alignment across ensemble   |
+| - Annotated with originating arc and agent ID   |
+| - Reflects constraint-weighted alignment        |
 +-------------------------------------------------+
 ▼
 +-------------------------------------------------+
 |         AUDIT TRAIL FOR ENSEMBLE RESPONSE       |
-| - Reasoning trace (SCoT), arc participation     |
-| - Alignment rationale and resolution summary    |
+| - Reasoning trace (SCoT), arc contributions     |
+| - Weighting rationale and consensus score       |
 +-------------------------------------------------+<br><br>`
 },
 {
 title:"Fallback, Micro-Arc Injection, and Escalation Recovery",
-desc:"Addresses ambiguous or high-risk prompts through layered governance reflexes—constraint evaluation, fallback activation, and temporary micro-arc insertion. When no local arc can respond within policy, the system delegates to a verified agent under scoped memory and produces a transparent, auditable outcome annotated with reasoning context.",
+desc:"Manages ambiguous or risky prompts through layered reflexes—constraint evaluation, fallback activation, and temporary micro-arc injection. When no local arc can safely respond, the system escalates to a verified agent with scoped memory, then synthesizes a transparent, auditable output annotated with reasoning metadata.",
 art:String.raw`
 +-------------------------+
 |       USER PROMPT       |
 +-------------------------+
 ▼
 +---------------------------------------+
-|       CONTEXT SIGNATURE MODULE        |
-| - Identifies domain and intent cues   |
+|       TASK FINGERPRINT GENERATOR      |
 +---------------------------------------+
 ▼
 +----------------------------------------------+
-|     DOMAIN ARC REVIEW + CONSTRAINT CHECK     |
-| - No clear domain fit or policy alignment    |
+|    DOMAIN ARC MATCHING + CONSTRAINT CHECK    |
+| - No clear domain match OR constraint risk   |
 +----------------------------------------------+
 ▼
 +----------------------------------------------+
-|    REFLEXIVE CONSTRAINT EVALUATION LAYER     |
-| - Detects potential policy or tone risk      |
-| - Low assurance → initiate fallback arc      |
-| - Constraint mismatch → apply micro-arc      |
+|    REFLEXIVE CONSTRAINT EVALUATION MODULE    |
+| - Checks for risk of violation               |
+| - Confidence too low? => Trigger fallback    |
+| - Constraint mismatch? => Inject micro-arc   |
 +----------------------------------------------+
  |                            |
-Fallback Initiated           Micro-Arc Applied
+Fallback Activated           Micro-Arc Injected
  ▼                            ▼
 +----------------------------+            +-----------------------------+
-| Engage Fallback Arc        |            | Insert Temporary Constraint |
-| - Tone adjusted            |            | - Restrict specific action  |
-| - Scope limited            |            | - Time-bounded control      |
+| Switch to Fallback Arc     |            | Inject Temporary Constraint |
+| - Tone = softer            |            | - Prevent specific action   |
+| - Scope = reduced          |            | - TTL applied               |
 +----------------------------+            +-----------------------------+
 \________________________________________/
 ▼
 +-----------------------------------------------+
-| ESCALATION CONTROLLER (If no arc is suitable) |
-| - Consult verified registry for trusted agent |
-| - Reuse scoped memory when permitted          |
+| ESCALATION ENGINE (No arc can handle prompt?) |
+| - Search VAR for trusted agent with context   |
+| - Reactivate with memory (if policy allows)   |
 +-----------------------------------------------+
 ▼
 +-----------------------------+
-| Delegated Agent D           |
+| Rehydrated Agent D          |
 | Arc: Specialized Domain     |
-| Memory: Scoped              |
+| Memory: Scoped episodic     |
 | Tone: Context-sensitive     |
 +-----------------------------+
 ▼
-+----------------------------+
-| Response aligned with task |
-| Assurance: High            |
-| Context: Relevant segment  |
-+----------------------------+
++-------------------------+
+| Response with high fit  |
+| Confidence: 91          |
+| Memory: Relevant slice  |
++-------------------------+
 ▼
 +---------------------------------------------+
-|   SUPER-AGENT SYNTHESIS + MODULATION LOGIC  |
-| - Harmonizes tone with current context      |
-| - Annotates fallback / micro-arc events     |
+| SUPER-AGENT SYNTHESIZER + MODULATION LOGIC  |
+| - Adjust tone to match new context          |
+| - Tag fallback/micro-arc/escalation events  |
 +---------------------------------------------+
 ▼
 +------------------------------------------+
 |  FINAL OUTPUT: Context-Aware + Auditable |
-| - Transparent escalation record          |
+| - Transparent escalation trace           |
 +------------------------------------------+
 
 AUDIT TRAIL:<br>
-• Constraint evaluation trigger<br>
-• Micro-arc event (duration, scope)<br>
-• Fallback rationale and arc ID<br>
-• Escalation record to external domain<br>
-• Memory-access decision and justification<br><br>`
+• Constraint violation trigger<br>
+• Micro-arc metadata (TTL, scope)<br>
+• Fallback arc reason + ID<br>
+• Escalation to external domain<br>
+• Memory access log + rationale<br><br>`
 },
 {
 title:"Just-In-Time (JIT) Micro-Arc Injection",
-desc:"Temporarily introduces focused constraints into an active behavioral arc to correct policy drift or prevent non-compliant actions in real time—without retraining or full re-initialization.",
+desc:"Temporarily injects critical constraints into an agent’s active arc to prevent policy drift or off-compliant behavior in real time—without retraining or full reinitialization.",
 art:String.raw`
 +----------------------------------------------+
 |            ACTIVE BEHAVIORAL ARC             |
-|   (Arc ID, domain, tone, privilege sscope)   |
+|      (Arc ID, domain, tone, privileges)      |
 +----------------------------------------------+
 ▼
 +----------------------------------------------+
-|     CONTEXT MONITORING AND TRIGGER REVIEW    |
-|  - Identifies potential policy deviations    |
-|  - Evaluates inputs against escalation rules |
+|     CONTEXT MONITORING AND TRIGGER CHECK     |
+| - Detects policy conflicts or behavior flags |
+| - Compares inputs to escalation thresholds   |
 +----------------------------------------------+
 ▼
 +----------------------------------------------+
-|      MICRO-ARC INJECTION CONTROLLER          |
-| - Establishes a temporary constraint arc     |
-| - Defines active duration and governing role |
-| - Prioritizes over existing constraints      |
+|     JIT MICRO-ARC GENERATION MODULE          |
+| - Creates temporary constraint micro-arc     |
+| - Tags with TTL (Time-to-Live) metadata      |
+| - Assigns precedence > existing constraints  |
 +----------------------------------------------+
 ▼
-+-------------------------------------------------------+
-|       CONSTRAINT STACK UPDATE (Injection Event)       |
-|  - Places micro-arc at top of hierarchy               |
-|  - Suspends affected permissions and tone parameters  |
-+-------------------------------------------------------+
++----------------------------------------------------------+
+|         ARC STACK MODIFICATION (injection event)         |
+|  - Inserts micro-arc into top of constraint hierarchy    |
+|  - Freezes affected privileges and tone dimensions       |
++----------------------------------------------------------+
 ▼
 +-----------------------------------------------------+
 |         MODULATED OUTPUT GENERATION PATH            |
-| - Continues operation under temporary constraint    |
-| - May defer action, soften tone, or request review  |
+| - Existing arc logic proceeds with new constraint   |
+| - Agent may defer, soften tone, or request clarity  |
 +-----------------------------------------------------+
 ▼
 +---------------------------------------------+
-|             FINAL OUTPUT ISSUED             |
+|           FINAL OUTPUT DELIVERED            |
 +---------------------------------------------+
 ▼
 +-------------------------------------------------------+
-|                 AUDIT RECORD CREATED                  |
-| - Micro-arc event details (trigger, duration, scope)  |
-| - Constraint-stack status before and after injection  |
+|              AUDIT TRAIL EVENT RECORDED               |
+| - Micro-arc metadata (trigger, TTL, effect)           |
+| - Constraint stack state at injection and at expiry   |
 +-------------------------------------------------------+<br><br>`
 },
 {
 title:"Constraint-Governed Memory",
-desc:"Manages how an agent accesses, retains, and modifies information through constraint-linked permissions associated with its active arc—ensuring compliant retention, adaptive decay, and transparent auditability.",
+desc:"Controls how an agent accesses, stores, and modifies memory through constraint-aware permissions linked to its active arc, ensuring compliant retention, decay, and auditability.",
 art:String.raw`
 +---------------------------------------------+
-|           AGENT MEMORY FRAMEWORK            |
+|          AGENT MEMORY SYSTEM CORE           |
 +---------------------------------------------+
 ▼
 +----------------------------------------------------------------------------+
-|                   SEGMENTED MEMORY FRAMEWORK (By Type)                     |
+|                 SEGMENTED MEMORY ARCHITECTURE (By Type)                    |
 | +---------------------+  +---------------------+  +----------------------+ |
 | |   Short-Term (STM)  |  |  Long-Term Semantic |  |      Procedural      | |
-| | - Session context   |  | - Facts, concepts   |  | - Operational habits | |
+| | - Session context   |  | - Facts, concepts   |  | - Execution patterns | |
 | | - Live tools I/O    |  | - Domain knowledge  |  |                      | |
 | +---------------------+  +---------------------+  +----------------------+ |
 +----------------------------------------------------------------------------+
 ▼
 +---------------------------------------------+
-|         CONSTRAINT-AWARE CONTROLLER         |
-| - Evaluates arc role and domain privileges  |
-| - Applies layered constraint permissions    |
-| - Restricts or masks disallowed segments    |
+|   CONSTRAINT-AWARE MEMORY ACCESS ENGINE     |
+| - Checks arc role and domain permissions    |
+| - Applies constraint stack gating rules     |
+| - Redacts or blocks unauthorized segments   |
 +---------------------------------------------+
 ▼
-+----------------------------------------------------------+
-|           MEMORY CONSOLIDATION AND ABSTRACTION           |
-| - Summarizes infrequent or expired content               |
-| - Filters sensitive data under active constraints        |
-| - Captures rationale and provenance for audit reference  |
-+----------------------------------------------------------+
++-------------------------------------------------------------+
+|       MEMORY COMPRESSION + SUMMARIZATION SUBSYSTEM          |
+| - Applies abstracted logs to infrequent or expired entries  |
+| - Redacts sensitive content using constraint scoring        |
+| - Stores rationale + provenance for audit use               |
++-------------------------------------------------------------+
 ▼
-+--------------------------------------------+
-|     RETENTION & EXPIRATION GOVERNANCE     |
-| - Enforces retention time policies        |
-| - Allows temporary constraint extensions  |
-| - Flags records for review or removal     |
-+--------------------------------------------+
++---------------------------------------------+
+|    MEMORY DECAY & TTL ENFORCEMENT MODULE    |
+|  - Enforces time-to-live expiration rules   |
+|  - Supports micro-arc TTL overrides         |
+|  - Flags memory for decay or archiving      |
++---------------------------------------------+
 ▼
-+----------------------------------------------------+
-|              AUDIT AND TRACE GENERATION            |
-| - Logs all access and modification events          |
-| - Associates entries with arc and constraint data  |
-| - Enables oversight and compliance review          |
-+----------------------------------------------------+<br><br>`
++---------------------------------------------------+
+|      AUDIT LOGGING + ACCESS TRACE GENERATOR       |
+|  - Records all memory access or mutation events   |
+|  - Tags with arc ID, domain, constraint context   |
+|  - Supports compliance and review visibility      |
++---------------------------------------------------+<br><br>`
 },
 {
 title:"Tone Modulation",
-desc:"Continuously adapts an agent’s communicative stance—formality, empathy, urgency, and hedging—based on context, arc configuration, and situational cues to maintain role-appropriate expression and policy alignment.",
+desc:"Continuously adjusts an agent’s communicative stance—tone, formality, urgency, and hedging—based on context, arc configuration, and confidence signals.",
 art:String.raw`
-+-----------------------------------+
-|       TONE MODULATION LAYER       |
-+-----------------------------------+
++----------------------------------------+
+|      TONE MODULATION CONSOLE (TMC)     |
++----------------------------------------+
 ▼
 +---------------------------------------------------------------+
-|                    BASELINE TONE PROFILE                      |
-|           (Defined per Arc Role and Domain Context)           |
-|   - Established during arc initialization                     |
-|   - Includes dimensions such as empathy, directness, urgency  |
+|                    BASELINE TONE VECTOR                       |
+|                (Per Arc Role + Domain Context)                |
+|   - Defined during arc initialization                         |
+|   - Includes dimensions (e.g. empathy, urgency, directness)   |
 +---------------------------------------------------------------+
 ▼
 +-----------------------------------------------------------------------+
-|                 RUNTIME CONTEXT INPUTS FOR MODULATION                 |
+|                 RUNTIME INPUT SIGNALS FOR MODULATION                  |
 | +--------------------------------+ +--------------------------------+ |
-| |  Assurance and Context Inputs  | |   User Preference Indicators   | |
-| | - Output certainty cues        | | - Desired tone, politeness     | |
-| | - Constraint alignment status  | | - Prior interaction style      | |
+| |   Confidence Vector Input      | |   User Preference Signal       | |
+| | - Output certainty             | | - Politeness, directness       | |
+| | - Constraint alignment risk    | | - Personal tone history        | |
 | +--------------------------------+ +--------------------------------+ |
 | +--------------------------------+ +--------------------------------+ |
 | |   Task Sensitivity Markers     | |   Environmental Context Flags  | |
-| | - Compliance, emotion level    | | - Urgency, domain mix, setting | |
+| | - Compliance, emotionality     | | - Crisis, urgency, domain mix  | |
 | +--------------------------------+ +--------------------------------+ |
 +-----------------------------------------------------------------------+
 ▼
 +-------------------------------------------------+
-|    MODULATION CONTROLLER (Tone Adjustment)      |
-| - Integrates baseline tone with active inputs   |
-| - Updates tone profile according to policy      |
-| - Validates consistency with arc role           |
+|   MODULATION ENGINE: TONE VECTOR ADJUSTMENT     |
+| - Blends baseline tone with runtime inputs      |
+| - Calculates updated tone profile               |
+| - Scores for alignment with arc role            |
 +-------------------------------------------------+
 ▼
-+---------------------------------------------------+
-|    ROLE ALIGNMENT GUARD (Boundary Enforcement)    |
-| - Detects tone deviations from role intent        |
-| - Initiates fallback or escalation when required  |
-+---------------------------------------------------+
++-------------------------------------------------------------+
+|       TONE ROLE ALIGNMENT ENFORCER (Boundary Check)         |
+| - Prevents tone deviations that violate role integrity      |
+| - Triggers fallback or escalation if misalignment detected  |
++-------------------------------------------------------------+
 ▼
-+---------------------------------------------+
-|         MODULATED OUTPUT GENERATED          |
-| - Language adapted dynamically              |
-| - Includes confidence hedging or softening  |
-+---------------------------------------------+
++-----------------------------------------------+
+|         MODULATED OUTPUT GENERATED            |
+| - Language pattern adjusted dynamically       |
+| - Includes confidence hedging, tone softening |
++-----------------------------------------------+
 ▼
-+----------------------------------------------------+
-|         AUDIT ENTRY FOR MODULATION EVENT           |
-| - Captures tone profile change and context inputs  |
-| - Records alignment validation outcome             |
-+----------------------------------------------------+<br><br>`
++-------------------------------------------------------+
+|      AUDIT TRAIL ENTRY FOR MODULATION EVENT           |
+|    - Tone vector snapshot before/after                |
+|    - Confidence input, role alignment check result    |
++-------------------------------------------------------+<br><br>`
 },
 ];
 
