@@ -575,6 +575,14 @@ Most organizations already manage <em>who</em> can access <em>what</em>. A.R.C. 
 It integrates with orchestration and workflow platforms, standardizes tone and compliance logic across heterogeneous agents, and links every behavioral decision to a transparent governance policy.
 </p>
 
+<h2>How A.R.C. interprets prompts</h2>
+<p>
+Each prompt provides a contextual signal that A.R.C. uses to infer domain, intent, and tonal cues. 
+These signals inform which agents or behavioral modes are most relevant at that moment, allowing A.R.C. to adapt or hand off tasks as needed.<br><br>
+
+When input falls outside an agent’s current boundaries, the system can apply temporary behavioral adjustments or delegate to another agent, maintaining interpretability and compliance without interrupting the interaction.
+</p>
+
 <h2>Vision</h2>
 <p>
 As multi-agent ecosystems mature, A.R.C. ensures they operate with transparency and coherence—<em>one voice, many minds</em>—.
@@ -625,6 +633,18 @@ const termsDeck = [
   def: "A structured profile that defines an agent’s role, tone, and behavioral boundaries. Each arc governs how reasoning and interaction evolve within policy over time."
 },
 {
+  term: "Task Fingerprint",
+  def: "A contextual signature derived from each prompt’s semantics, tone, and intent. It helps the system route tasks to relevant agents or adjust behavior dynamically."
+},
+{
+  term: "Prompt Interpreter",
+  def: "A component that analyzes natural-language input to identify domain intent and tone cues for adaptive task routing."
+},
+{
+  term: "Constraint Feedback Loop",
+  def: "A governance mechanism that refines behavioral parameters over time based on observed outcomes."
+},
+{
   term: "Constraint Stack",
   def: "A prioritized collection of rule layers that specify what an agent may or may not do within its control layer."
 },
@@ -659,6 +679,18 @@ const termsDeck = [
 ];
 
 const faqDeck = [
+{
+  term: "Does A.R.C. improve model accuracy?",
+  def: "No. It governs behavior and context at runtime rather than modifying model weights."
+},
+{
+  term: "How does A.R.C. decide when an agent should evolve or escalate?",
+  def: "It reads tone, intent, and domain cues. When a prompt falls outside scope, A.R.C. adapts behavior or hands off the task—keeping responses aligned without retraining."
+},
+{
+  term: "What if agents read a prompt differently?",
+  def: "A.R.C. compares each agent’s confidence and constraint fit, then blends or selects outputs to give one balanced, transparent response."
+},
 {
   term: "Does A.R.C. improve model accuracy?",
   def: "No. It governs behavior and context at runtime rather than modifying model weights."
