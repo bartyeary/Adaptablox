@@ -56,16 +56,19 @@ z-index: 100;
 backdrop-filter: blur(8px);
 background: rgba(37,50,89,0.5);
 display: flex;
-justify-content: center;
+justify-content: flex-start;
 }
 
 .controls-inner {
-width: 100%;
-max-width: var(--max-container);
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 12px var(--gap);
+  width: 100%;
+  max-width: none;
+  padding-left: var(--gap);
+  padding-right: var(--gap);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px var(--gap);
 }
 
 .deck-toggle {
@@ -96,12 +99,6 @@ margin-right: 16px;
 display: block;
 transition: height 0.25s ease, transform 0.25s ease;
 
-}
-.controls-inner {
-display: flex;
-align-items: center;
-justify-content: space-between;
-padding: 12px var(--gap);
 }
 
 .controls-inner > .logo {
@@ -192,6 +189,10 @@ color: #2978ED;
 font-weight: bold;
 }
 
+#about ul li strong {
+  color: #BBD0FE;
+}
+
 #about .compare {
 background: #1E2A45;
 color: #8FB0ED;
@@ -206,6 +207,7 @@ border-left: 4px solid #2978ED; /* the accent stroke */
 #about .compare strong{
   color: #ffffff;
 }
+
 
 #about .video-embed {
 margin: 32px 0;
@@ -445,8 +447,8 @@ line-height: 1.35;
 /* --- 600px breakpoint --- */
 @media (max-width: 600px) {
   :root {
-  --card-w: 160px;
-  --card-h: 140px;
+  --card-w: 120px;
+  --card-h: 100px;
   --gap: 8px;
   }
 
@@ -466,11 +468,16 @@ line-height: 1.35;
   }
 
   /* Make control row left-aligned ALWAYS */
-  .controls-inner {
-    justify-content: flex-start !important;
-    padding-left: 12px !important;
-    padding-right: 12px !important;
-  }
+.controls-inner {
+  width: 100%;
+  max-width: none !important;   /* critical fix — removes unwanted centering */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: var(--gap);     /* matches section-container left margin */
+  padding-right: var(--gap);
+  gap: 12px;
+}
 
   /* Prevent inner wrapper from trying to center itself */
   .left-group {
