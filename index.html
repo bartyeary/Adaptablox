@@ -408,7 +408,7 @@ letter-spacing: 0.3px;
 /* Limit width of text-heavy sections */
 #about.section-container,
 #ascii.section-container {
-  max-width: 860px !important;   /* perfect for text + breathing room */
+  max-width: 780px !important;   /* perfect for text + breathing room */
   margin-left: auto !important;
   margin-right: auto !important;
 }
@@ -457,6 +457,22 @@ line-height: 1.35;
 
 /* --- 600px breakpoint --- */
 @media (max-width: 600px) {
+  :root {
+  --card-w: 160px;
+  --card-h: 140px;
+  --gap: 8px;
+  }
+
+  #about.section-container,
+  #ascii.section-container {
+  max-width: 400px !important;   /* perfect for text + breathing room */
+  margin-left: auto !important;
+  margin-right: auto !important;
+  }
+
+  .ascii-pre {
+    font-size: 8px;
+  }
 
   .logo {
     display: none !important;
@@ -475,16 +491,15 @@ line-height: 1.35;
     width: auto !important;
   }
 
-  /* Remove desktop body padding that causes the shift */
   body {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 
   .section-container {
     width: 100% !important;
-    margin: 20px 0 !important;
-    padding: 20px 0 !important; 
+    border-radius: 0;
+    margin: 8px 0 !important;
   }
 
   /* ===== NEW: Keep prev/next buttons on the right in flows mode ===== */
@@ -498,7 +513,7 @@ line-height: 1.35;
   #faq.card-container {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     gap: 16px 16px !important;
-    padding: 16px 0 !important;
+    padding: 16px 0 16px !important;
     justify-content: center !important;
   }
   #about.section-container,
