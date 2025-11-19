@@ -274,6 +274,11 @@ transition: transform 0.25s ease, box-shadow 0.25s ease;
 box-shadow: 0 15px 30px rgba(0,0,0,0.32);
 }
 
+.card .face {
+  --lx: 0deg;      /* gradient light direction X */
+  --ly: 0deg;      /* gradient light direction Y */
+}
+
 .face {
 position: absolute;
 inset: 0;
@@ -289,13 +294,13 @@ transform: translateZ(0);               /* avoid z-fighting */
 }
 
 .front { 
-background: linear-gradient(145deg, var(--front-b), var(--front-a));
+background: linear-gradient(var(--lx, 145deg), var(--front-b), var(--front-a));
 transform: rotateY(0deg);
 color: #6A8FD4;
 }
 
 .back  { 
-background: linear-gradient(145deg, var(--back-a), var(--back-b));
+background: linear-gradient(var(--lx, 145deg), var(--back-a), var(--back-b));
 transform: rotateY(180deg);
 color: #fff;
 }
@@ -806,10 +811,15 @@ activeFlipped = div.classList.contains("flipped") ? div : null;
 div.addEventListener("mousemove", e => {
 const tilt = div.querySelector(".tilt");
 const r = div.getBoundingClientRect();
-const x = e.clientX - r.left, y = e.clientY - r.top;
+const x = e.clientX - r.left;
+const y = e.clientY - r.top;
 const rx = ((y - r.height / 2) / (r.height / 2)) * 10;
 const ry = ((x - r.width / 2) / (r.width / 2)) * -10;
 tilt.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) scale(1.05)`;
+const angle = Math.atan2(y - r.height / 2, x - r.width / 2) * (180 / Math.PI);
+  div.querySelectorAll(".face").forEach(face => {
+    face.style.setProperty("--lx", `${angle - 90}deg`);
+  });
 });
 div.addEventListener("mouseleave", () => {
 div.querySelector(".tilt").style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
