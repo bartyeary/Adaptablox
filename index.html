@@ -107,11 +107,11 @@ margin-right: 20px;
 
 .section-container {
   width: 100%;
-  display: block;
-  padding: 20px var(--gap) !important;
-  margin: 20px 0;
+  max-width: calc(var(--max-container) + 2 * var(--gap)); /* hugs card grid */
+  margin: 20px auto;
   background: #141B2E;
   border-radius: 12px;
+  padding: 20px 0; 
   box-shadow: 0 15px 20px rgba(0,0,0,0.15);
   opacity: 0;
   transform: translateY(20px);
@@ -123,6 +123,8 @@ margin-right: 20px;
 .section-container > .inner-container {
   width: 100%;
   max-width: 820px; /* <-- The magic: consistent readable width */
+  padding-left: var(--gap);
+  padding-right: var(--gap);
   margin-left: auto;
   margin-right: auto;
 }
@@ -651,8 +653,12 @@ title="A.R.C. Ambient Assistant"
 </div>
 
 
-<div class="section-container card-container" id="terms"></div>
-<div class="section-container card-container" id="faq"></div>
+<div class="section-container card-container" id="terms">
+  <div class="inner-container card-container"></div>
+</div>
+<div class="section-container card-container" id="faq">
+  <div class="inner-container card-container"></div>
+</div>
 <div class="section-container ascii-section" id="ascii"></div>
 </div>
 
