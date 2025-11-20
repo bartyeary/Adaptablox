@@ -275,8 +275,8 @@ box-shadow: 0 15px 30px rgba(0,0,0,0.32);
 }
 
 .card .face {
-  --lx: -145deg;      /* gradient light direction X */
-  --ly: -145deg;      /* gradient light direction Y */
+  --lx: 135deg;      /* gradient light direction X */
+  --ly: 135deg;      /* gradient light direction Y */
 }
 
 .face {
@@ -295,13 +295,13 @@ transition: --lx 0.35s ease-out;
 }
 
 .front { 
-background: linear-gradient(var(--lx, -90deg), var(--front-b), var(--front-a));
+background: linear-gradient(var(--lx, 0deg), var(--front-b), var(--front-a));
 transform: rotateY(0deg);
 color: #6A8FD4;
 }
 
 .back  { 
-background: linear-gradient(var(--lx, -90deg), var(--back-a), var(--back-b));
+background: linear-gradient(var(--lx, 0deg), var(--back-a), var(--back-b));
 transform: rotateY(180deg);
 color: #fff;
 }
