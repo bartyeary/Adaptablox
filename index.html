@@ -619,7 +619,22 @@ Each prompt provides contextual signals that A.R.C. uses to infer domain, intent
 When input falls outside an agent’s current boundaries, the system can apply temporary behavioral adjustments or delegate to another agent, maintaining interpretability and compliance without interrupting the interaction.
 </p>
 
+<h2>Configuration</h2>
+<p>
+Most agent frameworks place the burden of safety and behavioral control on developers, requiring them to manually define guardrails, escalation logic, and personality constraints for every agent. The A.R.C. system removes that complexity by automatically generating and enforcing the essential behavioral scaffolding around any agent at runtime.
+</p>
 
+<p>
+A.R.C. analyzes each task, identifies the relevant domain, and selects the appropriate behavioral arc—complete with role identity, constraint hierarchy, tone defaults, and escalation rules. Instead of hand-coding policies, teams declare high-level intent and A.R.C. handles the rest.
+</p>
+
+<p>
+Compliance becomes a byproduct of architecture rather than a manual effort. As an agent works, A.R.C. continuously monitors its reasoning, confidence, and outputs using reflexive constraint checks, just-in-time micro-arcs, fallback arcs, and dynamic tone modulation. This ensures that every response stays within defined boundaries while adapting appropriately to risk, uncertainty, and changing context.
+</p>
+
+<p>
+The result is a governance layer that provides consistent, auditable behavior across all agents—without requiring teams to configure or maintain large rule sets.
+</p>
 <h2>Vision</h2>
 <p>
 As multi-agent ecosystems mature, A.R.C. ensures they operate with transparency and coherence—<em>one voice, many minds</em>. It defines how intelligence remembers, reasons, and expresses itself responsibly.
