@@ -107,26 +107,20 @@ margin-right: 20px;
 
 .section-container {
   width: 100%;
-  max-width: calc(var(--max-container) + 2 * var(--gap)); /* hugs card grid */
+  max-width: 820px;         /* match inner-container */
   margin: 20px auto;
   background: #141B2E;
   border-radius: 12px;
-  padding: 20px 0; 
+  padding: var(--gap);      /* uniform padding on ALL sides */
   box-shadow: 0 15px 20px rgba(0,0,0,0.15);
-  opacity: 0;
-  transform: translateY(20px);
-  pointer-events: none;
-  transition: opacity .35s ease-out, transform .35s ease-out;
 }
 
 /* Inner centering container */
 .section-container > .inner-container {
   width: 100%;
-  max-width: 820px; /* <-- The magic: consistent readable width */
-  padding-left: var(--gap);
-  padding-right: var(--gap);
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 100%;   /* do NOT use 820px here */
+  padding: 0;        /* section handles spacing now */
+  margin: 0;         /* no offsets */
 }
 
 .section-container.active {
@@ -136,12 +130,8 @@ transform: translateY(0);
 pointer-events: auto;
 }
 
-/* Restore padding for ABOUT and ASCII sections only */
-#about.section-container,
-#ascii.section-container {
-  padding-left: var(--gap) !important;
-  padding-right: var(--gap) !important;
-}
+
+
 
 /* ABOUT SECTION */
 #about {
