@@ -26,7 +26,7 @@
 body {
   font-family: "Inter", sans-serif;
   background: radial-gradient(circle at 500px 0%, var(--bg-1), var(--bg-2) 1000px);
-  color: #6A8FD4;
+  color: #7299e2;
   font-weight: 400;
   margin: 0;
   min-height: 100vh;
@@ -36,6 +36,11 @@ body {
 }
 
 html { background-color: #10182E; }
+
+p {
+  line-height: 1.5;
+  margin-bottom: 1.2rem;
+}
 
 /* Full-bleed wrapper */
 .page-wrap {
@@ -188,7 +193,7 @@ font-weight: bold;
 #about .compare {
 background: #1E2A45;
 color: #8FB0ED;
-padding: 10px 20px;
+padding: 16px 20px;
 border-radius: 8px;
 margin: 1.2em 0;
 line-height: 1.6;
@@ -571,73 +576,95 @@ strong {
 <div class="section-container active" id="about">
   <div class="inner-container">
 <div>
-<h1>Agent Role & Constraint (A.R.C.)</h1>
+<h1>Governance for Intelligent Systems</h1>
 <p>
-A.R.C. is a runtime governance layer for AI systems that regulates tone, behavior, and memory across collaborating agents. It optimizes efficiency and consistency during operation while remaining model-agnostic and lightweight. The framework integrates with orchestration systems such as Microsoft Copilot and OpenAI’s API stack. Think of it as <em>the conductor in a multi-agent ensemble</em>, coordinating how specialized agents negotiate, harmonize, and speak with one coherent voice.
+Adaptablox is a runtime governance platform for AI systems. It regulates how agents behave at the surface level and how models reason at the internal level.<br>
+It brings coherence, safety, and continuity to autonomous AI by combining two complementary layers:
+<br><br>
+
+<em>A.R.C. (Agent Role & Constraint)</em> governs <em>the outer loop:</em> agent behavior, tone, memory, delegation, and coordination across agents.<br><br> 
+<em>L.R.C. (Latent Role & Constraint)</em> governs <em>the inner loop:</em> internal reasoning dynamics, latent representations, activation patterns, and controlled arbitration within the model.<br><br>
+
+Together, these layers create a behavioral operating foundation that stabilizes how AI systems act and think in real time.
 </p>
 
-
-<h2>Why A.R.C. matters</h2>
+<h2>Why Adaptablox matters</h2>
 <p>
-Most AI platforms stop at access governance, which defines who can use which data or tool. A.R.C. operates one layer higher, enforcing <em>behavioral and memory governance</em> in real time. It manages how agents act, recall, and collaborate under transparent, auditable constraints, transforming model coordination into <em>governed consensus</em>.
+Most AI platforms focus on access control. They decide <em>who</em> can use <em>which</em> data or tool.<br>
+Adaptablox focuses on what happens after access is granted. It governs <em>how</em> behavior unfolds and <em>how</em> internal reasoning develops.<br><br>
+
+<em>A.R.C.</em> shapes actions, tone, memory usage, and collaboration across agents.<br><br>
+<em>L.R.C.</em> shapes internal cognition by regulating which latent patterns engage, how they interact, and how internal conflicts are resolved.<br><br>
+
+Together, they support governed autonomy without requiring model retraining or static rule sets.
 </p>
 
-
 <div class="compare">
-<strong>Without A.R.C.</strong><br>
-Static safety layers and short-lived sessions can’t adapt or maintain context once deployed.
-</div>
-<div class="compare">
-<strong>With A.R.C.</strong><br>
-Behavioral policies, tone modulation, and scoped memory update instantly so judgment, tone, and recall evolve with context rather than waiting for retraining.<br><br>
-By reducing redundant reasoning and uncontrolled iteration, A.R.C. also limits computational waste, keeping agent ensembles responsive and cost-efficient in production.
+<strong>Without Adaptablox</strong><br>
+AI systems rely on static prompts and brittle safety wrappers that fail once autonomy, memory, or multi-agent workflows appear.
+Behavior drifts, memory bleeds across contexts, and internal reasoning becomes difficult to interpret or control.
+Outcomes are inconsistent, costly, and hard to audit.
 </div>
 
+<div class="compare">
+<strong>With Adaptablox</strong><br>
+Behavior and internal reasoning adjust immediately to changing context.
+Tone, memory, internal activation, and task delegation follow explicit policies and remain transparent.
+Agents respond with continuity, and models reason within defined boundaries.
+Unnecessary or repetitive reasoning is reduced, keeping systems efficient and cost-effective at scale.
+</div>
 
 <h2>Key Differentiators</h2>
 <ul>
-<li><strong>Runtime Adaptability</strong><br>Modulates tone, permissions, and escalation behavior dynamically during interaction.</li>
-<li><strong>Constraint-Aware Memory</strong><br>Governs what agents can retain, recall, and release under policy, supporting retention limits, redaction, and provenance logging for every memory segment.</li>
-<li><strong>Constraint Hierarchies</strong><br>Layered enforcement levels define how agents self-regulate and arbitrate behavioral conflicts.</li>
-<li><strong>Auditability by Design</strong><br>Every behavioral shift, fallback, or tone change is recorded with contextual metadata for traceability.</li>
-<li><strong>Model-Agnostic Architecture</strong><br>Operates across large-scale or open models such as GPT-5, Claude, Gemini, or custom fine-tunes.</li>
-<li><strong>Multi-Agent Arbitration</strong><br>Enables domain agents to deliberate and align before responding, producing outcomes that reflect balanced reasoning rather than a single model’s perspective.</li>
-<li><strong>Cost-Aware Governance</strong><br>Monitors operational efficiency and detects recursive or low-value reasoning loops, enforcing resource and iteration limits to maintain performance.</li>
-<li><strong>Regulatory Readiness</strong><br>Delivers compliance through constraint-governed memory, retention policies, and full audit transparency.</li>
-<li><strong>Automatic Behavioral Scaffolding</strong><br>A.R.C. generates role identity, constraint hierarchies, tone defaults, and escalation rules at runtime—eliminating the need for teams to manually configure guardrails or maintain large rule sets.</li>
+<li><strong>Dual-loop Runtime Governance</strong><br>
+A.R.C. manages behavior at the agent level while L.R.C. governs internal cognitive processes. Together they regulate tone, memory, permissions, internal activation behavior, and both inter-agent and intra-model deliberation.</li>
+
+<li><strong>Constraint-Aware Memory</strong><br>
+Adaptablox governs what information agents retain or recall. It enforces retention limits, scoped access, and full provenance across all memory types.</li>
+
+<li><strong>Internal Reasoning Governance</strong><br>
+L.R.C. identifies relevant internal mechanisms, applies policy boundaries to their engagement, redirects unsuitable reasoning paths, and resolves conflicts between competing internal interpretations.</li>
+
+<li><strong>Multi-Agent Arbitration</strong><br>
+Specialized agents reason together under a shared policy. Their outputs are reconciled so the system presents one coherent, policy-aligned response.</li>
+
+<li><strong>Auditability by Design</strong><br>
+Every meaningful behavioral or internal reasoning adjustment is logged with contextual metadata, enabling full traceability.</li>
+
+<li><strong>Model-Agnostic Architecture</strong><br>
+Adaptablox works across proprietary, open, and custom models. It does not modify model weights or depend on any specific interpretability approach.</li>
+
+<li><strong>Cost-Aware Governance</strong><br>
+The system prevents redundant reasoning and excessive deliberation by enforcing efficient pathways at both the behavioral and internal levels.</li>
+
+<li><strong>Regulatory Readiness</strong><br>
+Behavior, memory, and internal reasoning are governed through explicit policies, producing transparent and compliant operation by default.</li>
 </ul>
 
-<h2>Strategic Fit</h2>
+<h2>How Adaptablox interprets prompts</h2>
 <p>
-Most organizations already manage <em>who</em> can access <em>what</em>. A.R.C. governs <em>how</em> intelligent systems behave, remember, and evolve once access is granted. It bridges the gap between user intent, institutional policy, and AI expression. The framework integrates with orchestration and workflow platforms, standardizes tone and compliance logic across heterogeneous agents, and links every behavioral decision to a transparent governance policy.
+Adaptablox treats every input as a source of contextual signals.<br>
+A.R.C. infers intent, domain, tone, and risk, then selects the appropriate behavioral mode or delegates to the right agent.<br>
+If input falls outside an agent’s scope, A.R.C. adjusts behavior or escalates as needed.<br><br>
+
+L.R.C. applies similar discipline internally by guiding how reasoning mechanisms engage, interact, or reroute under policy.
 </p>
 
-
-<h2>How A.R.C. interprets prompts</h2>
+<h2>Configuration and Operation</h2>
 <p>
-Each prompt provides contextual signals that A.R.C. uses to infer domain, intent, and tonal cues. These signals determine which agents or behavioral modes are most relevant at that moment, allowing A.R.C. to adapt or hand off tasks as needed.<br><br>
-When input falls outside an agent’s current boundaries, the system can apply temporary behavioral adjustments or delegate to another agent, maintaining interpretability and compliance without interrupting the interaction.
+Teams specify high-level intent and policy. Adaptablox generates the surrounding governance structures automatically, including roles, constraints, tone defaults, memory rules, escalation paths, and internal reasoning boundaries.<br>
+As agents operate, A.R.C. keeps behavior aligned.<br>
+As models reason, L.R.C. keeps internal thinking stable, safe, and auditable.<br><br>
+
+The result is a unified layer that provides predictable behavior and interpretable reasoning across all agents and models.
 </p>
 
-<h2>Configuration</h2>
-<p>
-Most agent frameworks place the burden of safety and behavioral control on developers, requiring them to manually define guardrails, escalation logic, and personality constraints for every agent. The A.R.C. system removes that complexity by automatically generating and enforcing the essential behavioral scaffolding around any agent at runtime.
-</p>
-
-<p>
-A.R.C. analyzes each task, identifies the relevant domain, and selects the appropriate behavioral arc—complete with role identity, constraint hierarchy, tone defaults, and escalation rules. Instead of hand-coding policies, teams declare high-level intent and A.R.C. handles the rest.
-</p>
-
-<p>
-Compliance becomes a byproduct of architecture rather than a manual effort. As an agent works, A.R.C. continuously monitors its reasoning, confidence, and outputs using reflexive constraint checks, just-in-time micro-arcs, fallback arcs, and dynamic tone modulation. This ensures that every response stays within defined boundaries while adapting appropriately to risk, uncertainty, and changing context.
-</p>
-
-<p>
-The result is a governance layer that provides consistent, auditable behavior across all agents—without requiring teams to configure or maintain large rule sets.
-</p>
 <h2>Vision</h2>
 <p>
-As multi-agent ecosystems mature, A.R.C. ensures they operate with transparency and coherence—<em>one voice, many minds</em>. It defines how intelligence remembers, reasons, and expresses itself responsibly.
+AI is evolving toward ambient assistance, multi-agent ecosystems, and increasingly interpretable internal structures.
+These systems need a stable foundation for both behavior and cognition.
+Adaptablox provides that foundation, aligning how intelligence expresses itself with how it reasons.
+One system, many agents. One policy, many pathways. A coherent future for autonomous intelligence.
 </p>
 
 </div> 
@@ -687,31 +714,23 @@ title="A.R.C. Ambient Assistant"
 const termsDeck = [
 {
   term: "Behavioral Arc",
-  def: "A structured profile that defines an agent’s role, tone, and behavioral boundaries. Each arc governs how reasoning and interaction evolve within policy over time."
+  def: "A structured profile that defines an agent’s role, tone, and behavioral boundaries. Each arc governs how reasoning and interaction unfold within policy over time."
 },
 {
   term: "Task Fingerprint",
-  def: "A contextual signature derived from each prompt’s semantics, tone, and intent. It helps the system route tasks to relevant agents or adjust behavior dynamically."
-},
-{
-  term: "Prompt Interpreter",
-  def: "A component that analyzes natural-language input to identify domain intent and tone cues for adaptive task routing."
-},
-{
-  term: "Constraint Feedback Loop",
-  def: "A governance mechanism that refines behavioral parameters over time based on observed outcomes."
+  def: "A contextual signature derived from a prompt’s semantics, tone, and intent. It guides routing decisions and helps the system adjust behavior dynamically."
 },
 {
   term: "Constraint Stack",
-  def: "A prioritized collection of rule layers that specify what an agent may or may not do within its control layer."
+  def: "A prioritized set of rule layers that specify what an agent may or may not do within its operational scope."
 },
 {
   term: "Hybridization",
-  def: "The system’s ability to combine perspectives from different agent roles (arcs) into one adaptive, constraint-aligned response."
+  def: "The controlled blending of perspectives from multiple agent roles to form a single, policy-aligned response."
 },
 {
   term: "Escalation",
-  def: "The governed process of routing a task to another agent or domain when assurance levels or policy limits are exceeded."
+  def: "A governed process of routing a task to another agent or domain when assurance levels or policy thresholds are exceeded."
 },
 {
   term: "Tone Profile",
@@ -723,66 +742,122 @@ const termsDeck = [
 },
 {
   term: "Controller Agent",
-  def: "A coordinating agent that orchestrates sub-agents, harmonizing their outputs through constraint-aware synthesis."
+  def: "A coordinating agent that synthesizes outputs from sub-agents and enforces alignment through constraint-aware reasoning."
 },
 {
   term: "Constraint Hierarchy",
-  def: "A layered rule structure that determines how one agent’s arc constraints take precedence over another’s when agents collaborate or hybridize."
+  def: "A layered rule structure that determines how one agent’s constraints take precedence over another’s when agents collaborate or hybridize."
 },
 {
   term: "Reflexive Transparency",
-  def: "Each behavioral change is recorded with contextual metadata, creating a verifiable audit trail of reasoning and control."
+  def: "A mechanism by which behavioral adjustments and governance decisions are logged with contextual metadata for auditability."
+},
+{
+  term: "Latent Role Assignment",
+  def: "A process that identifies relevant internal mechanisms—such as latent representations or reasoning patterns—and assigns functional roles under policy. This guides internal cognition along governed pathways rather than unconstrained activation."
+},
+{
+  term: "Circuit Guardrail",
+  def: "A policy boundary applied within the model’s internal reasoning layer. Guardrails limit unsafe or misaligned internal activity and direct reasoning toward policy-compliant pathways."
+},
+{
+  term: "Sparse-Circuit Arbitration",
+  def: "A constraint-guided resolution process where competing internal interpretations or activation patterns are evaluated. The system selects or blends internal reasoning paths that align with policy, analogous to multi-agent arbitration."
+},
+{
+  term: "Activation Rerouting",
+  def: "A governed fallback mechanism that redirects internal reasoning to alternative pathways when the original trajectory exceeds allowed boundaries or risk thresholds."
+},
+{
+  term: "Reasoning Limit",
+  def: "A constraint on depth, chain length, or pathway expansion in the model’s internal reasoning. These limits prevent runaway reasoning and help maintain policy alignment."
+},
+{
+  term: "Cognitive Trace",
+  def: "A lightweight record of which internal components or latent roles contributed to a final output. This provides transparency analogous to A.R.C.’s external audit trail."
+},
+{
+  term: "Latent Escalation",
+  def: "The process of transitioning internal reasoning to a safer or more constrained latent role when a pathway approaches a policy boundary or produces uncertain signals."
+},
+{
+  term: "Reasoning Policy",
+  def: "A set of internal governance rules that guide how latent mechanisms activate, interact, suppress, or escalate. It maintains alignment with organizational or system-level constraints."
 }
 ];
 
 const faqDeck = [
 {
   term: "Does A.R.C. improve model accuracy?",
-  def: "No. It governs behavior and context at runtime rather than modifying model weights."
+  def: "No. A.R.C. governs behavior and context at runtime rather than modifying model weights or training methods."
 },
 {
   term: "How does A.R.C. decide when an agent should evolve or escalate?",
-  def: "It reads tone, intent, and domain cues. When a prompt falls outside scope, A.R.C. adapts behavior or hands off the task—keeping responses aligned without retraining."
+  def: "It evaluates tone, intent, domain cues, and policy fit. When a prompt falls outside scope, A.R.C. adjusts behavior or hands off the task without requiring retraining."
 },
 {
-  term: "What if agents read a prompt differently?",
-  def: "A.R.C. compares each agent’s confidence and constraint fit, then blends or selects outputs to give one balanced, transparent response."
+  term: "What if agents interpret a prompt differently?",
+  def: "A.R.C. compares each agent’s confidence and constraint alignment, then blends or selects outputs to deliver a balanced and transparent response."
 },
 {
   term: "Can A.R.C. learn over time?",
-  def: "It refines its behavioral rules through feedback, tuning tone and constraint balance from real use—improving conduct, not just accuracy."
+  def: "It adapts its behavioral parameters through feedback, refining tone, escalation behavior, and constraint balance from real use."
 },
 {
   term: "How are agent responses synthesized?",
-  def: "A controller agent reconciles multiple outputs through constraint-informed arbitration and tone alignment."
+  def: "A controller agent reconciles outputs across domains through constraint-aware arbitration and tone alignment."
 },
 {
   term: "Will larger frontier models solve governance?",
-  def: "No. Training improves factual accuracy, but not behavior. Runtime governance enables adaptive modulation and policy updates without retraining, maintaining consistency across changing contexts."
+  def: "No. Training improves factual accuracy, but not behavior. Runtime governance enables adaptive modulation and policy updates without retraining, ensuring consistency across contexts."
 },
 {
   term: "Can A.R.C. prevent harmful or off-policy outputs?",
-  def: "A.R.C. enforces behavioral constraints in real time, reducing tone drift and policy violations through escalation, fallback, and constraint-aware synthesis."
+  def: "A.R.C. enforces behavioral constraints in real time, reducing drift and policy violations through escalation, fallback, and constraint-aware synthesis."
 },
 {
   term: "How does the system assemble multiple agents?",
-  def: "It derives a compact context signature from task semantics and tone, matching it to relevant domains and agents to determine whether to invoke a single arc or a coordinated ensemble."
-},
-{
-  term: "Will A.R.C. increase latency or cost?",
-  def: "No. A.R.C. performs lightweight policy checks that activate only when needed, preventing redundant reasoning and ensuring efficient agent coordination."
+  def: "It derives a compact context signature from task semantics and tone, matching it to relevant domains and agents to determine whether to invoke a single role or a coordinated ensemble."
 },
 {
   term: "How does A.R.C. handle memory in regulated environments?",
-  def: "It segments memory by type and applies constraint-aware rules for access, retention, and redaction. In regulated contexts, it enforces retention limits, filters sensitive content, and logs every access for audit review."
+  def: "It segments memory by type and applies constraint-aware rules for access, retention, and redaction. It enforces retention limits, filters sensitive content, and logs every access for review."
 },
 {
   term: "Can A.R.C. support multistep chaining of agent tasks?",
-  def: "Yes. A.R.C. preserves behavioral and tonal continuity across chained agents so that each stage maintains consistent context, tone, and policy compliance as tasks progress."
+  def: "Yes. A.R.C. preserves behavioral and tonal continuity across chained agents, maintaining consistent context, policy alignment, and governance throughout."
 },
 {
   term: "How does A.R.C. differ from access governance?",
-  def: "Access governance controls who can use a resource. A.R.C. governs how agents behave once access is granted, modulating tone, permissions, and escalation in real time."
+  def: "Access governance defines who can use a resource. A.R.C. governs how agents behave once access is granted, modulating tone, permissions, and escalation at runtime."
+},
+{
+  term: "Does L.R.C. change the model’s weights?",
+  def: "No. L.R.C. governs internal reasoning at runtime and shapes activation behavior without modifying or retraining the underlying model."
+},
+{
+  term: "How does L.R.C. interact with A.R.C.?",
+  def: "A.R.C. governs agent behavior at the surface. L.R.C. governs internal reasoning dynamics. Together they align how the system thinks with how it communicates and acts."
+},
+{
+  term: "Can L.R.C. reduce hallucinations?",
+  def: "It reduces risk by constraining internal reasoning patterns, limiting unsafe pathways, and guiding activation toward policy-aligned interpretations."
+},
+{
+  term: "How does Adaptablox improve efficiency?",
+  def: "By reducing unnecessary reasoning and limiting redundant agent or internal activation, Adaptablox minimizes compute waste and promotes efficient task routing."
+},
+{
+  term: "Is L.R.C. compatible with interpretability tools?",
+  def: "Yes. L.R.C. can incorporate insights from interpretability methods when available, but does not depend on any specific approach or tool."
+},
+{
+  term: "Why govern internal reasoning at all? Isn’t output control enough?",
+  def: "Output-only governance reacts to errors after they occur. L.R.C. addresses risk earlier by shaping internal reasoning before a response is generated."
+},
+{
+  term: "Can L.R.C. work with any model?",
+  def: "Yes. It is model-agnostic and compatible with proprietary, open, fine-tuned, or emerging architectures without requiring structural assumptions."
 }
 ];
 
@@ -903,6 +978,43 @@ art:String.raw`
 | - Trace chain of delegation                          |
 | - Inspect constraint hierarchy per agent             |
 | - Review reasoning flow through stored trace entries |
++------------------------------------------------------+<br><br>`
+},
+{
+title:"Full Dual-Loop Governance Flow (A.R.C. → L.R.C.)",
+desc:"Shows how Adaptablox governs both surface-level agent behavior and internal model reasoning. The outer loop (A.R.C.) modulates behavior, tone, memory, and delegation, while the inner loop (L.R.C.) guides latent reasoning and activation patterns. Together they form a unified governance layer that shapes how the system interprets inputs, reasons internally, and produces policy-aligned outputs.",
+art:String.raw`
++----------------------------------------------+
+|                USER INPUT                    |
+|     (Natural language, task request, etc.)   |
++----------------------------------------------+
+▼
++------------------------------------------------------+
+|             OUTER LOOP: A.R.C. GOVERNANCE            |
+|  - Interprets intent, tone, domain, and risk         |
+|  - Selects or configures agents as needed            |
+|  - Applies behavioral constraints and memory rules   |
++------------------------------------------------------+
+▼
++------------------------------------------------------+
+|             INNER LOOP: L.R.C. GOVERNANCE            |
+|  - Oversees internal reasoning dynamics              |
+|  - Guides activation patterns under policy           |
+|  - Applies boundaries to internal representations    |
+|  - Resolves conflicts in latent interpretations      |
++------------------------------------------------------+
+▼
++------------------------------------------------------+
+|                 MODEL REASONING LAYER                |
+|   (Latent patterns, internal representations, etc.)  |
+|     Governed at runtime but not modified as weights  |
++------------------------------------------------------+
+▼
++------------------------------------------------------+
+|              POLICY-ALIGNED SYSTEM OUTPUT            |
+|   - Coherent reasoning                               |
+|   - Consistent tone                                  |
+|   - Traceable behavioral & internal governance       |
 +------------------------------------------------------+<br><br>`
 },
 {
