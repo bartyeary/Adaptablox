@@ -1,0 +1,14 @@
+# Dependencies
+node_modules
+
+# Next.js build artifacts (DO NOT commit)
+.next
+out
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env*
