@@ -1,0 +1,630 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="/_next/static/css/30b319dc87ad16c4.css" crossorigin="" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/webpack-ff2cf253aac50552.js" crossorigin=""/><script src="/_next/static/chunks/fd9d1056-0caa3c132cffad44.js" async="" crossorigin=""></script><script src="/_next/static/chunks/472-f8fe5f78e131578b.js" async="" crossorigin=""></script><script src="/_next/static/chunks/main-app-1c47e75263b18c17.js" async="" crossorigin=""></script><script src="/_next/static/chunks/app/layout-2bfa9874413523fe.js" async=""></script><title>404: This page could not be found.</title><title>Adaptablox - About</title><meta name="description" content="Autonomous AI authority enforcement"/><script>
+              console.log('=== Inline script executed - JavaScript is working! ===');
+              
+              // Set up a simple navigation system that works without React
+              // Start with 'overview' to match React's initial state
+              let currentPage = 'overview';
+              
+              // Directly update segmented control button states in the DOM (independent of React)
+              function updateSegmentedControlButtons(activePage) {
+                console.log('Updating segmented control buttons for page:', activePage);
+                
+                // Find all segmented control containers (they exist on each page)
+                const controls = document.querySelectorAll('[data-name="control"]');
+                controls.forEach(function(control) {
+                  // Overview button (data-node-id="27:669")
+                  const overviewBtn = control.querySelector('[data-node-id="27:669"]');
+                  if (overviewBtn) {
+                    const btn = overviewBtn;
+                    const span = btn.querySelector('span');
+                    if (activePage === 'overview') {
+                      btn.className = 'content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity bg-[#eef0f4] shadow-[0px_6px_15px_0px_rgba(0,0,0,0.12)]';
+                      if (span) span.className = 'font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap text-[#5b5b5f]';
+                    } else {
+                      btn.className = 'content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity bg-transparent hover:opacity-80';
+                      if (span) span.className = 'font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap text-white';
+                    }
+                  }
+                  
+                  // Failure Cases button (data-node-id="27:671")
+                  const aboutBtn = control.querySelector('[data-node-id="27:671"]');
+                  if (aboutBtn) {
+                    const btn = aboutBtn;
+                    const span = btn.querySelector('span');
+                    if (activePage === 'about') {
+                      btn.className = 'content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity bg-[#eef0f4] shadow-[0px_6px_15px_0px_rgba(0,0,0,0.12)]';
+                      if (span) span.className = 'font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap text-[#5b5b5f]';
+                    } else {
+                      btn.className = 'content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity bg-transparent hover:opacity-80';
+                      if (span) span.className = 'font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap text-white';
+                    }
+                  }
+                  
+                  // FAQs button (data-node-id="1:10")
+                  const faqsBtn = control.querySelector('[data-node-id="1:10"]');
+                  if (faqsBtn) {
+                    const btn = faqsBtn;
+                    const span = btn.querySelector('span');
+                    if (activePage === 'faqs') {
+                      btn.className = 'content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity bg-[#eef0f4] shadow-[0px_6px_15px_0px_rgba(0,0,0,0.12)]';
+                      if (span) span.className = 'font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap text-[#5b5b5f]';
+                    } else {
+                      btn.className = 'content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity bg-transparent hover:opacity-80';
+                      if (span) span.className = 'font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap text-white';
+                    }
+                  }
+                  
+                  // Demo button (data-node-id="1:12")
+                  const demoBtn = control.querySelector('[data-node-id="1:12"]');
+                  if (demoBtn) {
+                    const btn = demoBtn;
+                    const span = btn.querySelector('span');
+                    if (activePage === 'demo') {
+                      btn.className = 'content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity bg-[#eef0f4] shadow-[0px_6px_15px_0px_rgba(0,0,0,0.12)]';
+                      if (span) span.className = 'font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap text-[#5b5b5f]';
+                    } else {
+                      btn.className = 'content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity bg-transparent hover:opacity-80';
+                      if (span) span.className = 'font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap text-white';
+                    }
+                  }
+                });
+                
+                console.log('Segmented control buttons updated');
+              }
+              
+              function navigateToPage(page) {
+                console.log('Navigating to page:', page);
+                currentPage = page;
+                
+                // Directly manipulate the DOM to show/hide pages
+                // Find the wrapper divs that contain the pages
+                const pageContainer = document.querySelector('[data-page-container]');
+                if (!pageContainer) {
+                  console.log('Page container not found, waiting...');
+                  setTimeout(function() { navigateToPage(page); }, 100);
+                  return;
+                }
+                
+                // Try multiple selectors to find the pages
+                const overviewWrapper = pageContainer.querySelector('[data-wrapper="overview"]') || pageContainer.querySelector('[data-always-render="true"]:first-child');
+                const aboutWrapper = pageContainer.querySelector('[data-wrapper="about"]') || pageContainer.querySelector('[data-always-render="true"]:nth-child(2)');
+                const faqsWrapper = pageContainer.querySelector('[data-wrapper="faqs"]') || pageContainer.querySelector('[data-always-render="true"]:nth-child(3)');
+                const demoWrapper = pageContainer.querySelector('[data-wrapper="demo"]') || pageContainer.querySelector('[data-name="demo"]');
+                
+                // Also try finding by data-name as fallback
+                const overviewPage = document.querySelector('[data-name="adaptablox - overview"]');
+                const aboutPage = document.querySelector('[data-name="adaptablox - about"]');
+                const faqsPage = document.querySelector('[data-name="adaptablox - faqs"]');
+                const demoPage = document.querySelector('[data-name="adaptablox - demo"]') || document.querySelector('[data-name="demo"]');
+                
+                console.log('Overview wrapper found:', overviewWrapper);
+                console.log('About wrapper found:', aboutWrapper);
+                console.log('FAQs wrapper found:', faqsWrapper);
+                console.log('Demo wrapper found:', demoWrapper);
+                console.log('Overview page found:', overviewPage);
+                console.log('About page found:', aboutPage);
+                console.log('FAQs page found:', faqsPage);
+                console.log('Demo page found:', demoPage);
+                
+                // Hide/show wrapper divs (these control visibility)
+                if (overviewWrapper) {
+                  overviewWrapper.style.display = page === 'overview' ? 'block' : 'none';
+                  overviewWrapper.style.visibility = page === 'overview' ? 'visible' : 'hidden';
+                  console.log('Set overview wrapper display to:', page === 'overview' ? 'block' : 'none');
+                } else {
+                  console.log('Overview wrapper NOT found!');
+                }
+                if (aboutWrapper) {
+                  aboutWrapper.style.display = page === 'about' ? 'block' : 'none';
+                  aboutWrapper.style.visibility = page === 'about' ? 'visible' : 'hidden';
+                  console.log('Set about wrapper display to:', page === 'about' ? 'block' : 'none');
+                } else {
+                  console.log('About wrapper NOT found!');
+                }
+                if (faqsWrapper) {
+                  faqsWrapper.style.display = page === 'faqs' ? 'block' : 'none';
+                  faqsWrapper.style.visibility = page === 'faqs' ? 'visible' : 'hidden';
+                  console.log('Set FAQs wrapper display to:', page === 'faqs' ? 'block' : 'none');
+                } else {
+                  console.log('FAQs wrapper NOT found!');
+                }
+                if (demoWrapper) {
+                  demoWrapper.style.display = page === 'demo' ? 'block' : 'none';
+                  demoWrapper.style.visibility = page === 'demo' ? 'visible' : 'hidden';
+                  console.log('Set demo wrapper display to:', page === 'demo' ? 'block' : 'none');
+                } else {
+                  console.log('Demo wrapper NOT found!');
+                }
+                
+                // Also hide/show the actual page elements as backup
+                if (overviewPage) {
+                  overviewPage.style.display = page === 'overview' ? 'block' : 'none';
+                }
+                if (aboutPage) {
+                  aboutPage.style.display = page === 'about' ? 'block' : 'none';
+                }
+                if (faqsPage) {
+                  faqsPage.style.display = page === 'faqs' ? 'block' : 'none';
+                }
+                if (demoPage) {
+                  demoPage.style.display = page === 'demo' ? 'block' : 'none';
+                }
+                
+                // Also try to update React if it's available
+                // Set data-active-page attribute - this is the source of truth for React sync
+                if (pageContainer) {
+                  const currentAttr = pageContainer.getAttribute('data-active-page');
+                  if (currentAttr !== page) {
+                    console.log('Setting data-active-page to:', page, '(was:', currentAttr, ')');
+                    pageContainer.setAttribute('data-active-page', page);
+                  }
+                }
+                
+                // Update button states immediately (independent of React)
+                updateSegmentedControlButtons(page);
+                
+                // Try to call React navigate directly FIRST (if available)
+                // Retry multiple times with increasing delays to catch React hydration
+                function tryReactNavigate(retries) {
+                  retries = retries || 0;
+                  if (window.__reactNavigate) {
+                    console.log('Calling React navigate directly from navigateToPage:', page);
+                    try {
+                      window.__reactNavigate(page);
+                      console.log('Successfully called __reactNavigate');
+                    } catch (err) {
+                      console.error('Error calling __reactNavigate:', err);
+                    }
+                  } else if (retries < 10) {
+                    console.log('window.__reactNavigate not available yet, retry', retries + 1);
+                    setTimeout(function() {
+                      tryReactNavigate(retries + 1);
+                    }, 50 * (retries + 1)); // Exponential backoff
+                  } else {
+                    console.log('window.__reactNavigate still not available after', retries, 'retries');
+                  }
+                }
+                tryReactNavigate(0);
+                
+                // Dispatch event for React (if it ever hydrates)
+                const event = new CustomEvent('navigate', { 
+                  detail: { page },
+                  bubbles: true,
+                  cancelable: true
+                });
+                window.dispatchEvent(event);
+                document.dispatchEvent(event);
+                
+                console.log('Page navigation complete, current page:', page);
+              }
+              
+              // Expose navigation functions immediately - these just dispatch events
+              window.testNavigateOverview = () => {
+                console.log('window.testNavigateOverview called');
+                navigateToPage('overview');
+              };
+              window.testNavigateAbout = () => {
+                console.log('window.testNavigateAbout called');
+                navigateToPage('about');
+              };
+              window.testNavigate = () => {
+                console.log('window.testNavigate called');
+                navigateToPage('faqs');
+              };
+              window.testNavigateDemo = () => {
+                console.log('window.testNavigateDemo called');
+                navigateToPage('demo');
+              };
+              
+              console.log('Navigation functions set up in inline script');
+              
+              function setupClickHandlers() {
+                // Try document-level listener in capture phase
+                document.addEventListener('click', function(e) {
+                  console.log('=== DOCUMENT CLICK DETECTED (CAPTURE) ===', e.target);
+                  console.log('Click target:', e.target);
+                  console.log('Click coordinates:', e.clientX, e.clientY);
+                  console.log('Event phase:', e.eventPhase);
+                  
+                  const target = e.target;
+                  if (target && target.matches) {
+                    if (target.matches('[data-test="link"]') || target.closest('[data-test="link"]')) {
+                      console.log('MATCHED TEST LINK!');
+                      e.preventDefault();
+                      e.stopPropagation();
+                      e.stopImmediatePropagation();
+                      alert('Test link clicked via document listener!');
+                      if (window.testNavigate) {
+                        window.testNavigate();
+                      }
+                      return false;
+                    }
+                    
+                    if (target.matches('[data-test="button"]') || target.closest('[data-test="button"]')) {
+                      console.log('MATCHED TEST BUTTON!');
+                      e.preventDefault();
+                      e.stopPropagation();
+                      e.stopImmediatePropagation();
+                      alert('Test button clicked via document listener!');
+                      if (window.testNavigate) {
+                        window.testNavigate();
+                      }
+                      return false;
+                    }
+                    
+                    if (target.matches('[data-node-id="1:10"]') || target.closest('[data-node-id="1:10"]')) {
+                      console.log('MATCHED FAQs BUTTON!');
+                      e.preventDefault();
+                      e.stopPropagation();
+                      e.stopImmediatePropagation();
+                      // Try React navigate first
+                      console.log('Checking for __reactNavigate:', typeof window.__reactNavigate);
+                      if (window.__reactNavigate) {
+                        console.log('Calling React navigate for faqs');
+                        try {
+                          window.__reactNavigate('faqs');
+                          console.log('React navigate called successfully');
+                        } catch (err) {
+                          console.error('Error calling React navigate:', err);
+                        }
+                      } else {
+                        console.log('__reactNavigate not available, will try again after delay');
+                        // Retry multiple times
+                        let retries = 0;
+                        const retryInterval = setInterval(() => {
+                          retries++;
+                          if (window.__reactNavigate) {
+                            console.log('Calling React navigate for faqs (delayed, retry', retries, ')');
+                            window.__reactNavigate('faqs');
+                            clearInterval(retryInterval);
+                          } else if (retries >= 20) {
+                            console.log('Gave up waiting for __reactNavigate after', retries, 'retries');
+                            clearInterval(retryInterval);
+                          }
+                        }, 50);
+                      }
+                      console.log('Calling window.testNavigate for FAQs');
+                      
+                      // Wait for React to hydrate if needed
+                      function tryNavigate() {
+                        if (window.testNavigate) {
+                          console.log('window.testNavigate found, calling it');
+                          window.testNavigate();
+                        } else {
+                          console.log('window.testNavigate not ready, retrying...');
+                          setTimeout(tryNavigate, 100);
+                        }
+                      }
+                      tryNavigate();
+                      return false;
+                    }
+                    
+                    // Also check for About and Demo buttons (from About page)
+                    if (target.matches('[data-node-id="1:6"]') || target.closest('[data-node-id="1:6"]')) {
+                      console.log('MATCHED ABOUT BUTTON!');
+                      e.preventDefault();
+                      e.stopPropagation();
+                      e.stopImmediatePropagation();
+                      // Try React navigate first
+                      console.log('Checking for __reactNavigate:', typeof window.__reactNavigate);
+                      if (window.__reactNavigate) {
+                        console.log('Calling React navigate for about');
+                        try {
+                          window.__reactNavigate('about');
+                          console.log('React navigate called successfully');
+                        } catch (err) {
+                          console.error('Error calling React navigate:', err);
+                        }
+                      } else {
+                        console.log('__reactNavigate not available, will try again after delay');
+                        // Retry multiple times
+                        let retries = 0;
+                        const retryInterval = setInterval(() => {
+                          retries++;
+                          if (window.__reactNavigate) {
+                            console.log('Calling React navigate for about (delayed, retry', retries, ')');
+                            window.__reactNavigate('about');
+                            clearInterval(retryInterval);
+                          } else if (retries >= 20) {
+                            console.log('Gave up waiting for __reactNavigate after', retries, 'retries');
+                            clearInterval(retryInterval);
+                          }
+                        }, 50);
+                      }
+                      function tryNavigateAbout() {
+                        if (window.testNavigateAbout) {
+                          window.testNavigateAbout();
+                        } else {
+                          setTimeout(tryNavigateAbout, 100);
+                        }
+                      }
+                      tryNavigateAbout();
+                      return false;
+                    }
+                    
+                    if (target.matches('[data-node-id="1:12"]') || target.closest('[data-node-id="1:12"]')) {
+                      console.log('MATCHED DEMO BUTTON!');
+                      e.preventDefault();
+                      e.stopPropagation();
+                      e.stopImmediatePropagation();
+                      // Try React navigate first
+                      console.log('Checking for __reactNavigate:', typeof window.__reactNavigate);
+                      if (window.__reactNavigate) {
+                        console.log('Calling React navigate for demo');
+                        try {
+                          window.__reactNavigate('demo');
+                          console.log('React navigate called successfully');
+                        } catch (err) {
+                          console.error('Error calling React navigate:', err);
+                        }
+                      } else {
+                        console.log('__reactNavigate not available, will try again after delay');
+                        // Retry multiple times
+                        let retries = 0;
+                        const retryInterval = setInterval(() => {
+                          retries++;
+                          if (window.__reactNavigate) {
+                            console.log('Calling React navigate for demo (delayed, retry', retries, ')');
+                            window.__reactNavigate('demo');
+                            clearInterval(retryInterval);
+                          } else if (retries >= 20) {
+                            console.log('Gave up waiting for __reactNavigate after', retries, 'retries');
+                            clearInterval(retryInterval);
+                          }
+                        }, 50);
+                      }
+                      function tryNavigateDemo() {
+                        if (window.testNavigateDemo) {
+                          window.testNavigateDemo();
+                        } else {
+                          setTimeout(tryNavigateDemo, 100);
+                        }
+                      }
+                      tryNavigateDemo();
+                      return false;
+                    }
+                    
+                    // Check for Overview and Failure Cases buttons (new structure)
+                    if (target.matches('[data-node-id="27:669"]') || target.closest('[data-node-id="27:669"]')) {
+                      console.log('MATCHED OVERVIEW BUTTON!');
+                      e.preventDefault();
+                      e.stopPropagation();
+                      e.stopImmediatePropagation();
+                      // Try React navigate first
+                      console.log('Checking for __reactNavigate:', typeof window.__reactNavigate);
+                      if (window.__reactNavigate) {
+                        console.log('Calling React navigate for overview');
+                        try {
+                          window.__reactNavigate('overview');
+                          console.log('React navigate called successfully');
+                        } catch (err) {
+                          console.error('Error calling React navigate:', err);
+                        }
+                      } else {
+                        console.log('__reactNavigate not available, will try again after delay');
+                        // Retry multiple times
+                        let retries = 0;
+                        const retryInterval = setInterval(() => {
+                          retries++;
+                          if (window.__reactNavigate) {
+                            console.log('Calling React navigate for overview (delayed, retry', retries, ')');
+                            window.__reactNavigate('overview');
+                            clearInterval(retryInterval);
+                          } else if (retries >= 20) {
+                            console.log('Gave up waiting for __reactNavigate after', retries, 'retries');
+                            clearInterval(retryInterval);
+                          }
+                        }, 50);
+                      }
+                      function tryNavigateOverview() {
+                        if (window.testNavigateOverview) {
+                          window.testNavigateOverview();
+                        } else {
+                          setTimeout(tryNavigateOverview, 100);
+                        }
+                      }
+                      tryNavigateOverview();
+                      return false;
+                    }
+                    
+                    if (target.matches('[data-node-id="27:671"]') || target.closest('[data-node-id="27:671"]')) {
+                      console.log('MATCHED FAILURE CASES BUTTON!');
+                      e.preventDefault();
+                      e.stopPropagation();
+                      e.stopImmediatePropagation();
+                      // Try React navigate first
+                      console.log('Checking for __reactNavigate:', typeof window.__reactNavigate);
+                      if (window.__reactNavigate) {
+                        console.log('Calling React navigate for about');
+                        try {
+                          window.__reactNavigate('about');
+                          console.log('React navigate called successfully');
+                        } catch (err) {
+                          console.error('Error calling React navigate:', err);
+                        }
+                      } else {
+                        console.log('__reactNavigate not available, will try again after delay');
+                        // Retry multiple times
+                        let retries = 0;
+                        const retryInterval = setInterval(() => {
+                          retries++;
+                          if (window.__reactNavigate) {
+                            console.log('Calling React navigate for about (delayed, retry', retries, ')');
+                            window.__reactNavigate('about');
+                            clearInterval(retryInterval);
+                          } else if (retries >= 20) {
+                            console.log('Gave up waiting for __reactNavigate after', retries, 'retries');
+                            clearInterval(retryInterval);
+                          }
+                        }, 50);
+                      }
+                      function tryNavigateAbout() {
+                        if (window.testNavigateAbout) {
+                          window.testNavigateAbout();
+                        } else {
+                          setTimeout(tryNavigateAbout, 100);
+                        }
+                      }
+                      tryNavigateAbout();
+                      return false;
+                    }
+                    
+                    // Check for FAQs page buttons
+                    if (target.matches('[data-node-id="1:167"]') || target.closest('[data-node-id="1:167"]')) {
+                      console.log('MATCHED ABOUT BUTTON (FAQs page)!');
+                      e.preventDefault();
+                      e.stopPropagation();
+                      e.stopImmediatePropagation();
+                      function tryNavigateAbout() {
+                        if (window.testNavigateAbout) {
+                          window.testNavigateAbout();
+                        } else {
+                          setTimeout(tryNavigateAbout, 100);
+                        }
+                      }
+                      tryNavigateAbout();
+                      return false;
+                    }
+                    
+                    if (target.matches('[data-node-id="1:171"]') || target.closest('[data-node-id="1:171"]')) {
+                      console.log('MATCHED FAQs BUTTON (FAQs page)!');
+                      e.preventDefault();
+                      e.stopPropagation();
+                      e.stopImmediatePropagation();
+                      function tryNavigate() {
+                        if (window.testNavigate) {
+                          window.testNavigate();
+                        } else {
+                          setTimeout(tryNavigate, 100);
+                        }
+                      }
+                      tryNavigate();
+                      return false;
+                    }
+                    
+                    if (target.matches('[data-node-id="1:173"]') || target.closest('[data-node-id="1:173"]')) {
+                      console.log('MATCHED DEMO BUTTON (FAQs page)!');
+                      e.preventDefault();
+                      e.stopPropagation();
+                      e.stopImmediatePropagation();
+                      function tryNavigateDemo() {
+                        if (window.testNavigateDemo) {
+                          window.testNavigateDemo();
+                        } else {
+                          setTimeout(tryNavigateDemo, 100);
+                        }
+                      }
+                      tryNavigateDemo();
+                      return false;
+                    }
+                  }
+                }, true); // Capture phase
+                
+                // Also try bubble phase
+                document.addEventListener('click', function(e) {
+                  console.log('=== DOCUMENT CLICK DETECTED (BUBBLE) ===', e.target);
+                }, false);
+                
+                // Add body-level click listener to catch ALL clicks
+                if (document.body) {
+                  document.body.addEventListener('click', function(e) {
+                    console.log('=== BODY CLICK DETECTED ===', e.target);
+                  }, true);
+                  console.log('Body click listener attached');
+                } else {
+                  console.log('Body not ready yet');
+                }
+                
+                console.log('Document click listener attached (capture phase)');
+                
+                function attachListeners() {
+                  const testLink = document.querySelector('[data-test="link"]');
+                  const testBtn = document.querySelector('[data-test="button"]');
+                  const faqsBtn = document.querySelector('[data-node-id="1:10"]');
+                  console.log('Test link found:', testLink);
+                  console.log('Test button found:', testBtn);
+                  console.log('FAQs button found:', faqsBtn);
+                  
+                  if (testLink) {
+                    testLink.addEventListener('click', function(e) {
+                      console.log('=== Test link direct listener fired! ===');
+                      e.preventDefault();
+                      e.stopPropagation();
+                      e.stopImmediatePropagation();
+                      console.log('Test link clicked via inline script!');
+                      alert('Test link clicked via inline script!');
+                      if (window.testNavigate) {
+                        window.testNavigate();
+                      }
+                      return false;
+                    }, true);
+                    console.log('Attached listener to test link');
+                  }
+                  
+                  if (testBtn) {
+                    testBtn.addEventListener('click', function(e) {
+                      console.log('=== Test button direct listener fired! ===');
+                      e.preventDefault();
+                      e.stopPropagation();
+                      e.stopImmediatePropagation();
+                      console.log('Test button clicked via inline script!');
+                      alert('Test button clicked via inline script!');
+                      if (window.testNavigate) {
+                        window.testNavigate();
+                      }
+                      return false;
+                    }, true);
+                    console.log('Attached listener to test button');
+                  }
+                  
+                  if (faqsBtn) {
+                    faqsBtn.addEventListener('click', function(e) {
+                      console.log('=== FAQs button direct listener fired! ===');
+                      e.preventDefault();
+                      e.stopPropagation();
+                      e.stopImmediatePropagation();
+                      console.log('FAQs button clicked via inline script!');
+                      alert('FAQs button clicked via inline script!');
+                      if (window.testNavigate) {
+                        window.testNavigate();
+                      }
+                      return false;
+                    }, true);
+                    console.log('Attached listener to FAQs button');
+                  }
+                }
+                
+                attachListeners();
+                setTimeout(attachListeners, 100);
+                setTimeout(attachListeners, 500);
+                setTimeout(attachListeners, 1000);
+                setTimeout(attachListeners, 2000);
+              }
+              
+              // Function to initialize button states on page load
+              function initializeButtonStates() {
+                const pageContainer = document.querySelector('[data-page-container]');
+                if (pageContainer) {
+                  const activePage = pageContainer.getAttribute('data-active-page') || currentPage;
+                  console.log('Initializing button states for page:', activePage);
+                  updateSegmentedControlButtons(activePage);
+                } else {
+                  // Retry if page container not ready
+                  setTimeout(initializeButtonStates, 100);
+                }
+              }
+              
+              if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', () => {
+                  console.log('DOMContentLoaded fired');
+                  setupClickHandlers();
+                  // Initialize button states after a short delay to ensure DOM is ready
+                  setTimeout(initializeButtonStates, 200);
+                });
+              } else {
+                console.log('Document already loaded');
+                setupClickHandlers();
+                // Initialize button states after a short delay to ensure DOM is ready
+                setTimeout(initializeButtonStates, 200);
+              }
+            </script><script src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js" crossorigin="" noModule=""></script></head><body><div style="font-family:system-ui,&quot;Segoe UI&quot;,Roboto,Helvetica,Arial,sans-serif,&quot;Apple Color Emoji&quot;,&quot;Segoe UI Emoji&quot;;height:100vh;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center"><div><style>body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}</style><h1 class="next-error-h1" style="display:inline-block;margin:0 20px 0 0;padding:0 23px 0 0;font-size:24px;font-weight:500;vertical-align:top;line-height:49px">404</h1><div style="display:inline-block"><h2 style="font-size:14px;font-weight:400;line-height:49px;margin:0">This page could not be found.</h2></div></div></div><script src="/_next/static/chunks/webpack-ff2cf253aac50552.js" crossorigin="" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0]);self.__next_f.push([2,null])</script><script>self.__next_f.push([1,"1:HL[\"/_next/static/css/30b319dc87ad16c4.css\",\"style\",{\"crossOrigin\":\"\"}]\n0:\"$L2\"\n"])</script><script>self.__next_f.push([1,"3:I[3728,[],\"\"]\n5:I[9928,[],\"\"]\n7:I[3300,[\"185\",\"static/chunks/app/layout-2bfa9874413523fe.js\"],\"NavigationProvider\"]\n8:I[6954,[],\"\"]\n9:I[7264,[],\"\"]\n6:T8749,"])</script><script>self.__next_f.push([1,"\n              console.log('=== Inline script executed - JavaScript is working! ===');\n              \n              // Set up a simple navigation system that works without React\n              // Start with 'overview' to match React's initial state\n              let currentPage = 'overview';\n              \n              // Directly update segmented control button states in the DOM (independent of React)\n              function updateSegmentedControlButtons(activePage) {\n                console.log('Updating segmented control buttons for page:', activePage);\n                \n                // Find all segmented control containers (they exist on each page)\n                const controls = document.querySelectorAll('[data-name=\"control\"]');\n                controls.forEach(function(control) {\n                  // Overview button (data-node-id=\"27:669\")\n                  const overviewBtn = control.querySelector('[data-node-id=\"27:669\"]');\n                  if (overviewBtn) {\n                    const btn = overviewBtn;\n                    const span = btn.querySelector('span');\n                    if (activePage === 'overview') {\n                      btn.className = 'content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity bg-[#eef0f4] shadow-[0px_6px_15px_0px_rgba(0,0,0,0.12)]';\n                      if (span) span.className = 'font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap text-[#5b5b5f]';\n                    } else {\n                      btn.className = 'content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity bg-transparent hover:opacity-80';\n                      if (span) span.className = 'font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap text-white';\n                    }\n                  }\n                  \n                  // Failure Cases button (data-node-id=\"27:671\")\n                  const aboutBtn = control.querySelector('[data-node-id=\"27:671\"]');\n                  if (aboutBtn) {\n                    const btn = aboutBtn;\n                    const span = btn.querySelector('span');\n                    if (activePage === 'about') {\n                      btn.className = 'content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity bg-[#eef0f4] shadow-[0px_6px_15px_0px_rgba(0,0,0,0.12)]';\n                      if (span) span.className = 'font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap text-[#5b5b5f]';\n                    } else {\n                      btn.className = 'content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity bg-transparent hover:opacity-80';\n                      if (span) span.className = 'font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap text-white';\n                    }\n                  }\n                  \n                  // FAQs button (data-node-id=\"1:10\")\n                  const faqsBtn = control.querySelector('[data-node-id=\"1:10\"]');\n                  if (faqsBtn) {\n                    const btn = faqsBtn;\n                    const span = btn.querySelector('span');\n                    if (activePage === 'faqs') {\n                      btn.className = 'content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity bg-[#eef0f4] shadow-[0px_6px_15px_0px_rgba(0,0,0,0.12)]';\n                      if (span) span.className = 'font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap text-[#5b5b5f]';\n                    } else {\n                      btn.className = 'content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity bg-transparent hover:opacity-80';\n                      if (span) span.className = 'font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap text-white';\n                    }\n                  }\n                  \n                  // Demo button (data-node-id=\"1:12\")\n                  const demoBtn = control.querySelector('[data-node-id=\"1:12\"]');\n                  if (demoBtn) {\n                    const btn = demoBtn;\n                    const span = btn.querySelector('span');\n                    if (activePage === 'demo') {\n                      btn.className = 'content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity bg-[#eef0f4] shadow-[0px_6px_15px_0px_rgba(0,0,0,0.12)]';\n                      if (span) span.className = 'font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap text-[#5b5b5f]';\n                    } else {\n                      btn.className = 'content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity bg-transparent hover:opacity-80';\n                      if (span) span.className = 'font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap text-white';\n                    }\n                  }\n                });\n                \n                console.log('Segmented control buttons updated');\n              }\n              \n              function navigateToPage(page) {\n                console.log('Navigating to page:', page);\n                currentPage = page;\n                \n                // Directly manipulate the DOM to show/hide pages\n                // Find the wrapper divs that contain the pages\n                const pageContainer = document.querySelector('[data-page-container]');\n                if (!pageContainer) {\n                  console.log('Page container not found, waiting...');\n                  setTimeout(function() { navigateToPage(page); }, 100);\n                  return;\n                }\n                \n                // Try multiple selectors to find the pages\n                const overviewWrapper = pageContainer.querySelector('[data-wrapper=\"overview\"]') || pageContainer.querySelector('[data-always-render=\"true\"]:first-child');\n                const aboutWrapper = pageContainer.querySelector('[data-wrapper=\"about\"]') || pageContainer.querySelector('[data-always-render=\"true\"]:nth-child(2)');\n                const faqsWrapper = pageContainer.querySelector('[data-wrapper=\"faqs\"]') || pageContainer.querySelector('[data-always-render=\"true\"]:nth-child(3)');\n                const demoWrapper = pageContainer.querySelector('[data-wrapper=\"demo\"]') || pageContainer.querySelector('[data-name=\"demo\"]');\n                \n                // Also try finding by data-name as fallback\n                const overviewPage = document.querySelector('[data-name=\"adaptablox - overview\"]');\n                const aboutPage = document.querySelector('[data-name=\"adaptablox - about\"]');\n                const faqsPage = document.querySelector('[data-name=\"adaptablox - faqs\"]');\n                const demoPage = document.querySelector('[data-name=\"adaptablox - demo\"]') || document.querySelector('[data-name=\"demo\"]');\n                \n                console.log('Overview wrapper found:', overviewWrapper);\n                console.log('About wrapper found:', aboutWrapper);\n                console.log('FAQs wrapper found:', faqsWrapper);\n                console.log('Demo wrapper found:', demoWrapper);\n                console.log('Overview page found:', overviewPage);\n                console.log('About page found:', aboutPage);\n                console.log('FAQs page found:', faqsPage);\n                console.log('Demo page found:', demoPage);\n                \n                // Hide/show wrapper divs (these control visibility)\n                if (overviewWrapper) {\n                  overviewWrapper.style.display = page === 'overview' ? 'block' : 'none';\n                  overviewWrapper.style.visibility = page === 'overview' ? 'visible' : 'hidden';\n                  console.log('Set overview wrapper display to:', page === 'overview' ? 'block' : 'none');\n                } else {\n                  console.log('Overview wrapper NOT found!');\n                }\n                if (aboutWrapper) {\n                  aboutWrapper.style.display = page === 'about' ? 'block' : 'none';\n                  aboutWrapper.style.visibility = page === 'about' ? 'visible' : 'hidden';\n                  console.log('Set about wrapper display to:', page === 'about' ? 'block' : 'none');\n                } else {\n                  console.log('About wrapper NOT found!');\n                }\n                if (faqsWrapper) {\n                  faqsWrapper.style.display = page === 'faqs' ? 'block' : 'none';\n                  faqsWrapper.style.visibility = page === 'faqs' ? 'visible' : 'hidden';\n                  console.log('Set FAQs wrapper display to:', page === 'faqs' ? 'block' : 'none');\n                } else {\n                  console.log('FAQs wrapper NOT found!');\n                }\n                if (demoWrapper) {\n                  demoWrapper.style.display = page === 'demo' ? 'block' : 'none';\n                  demoWrapper.style.visibility = page === 'demo' ? 'visible' : 'hidden';\n                  console.log('Set demo wrapper display to:', page === 'demo' ? 'block' : 'none');\n                } else {\n                  console.log('Demo wrapper NOT found!');\n                }\n                \n                // Also hide/show the actual page elements as backup\n                if (overviewPage) {\n                  overviewPage.style.display = page === 'overview' ? 'block' : 'none';\n                }\n                if (aboutPage) {\n                  aboutPage.style.display = page === 'about' ? 'block' : 'none';\n                }\n                if (faqsPage) {\n                  faqsPage.style.display = page === 'faqs' ? 'block' : 'none';\n                }\n                if (demoPage) {\n                  demoPage.style.display = page === 'demo' ? 'block' : 'none';\n                }\n                \n                // Also try to update React if it's available\n                // Set data-active-page attribute - this is the source of truth for React sync\n                if (pageContainer) {\n                  const currentAttr = pageContainer.getAttribute('data-active-page');\n                  if (currentAttr !== page) {\n                    console.log('Setting data-active-page to:', page, '(was:', currentAttr, ')');\n                    pageContainer.setAttribute('data-active-page', page);\n                  }\n                }\n                \n                // Update button states immediately (independent of React)\n                updateSegmentedControlButtons(page);\n                \n                // Try to call React navigate directly FIRST (if available)\n                // Retry multiple times with increasing delays to catch React hydration\n                function tryReactNavigate(retries) {\n                  retries = retries || 0;\n                  if (window.__reactNavigate) {\n                    console.log('Calling React navigate directly from navigateToPage:', page);\n                    try {\n                      window.__reactNavigate(page);\n                      console.log('Successfully called __reactNavigate');\n                    } catch (err) {\n                      console.error('Error calling __reactNavigate:', err);\n                    }\n                  } else if (retries \u003c 10) {\n                    console.log('window.__reactNavigate not available yet, retry', retries + 1);\n                    setTimeout(function() {\n                      tryReactNavigate(retries + 1);\n                    }, 50 * (retries + 1)); // Exponential backoff\n                  } else {\n                    console.log('window.__reactNavigate still not available after', retries, 'retries');\n                  }\n                }\n                tryReactNavigate(0);\n                \n                // Dispatch event for React (if it ever hydrates)\n                const event = new CustomEvent('navigate', { \n                  detail: { page },\n                  bubbles: true,\n                  cancelable: true\n                });\n                window.dispatchEvent(event);\n                document.dispatchEvent(event);\n                \n                console.log('Page navigation complete, current page:', page);\n              }\n              \n              // Expose navigation functions immediately - these just dispatch events\n              window.testNavigateOverview = () =\u003e {\n                console.log('window.testNavigateOverview called');\n                navigateToPage('overview');\n              };\n              window.testNavigateAbout = () =\u003e {\n                console.log('window.testNavigateAbout called');\n                navigateToPage('about');\n              };\n              window.testNavigate = () =\u003e {\n                console.log('window.testNavigate called');\n                navigateToPage('faqs');\n              };\n              window.testNavigateDemo = () =\u003e {\n                console.log('window.testNavigateDemo called');\n                navigateToPage('demo');\n              };\n              \n              console.log('Navigation functions set up in inline script');\n              \n              function setupClickHandlers() {\n                // Try document-level listener in capture phase\n                document.addEventListener('click', function(e) {\n                  console.log('=== DOCUMENT CLICK DETECTED (CAPTURE) ===', e.target);\n                  console.log('Click target:', e.target);\n                  console.log('Click coordinates:', e.clientX, e.clientY);\n                  console.log('Event phase:', e.eventPhase);\n                  \n                  const target = e.target;\n                  if (target \u0026\u0026 target.matches) {\n                    if (target.matches('[data-test=\"link\"]') || target.closest('[data-test=\"link\"]')) {\n                      console.log('MATCHED TEST LINK!');\n                      e.preventDefault();\n                      e.stopPropagation();\n                      e.stopImmediatePropagation();\n                      alert('Test link clicked via document listener!');\n                      if (window.testNavigate) {\n                        window.testNavigate();\n                      }\n                      return false;\n                    }\n                    \n                    if (target.matches('[data-test=\"button\"]') || target.closest('[data-test=\"button\"]')) {\n                      console.log('MATCHED TEST BUTTON!');\n                      e.preventDefault();\n                      e.stopPropagation();\n                      e.stopImmediatePropagation();\n                      alert('Test button clicked via document listener!');\n                      if (window.testNavigate) {\n                        window.testNavigate();\n                      }\n                      return false;\n                    }\n                    \n                    if (target.matches('[data-node-id=\"1:10\"]') || target.closest('[data-node-id=\"1:10\"]')) {\n                      console.log('MATCHED FAQs BUTTON!');\n                      e.preventDefault();\n                      e.stopPropagation();\n                      e.stopImmediatePropagation();\n                      // Try React navigate first\n                      console.log('Checking for __reactNavigate:', typeof window.__reactNavigate);\n                      if (window.__reactNavigate) {\n                        console.log('Calling React navigate for faqs');\n                        try {\n                          window.__reactNavigate('faqs');\n                          console.log('React navigate called successfully');\n                        } catch (err) {\n                          console.error('Error calling React navigate:', err);\n                        }\n                      } else {\n                        console.log('__reactNavigate not available, will try again after delay');\n                        // Retry multiple times\n                        let retries = 0;\n                        const retryInterval = setInterval(() =\u003e {\n                          retries++;\n                          if (window.__reactNavigate) {\n                            console.log('Calling React navigate for faqs (delayed, retry', retries, ')');\n                            window.__reactNavigate('faqs');\n                            clearInterval(retryInterval);\n                          } else if (retries \u003e= 20) {\n                            console.log('Gave up waiting for __reactNavigate after', retries, 'retries');\n                            clearInterval(retryInterval);\n                          }\n                        }, 50);\n                      }\n                      console.log('Calling window.testNavigate for FAQs');\n                      \n                      // Wait for React to hydrate if needed\n                      function tryNavigate() {\n                        if (window.testNavigate) {\n                          console.log('window.testNavigate found, calling it');\n                          window.testNavigate();\n                        } else {\n                          console.log('window.testNavigate not ready, retrying...');\n                          setTimeout(tryNavigate, 100);\n                        }\n                      }\n                      tryNavigate();\n                      return false;\n                    }\n                    \n                    // Also check for About and Demo buttons (from About page)\n                    if (target.matches('[data-node-id=\"1:6\"]') || target.closest('[data-node-id=\"1:6\"]')) {\n                      console.log('MATCHED ABOUT BUTTON!');\n                      e.preventDefault();\n                      e.stopPropagation();\n                      e.stopImmediatePropagation();\n                      // Try React navigate first\n                      console.log('Checking for __reactNavigate:', typeof window.__reactNavigate);\n                      if (window.__reactNavigate) {\n                        console.log('Calling React navigate for about');\n                        try {\n                          window.__reactNavigate('about');\n                          console.log('React navigate called successfully');\n                        } catch (err) {\n                          console.error('Error calling React navigate:', err);\n                        }\n                      } else {\n                        console.log('__reactNavigate not available, will try again after delay');\n                        // Retry multiple times\n                        let retries = 0;\n                        const retryInterval = setInterval(() =\u003e {\n                          retries++;\n                          if (window.__reactNavigate) {\n                            console.log('Calling React navigate for about (delayed, retry', retries, ')');\n                            window.__reactNavigate('about');\n                            clearInterval(retryInterval);\n                          } else if (retries \u003e= 20) {\n                            console.log('Gave up waiting for __reactNavigate after', retries, 'retries');\n                            clearInterval(retryInterval);\n                          }\n                        }, 50);\n                      }\n                      function tryNavigateAbout() {\n                        if (window.testNavigateAbout) {\n                          window.testNavigateAbout();\n                        } else {\n                          setTimeout(tryNavigateAbout, 100);\n                        }\n                      }\n                      tryNavigateAbout();\n                      return false;\n                    }\n                    \n                    if (target.matches('[data-node-id=\"1:12\"]') || target.closest('[data-node-id=\"1:12\"]')) {\n                      console.log('MATCHED DEMO BUTTON!');\n                      e.preventDefault();\n                      e.stopPropagation();\n                      e.stopImmediatePropagation();\n                      // Try React navigate first\n                      console.log('Checking for __reactNavigate:', typeof window.__reactNavigate);\n                      if (window.__reactNavigate) {\n                        console.log('Calling React navigate for demo');\n                        try {\n                          window.__reactNavigate('demo');\n                          console.log('React navigate called successfully');\n                        } catch (err) {\n                          console.error('Error calling React navigate:', err);\n                        }\n                      } else {\n                        console.log('__reactNavigate not available, will try again after delay');\n                        // Retry multiple times\n                        let retries = 0;\n                        const retryInterval = setInterval(() =\u003e {\n                          retries++;\n                          if (window.__reactNavigate) {\n                            console.log('Calling React navigate for demo (delayed, retry', retries, ')');\n                            window.__reactNavigate('demo');\n                            clearInterval(retryInterval);\n                          } else if (retries \u003e= 20) {\n                            console.log('Gave up waiting for __reactNavigate after', retries, 'retries');\n                            clearInterval(retryInterval);\n                          }\n                        }, 50);\n                      }\n                      function tryNavigateDemo() {\n                        if (window.testNavigateDemo) {\n                          window.testNavigateDemo();\n                        } else {\n                          setTimeout(tryNavigateDemo, 100);\n                        }\n                      }\n                      tryNavigateDemo();\n                      return false;\n                    }\n                    \n                    // Check for Overview and Failure Cases buttons (new structure)\n                    if (target.matches('[data-node-id=\"27:669\"]') || target.closest('[data-node-id=\"27:669\"]')) {\n                      console.log('MATCHED OVERVIEW BUTTON!');\n                      e.preventDefault();\n                      e.stopPropagation();\n                      e.stopImmediatePropagation();\n                      // Try React navigate first\n                      console.log('Checking for __reactNavigate:', typeof window.__reactNavigate);\n                      if (window.__reactNavigate) {\n                        console.log('Calling React navigate for overview');\n                        try {\n                          window.__reactNavigate('overview');\n                          console.log('React navigate called successfully');\n                        } catch (err) {\n                          console.error('Error calling React navigate:', err);\n                        }\n                      } else {\n                        console.log('__reactNavigate not available, will try again after delay');\n                        // Retry multiple times\n                        let retries = 0;\n                        const retryInterval = setInterval(() =\u003e {\n                          retries++;\n                          if (window.__reactNavigate) {\n                            console.log('Calling React navigate for overview (delayed, retry', retries, ')');\n                            window.__reactNavigate('overview');\n                            clearInterval(retryInterval);\n                          } else if (retries \u003e= 20) {\n                            console.log('Gave up waiting for __reactNavigate after', retries, 'retries');\n                            clearInterval(retryInterval);\n                          }\n                        }, 50);\n                      }\n                      function tryNavigateOverview() {\n                        if (window.testNavigateOverview) {\n                          window.testNavigateOverview();\n                        } else {\n                          setTimeout(tryNavigateOverview, 100);\n                        }\n                      }\n                      tryNavigateOverview();\n                      return false;\n                    }\n                    \n                    if (target.matches('[data-node-id=\"27:671\"]') || target.closest('[data-node-id=\"27:671\"]')) {\n                      console.log('MATCHED FAILURE CASES BUTTON!');\n                      e.preventDefault();\n                      e.stopPropagation();\n                      e.stopImmediatePropagation();\n                      // Try React navigate first\n                      console.log('Checking for __reactNavigate:', typeof window.__reactNavigate);\n                      if (window.__reactNavigate) {\n                        console.log('Calling React navigate for about');\n                        try {\n                          window.__reactNavigate('about');\n                          console.log('React navigate called successfully');\n                        } catch (err) {\n                          console.error('Error calling React navigate:', err);\n                        }\n                      } else {\n                        console.log('__reactNavigate not available, will try again after delay');\n                        // Retry multiple times\n                        let retries = 0;\n                        const retryInterval = setInterval(() =\u003e {\n                          retries++;\n                          if (window.__reactNavigate) {\n                            console.log('Calling React navigate for about (delayed, retry', retries, ')');\n                            window.__reactNavigate('about');\n                            clearInterval(retryInterval);\n                          } else if (retries \u003e= 20) {\n                            console.log('Gave up waiting for __reactNavigate after', retries, 'retries');\n                            clearInterval(retryInterval);\n                          }\n                        }, 50);\n                      }\n                      function tryNavigateAbout() {\n                        if (window.testNavigateAbout) {\n                          window.testNavigateAbout();\n                        } else {\n                          setTimeout(tryNavigateAbout, 100);\n                        }\n                      }\n                      tryNavigateAbout();\n                      return false;\n                    }\n                    \n                    // Check for FAQs page buttons\n                    if (target.matches('[data-node-id=\"1:167\"]') || target.closest('[data-node-id=\"1:167\"]')) {\n                      console.log('MATCHED ABOUT BUTTON (FAQs page)!');\n                      e.preventDefault();\n                      e.stopPropagation();\n                      e.stopImmediatePropagation();\n                      function tryNavigateAbout() {\n                        if (window.testNavigateAbout) {\n                          window.testNavigateAbout();\n                        } else {\n                          setTimeout(tryNavigateAbout, 100);\n                        }\n                      }\n                      tryNavigateAbout();\n                      return false;\n                    }\n                    \n                    if (target.matches('[data-node-id=\"1:171\"]') || target.closest('[data-node-id=\"1:171\"]')) {\n                      console.log('MATCHED FAQs BUTTON (FAQs page)!');\n                      e.preventDefault();\n                      e.stopPropagation();\n                      e.stopImmediatePropagation();\n                      function tryNavigate() {\n                        if (window.testNavigate) {\n                          window.testNavigate();\n                        } else {\n                          setTimeout(tryNavigate, 100);\n                        }\n                      }\n                      tryNavigate();\n                      return false;\n                    }\n                    \n                    if (target.matches('[data-node-id=\"1:173\"]') || target.closest('[data-node-id=\"1:173\"]')) {\n                      console.log('MATCHED DEMO BUTTON (FAQs page)!');\n                      e.preventDefault();\n                      e.stopPropagation();\n                      e.stopImmediatePropagation();\n                      function tryNavigateDemo() {\n                        if (window.testNavigateDemo) {\n                          window.testNavigateDemo();\n                        } else {\n                          setTimeout(tryNavigateDemo, 100);\n                        }\n                      }\n                      tryNavigateDemo();\n                      return false;\n                    }\n                  }\n                }, true); // Capture phase\n                \n                // Also try bubble phase\n                document.addEventListener('click', function(e) {\n                  console.log('=== DOCUMENT CLICK DETECTED (BUBBLE) ===', e.target);\n                }, false);\n                \n                // Add body-level click listener to catch ALL clicks\n                if (document.body) {\n                  document.body.addEventListener('click', function(e) {\n                    console.log('=== BODY CLICK DETECTED ===', e.target);\n                  }, true);\n                  console.log('Body click listener attached');\n                } else {\n                  console.log('Body not ready yet');\n                }\n                \n                console.log('Document click listener attached (capture phase)');\n                \n                function attachListeners() {\n                  const testLink = document.querySelector('[data-test=\"link\"]');\n                  const testBtn = document.querySelector('[data-test=\"button\"]');\n                  const faqsBtn = document.querySelector('[data-node-id=\"1:10\"]');\n                  console.log('Test link found:', testLink);\n                  console.log('Test button found:', testBtn);\n                  console.log('FAQs button found:', faqsBtn);\n                  \n                  if (testLink) {\n                    testLink.addEventListener('click', function(e) {\n                      console.log('=== Test link direct listener fired! ===');\n                      e.preventDefault();\n                      e.stopPropagation();\n                      e.stopImmediatePropagation();\n                      console.log('Test link clicked via inline script!');\n                      alert('Test link clicked via inline script!');\n                      if (window.testNavigate) {\n                        window.testNavigate();\n                      }\n                      return false;\n                    }, true);\n                    console.log('Attached listener to test link');\n                  }\n                  \n                  if (testBtn) {\n                    testBtn.addEventListener('click', function(e) {\n                      console.log('=== Test button direct listener fired! ===');\n                      e.preventDefault();\n                      e.stopPropagation();\n                      e.stopImmediatePropagation();\n                      console.log('Test button clicked via inline script!');\n                      alert('Test button clicked via inline script!');\n                      if (window.testNavigate) {\n                        window.testNavigate();\n                      }\n                      return false;\n                    }, true);\n                    console.log('Attached listener to test button');\n                  }\n                  \n                  if (faqsBtn) {\n                    faqsBtn.addEventListener('click', function(e) {\n                      console.log('=== FAQs button direct listener fired! ===');\n                      e.preventDefault();\n                      e.stopPropagation();\n                      e.stopImmediatePropagation();\n                      console.log('FAQs button clicked via inline script!');\n                      alert('FAQs button clicked via inline script!');\n                      if (window.testNavigate) {\n                        window.testNavigate();\n                      }\n                      return false;\n                    }, true);\n                    console.log('Attached listener to FAQs button');\n                  }\n                }\n                \n                attachListeners();\n                setTimeout(attachListeners, 100);\n                setTimeout(attachListeners, 500);\n                setTimeout(attachListeners, 1000);\n                setTimeout(attachListeners, 2000);\n              }\n              \n              // Function to initialize button states on page load\n              function initializeButtonStates() {\n                const pageContainer = document.querySelector('[data-page-container]');\n                if (pageContainer) {\n                  const activePage = pageContainer.getAttribute('data-active-page') || currentPage;\n                  console.log('Initializing button states for page:', activePage);\n                  updateSegmentedControlButtons(activePage);\n                } else {\n                  // Retry if page container not ready\n                  setTimeout(initializeButtonStates, 100);\n                }\n              }\n              \n              if (document.readyState === 'loading') {\n                document.addEventListener('DOMContentLoaded', () =\u003e {\n                  console.log('DOMContentLoaded fired');\n                  setupClickHandlers();\n                  // Initialize button states after a short delay to ensure DOM is ready\n                  setTimeout(initializeButtonStates, 200);\n                });\n              } else {\n                console.log('Document already loaded');\n                setupClickHandlers();\n                // Initialize button states after a short delay to ensure DOM is ready\n                setTimeout(initializeButtonStates, 200);\n              }\n            "])</script><script>self.__next_f.push([1,"2:[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/30b319dc87ad16c4.css\",\"precedence\":\"next\",\"crossOrigin\":\"\"}]],[\"$\",\"$L3\",null,{\"buildId\":\"T7HxHHnWhdihR-8ElrnqE\",\"assetPrefix\":\"\",\"initialCanonicalUrl\":\"/_not-found\",\"initialTree\":[\"\",{\"children\":[\"__PAGE__\",{}]},\"$undefined\",\"$undefined\",true],\"initialHead\":[false,\"$L4\"],\"globalErrorComponent\":\"$5\",\"children\":[null,[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[[\"$\",\"head\",null,{\"children\":[\"$\",\"script\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"$6\"}}]}],[\"$\",\"body\",null,{\"children\":[\"$\",\"$L7\",null,{\"children\":[\"$\",\"$L8\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\"],\"loading\":\"$undefined\",\"loadingStyles\":\"$undefined\",\"hasLoading\":false,\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"template\":[\"$\",\"$L9\",null,{}],\"templateStyles\":\"$undefined\",\"notFound\":[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":\"404\"}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],\"notFoundStyles\":[],\"childProp\":{\"current\":[\"$La\",[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":\"404\"}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],null],\"segment\":\"__PAGE__\"},\"styles\":[]}]}]}]]}],null]}]]\n"])</script></body></html>
