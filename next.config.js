@@ -1,12 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
+
+  assetPrefix: '',     // ✅ relative paths
+  basePath: '',        // ✅ explicit, predictable
+
   images: {
     unoptimized: true,
   },
-
-  // 👇 THIS IS THE MISSING PIECE
-  assetPrefix: '/',
 };
 
 module.exports = nextConfig;
