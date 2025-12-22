@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigation } from '@/contexts/NavigationContext';
 
-const imgGroup28481 = "http://localhost:3845/assets/f84b8a46436fe4b728bfc68bcf63dafd32739ddd.svg";
+const imgGroup28481 = "/assets/logo.svg";
 
 export default function AdaptabloxFAQs() {
   const { activePage, navigate } = useNavigation();
