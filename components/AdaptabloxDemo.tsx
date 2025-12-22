@@ -142,14 +142,14 @@ export default function AdaptabloxDemo() {
         </div>
       </div>
       <div 
-        className="bg-[#eef0f4] content-stretch flex flex-col gap-[48px] items-start p-[18px] relative shadow-[3px_6px_15px_0px_rgba(0,0,0,0.12)] shrink-0 w-[900px] max-w-full mx-auto transition-all duration-250 ease-out min-h-[calc(100vh-71px)]" 
+        className="bg-[#eef0f4] content-stretch flex flex-col gap-[48px] items-start p-[18px] pb-[118px] relative shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-[900px] max-w-full mx-auto transition-all duration-250 ease-out min-h-[calc(100vh+21px)]" 
         style={{ 
-          marginTop: '71px',
+          marginTop: isAnimating ? '0px' : '-21px',
           transition: 'margin-top 0.25s ease-out'
         }}
         data-node-id="27:520"
       >
-        <div className="content-stretch flex flex-col gap-[12px] items-start pb-[12px] pt-[20px] px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="27:521">
+        <div className="content-stretch flex flex-col gap-[12px] items-start pb-[12px] pt-[20px] px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="27:521" style={{ marginTop: '71px' }}>
           <p className="font-sans font-[590] leading-[21px] relative shrink-0 text-[24px] text-[#4E4E4E] text-nowrap" data-node-id="27:643" style={{ fontVariationSettings: "'wdth' 100" }}>
             Demos
           </p>

@@ -137,14 +137,14 @@ export default function AdaptabloxAbout() {
         </div>
       </div>
       <div 
-        className="bg-[#eef0f4] content-stretch flex flex-col gap-[24px] min-h-[calc(100vh-71px)] items-start p-[18px] relative shadow-[3px_6px_15px_0px_rgba(0,0,0,0.12)] shrink-0 w-[900px] max-w-full mx-auto transition-all duration-250 ease-out" 
+        className="bg-[#eef0f4] content-stretch flex flex-col gap-[24px] min-h-[calc(100vh+21px)] items-start p-[18px] pb-[118px] relative shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-[900px] max-w-full mx-auto transition-all duration-250 ease-out" 
         style={{ 
-          marginTop: '71px',
+          marginTop: isAnimating ? '0px' : '-21px',
           transition: 'margin-top 0.25s ease-out'
         }}
         data-node-id="1:39"
       >
-        <div className="content-stretch flex flex-col gap-[12px] items-start leading-[21px] pb-[12px] pt-[20px] px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="1:40">
+        <div className="content-stretch flex flex-col gap-[12px] items-start leading-[21px] pb-[12px] pt-[20px] px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="1:40" style={{ marginTop: '71px' }}>
           <p className="font-sans font-[590] relative shrink-0 text-[24px] text-nowrap" data-node-id="27:625" style={{ fontVariationSettings: "'wdth' 100" }}>
             Predictable Failure Modes
           </p>
@@ -152,7 +152,7 @@ export default function AdaptabloxAbout() {
             The following are not edge cases. They are predictable outcomes of deploying agents without runtime enforcement of delegated authority.
           </p>
         </div>
-        <div className="content-stretch flex flex-col items-start relative shadow-[3px_6px_15px_0px_rgba(0,0,0,0.12)] rounded-[8px] overflow-hidden shrink-0 w-full" data-node-id="1:43">
+        <div className="content-stretch flex flex-col items-start relative shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] rounded-[8px] overflow-hidden shrink-0 w-full" data-node-id="1:43">
           <div className="bg-white border-l-[5px] border-l-[#ff4b4b] border-solid content-stretch flex flex-col gap-[36px] items-start pl-[12px] pr-[24px] py-[24px] relative rounded-tl-[8px] rounded-tr-[8px] shrink-0 w-full" data-node-id="1:44">
             <div className="content-stretch flex items-center justify-center px-[24px] py-0 relative shrink-0" data-node-id="1:45">
               <p className="font-sans font-extrabold leading-[normal] not-italic relative shrink-0 text-[18px] text-nowrap uppercase flex items-center gap-[6px]" data-node-id="1:46">
@@ -218,7 +218,7 @@ export default function AdaptabloxAbout() {
             </div>
           </div>
         </div>
-        <div className="content-stretch flex flex-col items-start relative shadow-[3px_6px_15px_0px_rgba(0,0,0,0.12)] rounded-[8px] overflow-hidden shrink-0 w-full" data-node-id="1:58">
+        <div className="content-stretch flex flex-col items-start relative shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] rounded-[8px] overflow-hidden shrink-0 w-full" data-node-id="1:58">
           <div className="bg-white border-l-[5px] border-l-[#ff4b4b] border-solid content-stretch flex flex-col gap-[36px] items-start pl-[12px] pr-[24px] py-[24px] relative rounded-tl-[8px] rounded-tr-[8px] shrink-0 w-full" data-node-id="1:59">
             <div className="content-stretch flex items-center justify-center pl-[16px] pr-0 py-0 relative shrink-0" data-node-id="1:60">
               <p className="font-sans font-extrabold leading-[normal] not-italic relative shrink-0 text-[#ff4b4b] text-[18px] text-nowrap uppercase flex items-center gap-[6px]" data-node-id="1:61">
@@ -275,7 +275,7 @@ export default function AdaptabloxAbout() {
             </div>
           </div>
         </div>
-        <div className="content-stretch flex flex-col items-start relative shadow-[3px_6px_15px_0px_rgba(0,0,0,0.12)] rounded-[8px] overflow-hidden shrink-0 w-full" data-node-id="1:71">
+        <div className="content-stretch flex flex-col items-start relative shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] rounded-[8px] overflow-hidden shrink-0 w-full" data-node-id="1:71">
           <div className="bg-white border-l-[5px] border-l-[#ff4b4b] border-solid content-stretch flex flex-col gap-[36px] items-start pl-[12px] pr-[24px] py-[24px] relative rounded-tl-[8px] rounded-tr-[8px] shrink-0 w-full" data-node-id="1:72">
             <div className="content-stretch flex items-center justify-center pl-[16px] pr-0 py-0 relative shrink-0" data-node-id="1:73">
               <p className="font-sans font-extrabold leading-[normal] not-italic relative shrink-0 text-[#ff4b4b] text-[18px] text-nowrap uppercase flex items-center gap-[6px]" data-node-id="1:74">
@@ -332,7 +332,7 @@ export default function AdaptabloxAbout() {
             </div>
           </div>
         </div>
-        <div className="content-stretch flex flex-col items-start relative shadow-[3px_6px_15px_0px_rgba(0,0,0,0.12)] rounded-[8px] overflow-hidden shrink-0 w-full" data-node-id="1:84">
+        <div className="content-stretch flex flex-col items-start relative shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] rounded-[8px] overflow-hidden shrink-0 w-full" data-node-id="1:84">
           <div className="bg-white border-l-[5px] border-l-[#ff4b4b] border-solid content-stretch flex flex-col gap-[36px] items-start pl-[12px] pr-[24px] py-[24px] relative rounded-tl-[8px] rounded-tr-[8px] shrink-0 w-full" data-node-id="1:85">
             <div className="content-stretch flex items-center justify-center pl-[16px] pr-0 py-0 relative shrink-0" data-node-id="1:86">
               <p className="font-sans font-extrabold leading-[normal] not-italic relative shrink-0 text-[#ff4b4b] text-[18px] text-nowrap uppercase flex items-center gap-[6px]" data-node-id="1:87">
@@ -389,7 +389,7 @@ export default function AdaptabloxAbout() {
             </div>
           </div>
         </div>
-        <div className="content-stretch flex flex-col items-start relative shadow-[3px_6px_15px_0px_rgba(0,0,0,0.12)] rounded-[8px] overflow-hidden shrink-0 w-full" data-node-id="1:97">
+        <div className="content-stretch flex flex-col items-start relative shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] rounded-[8px] overflow-hidden shrink-0 w-full" data-node-id="1:97">
           <div className="bg-white border-l-[5px] border-l-[#ff4b4b] border-solid content-stretch flex flex-col gap-[36px] items-start pl-[12px] pr-[24px] py-[24px] relative rounded-tl-[8px] rounded-tr-[8px] shrink-0 w-full" data-node-id="1:98">
             <div className="content-stretch flex items-center justify-center pl-[16px] pr-0 py-0 relative shrink-0" data-node-id="1:99">
               <p className="font-sans font-extrabold leading-[normal] not-italic relative shrink-0 text-[#ff4b4b] text-[18px] text-nowrap uppercase flex items-center gap-[6px]" data-node-id="1:100">
@@ -446,7 +446,7 @@ export default function AdaptabloxAbout() {
             </div>
           </div>
         </div>
-        <div className="content-stretch flex flex-col items-start relative shadow-[3px_6px_15px_0px_rgba(0,0,0,0.12)] rounded-[8px] overflow-hidden shrink-0 w-full" data-node-id="1:110">
+        <div className="content-stretch flex flex-col items-start relative shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] rounded-[8px] overflow-hidden shrink-0 w-full" data-node-id="1:110">
           <div className="bg-white border-l-[5px] border-l-[#ff4b4b] border-solid content-stretch flex flex-col gap-[36px] items-start pl-[12px] pr-[24px] py-[24px] relative rounded-tl-[8px] rounded-tr-[8px] shrink-0 w-full" data-node-id="1:111">
             <div className="content-stretch flex items-center justify-center pl-[16px] pr-0 py-0 relative shrink-0" data-node-id="1:112">
               <p className="font-sans font-extrabold leading-[normal] not-italic relative shrink-0 text-[#ff4b4b] text-[18px] text-nowrap uppercase flex items-center gap-[6px]" data-node-id="1:113">
@@ -461,7 +461,7 @@ export default function AdaptabloxAbout() {
               </div>
             </div>
           </div>
-          <div className="bg-[#f7f7f7] border-t border-b border-t-[#E4E4E4] border-b-[#E4E4E4] border-solid content-stretch flex flex-col gap-[36px] items-start px-[36px] py-[24px] relative rounded-[8px] shrink-0 w-full" data-node-id="1:116" style={{ borderTop: "1.5px solid #E4E4E4", borderBottom: "1.5px solid #E4E4E4", background: "#F7F7F7" }}>
+          <div className="bg-[#f7f7f7] border-t border-b border-t-[#E4E4E4] border-b-[#E4E4E4] border-solid content-stretch flex flex-col gap-[36px] items-start px-[36px] py-[24px] relative rounded-l-[8px] shrink-0 w-full" data-node-id="1:116" style={{ borderTop: "1.5px solid #E4E4E4", borderBottom: "1.5px solid #E4E4E4", background: "#F7F7F7" }}>
             <div className="font-['Courier_New:Regular',sans-serif] leading-[0] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:117">
               <p className="font-sans font-bold leading-[24px] mb-0">Why current systems fail</p>
               <ul className="list-disc">
@@ -503,7 +503,7 @@ export default function AdaptabloxAbout() {
             </div>
           </div>
         </div>
-        <div className="bg-white content-stretch flex items-center justify-center p-[24px] relative rounded-[8px] shadow-[3px_6px_15px_0px_rgba(0,0,0,0.12)] size-full" data-node-id="1:123">
+        <div className="bg-white content-stretch flex items-center justify-center p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] size-full" data-node-id="1:123">
           <div className="basis-0 font-sans font-normal grow leading-[21px] min-h-px min-w-px not-italic relative shrink-0 text-[#373737] text-[15px]" data-node-id="1:124">
             <p className="mb-0">Across every failure, the cause is the same.</p>
             <p className="mb-0">
