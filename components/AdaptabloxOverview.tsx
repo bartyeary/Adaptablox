@@ -140,9 +140,9 @@ export default function AdaptabloxOverview() {
         </div>
       </div>
       <div 
-        className="bg-[#eef0f4] content-stretch flex flex-col gap-[48px] items-start p-[18px] relative rounded-[8px] shadow-[3px_6px_15px_0px_rgba(0,0,0,0.12)] shrink-0 w-[900px] max-w-full mb-6 mx-auto transition-all duration-250 ease-out" 
+        className="bg-[#eef0f4] content-stretch flex flex-col gap-[48px] items-start p-[18px] relative shadow-[3px_6px_15px_0px_rgba(0,0,0,0.12)] shrink-0 w-[900px] max-w-full mx-auto transition-all duration-250 ease-out min-h-[calc(100vh-71px)]" 
         style={{ 
-          marginTop: isAnimating ? '82px' : '102px',
+          marginTop: '71px',
           transition: 'margin-top 0.25s ease-out'
         }}
         data-node-id="27:684"
@@ -178,8 +178,8 @@ export default function AdaptabloxOverview() {
                 </p>
               </div>
             </div>
-            <div className="bg-white border-[#85dba2] border-l-[4.5px] border-solid content-stretch flex flex-col items-start px-[36px] py-[8px] relative shrink-0 w-full" data-node-id="42:782">
-              <div className="font-sans leading-[0] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="42:783">
+            <div className="bg-white content-stretch flex flex-col items-start px-[36px] py-[8px] relative shrink-0 w-full" data-node-id="42:782">
+              <div className="font-sans leading-[0] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
                 <p className="font-sans font-bold leading-[24px] mb-0 text-[#6aaf81]">{`Agent Role & Constraint (A.R.C.) governs the outer loop`}</p>
                 <ul className="list-disc">
                   <li className="mb-0 ms-[22.5px]">
@@ -200,7 +200,7 @@ export default function AdaptabloxOverview() {
                 </ul>
               </div>
             </div>
-            <div className="bg-white border-[#84a5ff] border-l-[4.5px] border-solid content-stretch flex flex-col items-start px-[36px] py-[8px] relative shrink-0 w-full" data-node-id="42:790">
+            <div className="bg-white content-stretch flex flex-col items-start px-[36px] py-[8px] relative shrink-0 w-full" data-node-id="42:790">
               <div className="font-sans leading-[0] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="42:791">
                 <p className="font-sans font-bold leading-[24px] mb-0 text-[#84a5ff]">{`Latent Role & Constraint (L.R.C.) governs the inner loop`}</p>
                 <ul className="list-disc">
@@ -222,7 +222,7 @@ export default function AdaptabloxOverview() {
                 </ul>
               </div>
             </div>
-            <div className="content-stretch flex items-center justify-center px-[16px] py-0 relative shrink-0 w-full" data-node-id="42:793">
+            <div className="content-stretch flex items-center justify-center px-[16px] py-0 pb-[24px] relative shrink-0 w-full" data-node-id="42:793">
               <p className="basis-0 font-sans font-normal grow leading-[24px] min-h-px min-w-px relative shrink-0 text-[#4e4e4e] text-[15px]" data-node-id="42:794">
                 Together, these layers make autonomous systems governable in the same way enterprises govern human and software actors: through defined authority, enforced scope, and auditable decision paths.
               </p>

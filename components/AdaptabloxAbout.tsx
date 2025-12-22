@@ -137,9 +137,9 @@ export default function AdaptabloxAbout() {
         </div>
       </div>
       <div 
-        className="bg-[#eef0f4] content-stretch flex flex-col gap-[24px] h-[4378px] items-start p-[18px] relative rounded-[8px] shadow-[3px_6px_15px_0px_rgba(0,0,0,0.12)] shrink-0 w-[900px] max-w-full mb-6 mx-auto transition-all duration-250 ease-out" 
+        className="bg-[#eef0f4] content-stretch flex flex-col gap-[24px] min-h-[calc(100vh-71px)] items-start p-[18px] relative shadow-[3px_6px_15px_0px_rgba(0,0,0,0.12)] shrink-0 w-[900px] max-w-full mx-auto transition-all duration-250 ease-out" 
         style={{ 
-          marginTop: isAnimating ? '82px' : '102px',
+          marginTop: '71px',
           transition: 'margin-top 0.25s ease-out'
         }}
         data-node-id="1:39"
