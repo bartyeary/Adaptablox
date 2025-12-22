@@ -2,8 +2,9 @@
 const nextConfig = {
   output: 'export',
 
-  assetPrefix: '',     // ✅ relative paths
-  basePath: '',        // ✅ explicit, predictable
+  // GitHub Pages serves from /docs
+  basePath: '',
+  assetPrefix: '',
 
   images: {
     unoptimized: true,
