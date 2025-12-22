@@ -4,6 +4,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+
+  // 👇 THIS IS THE MISSING PIECE
+  assetPrefix: '/',
 };
 
 module.exports = nextConfig;
