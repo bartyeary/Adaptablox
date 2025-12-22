@@ -43,12 +43,12 @@ export default function AdaptabloxFAQs() {
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-center relative size-full min-h-screen" data-name="adaptablox - faqs" data-node-id="1:163" style={{ background: "radial-gradient(66.15% 98.68% at -6.3% -5.34%, #F1F2F4 0%, #D7D9DF 100%)" }}>
       <div className="bg-[rgba(104,106,113,0.8)] h-[71px] overflow-clip fixed top-0 left-0 right-0 z-50 w-full" data-node-id="1:164" style={{ background: "rgba(104, 106, 113, 0.80)" }}>
-        <div className="absolute left-[17px] top-[17px] h-[36px] w-[189px]" data-name="logo" data-node-id="1:175">
+        <div className="absolute left-[17px] top-[17px] h-[36px] w-[189px] hidden md:block" data-name="logo" data-node-id="1:175">
           <div className="absolute h-[35px] left-0 top-[1.5px] w-[188px]" data-node-id="1:176">
             <img alt="Adaptablox Logo" className="block max-w-none size-full" src={imgGroup28481} />
           </div>
         </div>
-        <div className="absolute right-[17px] top-[17px] bg-[#67686d] content-stretch flex gap-[6px] items-center p-[3px] rounded-[12px] z-[60]" data-name="control" data-node-id="1:166">
+        <div className="absolute left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-[17px] top-[17px] bg-[#67686d] content-stretch flex gap-[6px] items-center p-[3px] rounded-[12px] z-[60]" data-name="control" data-node-id="1:166">
           <button 
             onClick={() => {
               console.log('Overview button clicked');
@@ -135,10 +135,10 @@ export default function AdaptabloxFAQs() {
         </div>
       </div>
       <div 
-        className="bg-[#eef0f4] content-stretch flex flex-col gap-[48px] items-start p-[18px] relative rounded-[8px] shadow-[3px_6px_15px_0px_rgba(0,0,0,0.12)] shrink-0 w-[900px] max-w-full mb-6 mx-auto transition-all duration-500 ease-out" 
+        className="bg-[#eef0f4] content-stretch flex flex-col gap-[48px] items-start p-[18px] relative rounded-[8px] shadow-[3px_6px_15px_0px_rgba(0,0,0,0.12)] shrink-0 w-[900px] max-w-full mb-6 mx-auto transition-all duration-250 ease-out" 
         style={{ 
           marginTop: isAnimating ? '82px' : '102px',
-          transition: 'margin-top 0.5s ease-out'
+          transition: 'margin-top 0.25s ease-out'
         }}
         data-node-id="1:200"
       >
