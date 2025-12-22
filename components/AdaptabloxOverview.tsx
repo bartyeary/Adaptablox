@@ -11,11 +11,14 @@ export default function AdaptabloxOverview() {
   
   useEffect(() => {
     console.log('AdaptabloxOverview rendered, activePage:', activePage);
-    // Trigger animation on mount
+    // Reset and trigger animation on page change
     setIsAnimating(false);
-    requestAnimationFrame(() => {
-      setIsAnimating(true);
-    });
+    // Use setTimeout to ensure the state change is applied before animation
+    setTimeout(() => {
+      requestAnimationFrame(() => {
+        setIsAnimating(true);
+      });
+    }, 10);
   }, [activePage]);
   
   useEffect(() => {
@@ -142,7 +145,7 @@ export default function AdaptabloxOverview() {
       <div 
         className="bg-[#eef0f4] content-stretch flex flex-col gap-[48px] items-start p-[18px] pb-[118px] relative shadow-[3px_6px_15px_0px_rgba(0,0,0,0.12)] shrink-0 w-[900px] max-w-full mx-auto transition-all duration-250 ease-out min-h-[calc(100vh+21px)]" 
         style={{ 
-          marginTop: isAnimating ? '0px' : '-21px',
+          marginTop: isAnimating ? '0px' : '-20px',
           transition: 'margin-top 0.25s ease-out'
         }}
         data-node-id="27:684"
@@ -150,7 +153,7 @@ export default function AdaptabloxOverview() {
         <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full" data-node-id="44:869" style={{ marginTop: '71px' }}>
           <div className="content-stretch flex flex-col gap-[18px] items-start pb-[12px] pt-[20px] px-[24px] relative shrink-0 w-full" data-node-id="27:685">
             <p className="font-sans font-semibold leading-[21px] relative shrink-0 text-[#4e4e4e] text-[24px]" data-node-id="27:687">
-              An Operating System for Agents
+              An OS for Agents
             </p>
             <p className="font-sans font-bold leading-[21px] min-w-full relative shrink-0 text-[#4e4e4e] text-[15px]" data-node-id="27:688">
               Autonomous AI doesn't fail because it's malicious or unintelligent. It fails because it acts outside delegated authority at the moment of action.
@@ -237,8 +240,8 @@ export default function AdaptabloxOverview() {
             This dual-loop approach ensures that what the system does and how it reasons remain aligned with delegated authority in real time.
           </p>
         </div>
-        <div className="content-stretch flex flex-col items-center justify-center px-[40px] py-0 relative size-full" data-node-id="42:801">
-          <pre className="font-mono leading-[18px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] text-center w-[546px] whitespace-pre" data-node-id="42:802" style={{ fontFamily: 'monospace' }}>
+        <div className="content-stretch flex flex-col items-center justify-center px-[20px] md:px-[40px] py-0 relative size-full" data-node-id="42:801">
+          <pre className="font-mono leading-[12px] md:leading-[18px] not-italic relative shrink-0 text-[#4e4e4e] text-[10px] md:text-[15px] text-center w-full max-w-[546px] whitespace-pre" data-node-id="42:802" style={{ fontFamily: 'monospace' }}>
 {`+------------------------------------------------------+
 |               USER / ENVIRONMENT INPUT               |
 |    (Prompt, signal, context, ambient trigger, etc.)  |

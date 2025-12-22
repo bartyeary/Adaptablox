@@ -11,11 +11,14 @@ export default function AdaptabloxFAQs() {
   
   useEffect(() => {
     console.log('AdaptabloxFAQs rendered, activePage:', activePage);
-    // Trigger animation on mount
+    // Reset and trigger animation on page change
     setIsAnimating(false);
-    requestAnimationFrame(() => {
-      setIsAnimating(true);
-    });
+    // Use setTimeout to ensure the state change is applied before animation
+    setTimeout(() => {
+      requestAnimationFrame(() => {
+        setIsAnimating(true);
+      });
+    }, 10);
   }, [activePage]);
   
   useEffect(() => {
@@ -137,7 +140,7 @@ export default function AdaptabloxFAQs() {
       <div 
         className="bg-[#eef0f4] content-stretch flex flex-col gap-[48px] items-start p-[18px] pb-[118px] relative shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-[900px] max-w-full mx-auto transition-all duration-250 ease-out min-h-[calc(100vh+21px)]" 
         style={{ 
-          marginTop: isAnimating ? '0px' : '-21px',
+          marginTop: isAnimating ? '0px' : '-20px',
           transition: 'margin-top 0.25s ease-out'
         }}
         data-node-id="1:200"
