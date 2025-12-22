@@ -20,8 +20,10 @@ export function NavigationProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     console.log('NavigationProvider activePage changed to:', activePage);
-    // Scroll to top whenever page changes
-    window.scrollTo({ top: 0, behavior: 'auto' });
+    // Scroll to top whenever page changes (client-side only)
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
   }, [activePage]);
 
   const navigate = (page: Page) => {

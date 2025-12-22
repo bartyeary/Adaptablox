@@ -47,7 +47,7 @@ export default function AdaptabloxAbout() {
   
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-center relative size-full min-h-screen" data-name="adaptablox - about" data-node-id="1:2" style={{ background: "radial-gradient(66.15% 98.68% at -6.3% -5.34%, #F1F2F4 0%, #D7D9DF 100%)" }}>
-      <div className="bg-[rgba(104,106,113,0.8)] h-[71px] overflow-clip fixed top-0 left-0 right-0 z-50 w-full" data-node-id="1:3" style={{ background: "rgba(104, 106, 113, 0.80)" }}>
+      <div className="bg-[rgba(104,106,113,0.8)] backdrop-blur-sm h-[71px] overflow-clip fixed top-0 left-0 right-0 z-50 w-full" data-node-id="1:3" style={{ background: "rgba(104, 106, 113, 0.80)" }}>
         <div className="absolute left-[17px] top-[17px] h-[36px] w-[189px] hidden md:block" data-name="logo" data-node-id="1:14">
           <div className="absolute h-[35px] left-0 top-[1.5px] w-[188px]" data-node-id="1:176">
             <img alt="Adaptablox Logo" className="block max-w-none size-full" src={imgGroup28481} />

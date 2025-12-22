@@ -52,7 +52,7 @@ export default function AdaptabloxDemo() {
   
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-center relative size-full min-h-screen" data-name="adaptablox - demo" data-node-id="27:483" style={{ background: "radial-gradient(66.15% 98.68% at -6.3% -5.34%, #F1F2F4 0%, #D7D9DF 100%)" }}>
-      <div className="bg-[rgba(104,106,113,0.8)] h-[71px] overflow-clip fixed top-0 left-0 right-0 z-50 w-full" data-node-id="27:484" style={{ background: "rgba(104, 106, 113, 0.80)" }}>
+      <div className="bg-[rgba(104,106,113,0.8)] backdrop-blur-sm h-[71px] overflow-clip fixed top-0 left-0 right-0 z-50 w-full" data-node-id="27:484" style={{ background: "rgba(104, 106, 113, 0.80)" }}>
         <div className="absolute left-[17px] top-[17px] h-[36px] w-[189px] hidden md:block" data-name="logo" data-node-id="27:495">
           <div className="absolute h-[35px] left-0 top-[1.5px] w-[188px]" data-node-id="27:496">
             <img alt="Adaptablox Logo" className="block max-w-none size-full" src={imgGroup28481} />
@@ -185,7 +185,7 @@ export default function AdaptabloxDemo() {
             <div className="bg-white overflow-clip relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full flex flex-col" data-node-id="27:608">
               <div className="content-stretch flex flex-col gap-[12px] items-start pt-[24px] px-[24px] pb-0 relative shrink-0 w-full" data-node-id="44:818">
                 <p className="font-sans font-[510] leading-[21px] relative shrink-0 text-[#4e4e4e] text-[20px] text-nowrap" data-node-id="44:820" style={{ fontVariationSettings: "'wdth' 100" }}>
-                  Super-Agent with Governed Sub-Agents
+                  Governed Sub-Agents
                 </p>
               </div>
               <div className="relative w-full" style={{ paddingBottom: '63.58%' }}>
@@ -205,8 +205,8 @@ export default function AdaptabloxDemo() {
             </div>
           </div>
           <div className="content-stretch flex flex-col gap-[12px] items-start pb-[12px] pt-0 px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="42:813">
-            <p className="font-sans font-[510] leading-[21px] relative shrink-0 text-[20px] text-nowrap" data-node-id="42:815" style={{ fontVariationSettings: "'wdth' 100" }}>
-              What you're seeing
+            <p className="font-sans font-medium relative shrink-0 text-[20px] text-nowrap" data-node-id="42:815">
+              What You're Seeing
             </p>
             <div className="font-sans font-normal leading-[0] min-w-full relative shrink-0 text-[15px] w-[min-content]" data-node-id="42:816" style={{ fontVariationSettings: "'wdth' 100" }}>
               <p className="leading-[21px] mb-0">A single conversational interface backed by a super-agent that delegates tasks to specialized agents operating under defined roles and constraints.</p>
@@ -275,8 +275,8 @@ export default function AdaptabloxDemo() {
             </div>
           </div>
           <div className="content-stretch flex flex-col gap-[12px] items-start pb-[12px] pt-0 px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="44:833">
-            <p className="font-sans font-[510] leading-[21px] relative shrink-0 text-[20px] text-nowrap" data-node-id="44:835" style={{ fontVariationSettings: "'wdth' 100" }}>
-              What you're seeing
+            <p className="font-sans font-medium relative shrink-0 text-[20px] text-nowrap" data-node-id="44:835">
+              What You're Seeing
             </p>
             <div className="font-sans font-normal leading-[0] min-w-full relative shrink-0 text-[15px] w-[min-content]" data-node-id="44:836" style={{ fontVariationSettings: "'wdth' 100" }}>
               <p className="leading-[21px] mb-0">An ambient AI assistant that follows a user across environments — home, transit, and work — while maintaining behavioral continuity and appropriate authority in each setting.</p>
@@ -320,7 +320,7 @@ export default function AdaptabloxDemo() {
           </div>
         </div>
         <div className="content-stretch flex flex-col gap-[12px] items-start pb-[12px] pt-0 px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="44:843">
-          <p className="font-sans font-[590] leading-[21px] relative shrink-0 text-[24px] text-nowrap" data-node-id="44:845" style={{ fontVariationSettings: "'wdth' 100" }}>
+          <p className="font-sans font-medium relative shrink-0 text-[20px] text-nowrap" data-node-id="44:845">
             What These Demos Are – and Are Not
           </p>
           <div className="font-sans font-normal leading-[0] min-w-full relative shrink-0 text-[15px] w-[min-content]" data-node-id="44:846" style={{ fontVariationSettings: "'wdth' 100" }}>
@@ -359,7 +359,7 @@ export default function AdaptabloxDemo() {
           </div>
         </div>
         <div className="content-stretch flex flex-col gap-[12px] items-start pb-[12px] pt-0 px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="44:854">
-          <p className="font-sans font-[590] leading-[21px] relative shrink-0 text-[24px] text-nowrap" data-node-id="44:856" style={{ fontVariationSettings: "'wdth' 100" }}>
+          <p className="font-sans font-medium relative shrink-0 text-[20px] text-nowrap" data-node-id="44:856">
             Why This Matters
           </p>
           <div className="font-sans font-normal leading-[0] min-w-full relative shrink-0 text-[15px] w-[min-content]" data-node-id="44:857" style={{ fontVariationSettings: "'wdth' 100" }}>
