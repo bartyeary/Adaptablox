@@ -135,10 +135,10 @@ export default function AdaptabloxFAQs() {
         </div>
       </div>
       <div 
-        className="bg-[#eef0f4] content-stretch flex flex-col gap-[48px] items-start p-[18px] relative rounded-[8px] shadow-[3px_6px_15px_0px_rgba(0,0,0,0.12)] shrink-0 w-[900px] max-w-full mb-6 mx-auto transition-all duration-1000 ease-out" 
+        className="bg-[#eef0f4] content-stretch flex flex-col gap-[48px] items-start p-[18px] relative rounded-[8px] shadow-[3px_6px_15px_0px_rgba(0,0,0,0.12)] shrink-0 w-[900px] max-w-full mb-6 mx-auto transition-all duration-500 ease-out" 
         style={{ 
           marginTop: isAnimating ? '82px' : '102px',
-          transition: 'margin-top 1s ease-out'
+          transition: 'margin-top 0.5s ease-out'
         }}
         data-node-id="1:200"
       >
