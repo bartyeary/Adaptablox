@@ -519,6 +519,11 @@ export default function AdaptabloxAbout() {
             </p>
           </div>
         </div>
+        <div className="content-stretch flex flex-col gap-[12px] items-center pb-[24px] pt-0 px-[24px] relative shrink-0 w-full">
+          <p className="font-sans font-normal leading-[21px] relative shrink-0 text-[#4e4e4e] text-[13px] text-center">
+            © 2025 Adaptablox. Patents Pending.
+          </p>
+        </div>
       </div>
     </div>
   );
