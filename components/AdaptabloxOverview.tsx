@@ -169,7 +169,7 @@ export default function AdaptabloxOverview() {
           <div className="bg-white content-stretch flex flex-col gap-[24px] items-center justify-center pb-[24px] pt-[32px] px-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full" data-node-id="27:769">
             <div className="content-stretch flex items-center justify-center px-[16px] py-0 relative shrink-0 w-full" data-node-id="42:785">
               <div className="basis-0 font-sans grow leading-[24px] min-h-px min-w-px not-italic relative shrink-0 text-[#4e4e4e] text-[15px]" data-node-id="27:770">
-                <p className="font-sans font-semibold leading-[21px] relative shrink-0 text-[#4e4e4e] text-[24px] mb-[18px]">
+                <p className="font-sans font-medium relative shrink-0 text-[#4e4e4e] text-[20px] text-nowrap mb-[18px]">
                   The Adaptablox Control Layer
                 </p>
                 <p className="font-sans font-normal mb-0">
