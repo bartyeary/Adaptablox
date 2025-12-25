@@ -170,7 +170,7 @@ export default function AdaptabloxOverview() {
             <div className="content-stretch flex items-center justify-center px-[16px] py-0 relative shrink-0 w-full" data-node-id="42:785">
               <div className="basis-0 font-sans grow leading-[24px] min-h-px min-w-px not-italic relative shrink-0 text-[#4e4e4e] text-[15px]" data-node-id="27:770">
                 <p className="font-sans font-semibold leading-[21px] relative shrink-0 text-[#4e4e4e] text-[24px] mb-[18px]">
-                  What Adaptablox Is
+                  The Adaptablox Control Layer
                 </p>
                 <p className="font-sans font-normal mb-0">
                   Adaptablox introduces a behavioral operating layer for autonomous systems. It governs how agents behave at the surface level and how models reason internally, without retraining or modifying model weights.

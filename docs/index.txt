@@ -1,10 +1,10 @@
 1:HL["/_next/static/css/aad0bd95003cf2f7.css","style",{"crossOrigin":""}]
-0:["EEr8SDLfQpIFC_7hzvP4u",[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/aad0bd95003cf2f7.css","precedence":"next","crossOrigin":""}]],"$L3"]]]]
+0:["9AARPjRnAvMUgwX8fT4Xq",[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/aad0bd95003cf2f7.css","precedence":"next","crossOrigin":""}]],"$L3"]]]]
 5:I[3300,["185","static/chunks/app/layout-307906f390468e3c.js"],"NavigationProvider"]
 6:I[6954,[],""]
 7:I[7264,[],""]
 9:I[8297,[],""]
-a:I[6523,["931","static/chunks/app/page-c99d91036f3968b0.js"],""]
+a:I[6523,["931","static/chunks/app/page-59324b2e6d72e0d8.js"],""]
 4:T8749,
               console.log('=== Inline script executed - JavaScript is working! ===');
               
