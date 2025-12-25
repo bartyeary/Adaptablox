@@ -169,7 +169,7 @@ export default function AdaptabloxOverview() {
           <div className="bg-white content-stretch flex flex-col gap-[24px] items-center justify-center pb-[24px] pt-[32px] px-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full" data-node-id="27:769">
             <div className="content-stretch flex items-center justify-center px-[16px] py-0 relative shrink-0 w-full" data-node-id="42:785">
               <div className="basis-0 font-sans grow leading-[24px] min-h-px min-w-px not-italic relative shrink-0 text-[#4e4e4e] text-[15px]" data-node-id="27:770">
-                <p className="font-sans font-bold mb-0">
+                <p className="font-sans font-semibold leading-[21px] relative shrink-0 text-[#4e4e4e] text-[24px] mb-[18px]">
                   What Adaptablox Is
                 </p>
                 <p className="font-sans font-normal mb-0">
@@ -295,16 +295,16 @@ export default function AdaptabloxOverview() {
             <p className="leading-[21px] mb-0">Without runtime authority enforcement:</p>
             <ul className="list-disc mb-0">
               <li className="mb-0 ms-[22.5px]">
-                <span className="leading-[32px]">Agents optimize for goals while violating policy</span>
+                <span className="font-sans font-normal leading-[24px]">Agents optimize for goals while violating policy</span>
               </li>
               <li className="mb-0 ms-[22.5px]">
-                <span className="leading-[32px]">Memory leaks across domains</span>
+                <span className="font-sans font-normal leading-[24px]">Memory leaks across domains</span>
               </li>
               <li className="mb-0 ms-[22.5px]">
-                <span className="leading-[32px]">Reasoning drifts into unsafe or noncompliant paths</span>
+                <span className="font-sans font-normal leading-[24px]">Reasoning drifts into unsafe or noncompliant paths</span>
               </li>
               <li className="ms-[22.5px]">
-                <span className="leading-[32px]">Failures are discovered only after damage occurs</span>
+                <span className="font-sans font-normal leading-[24px]">Failures are discovered only after damage occurs</span>
               </li>
             </ul>
             <p className="leading-[21px] mb-0">&nbsp;</p>
