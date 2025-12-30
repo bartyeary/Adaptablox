@@ -147,7 +147,7 @@ export default function AdaptabloxFAQs() {
       >
         <div className="content-stretch flex flex-col gap-[12px] items-start pb-[12px] pt-[20px] px-[24px] relative shrink-0 w-full" data-node-id="1:201" style={{ marginTop: '71px' }}>
           <p className="font-sans font-[590] leading-[21px] relative shrink-0 text-[24px] text-[#4E4E4E] text-nowrap" data-node-id="27:627" style={{ fontVariationSettings: "'wdth' 100" }}>
-            Frequently Asked Questions
+            The Adaptablox System
           </p>
           <div className="font-sans font-normal leading-[0] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:203">
             <p className="leading-[21px] mb-0">Adaptablox is a runtime guidance platform for AI systems. It shapes how agents behave at the surface level and how models reason at the internal level.</p>
