@@ -21,3 +21,8 @@ html {
   pointer-events: auto;
 }
 
+::selection {
+  background-color: rgba(0, 0, 0, 0.12);
+  color: inherit;
+}
+

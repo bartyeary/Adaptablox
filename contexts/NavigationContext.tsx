@@ -12,7 +12,7 @@ interface NavigationContextType {
 const NavigationContext = createContext<NavigationContextType | undefined>(undefined);
 
 export function NavigationProvider({ children }: { children: ReactNode }) {
-  const [activePage, setActivePage] = useState<Page>('overview');
+  const [activePage, setActivePage] = useState<Page>('about');
 
   useEffect(() => {
     console.log('NavigationProvider mounted, activePage:', activePage);

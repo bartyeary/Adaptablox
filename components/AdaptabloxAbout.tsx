@@ -54,29 +54,9 @@ export default function AdaptabloxAbout() {
           </div>
         </div>
         <div className="absolute left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-[17px] top-[17px] bg-[#67686d] content-stretch flex gap-[6px] items-center p-[3px] rounded-[12px] z-[60]" data-name="control" data-node-id="1:5">
-          <button 
-            onClick={() => {
-              console.log('Overview button clicked');
-              navigate('overview');
-            }}
-            className={`content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity ${
-              activePage === 'overview'
-                ? 'bg-[#eef0f4] shadow-[0px_6px_15px_0px_rgba(0,0,0,0.12)]'
-                : 'bg-transparent hover:opacity-80'
-            }`}
-            data-name="button" 
-            data-node-id="27:669"
-            type="button"
-          >
-            <span className={`font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap ${
-              activePage === 'overview' ? 'text-[#5b5b5f]' : 'text-white'
-            }`}>
-              Overview
-            </span>
-          </button>
           <button
             onClick={() => {
-              console.log('Failure Cases button clicked');
+              console.log('Failures button clicked');
               navigate('about');
             }}
             className={`content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity ${
@@ -91,12 +71,32 @@ export default function AdaptabloxAbout() {
             <span className={`font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap ${
               activePage === 'about' ? 'text-[#5b5b5f]' : 'text-white'
             }`}>
-              Failure Cases
+              Failures
+            </span>
+          </button>
+          <button 
+            onClick={() => {
+              console.log('Control button clicked');
+              navigate('overview');
+            }}
+            className={`content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity ${
+              activePage === 'overview'
+                ? 'bg-[#eef0f4] shadow-[0px_6px_15px_0px_rgba(0,0,0,0.12)]'
+                : 'bg-transparent hover:opacity-80'
+            }`}
+            data-name="button" 
+            data-node-id="27:669"
+            type="button"
+          >
+            <span className={`font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap ${
+              activePage === 'overview' ? 'text-[#5b5b5f]' : 'text-white'
+            }`}>
+              Control
             </span>
           </button>
           <button
             onClick={(e) => {
-              console.log('FAQs button clicked');
+              console.log('System button clicked');
               e.preventDefault();
               e.stopPropagation();
               navigate('faqs');
@@ -114,7 +114,7 @@ export default function AdaptabloxAbout() {
             <span className={`font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap ${
               activePage === 'faqs' ? 'text-[#5b5b5f]' : 'text-white'
             }`}>
-              FAQs
+              System
             </span>
           </button>
           <button
@@ -140,7 +140,7 @@ export default function AdaptabloxAbout() {
         </div>
       </div>
       <div 
-        className="bg-[#eef0f4] content-stretch flex flex-col gap-[24px] min-h-[calc(100vh+21px)] items-start p-[18px] pb-[118px] relative shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-[900px] max-w-full mx-auto transition-all duration-250 ease-out" 
+        className="bg-[#eef0f4] content-stretch flex flex-col gap-[24px] min-h-[calc(100vh+21px)] items-start p-[18px] pb-[118px] relative shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-[800px] max-w-full mx-auto transition-all duration-250 ease-out" 
         style={{ 
           marginTop: isAnimating ? '0px' : '-20px',
           transition: 'margin-top 0.25s ease-out'
@@ -148,6 +148,16 @@ export default function AdaptabloxAbout() {
         data-node-id="1:39"
       >
         <div className="content-stretch flex flex-col gap-[12px] items-start leading-[21px] pb-[12px] pt-[20px] px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="1:40" style={{ marginTop: '71px' }}>
+          <p className="font-sans font-[590] relative shrink-0 text-[24px] text-nowrap" data-node-id="27:625" style={{ fontVariationSettings: "'wdth' 100" }}>
+            Ungoverned Autonomy
+          </p>
+          <div className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-[min-content]" style={{ fontVariationSettings: "'wdth' 100" }}>
+            <p className="mb-[1em]">Autonomous systems are now capable of acting independently inside real organizations.</p>
+            <p className="mb-[1em]">When those systems act without enforcing delegated authority at the moment of action, predictable failures occur.</p>
+            <p>Adaptablox is designed to enforce authority, policy, and safety before actions execute, rather than after damage is done.</p>
+          </div>
+        </div>
+        <div className="content-stretch flex flex-col gap-[12px] items-start leading-[21px] pb-[12px] pt-[20px] px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="1:40">
           <p className="font-sans font-[590] relative shrink-0 text-[24px] text-nowrap" data-node-id="27:625" style={{ fontVariationSettings: "'wdth' 100" }}>
             Predictable Failure Modes
           </p>
