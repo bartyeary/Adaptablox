@@ -23,6 +23,16 @@ export default function AdaptabloxAbout() {
     }, 10);
   }, [activePage]);
   
+  // Trigger animation on initial mount
+  useEffect(() => {
+    setIsAnimating(false);
+    setTimeout(() => {
+      requestAnimationFrame(() => {
+        setIsAnimating(true);
+      });
+    }, 10);
+  }, []);
+  
   useEffect(() => {
     // Expose navigate functions to window for document-level listeners
     (window as any).testNavigate = () => {
@@ -142,7 +152,7 @@ export default function AdaptabloxAbout() {
       <div 
         className="bg-[#eef0f4] content-stretch flex flex-col gap-[24px] min-h-[calc(100vh+21px)] items-start p-[18px] pb-[118px] relative shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-[800px] max-w-full mx-auto transition-all duration-250 ease-out" 
         style={{ 
-          marginTop: isAnimating ? '0px' : '-20px',
+          marginTop: isAnimating ? '0px' : '-30px',
           transition: 'margin-top 0.25s ease-out'
         }}
         data-node-id="1:39"

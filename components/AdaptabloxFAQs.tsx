@@ -183,7 +183,7 @@ export default function AdaptabloxFAQs() {
             <div className="basis-0 bg-[#d9d9d9] grow h-[1.5px] min-h-px min-w-px shrink-0" data-node-id="1:208" />
           </div>
           <div className="content-start flex flex-wrap gap-[24px] items-start justify-center relative shrink-0 w-full" data-node-id="1:209">
-            <div className="content-stretch flex flex-col gap-[12px] items-start p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[250px] flex-shrink-0 h-auto min-[600px]:h-[320px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-node-id="1:210">
+            <div className="content-stretch flex flex-col gap-[12px] items-start p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[238px] flex-shrink-0 h-auto min-[600px]:h-[320px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-node-id="1:210">
               <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:211">
                 How does A.R.C. differ from access governance?
               </p>
@@ -192,7 +192,7 @@ export default function AdaptabloxFAQs() {
                 Access governance defines who can use a resource. A.R.C. governs how agents behave once access is granted, modulating tone, permissions, and escalation at the moment of action.
               </p>
             </div>
-            <div className="content-stretch flex flex-col gap-[12px] items-start p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[250px] flex-shrink-0 h-auto min-[600px]:h-[320px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-faq-card data-node-id="1:214">
+            <div className="content-stretch flex flex-col gap-[12px] items-start p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[238px] flex-shrink-0 h-auto min-[600px]:h-[320px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-faq-card data-node-id="1:214">
               <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:215">
                 Does A.R.C. improve model accuracy?
               </p>
@@ -201,7 +201,7 @@ export default function AdaptabloxFAQs() {
                 No. ARC governs authority and behavior at the moment of action, without modifying model weights or training.
               </p>
             </div>
-            <div className="content-stretch flex flex-col gap-[12px] items-start p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[250px] flex-shrink-0 h-auto min-[600px]:h-[320px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-faq-card data-node-id="1:218">
+            <div className="content-stretch flex flex-col gap-[12px] items-start p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[238px] flex-shrink-0 h-auto min-[600px]:h-[320px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-faq-card data-node-id="1:218">
               <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:219">
                 How does A.R.C. decide when an agent should evolve or escalate?
               </p>
@@ -210,7 +210,7 @@ export default function AdaptabloxFAQs() {
                 It evaluates tone, intent, domain cues, and policy fit. When a prompt falls outside scope, A.R.C. adjusts behavior or hands off the task without requiring retraining.
               </p>
             </div>
-            <div className="content-stretch flex flex-col gap-[12px] items-start p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[250px] flex-shrink-0 h-auto min-[600px]:h-[320px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-faq-card data-node-id="1:222">
+            <div className="content-stretch flex flex-col gap-[12px] items-start p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[238px] flex-shrink-0 h-auto min-[600px]:h-[320px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-faq-card data-node-id="1:222">
               <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:223">
                 What if agents interpret a prompt differently?
               </p>
@@ -219,7 +219,7 @@ export default function AdaptabloxFAQs() {
                 A.R.C. compares each agent's confidence and constraint alignment, then blends or selects outputs to deliver a balanced and transparent response.
               </p>
             </div>
-            <div className="content-stretch flex flex-col gap-[12px] items-start p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[250px] flex-shrink-0 h-auto min-[600px]:h-[320px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-faq-card data-node-id="1:226">
+            <div className="content-stretch flex flex-col gap-[12px] items-start p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[238px] flex-shrink-0 h-auto min-[600px]:h-[320px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-faq-card data-node-id="1:226">
               <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:227">
                 Can A.R.C. learn over time?
               </p>
@@ -228,7 +228,7 @@ export default function AdaptabloxFAQs() {
                 It adapts its behavioral parameters through feedback, refining tone, escalation behavior, and constraint balance from real use.
               </p>
             </div>
-            <div className="content-stretch flex flex-col gap-[12px] items-start p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[250px] flex-shrink-0 h-auto min-[600px]:h-[320px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-faq-card data-node-id="1:230">
+            <div className="content-stretch flex flex-col gap-[12px] items-start p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[238px] flex-shrink-0 h-auto min-[600px]:h-[320px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-faq-card data-node-id="1:230">
               <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:231">
                 How are agent responses synthesized?
               </p>
@@ -237,7 +237,7 @@ export default function AdaptabloxFAQs() {
                 A controller agent reconciles outputs across domains through constraint-aware arbitration and tone alignment.
               </p>
             </div>
-            <div className="content-stretch flex flex-col gap-[12px] items-start p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[250px] flex-shrink-0 h-auto min-[600px]:h-[320px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-faq-card data-node-id="1:234">
+            <div className="content-stretch flex flex-col gap-[12px] items-start p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[238px] flex-shrink-0 h-auto min-[600px]:h-[320px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-faq-card data-node-id="1:234">
               <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:235">
                 Will larger frontier models solve governance?
               </p>
@@ -246,7 +246,7 @@ export default function AdaptabloxFAQs() {
                 No. Training improves factual accuracy, but not behavior. Runtime governance enables adaptive modulation and policy updates without retraining, ensuring consistency across contexts.
               </p>
             </div>
-            <div className="content-stretch flex flex-col gap-[12px] items-start p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[250px] flex-shrink-0 h-auto min-[600px]:h-[320px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-faq-card data-node-id="1:238">
+            <div className="content-stretch flex flex-col gap-[12px] items-start p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[238px] flex-shrink-0 h-auto min-[600px]:h-[320px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-faq-card data-node-id="1:238">
               <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:239">
                 Can A.R.C. prevent harmful or off-policy outputs?
               </p>
@@ -255,7 +255,7 @@ export default function AdaptabloxFAQs() {
                 A.R.C. enforces behavioral constraints at the moment of action, reducing drift and policy violations through escalation, fallback, and constraint-aware synthesis.
               </p>
             </div>
-            <div className="content-stretch flex flex-col gap-[12px] items-start p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[250px] flex-shrink-0 h-auto min-[600px]:h-[320px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-faq-card data-node-id="1:242">
+            <div className="content-stretch flex flex-col gap-[12px] items-start p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[238px] flex-shrink-0 h-auto min-[600px]:h-[320px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-faq-card data-node-id="1:242">
               <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:243">
                 How does the system assemble multiple agents?
               </p>
@@ -264,7 +264,7 @@ export default function AdaptabloxFAQs() {
                 It derives a compact context signature from task semantics and tone, matching it to relevant domains and agents to determine whether to invoke a single role or a coordinated ensemble.
               </p>
             </div>
-            <div className="content-stretch flex flex-col gap-[12px] items-start p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[250px] flex-shrink-0 h-auto min-[600px]:h-[320px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-faq-card data-node-id="1:246">
+            <div className="content-stretch flex flex-col gap-[12px] items-start p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[238px] flex-shrink-0 h-auto min-[600px]:h-[320px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-faq-card data-node-id="1:246">
               <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:247">
                 How does A.R.C. handle memory in regulated environments?
               </p>
@@ -273,7 +273,7 @@ export default function AdaptabloxFAQs() {
                 It segments memory by type and applies constraint-aware rules for access, retention, and redaction. It enforces retention limits, filters sensitive content, and logs every access for review.
               </p>
             </div>
-            <div className="content-stretch flex flex-col gap-[12px] items-start p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[250px] flex-shrink-0 h-auto min-[600px]:h-[320px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-faq-card data-node-id="1:250">
+            <div className="content-stretch flex flex-col gap-[12px] items-start p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[238px] flex-shrink-0 h-auto min-[600px]:h-[320px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-faq-card data-node-id="1:250">
               <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:251">
                 Can A.R.C. support multistep chaining of agent tasks?
               </p>
@@ -282,7 +282,7 @@ export default function AdaptabloxFAQs() {
                 Yes. A.R.C. preserves behavioral and tonal continuity across chained agents, maintaining consistent context, policy alignment, and governance throughout.
               </p>
             </div>
-            <div className="content-stretch flex flex-col gap-[12px] items-start p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[250px] flex-shrink-0 h-auto min-[600px]:h-[320px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-faq-card data-node-id="1:254">
+            <div className="content-stretch flex flex-col gap-[12px] items-start p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[238px] flex-shrink-0 h-auto min-[600px]:h-[320px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-faq-card data-node-id="1:254">
               <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:255">
                 How does Adaptablox improve efficiency?
               </p>
@@ -303,7 +303,7 @@ export default function AdaptabloxFAQs() {
             <div className="basis-0 bg-[#d9d9d9] grow h-[1.5px] min-h-px min-w-px shrink-0" data-node-id="1:262" />
           </div>
           <div className="content-start flex flex-wrap gap-[16px_24px] items-start justify-center relative shrink-0 w-full" data-node-id="1:263">
-            <div className="content-stretch flex flex-col gap-[12px] items-start p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[250px] flex-shrink-0 h-auto min-[600px]:h-[320px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-faq-card data-node-id="1:264">
+            <div className="content-stretch flex flex-col gap-[12px] items-start p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[238px] flex-shrink-0 h-auto min-[600px]:h-[320px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-faq-card data-node-id="1:264">
               <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:265">
                 Does L.R.C. change the model's weights?
               </p>
@@ -312,7 +312,7 @@ export default function AdaptabloxFAQs() {
                 No. L.R.C. governs internal reasoning at the moment of action and shapes activation behavior without modifying or retraining the underlying model.
               </p>
             </div>
-            <div className="content-stretch flex flex-col gap-[12px] items-start p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[250px] flex-shrink-0 h-auto min-[600px]:h-[320px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-faq-card data-node-id="1:268">
+            <div className="content-stretch flex flex-col gap-[12px] items-start p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[238px] flex-shrink-0 h-auto min-[600px]:h-[320px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-faq-card data-node-id="1:268">
               <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:269">
                 How does L.R.C. interact with A.R.C.?
               </p>
@@ -321,7 +321,7 @@ export default function AdaptabloxFAQs() {
                 A.R.C. governs agent behavior at the surface. L.R.C. governs internal reasoning dynamics. Together they align how the system thinks with how it communicates and acts.
               </p>
             </div>
-            <div className="content-stretch flex flex-col gap-[12px] items-start p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[250px] flex-shrink-0 h-auto min-[600px]:h-[320px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-faq-card data-node-id="1:272">
+            <div className="content-stretch flex flex-col gap-[12px] items-start p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[238px] flex-shrink-0 h-auto min-[600px]:h-[320px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-faq-card data-node-id="1:272">
               <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:273">
                 Can L.R.C. reduce hallucinations?
               </p>
@@ -330,7 +330,7 @@ export default function AdaptabloxFAQs() {
                 It reduces risk by constraining internal reasoning patterns, limiting unsafe pathways, and guiding activation toward policy-aligned interpretations.
               </p>
             </div>
-            <div className="content-stretch flex flex-col gap-[12px] items-start p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[250px] flex-shrink-0 h-auto min-[600px]:h-[320px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-faq-card data-node-id="1:276">
+            <div className="content-stretch flex flex-col gap-[12px] items-start p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[238px] flex-shrink-0 h-auto min-[600px]:h-[320px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-faq-card data-node-id="1:276">
               <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:277">
                 Is L.R.C. compatible with interpretability tools?
               </p>
@@ -339,7 +339,7 @@ export default function AdaptabloxFAQs() {
                 Yes. L.R.C. can incorporate insights from interpretability methods when available, but does not depend on any specific approach or tool.
               </p>
             </div>
-            <div className="content-stretch flex flex-col gap-[12px] items-start p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[250px] flex-shrink-0 h-auto min-[600px]:h-[320px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-faq-card data-node-id="1:280">
+            <div className="content-stretch flex flex-col gap-[12px] items-start p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[238px] flex-shrink-0 h-auto min-[600px]:h-[320px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-faq-card data-node-id="1:280">
               <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:281">
                 Why govern internal reasoning at all? Isn't output control enough?
               </p>
@@ -348,7 +348,7 @@ export default function AdaptabloxFAQs() {
                 Output-only governance reacts to errors after they occur. L.R.C. addresses risk earlier by shaping internal reasoning before a response is generated.
               </p>
             </div>
-            <div className="content-stretch flex flex-col gap-[12px] items-start p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[250px] flex-shrink-0 h-auto min-[600px]:h-[320px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-faq-card data-node-id="1:284">
+            <div className="content-stretch flex flex-col gap-[12px] items-start p-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[238px] flex-shrink-0 h-auto min-[600px]:h-[320px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-faq-card data-node-id="1:284">
               <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:285">
                 Can L.R.C. work with any model?
               </p>
