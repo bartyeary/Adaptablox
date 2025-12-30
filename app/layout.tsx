@@ -21,8 +21,8 @@ export default function RootLayout({
               console.log('=== Inline script executed - JavaScript is working! ===');
               
               // Set up a simple navigation system that works without React
-              // Start with 'overview' to match React's initial state
-              let currentPage = 'overview';
+              // Start with 'about' to match React's initial state
+              let currentPage = 'about';
               
               // Directly update segmented control button states in the DOM (independent of React)
               function updateSegmentedControlButtons(activePage) {

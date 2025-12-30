@@ -1,16 +1,16 @@
 1:HL["/_next/static/css/cdfafd591cbccc45.css","style",{"crossOrigin":""}]
-0:["6ubO3VjJ9ROL4SbO6Pro_",[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/cdfafd591cbccc45.css","precedence":"next","crossOrigin":""}]],"$L3"]]]]
+0:["rt0y1PNQXC8KXMvaWuAw6",[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/cdfafd591cbccc45.css","precedence":"next","crossOrigin":""}]],"$L3"]]]]
 5:I[3300,["185","static/chunks/app/layout-19bfac72968ecfd1.js"],"NavigationProvider"]
 6:I[6954,[],""]
 7:I[7264,[],""]
 9:I[8297,[],""]
 a:I[6523,["931","static/chunks/app/page-7cd0f59d2fbaa034.js"],""]
-4:T8749,
+4:T8743,
               console.log('=== Inline script executed - JavaScript is working! ===');
               
               // Set up a simple navigation system that works without React
-              // Start with 'overview' to match React's initial state
-              let currentPage = 'overview';
+              // Start with 'about' to match React's initial state
+              let currentPage = 'about';
               
               // Directly update segmented control button states in the DOM (independent of React)
               function updateSegmentedControlButtons(activePage) {
