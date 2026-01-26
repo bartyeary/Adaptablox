@@ -161,10 +161,10 @@ export default function AdaptabloxAbout() {
           <p className="font-sans font-[590] relative shrink-0 text-[24px] text-nowrap" data-node-id="27:625" style={{ fontVariationSettings: "'wdth' 100" }}>
             Enforcing Authority Boundaries
           </p>
-          <p className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-[min-content]" style={{ fontVariationSettings: "'wdth' 100" }}>
+          <p className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-[min-content] border-b border-b-[#C4C4C4] pb-[12px]" style={{ fontVariationSettings: "'wdth' 100" }}>
             <em>Preventing autonomous systems from producing outcomes no one explicitly authorized.</em>
           </p>
-          <div className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-[min-content]" style={{ fontVariationSettings: "'wdth' 100" }}>
+          <div className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-[min-content] pt-[12px]" style={{ fontVariationSettings: "'wdth' 100" }}>
             <p className="mb-[1em]">Autonomous systems are now capable of acting independently inside real organizations.</p>
             <p className="mb-[1em]">When those systems act <strong>without enforcing delegated authority at each handoff and at the moment of action</strong>, predictable failures occur.</p>
             <p className="mb-[1em]">In the most dangerous cases, <strong>every agent acts within its assigned role, every permission check passes, and no policy is violated</strong> — yet the system produces <strong>outcomes no one explicitly authorized</strong>.</p>
