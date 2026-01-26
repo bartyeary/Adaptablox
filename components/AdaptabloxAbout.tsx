@@ -159,7 +159,10 @@ export default function AdaptabloxAbout() {
       >
         <div className="content-stretch flex flex-col gap-[12px] items-start leading-[21px] pb-[12px] pt-[20px] px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="1:40" style={{ marginTop: '71px' }}>
           <p className="font-sans font-[590] relative shrink-0 text-[24px] text-nowrap" data-node-id="27:625" style={{ fontVariationSettings: "'wdth' 100" }}>
-            Ungoverned Autonomy
+            Enforcing Authority Boundaries
+          </p>
+          <p className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-[min-content]" style={{ fontVariationSettings: "'wdth' 100" }}>
+            <em>Preventing autonomous systems from producing outcomes no one explicitly authorized.</em>
           </p>
           <div className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-[min-content]" style={{ fontVariationSettings: "'wdth' 100" }}>
             <p className="mb-[1em]">Autonomous systems are now capable of acting independently inside real organizations.</p>
@@ -173,10 +176,7 @@ export default function AdaptabloxAbout() {
             Predictable Failure Modes
           </p>
           <p className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-[min-content]" data-node-id="1:42" style={{ fontVariationSettings: "'wdth' 100" }}>
-            <strong>The following are not edge cases.</strong>
-          </p>
-          <p className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-[min-content]" data-node-id="1:42" style={{ fontVariationSettings: "'wdth' 100" }}>
-            They are predictable outcomes of deploying autonomous and semi-autonomous agents whose outputs are <strong>treated as authoritative inputs for other agents, without runtime enforcement of delegated authority</strong>.
+            The following are predictable outcomes of deploying autonomous and semi-autonomous agents whose outputs are <strong>treated as authoritative inputs for other agents, without runtime enforcement of delegated authority</strong>.
           </p>
         </div>
         <div className="content-stretch flex flex-col items-start relative shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] rounded-[8px] overflow-hidden shrink-0 w-full" data-node-id="1:43">

@@ -205,7 +205,7 @@ export default function AdaptabloxOverview() {
             </div>
             <div className="bg-white content-stretch flex flex-col items-start px-[36px] py-[8px] relative shrink-0 w-full" data-node-id="42:790">
               <div className="font-sans leading-[0] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="42:791">
-                <p className="font-sans font-bold leading-[24px] mb-0 text-[#84a5ff]">{`Latent Role & Constraint (L.R.C.) governs the inner loop`}</p>
+                <p className="font-sans font-bold leading-[24px] mb-0 text-[#7b9eff]">{`Latent Role & Constraint (L.R.C.) governs the inner loop`}</p>
                 <ul className="list-disc">
                   <li className="mb-0 ms-[22.5px]">
                     <span className="font-sans font-normal leading-[24px]">

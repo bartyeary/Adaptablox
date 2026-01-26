@@ -198,7 +198,7 @@ export default function AdaptabloxFAQs() {
               </p>
               <div className="bg-[#85dba2] h-[1.5px] shrink-0 w-full" data-node-id="1:216" />
               <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:217">
-                No. ARC governs authority and behavior at the moment of action, without modifying model weights or training.
+                No. A.R.C. governs authority and behavior at the moment of action, without modifying model weights or training.
               </p>
             </div>
             <div className="content-stretch flex flex-col gap-[12px] items-start px-[24px] pt-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full min-[600px]:w-[242px] flex-shrink-0 h-auto min-[600px]:h-[335px] pb-[20px] min-[600px]:pb-[24px] bg-white" data-faq-card data-node-id="1:218">
@@ -296,7 +296,7 @@ export default function AdaptabloxFAQs() {
         <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0 w-full" data-node-id="1:258">
           <div className="content-stretch flex gap-[6px] h-[21px] items-center px-[5px] py-0 relative shrink-0 w-full" data-node-id="1:259">
             <div className="basis-0 bg-[#d9d9d9] grow h-[1.5px] min-h-px min-w-px shrink-0" data-node-id="1:260" />
-            <p className="font-sans font-normal leading-[21px] not-italic relative shrink-0 text-[#84a5ff] text-[15px] text-center text-nowrap" data-node-id="1:261">
+            <p className="font-sans font-normal leading-[21px] not-italic relative shrink-0 text-[#7b9eff] text-[15px] text-center text-nowrap" data-node-id="1:261">
               <span className="font-sans font-bold">Internal Reasoning Governance</span>
               <span>{` (L.R.C.)`}</span>
             </p>
@@ -307,7 +307,7 @@ export default function AdaptabloxFAQs() {
               <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:265">
                 Does L.R.C. change the model's weights?
               </p>
-              <div className="bg-[#84a5ff] h-[1.5px] shrink-0 w-full" data-node-id="1:266" />
+              <div className="bg-[#7b9eff] h-[1.5px] shrink-0 w-full" data-node-id="1:266" />
               <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:267">
                 No. L.R.C. governs internal reasoning at the moment of action and shapes activation behavior without modifying or retraining the underlying model.
               </p>
@@ -316,7 +316,7 @@ export default function AdaptabloxFAQs() {
               <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:269">
                 How does L.R.C. interact with A.R.C.?
               </p>
-              <div className="bg-[#84a5ff] h-[1.5px] shrink-0 w-full" data-node-id="1:270" />
+              <div className="bg-[#7b9eff] h-[1.5px] shrink-0 w-full" data-node-id="1:270" />
               <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:271">
                 A.R.C. governs agent behavior at the surface. L.R.C. governs internal reasoning dynamics. Together they align how the system thinks with how it communicates and acts.
               </p>
@@ -325,7 +325,7 @@ export default function AdaptabloxFAQs() {
               <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:273">
                 Can L.R.C. reduce hallucinations?
               </p>
-              <div className="bg-[#84a5ff] h-[1.5px] shrink-0 w-full" data-node-id="1:274" />
+              <div className="bg-[#7b9eff] h-[1.5px] shrink-0 w-full" data-node-id="1:274" />
               <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:275">
                 It reduces risk by constraining internal reasoning patterns, limiting unsafe pathways, and guiding activation toward policy-aligned interpretations.
               </p>
@@ -334,7 +334,7 @@ export default function AdaptabloxFAQs() {
               <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:277">
                 Is L.R.C. compatible with interpretability tools?
               </p>
-              <div className="bg-[#84a5ff] h-[1.5px] shrink-0 w-full" data-node-id="1:278" />
+              <div className="bg-[#7b9eff] h-[1.5px] shrink-0 w-full" data-node-id="1:278" />
               <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:279">
                 Yes. L.R.C. can incorporate insights from interpretability methods when available, but does not depend on any specific approach or tool.
               </p>
@@ -343,7 +343,7 @@ export default function AdaptabloxFAQs() {
               <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:281">
                 Why govern internal reasoning at all? Isn't output control enough?
               </p>
-              <div className="bg-[#84a5ff] h-[1.5px] shrink-0 w-full" data-node-id="1:282" />
+              <div className="bg-[#7b9eff] h-[1.5px] shrink-0 w-full" data-node-id="1:282" />
               <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:283">
                 Output-only governance reacts to errors after they occur. L.R.C. addresses risk earlier by shaping internal reasoning before a response is generated.
               </p>
@@ -352,7 +352,7 @@ export default function AdaptabloxFAQs() {
               <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:285">
                 Can L.R.C. work with any model?
               </p>
-              <div className="bg-[#84a5ff] h-[1.5px] shrink-0 w-full" data-node-id="1:286" />
+              <div className="bg-[#7b9eff] h-[1.5px] shrink-0 w-full" data-node-id="1:286" />
               <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:287">
                 Yes. It is model-agnostic and compatible with proprietary, open, fine-tuned, or emerging architectures without requiring structural assumptions.
               </p>
