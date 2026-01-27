@@ -159,10 +159,10 @@ export default function AdaptabloxAbout() {
       >
         <div className="content-stretch flex flex-col gap-[12px] items-start leading-[21px] pb-[12px] pt-[20px] px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="1:40" style={{ marginTop: '71px' }}>
           <p className="font-sans font-[590] relative shrink-0 text-[24px] text-nowrap" data-node-id="27:625" style={{ fontVariationSettings: "'wdth' 100" }}>
-            Enforcing Authority Boundaries
+            Enforcing Boundaries
           </p>
           <p className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-[min-content] border-b border-b-[#C4C4C4] pb-[12px]" style={{ fontVariationSettings: "'wdth' 100" }}>
-            <em>Preventing autonomous systems from producing outcomes no one explicitly authorized.</em>
+            <em>Adaptablox prevents autonomous systems from producing outcomes no one explicitly authorized.</em>
           </p>
           <div className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-[min-content] pt-[12px]" style={{ fontVariationSettings: "'wdth' 100" }}>
             <p className="mb-[1em]">Autonomous systems are now capable of acting independently inside real organizations.</p>
