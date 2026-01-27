@@ -146,9 +146,20 @@ export default function AdaptabloxFAQs() {
         data-node-id="1:200"
       >
         <div className="content-stretch flex flex-col gap-[12px] items-start pb-[12px] pt-[20px] px-[24px] relative shrink-0 w-full" data-node-id="1:201" style={{ marginTop: '71px' }}>
-          <p className="font-sans font-[590] leading-[21px] relative shrink-0 text-[24px] text-[#4E4E4E] text-nowrap" data-node-id="27:627" style={{ fontVariationSettings: "'wdth' 100" }}>
-            The Adaptablox System
-          </p>
+          <div className="min-w-full relative shrink-0 w-full">
+            <p className="font-sans font-[590] leading-[21px] relative shrink-0 text-[24px] text-[#4E4E4E] text-nowrap mb-0" data-node-id="27:627" style={{ fontVariationSettings: "'wdth' 100" }}>
+              The Adaptablox System
+            </p>
+            <div 
+              className="mt-[12px] h-[4px] w-full overflow-hidden"
+              style={{
+                backgroundImage: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)',
+                backgroundSize: '22.627px 22.627px',
+                backgroundPosition: '0 0',
+                imageRendering: 'crisp-edges'
+              }}
+            />
+          </div>
           <div className="font-sans font-normal leading-[0] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:203">
             <p className="leading-[21px] mb-0">Adaptablox shapes how agents behave at the surface level and how models reason at the internal level. It brings coherence, stability, and continuity to autonomous AI by combining two complementary layers:</p>
             <p className="leading-[21px]">

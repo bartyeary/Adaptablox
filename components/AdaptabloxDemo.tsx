@@ -153,9 +153,20 @@ export default function AdaptabloxDemo() {
         data-node-id="27:520"
       >
         <div className="content-stretch flex flex-col gap-[12px] items-start pb-[12px] pt-[20px] px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="27:521" style={{ marginTop: '71px' }}>
-          <p className="font-sans font-[590] leading-[21px] relative shrink-0 text-[24px] text-[#4E4E4E] text-nowrap" data-node-id="27:643" style={{ fontVariationSettings: "'wdth' 100" }}>
-            Demos
-          </p>
+          <div className="min-w-full relative shrink-0 w-full">
+            <p className="font-sans font-[590] leading-[21px] relative shrink-0 text-[24px] text-[#4E4E4E] text-nowrap mb-0" data-node-id="27:643" style={{ fontVariationSettings: "'wdth' 100" }}>
+              Demos
+            </p>
+            <div 
+              className="mt-[12px] h-[4px] w-full overflow-hidden"
+              style={{
+                backgroundImage: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)',
+                backgroundSize: '22.627px 22.627px',
+                backgroundPosition: '0 0',
+                imageRendering: 'crisp-edges'
+              }}
+            />
+          </div>
           <div className="font-sans font-normal leading-[21px] min-w-full relative shrink-0 text-[15px] w-[min-content]" data-node-id="27:523" style={{ fontVariationSettings: "'wdth' 100" }}>
             <p className="mb-0">
               <span>{`These demonstrations show how Adaptablox governs autonomous systems `}</span>
