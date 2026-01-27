@@ -3,9 +3,9 @@
 import { useEffect, useState } from 'react';
 import { useNavigation } from '@/contexts/NavigationContext';
 
-const imgGroup28481 = "/assets/logo.svg";
+const imgGroup28481 = "/assets/logo2.svg";
 const imgIconAlert = "/assets/alert.svg";
-const imgLogo = "/assets/logo.svg";
+const imgLogo = "/assets/logo2.svg";
 
 export default function AdaptabloxAbout() {
   const { activePage, navigate } = useNavigation();
