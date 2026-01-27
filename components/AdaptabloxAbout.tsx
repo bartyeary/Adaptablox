@@ -163,7 +163,7 @@ export default function AdaptabloxAbout() {
           </p>
           <div className="min-w-full relative shrink-0 w-[min-content]">
             <p className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-[min-content] mb-0" style={{ fontVariationSettings: "'wdth' 100" }}>
-              <strong><em>Adaptablox prevents autonomous systems from producing outcomes no one explicitly authorized.</em></strong>
+              <strong>Adaptablox prevents autonomous systems from producing outcomes no one explicitly authorized.</strong>
             </p>
             <div 
               className="mt-[12px] h-[4px] w-full overflow-hidden"

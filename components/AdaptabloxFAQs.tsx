@@ -150,11 +150,9 @@ export default function AdaptabloxFAQs() {
             The Adaptablox System
           </p>
           <div className="font-sans font-normal leading-[0] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:203">
-            <p className="leading-[21px] mb-0">Adaptablox is a runtime guidance platform for AI systems. It shapes how agents behave at the surface level and how models reason at the internal level.</p>
+            <p className="leading-[21px] mb-0">Adaptablox shapes how agents behave at the surface level and how models reason at the internal level. It brings coherence, stability, and continuity to autonomous AI by combining two complementary layers:</p>
             <p className="leading-[21px]">
               <span>
-                It brings coherence, stability, and continuity to autonomous AI by combining two complementary layers:
-                <br aria-hidden="true" />
                 <br aria-hidden="true" />
               </span>
               <span className="font-sans font-bold not-italic">{`Agent Role & Constraint (A.R.C.) `}</span>
