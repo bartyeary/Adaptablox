@@ -76,7 +76,7 @@ export default function AdaptabloxDemo() {
             <span className={`font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap ${
               activePage === 'about' ? 'text-[#5b5b5f]' : 'text-white'
             }`}>
-              Failures
+              Diagnosis
             </span>
           </button>
           <button
