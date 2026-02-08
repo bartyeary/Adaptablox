@@ -332,7 +332,7 @@ export default function AdaptabloxDemo() {
         </div>
         <div className="content-stretch flex flex-col gap-[12px] items-start pb-[12px] pt-0 px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="44:843">
           <p className="font-sans font-medium relative shrink-0 text-[20px] text-nowrap" data-node-id="44:845">
-            What These Demos Are – and Are Not
+            What These Demos Show
           </p>
           <div className="font-sans font-normal leading-[0] min-w-full relative shrink-0 text-[15px] w-[min-content]" data-node-id="44:846" style={{ fontVariationSettings: "'wdth' 100" }}>
             <p className="leading-[21px] mb-0">These demonstrations are not product mockups and not UI proposals. They do not represent a finished product surface.</p>
