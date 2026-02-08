@@ -159,7 +159,7 @@ export default function AdaptabloxAbout() {
       >
         <div className="content-stretch flex flex-col gap-[12px] items-start leading-[21px] pb-[12px] pt-[20px] px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="1:40" style={{ marginTop: '71px' }}>
           <p className="font-sans font-[590] relative shrink-0 text-[24px] text-nowrap" data-node-id="27:625" style={{ fontVariationSettings: "'wdth' 100" }}>
-            Failure at the Moment of Action
+            Failure at Decision Time
           </p>
           <div className="min-w-full relative shrink-0 w-[min-content]">
             <p className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-[min-content] mb-0" style={{ fontVariationSettings: "'wdth' 100" }}>
@@ -177,9 +177,9 @@ export default function AdaptabloxAbout() {
           </div>
           <div className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-[min-content] pt-[12px]" style={{ fontVariationSettings: "'wdth' 100" }}>
             <p className="mb-[1em]">Autonomous systems are now capable of acting independently inside real organizations.</p>
-            <p className="mb-[1em]">When those systems act <strong>without enforcing delegated authority at each handoff and at the moment of action</strong>, predictable failures occur.</p>
-            <p className="mb-[1em]">In the most dangerous cases, <strong>every agent acts within its assigned role, every permission check passes, and no policy is violated</strong> — yet the system produces <strong>outcomes no one explicitly authorized</strong>.</p>
-            <p>Adaptablox is designed to enforce authority, policy, and safety <strong>before actions execute and before authority silently propagates</strong>, rather than after damage is done.</p>
+            <p className="mb-[1em]">When those systems act without enforcing delegated authority at each handoff and at the moment of action, predictable failures occur.</p>
+            <p className="mb-[1em]">In the most dangerous cases, every agent acts within its assigned role, every permission check passes, and no policy is violated — yet the system produces outcomes no one explicitly authorized.</p>
+            <p>Adaptablox is designed to enforce authority, policy, and safety before actions execute and before authority silently propagates, rather than after damage is done.</p>
           </div>
         </div>
         <div className="content-stretch flex flex-col gap-[12px] items-start leading-[21px] pb-[12px] pt-[20px] px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="1:40">
@@ -187,7 +187,7 @@ export default function AdaptabloxAbout() {
             Predictable Failure Modes
           </p>
           <p className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-[min-content]" data-node-id="1:42" style={{ fontVariationSettings: "'wdth' 100" }}>
-            The following are predictable outcomes of deploying autonomous and semi-autonomous agents whose outputs are <strong>treated as authoritative inputs for other agents, without runtime enforcement of delegated authority</strong>.
+            The following are predictable outcomes of deploying autonomous and semi-autonomous agents whose outputs are treated as authoritative inputs for other agents, without runtime enforcement of delegated authority.
           </p>
         </div>
         <div className="content-stretch flex flex-col items-start relative shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] rounded-[8px] overflow-hidden shrink-0 w-full" data-node-id="1:43">
@@ -549,11 +549,11 @@ export default function AdaptabloxAbout() {
             <p className="mb-0">Across every failure, the cause is the same.</p>
             <p className="mb-0">
               <br aria-hidden="true" />
-              Autonomous systems were allowed to act <strong>without verifying whether the action was within their delegated authority at the moment it was generated</strong>.
+              Autonomous systems were allowed to act without verifying whether the action was within their delegated authority at the moment it was generated.
             </p>
             <p>
               <br aria-hidden="true" />
-              Adaptablox introduces a runtime behavioral control layer that <strong>makes autonomy legible to Strategy, Governance, Risk, and Compliance</strong>, before damage occurs.
+              Adaptablox introduces a runtime behavioral control layer that makes autonomy legible to Strategy, Governance, Risk, and Compliance, before damage occurs.
             </p>
           </div>
         </div>

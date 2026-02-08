@@ -320,11 +320,7 @@ export default function AdaptabloxOverview() {
             </ul>
             <p className="leading-[21px] mb-0">&nbsp;</p>
             <p className="leading-[21px] mb-0">
-              <span>{`Adaptablox prevents these outcomes by enforcing authority `}</span>
-              <span className="font-sans font-bold">
-                before actions execute
-              </span>
-              , not after they're logged.
+              Adaptablox prevents these outcomes by enforcing authority before actions execute, not after they're logged.
             </p>
             <p className="leading-[21px] mb-0">&nbsp;</p>
             <p className="leading-[21px] mb-0">It does not replace models.</p>
