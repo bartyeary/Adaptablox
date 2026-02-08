@@ -159,7 +159,7 @@ export default function AdaptabloxAbout() {
       >
         <div className="content-stretch flex flex-col gap-[12px] items-start leading-[21px] pb-[12px] pt-[20px] px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="1:40" style={{ marginTop: '71px' }}>
           <p className="font-sans font-[590] relative shrink-0 text-[24px] text-nowrap" data-node-id="27:625" style={{ fontVariationSettings: "'wdth' 100" }}>
-            Enforcing Boundaries
+            Failure at the Moment of Action
           </p>
           <div className="min-w-full relative shrink-0 w-[min-content]">
             <p className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-[min-content] mb-0" style={{ fontVariationSettings: "'wdth' 100" }}>

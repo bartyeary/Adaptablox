@@ -157,7 +157,7 @@ export default function AdaptabloxOverview() {
             </p>
             <div className="min-w-full relative shrink-0 w-full">
               <p className="font-sans font-bold leading-[21px] min-w-full relative shrink-0 text-[#4e4e4e] text-[15px] mb-0" data-node-id="27:688">
-                Autonomous AI doesn't fail because it's malicious or unintelligent. It fails because it acts outside delegated authority at the moment of action.
+                A runtime control layer that governs agent behavior at the moment decisions are made.
               </p>
               <div 
                 className="mt-[12px] h-[4px] w-full overflow-hidden"
