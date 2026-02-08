@@ -1,14 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-
-  // GitHub Pages serves from /docs
-  basePath: '/docs',
-  assetPrefix: '/docs',
-
   images: {
     unoptimized: true,
   },
+  assetPrefix: '/',   // ← REQUIRED for custom domain
 };
 
 module.exports = nextConfig;
