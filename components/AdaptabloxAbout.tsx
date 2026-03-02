@@ -6,6 +6,7 @@ import { useNavigation } from '@/contexts/NavigationContext';
 const imgGroup28481 = "/assets/logo2.svg";
 const imgIconAlert = "/assets/alert.svg";
 const imgLogo = "/assets/logo2.svg";
+const imgHero = "/assets/hero.png";
 
 export default function AdaptabloxAbout() {
   const { activePage, navigate } = useNavigation();
@@ -157,7 +158,14 @@ export default function AdaptabloxAbout() {
         }}
         data-node-id="1:39"
       >
-        <div className="content-stretch flex flex-col gap-[12px] items-start leading-[21px] pb-[12px] pt-[20px] px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="1:40" style={{ marginTop: '71px' }}>
+        <div className="w-full flex justify-center mt-[88px] mb-[4px]">
+          <img
+            src={imgHero}
+            alt="Adaptablox hero"
+            className="w-full max-w-[720px] rounded-[12px] object-cover"
+          />
+        </div>
+        <div className="content-stretch flex flex-col gap-[12px] items-start leading-[21px] pb-[12px] pt-[20px] px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="1:40">
           <p className="font-sans font-[590] relative shrink-0 text-[24px] text-nowrap" data-node-id="27:625" style={{ fontVariationSettings: "'wdth' 100" }}>
             Failure at Decision Time
           </p>
