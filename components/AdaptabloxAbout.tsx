@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useNavigation } from '@/contexts/NavigationContext';
+import HeroOverlayCard from '@/components/HeroOverlayCard';
 
 const imgGroup28481 = "/assets/logo2.svg";
 const imgIconAlert = "/assets/alert.svg";
@@ -159,11 +160,27 @@ export default function AdaptabloxAbout() {
         data-node-id="1:39"
       >
         <div className="w-full flex justify-center mt-[88px] mb-[4px]">
-          <img
-            src={imgHero}
-            alt="Adaptablox hero"
-            className="w-full max-w-[720px] rounded-[12px] object-cover"
-          />
+          <div
+            className="w-full max-w-[720px] relative"
+            style={{ perspective: '1100px' }}
+          >
+            <img
+              src={imgHero}
+              alt="Adaptablox hero"
+              className="w-full rounded-[12px] object-cover"
+            />
+            <div
+              className="absolute"
+              style={{
+                left: 'clamp(32px, 4vw, 44px)',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                pointerEvents: 'none',
+              }}
+            >
+              <HeroOverlayCard />
+            </div>
+          </div>
         </div>
         <div className="content-stretch flex flex-col gap-[12px] items-start leading-[21px] pb-[12px] pt-[20px] px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="1:40">
           <p className="font-sans font-[590] relative shrink-0 text-[24px] text-nowrap" data-node-id="27:625" style={{ fontVariationSettings: "'wdth' 100" }}>
