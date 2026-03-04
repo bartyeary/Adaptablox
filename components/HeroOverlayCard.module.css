@@ -30,7 +30,7 @@
 }
 
 .card.settleIn {
-  animation: settle-in 0.5s ease-out forwards, pulse-outline 2.5s ease-in-out infinite;
+  animation: settle-in 0.5s ease-out both, pulse-outline 2.5s ease-in-out infinite;
 }
 
 @keyframes settle-in {

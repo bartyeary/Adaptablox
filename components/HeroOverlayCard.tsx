@@ -45,9 +45,6 @@ export default function HeroOverlayCard({ agentId = '7734' }: Props) {
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
       onAnimationEnd={() => setSettled(true)}
-      aria-label="Agent card"
-      onPointerMove={handlePointerMove}
-      onPointerLeave={handlePointerLeave}
     >
       <div className={styles.inner}>
         <img

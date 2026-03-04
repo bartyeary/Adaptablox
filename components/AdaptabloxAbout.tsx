@@ -159,7 +159,7 @@ export default function AdaptabloxAbout() {
         }}
         data-node-id="1:39"
       >
-        <div className="w-full flex justify-center mt-[88px] mb-[4px]">
+        <div className="w-full flex justify-center mt-[38px] mb-[4px]">
           <div
             className="w-full max-w-[720px] relative"
             style={{ perspective: '1100px' }}

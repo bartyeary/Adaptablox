@@ -2,12 +2,13 @@
   "name": "adaptablox-site",
   "version": "0.1.0",
   "private": true,
-"scripts": {
-  "dev": "next dev",
-  "build": "next build",
-  "export": "next export",
-  "build:pages": "next build && next export"
-},
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "build:clean": "rm -rf .next && next build",
+    "export": "next export",
+    "build:pages": "next build && next export"
+  },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
