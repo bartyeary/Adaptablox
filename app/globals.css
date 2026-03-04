@@ -26,3 +26,8 @@ html {
   color: inherit;
 }
 
+/* Prevent single-word orphans at end of wrapped lines */
+p {
+  text-wrap: pretty;
+}
+
