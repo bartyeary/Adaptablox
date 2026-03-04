@@ -1,7 +1,6 @@
 'use client';
 
 import { useRef, useState } from 'react';
-import styles from './HeroOverlayCard.module.css';
 
 type Props = {
   agentId?: string;
@@ -40,24 +39,24 @@ export default function HeroOverlayCard({ agentId = '7734' }: Props) {
   return (
     <div
       ref={cardRef}
-      className={`${styles.card} ${!settled ? styles.settleIn : ''}`}
+      className={`hero-overlay-card ${!settled ? 'settle-in' : ''}`}
       aria-label="Agent card"
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
       onAnimationEnd={() => setSettled(true)}
     >
-      <div className={styles.inner}>
+      <div className="hero-overlay-card-inner">
         <img
           src="/assets/profile.svg"
           alt=""
           aria-hidden="true"
-          className={styles.avatar}
+          className="hero-overlay-card-avatar"
         />
-        <div className={styles.text}>
-          <div className={styles.line}>AGENT_ID: 001</div>
-          <div className={styles.line}>ROLE_VECTOR: ANALYST</div>
-          <div className={styles.line}>CONSTRAINT_DEPTH: 05</div>
-          <div className={styles.line}>ACTION_CHECK: PENDING</div>
+        <div className="hero-overlay-card-text">
+          <div className="hero-overlay-card-line">AGENT_ID: 001</div>
+          <div className="hero-overlay-card-line">ROLE_VECTOR: ANALYST</div>
+          <div className="hero-overlay-card-line">CONSTRAINT_DEPTH: 05</div>
+          <div className="hero-overlay-card-line">ACTION_CHECK: PENDING</div>
         </div>
       </div>
     </div>

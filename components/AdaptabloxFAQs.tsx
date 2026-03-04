@@ -45,13 +45,13 @@ export default function AdaptabloxFAQs() {
   
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-center relative size-full min-h-screen" data-name="adaptablox - faqs" data-node-id="1:163" style={{ background: "radial-gradient(66.15% 98.68% at -6.3% -5.34%, #F1F2F4 0%, #D7D9DF 100%)" }}>
-      <div className="bg-[rgba(104,106,113,0.8)] backdrop-blur-sm h-[71px] overflow-clip fixed top-0 left-0 right-0 z-50 w-full" data-node-id="1:164" style={{ background: "rgba(104, 106, 113, 0.80)" }}>
+      <div className="bg-[rgba(135,137,145,0.88)] backdrop-blur-sm h-[71px] overflow-clip fixed top-0 left-0 right-0 z-50 w-full" data-node-id="1:164" style={{ background: "rgba(135, 137, 145, 0.88)" }}>
         <div className="absolute left-[17px] top-[17px] h-[36px] w-[189px] hidden md:block" data-name="logo" data-node-id="1:175">
           <div className="absolute h-[35px] left-0 top-[1.5px] w-[188px]" data-node-id="1:176">
             <img alt="Adaptablox Logo" className="block max-w-none size-full" src={imgGroup28481} />
           </div>
         </div>
-        <div className="absolute left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-[17px] top-[17px] bg-[#67686d] content-stretch flex gap-[6px] items-center p-[3px] rounded-[12px] z-[60]" data-name="control" data-node-id="1:166">
+        <div className="absolute left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-[17px] top-[17px] bg-[#7e8088] content-stretch flex gap-[6px] items-center p-[3px] rounded-[12px] z-[60]" data-name="control" data-node-id="1:166">
           <button
             onClick={() => {
               console.log('Failures button clicked');
