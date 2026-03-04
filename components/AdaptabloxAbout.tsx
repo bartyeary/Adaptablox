@@ -234,8 +234,12 @@ export default function AdaptabloxAbout() {
             </div>
           </div>
           <div className="bg-[#f7f7f7] border-t border-b border-t-[#E4E4E4] border-b-[#E4E4E4] border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full" data-node-id="1:49" style={{ borderTop: "1.5px solid #E4E4E4", borderBottom: "1.5px solid #E4E4E4", background: "#F7F7F7" }}>
+            <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:51">
+              <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
+              <p className="font-sans font-normal">The system had no way to evaluate authority at the moment of action.</p>
+            </div>
             <div className="font-['Courier_New:Regular',sans-serif] leading-[0] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:50">
-              <p className="font-sans font-bold leading-[24px] mb-0">Why current systems fail</p>
+              <p className="font-sans font-bold leading-[24px] mb-0 text-[#ff4b4b]">Why current systems fail</p>
               <ul className="list-disc">
                 <li className="mb-0 ms-[23px]">
                   <span className="font-sans font-normal leading-[24px] not-italic">Authority boundaries were implicit, not enforced.</span>
@@ -250,10 +254,6 @@ export default function AdaptabloxAbout() {
                   <span className="font-sans font-normal leading-[24px] not-italic">Legal now owns a risk they never approved.</span>
                 </li>
               </ul>
-            </div>
-            <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:51">
-              <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
-              <p className="font-sans font-normal">The system had no way to evaluate authority at the moment of action.</p>
             </div>
             <div className="absolute bg-[#bfbfbf] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
           </div>
@@ -300,8 +300,12 @@ export default function AdaptabloxAbout() {
             </div>
           </div>
           <div className="bg-[#f7f7f7] border-t border-b border-t-[#E4E4E4] border-b-[#E4E4E4] border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full" data-node-id="1:64" style={{ borderTop: "1.5px solid #E4E4E4", borderBottom: "1.5px solid #E4E4E4", background: "#F7F7F7" }}>
+            <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:66">
+              <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
+              <p className="font-sans font-normal">The system could not enforce policy scope while the refund decision was being generated.</p>
+            </div>
             <div className="font-['Courier_New:Regular',sans-serif] leading-[0] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:65">
-              <p className="font-sans font-bold leading-[24px] mb-0">Why current systems fail</p>
+              <p className="font-sans font-bold leading-[24px] mb-0 text-[#ff4b4b]">Why current systems fail</p>
               <ul className="list-disc">
                 <li className="mb-0 ms-[23px]">
                   <span className="font-sans font-normal leading-[24px] not-italic">The model optimizes for satisfaction, not policy boundaries.</span>
@@ -313,10 +317,6 @@ export default function AdaptabloxAbout() {
                   <span className="font-sans font-normal leading-[24px] not-italic">Finance notices weeks later.</span>
                 </li>
               </ul>
-            </div>
-            <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:66">
-              <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
-              <p className="font-sans font-normal">The system could not enforce policy scope while the refund decision was being generated.</p>
             </div>
             <div className="absolute bg-[#bfbfbf] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
           </div>
@@ -360,8 +360,12 @@ export default function AdaptabloxAbout() {
             </div>
           </div>
           <div className="bg-[#f7f7f7] border-t border-b border-t-[#E4E4E4] border-b-[#E4E4E4] border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full" data-node-id="1:77" style={{ borderTop: "1.5px solid #E4E4E4", borderBottom: "1.5px solid #E4E4E4", background: "#F7F7F7" }}>
+            <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:79">
+              <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
+              <p className="font-sans font-normal">The system treated inferred intent as permission to reallocate resources.</p>
+            </div>
             <div className="font-['Courier_New:Regular',sans-serif] leading-[0] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:78">
-              <p className="font-sans font-bold leading-[24px] mb-0">Why current systems fail</p>
+              <p className="font-sans font-bold leading-[24px] mb-0 text-[#ff4b4b]">Why current systems fail</p>
               <ul className="list-disc">
                 <li className="mb-0 ms-[23px]">
                   <span className="font-sans font-normal leading-[24px] not-italic">Inference substitutes for permission.</span>
@@ -373,10 +377,6 @@ export default function AdaptabloxAbout() {
                   <span className="font-sans font-normal leading-[24px] not-italic">Managers discover changes after morale damage.</span>
                 </li>
               </ul>
-            </div>
-            <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:79">
-              <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
-              <p className="font-sans font-normal">The system treated inferred intent as permission to reallocate resources.</p>
             </div>
             <div className="absolute bg-[#bfbfbf] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
           </div>
@@ -420,8 +420,12 @@ export default function AdaptabloxAbout() {
             </div>
           </div>
           <div className="bg-[#f7f7f7] border-t border-b border-t-[#E4E4E4] border-b-[#E4E4E4] border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full" data-node-id="1:90" style={{ borderTop: "1.5px solid #E4E4E4", borderBottom: "1.5px solid #E4E4E4", background: "#F7F7F7" }}>
+            <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:92">
+              <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
+              <p className="font-sans font-normal">The system had no runtime awareness of legal exposure or communicative authority.</p>
+            </div>
             <div className="font-['Courier_New:Regular',sans-serif] leading-[0] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:91">
-              <p className="font-sans font-bold leading-[24px] mb-0">Why current systems fail</p>
+              <p className="font-sans font-bold leading-[24px] mb-0 text-[#ff4b4b]">Why current systems fail</p>
               <ul className="list-disc">
                 <li className="mb-0 ms-[23px]">
                   <span className="font-sans font-normal leading-[24px] not-italic">Tone and phrasing are uncontrolled.</span>
@@ -433,10 +437,6 @@ export default function AdaptabloxAbout() {
                   <span className="font-sans font-normal leading-[24px] not-italic">The system "did what it was asked."</span>
                 </li>
               </ul>
-            </div>
-            <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:92">
-              <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
-              <p className="font-sans font-normal">The system had no runtime awareness of legal exposure or communicative authority.</p>
             </div>
             <div className="absolute bg-[#bfbfbf] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
           </div>
@@ -480,8 +480,12 @@ export default function AdaptabloxAbout() {
             </div>
           </div>
           <div className="bg-[#f7f7f7] border-t border-b border-t-[#E4E4E4] border-b-[#E4E4E4] border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full" data-node-id="1:103" style={{ borderTop: "1.5px solid #E4E4E4", borderBottom: "1.5px solid #E4E4E4", background: "#F7F7F7" }}>
+            <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:105">
+              <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
+              <p className="font-sans font-normal">The system allowed cross-domain data use without enforcing contextual compliance boundaries.</p>
+            </div>
             <div className="font-['Courier_New:Regular',sans-serif] leading-[0] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:104">
-              <p className="font-sans font-bold leading-[24px] mb-0">Why current systems fail</p>
+              <p className="font-sans font-bold leading-[24px] mb-0 text-[#ff4b4b]">Why current systems fail</p>
               <ul className="list-disc">
                 <li className="mb-0 ms-[23px]">
                   <span className="font-sans font-normal leading-[24px] not-italic">Policies live in documents, not execution paths.</span>
@@ -493,10 +497,6 @@ export default function AdaptabloxAbout() {
                   <span className="font-sans font-normal leading-[24px] not-italic">The violation is discovered in audit.</span>
                 </li>
               </ul>
-            </div>
-            <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:105">
-              <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
-              <p className="font-sans font-normal">The system allowed cross-domain data use without enforcing contextual compliance boundaries.</p>
             </div>
             <div className="absolute bg-[#bfbfbf] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
           </div>
@@ -540,8 +540,12 @@ export default function AdaptabloxAbout() {
             </div>
           </div>
           <div className="bg-[#f7f7f7] border-t border-b border-t-[#E4E4E4] border-b-[#E4E4E4] border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full" data-node-id="1:116" style={{ borderTop: "1.5px solid #E4E4E4", borderBottom: "1.5px solid #E4E4E4", background: "#F7F7F7" }}>
+            <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:118">
+              <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
+              <p className="font-sans font-normal">The system prioritized optimization goals without enforcing safety constraints at the moment of action.</p>
+            </div>
             <div className="font-['Courier_New:Regular',sans-serif] leading-[0] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:117">
-              <p className="font-sans font-bold leading-[24px] mb-0">Why current systems fail</p>
+              <p className="font-sans font-bold leading-[24px] mb-0 text-[#ff4b4b]">Why current systems fail</p>
               <ul className="list-disc">
                 <li className="mb-0 ms-[23px]">
                   <span className="font-sans font-normal leading-[24px] not-italic">Optimization goals were evaluated without enforced safety constraints.</span>
@@ -553,10 +557,6 @@ export default function AdaptabloxAbout() {
                   <span className="font-sans font-normal leading-[24px] not-italic">Accountability is unclear.</span>
                 </li>
               </ul>
-            </div>
-            <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:118">
-              <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
-              <p className="font-sans font-normal">The system prioritized optimization goals without enforcing safety constraints at the moment of action.</p>
             </div>
             <div className="absolute bg-[#bfbfbf] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
           </div>
