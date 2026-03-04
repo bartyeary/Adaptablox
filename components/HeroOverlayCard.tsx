@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import styles from './HeroOverlayCard.module.css';
 
 type Props = {
@@ -9,6 +9,7 @@ type Props = {
 
 export default function HeroOverlayCard({ agentId = '7734' }: Props) {
   const cardRef = useRef<HTMLDivElement | null>(null);
+  const [settled, setSettled] = useState(false);
 
   const handlePointerMove: React.PointerEventHandler<HTMLDivElement> = (event) => {
     const el = cardRef.current;
@@ -39,7 +40,11 @@ export default function HeroOverlayCard({ agentId = '7734' }: Props) {
   return (
     <div
       ref={cardRef}
-      className={styles.card}
+      className={`${styles.card} ${!settled ? styles.settleIn : ''}`}
+      aria-label="Agent card"
+      onPointerMove={handlePointerMove}
+      onPointerLeave={handlePointerLeave}
+      onAnimationEnd={() => setSettled(true)}
       aria-label="Agent card"
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}

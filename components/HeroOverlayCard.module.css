@@ -29,6 +29,19 @@
   animation: pulse-outline 2.5s ease-in-out infinite;
 }
 
+.card.settleIn {
+  animation: settle-in 0.5s ease-out forwards, pulse-outline 2.5s ease-in-out infinite;
+}
+
+@keyframes settle-in {
+  0% {
+    transform: perspective(900px) rotateY(38deg) rotateX(8deg) rotateZ(0deg);
+  }
+  100% {
+    transform: perspective(900px) rotateY(25deg) rotateX(3deg) rotateZ(0deg);
+  }
+}
+
 @keyframes pulse-outline {
   0%, 100% {
     border-width: 1px;
@@ -85,6 +98,9 @@
   .card {
     transform: none;
     transition: none;
+    animation: none;
+  }
+  .card.settleIn {
     animation: none;
   }
   .inner {
