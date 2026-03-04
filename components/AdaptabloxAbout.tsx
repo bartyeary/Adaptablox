@@ -255,6 +255,10 @@ export default function AdaptabloxAbout() {
               <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
               <p className="font-sans font-normal">The system had no way to evaluate authority at the moment of action.</p>
             </div>
+            <div className="absolute bg-[#bfbfbf] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
+          </div>
+          <div className="bg-white content-stretch flex flex-col items-start px-[36px] py-[24px] relative shrink-0 w-full">
+            <div className="absolute bottom-0 left-0 top-0 w-[5px]" style={{ background: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)' }} />
             <div className="font-['Courier_New:Regular',sans-serif] leading-[0] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:52">
               <p className="font-sans font-bold leading-[24px] mb-0">Adaptablox intervention</p>
               <ul className="list-disc">
@@ -272,9 +276,8 @@ export default function AdaptabloxAbout() {
                 </li>
               </ul>
             </div>
-            <div className="absolute bg-[#bfbfbf] bottom-[-1px] left-0 top-[-1px] w-[5px]" data-node-id="1:53" />
           </div>
-          <div className="bg-white border-l-[5px] border-l-[#85dba2] border-solid content-stretch flex flex-col items-start px-[36px] py-[24px] relative rounded-bl-[8px] rounded-br-[8px] shrink-0 w-full" data-node-id="1:56">
+          <div className="bg-[#f0fdf4] border-l-[5px] border-l-[#85dba2] border-solid content-stretch flex flex-col items-start px-[36px] py-[24px] relative rounded-bl-[8px] rounded-br-[8px] shrink-0 w-full" data-node-id="1:56">
             <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:57">
               <p className="font-sans font-bold mb-0 text-[#6aaf81]">Outcome</p>
               <p className="font-sans font-normal">Negotiation continues. Authority stays intact. Legal sleeps.</p>
@@ -315,6 +318,10 @@ export default function AdaptabloxAbout() {
               <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
               <p className="font-sans font-normal">The system could not enforce policy scope while the refund decision was being generated.</p>
             </div>
+            <div className="absolute bg-[#bfbfbf] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
+          </div>
+          <div className="bg-white content-stretch flex flex-col items-start px-[36px] py-[24px] relative shrink-0 w-full">
+            <div className="absolute bottom-0 left-0 top-0 w-[5px]" style={{ background: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)' }} />
             <div className="font-['Courier_New:Regular',sans-serif] leading-[0] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:67">
               <p className="font-sans font-bold leading-[24px] mb-0">Adaptablox intervention</p>
               <ul className="list-disc">
@@ -329,9 +336,8 @@ export default function AdaptabloxAbout() {
                 </li>
               </ul>
             </div>
-            <div className="absolute bg-[#bfbfbf] bottom-[-1px] left-0 top-[-1px] w-[5px]" data-node-id="1:68" />
           </div>
-          <div className="bg-white border-l-[5px] border-l-[#85dba2] border-solid content-stretch flex flex-col items-start px-[36px] py-[24px] relative rounded-bl-[8px] rounded-br-[8px] shrink-0 w-full" data-node-id="1:69">
+          <div className="bg-[#f0fdf4] border-l-[5px] border-l-[#85dba2] border-solid content-stretch flex flex-col items-start px-[36px] py-[24px] relative rounded-bl-[8px] rounded-br-[8px] shrink-0 w-full" data-node-id="1:69">
             <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:70">
               <p className="font-sans font-bold mb-0 text-[#6aaf81]">Outcome</p>
               <p className="font-sans font-normal">Support stays empathetic. Financial controls remain real.</p>
@@ -372,6 +378,10 @@ export default function AdaptabloxAbout() {
               <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
               <p className="font-sans font-normal">The system treated inferred intent as permission to reallocate resources.</p>
             </div>
+            <div className="absolute bg-[#bfbfbf] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
+          </div>
+          <div className="bg-white content-stretch flex flex-col items-start px-[36px] py-[24px] relative shrink-0 w-full">
+            <div className="absolute bottom-0 left-0 top-0 w-[5px]" style={{ background: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)' }} />
             <div className="font-['Courier_New:Regular',sans-serif] leading-[0] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:80">
               <p className="font-sans font-bold leading-[24px] mb-0">Adaptablox intervention</p>
               <ul className="list-disc">
@@ -386,9 +396,8 @@ export default function AdaptabloxAbout() {
                 </li>
               </ul>
             </div>
-            <div className="absolute bg-[#bfbfbf] bottom-[-1px] left-0 top-[-1px] w-[5px]" data-node-id="1:81" />
           </div>
-          <div className="bg-white border-l-[5px] border-l-[#85dba2] border-solid content-stretch flex flex-col items-start px-[36px] py-[24px] relative rounded-bl-[8px] rounded-br-[8px] shrink-0 w-full" data-node-id="1:82">
+          <div className="bg-[#f0fdf4] border-l-[5px] border-l-[#85dba2] border-solid content-stretch flex flex-col items-start px-[36px] py-[24px] relative rounded-bl-[8px] rounded-br-[8px] shrink-0 w-full" data-node-id="1:82">
             <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:83">
               <p className="font-sans font-bold mb-0 text-[#6aaf81]">Outcome</p>
               <p className="font-sans font-normal">Velocity without organizational chaos.</p>
@@ -429,6 +438,10 @@ export default function AdaptabloxAbout() {
               <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
               <p className="font-sans font-normal">The system had no runtime awareness of legal exposure or communicative authority.</p>
             </div>
+            <div className="absolute bg-[#bfbfbf] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
+          </div>
+          <div className="bg-white content-stretch flex flex-col items-start px-[36px] py-[24px] relative shrink-0 w-full">
+            <div className="absolute bottom-0 left-0 top-0 w-[5px]" style={{ background: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)' }} />
             <div className="font-['Courier_New:Regular',sans-serif] leading-[0] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:93">
               <p className="font-sans font-bold leading-[24px] mb-0">Adaptablox intervention</p>
               <ul className="list-disc">
@@ -443,9 +456,8 @@ export default function AdaptabloxAbout() {
                 </li>
               </ul>
             </div>
-            <div className="absolute bg-[#bfbfbf] bottom-[-1px] left-0 top-[-1px] w-[5px]" data-node-id="1:94" />
           </div>
-          <div className="bg-white border-l-[5px] border-l-[#85dba2] border-solid content-stretch flex flex-col items-start px-[36px] py-[24px] relative rounded-bl-[8px] rounded-br-[8px] shrink-0 w-full" data-node-id="1:95">
+          <div className="bg-[#f0fdf4] border-l-[5px] border-l-[#85dba2] border-solid content-stretch flex flex-col items-start px-[36px] py-[24px] relative rounded-bl-[8px] rounded-br-[8px] shrink-0 w-full" data-node-id="1:95">
             <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:96">
               <p className="font-sans font-bold mb-0 text-[#6aaf81]">Outcome</p>
               <p className="font-sans font-normal">Communication without accidental admissions.</p>
@@ -486,6 +498,10 @@ export default function AdaptabloxAbout() {
               <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
               <p className="font-sans font-normal">The system allowed cross-domain data use without enforcing contextual compliance boundaries.</p>
             </div>
+            <div className="absolute bg-[#bfbfbf] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
+          </div>
+          <div className="bg-white content-stretch flex flex-col items-start px-[36px] py-[24px] relative shrink-0 w-full">
+            <div className="absolute bottom-0 left-0 top-0 w-[5px]" style={{ background: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)' }} />
             <div className="font-['Courier_New:Regular',sans-serif] leading-[0] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:106">
               <p className="font-sans font-bold leading-[24px] mb-0">Adaptablox intervention</p>
               <ul className="list-disc">
@@ -500,9 +516,8 @@ export default function AdaptabloxAbout() {
                 </li>
               </ul>
             </div>
-            <div className="absolute bg-[#bfbfbf] bottom-[-1px] left-0 top-[-1px] w-[5px]" data-node-id="1:107" />
           </div>
-          <div className="bg-white border-l-[5px] border-l-[#85dba2] border-solid content-stretch flex flex-col items-start px-[36px] py-[24px] relative rounded-bl-[8px] rounded-br-[8px] shrink-0 w-full" data-node-id="1:108">
+          <div className="bg-[#f0fdf4] border-l-[5px] border-l-[#85dba2] border-solid content-stretch flex flex-col items-start px-[36px] py-[24px] relative rounded-bl-[8px] rounded-br-[8px] shrink-0 w-full" data-node-id="1:108">
             <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:109">
               <p className="font-sans font-bold mb-0 text-[#6aaf81]">Outcome</p>
               <p className="font-sans font-normal">Compliance enforced at the moment of action, not retroactively.</p>
@@ -524,7 +539,7 @@ export default function AdaptabloxAbout() {
               </div>
             </div>
           </div>
-          <div className="bg-[#f7f7f7] border-t border-b border-t-[#E4E4E4] border-b-[#E4E4E4] border-solid content-stretch flex flex-col gap-[36px] items-start px-[36px] py-[24px] relative rounded-l-[8px] shrink-0 w-full" data-node-id="1:116" style={{ borderTop: "1.5px solid #E4E4E4", borderBottom: "1.5px solid #E4E4E4", background: "#F7F7F7" }}>
+          <div className="bg-[#f7f7f7] border-t border-b border-t-[#E4E4E4] border-b-[#E4E4E4] border-solid content-stretch flex flex-col gap-[36px] items-start px-[36px] py-[24px] relative shrink-0 w-full" data-node-id="1:116" style={{ borderTop: "1.5px solid #E4E4E4", borderBottom: "1.5px solid #E4E4E4", background: "#F7F7F7" }}>
             <div className="font-['Courier_New:Regular',sans-serif] leading-[0] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:117">
               <p className="font-sans font-bold leading-[24px] mb-0">Why current systems fail</p>
               <ul className="list-disc">
@@ -543,6 +558,10 @@ export default function AdaptabloxAbout() {
               <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
               <p className="font-sans font-normal">The system prioritized optimization goals without enforcing safety constraints at the moment of action.</p>
             </div>
+            <div className="absolute bg-[#bfbfbf] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
+          </div>
+          <div className="bg-white content-stretch flex flex-col items-start px-[36px] py-[24px] relative shrink-0 w-full">
+            <div className="absolute bottom-0 left-0 top-0 w-[5px]" style={{ background: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)' }} />
             <div className="font-['Courier_New:Regular',sans-serif] leading-[0] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:119">
               <p className="font-sans font-bold leading-[24px] mb-0">Adaptablox intervention</p>
               <ul className="list-disc">
@@ -557,9 +576,8 @@ export default function AdaptabloxAbout() {
                 </li>
               </ul>
             </div>
-            <div className="absolute bg-[#bfbfbf] bottom-[-1px] left-0 top-[-1px] w-[5px]" data-node-id="1:120" />
           </div>
-          <div className="bg-white border-l-[5px] border-l-[#85dba2] border-solid content-stretch flex flex-col items-start px-[36px] py-[24px] relative rounded-bl-[8px] rounded-br-[8px] shrink-0 w-full" data-node-id="1:121">
+          <div className="bg-[#f0fdf4] border-l-[5px] border-l-[#85dba2] border-solid content-stretch flex flex-col items-start px-[36px] py-[24px] relative rounded-bl-[8px] rounded-br-[8px] shrink-0 w-full" data-node-id="1:121">
             <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:122">
               <p className="font-sans font-bold mb-0 text-[#6aaf81]">Outcome</p>
               <p className="font-sans font-normal">Efficiency without headlines.</p>
