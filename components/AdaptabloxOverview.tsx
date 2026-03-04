@@ -143,7 +143,7 @@ export default function AdaptabloxOverview() {
         </div>
       </div>
       <div 
-        className="bg-[#eef0f4] content-stretch flex flex-col gap-[48px] items-start p-[18px] pb-[118px] relative shadow-[3px_6px_15px_0px_rgba(0,0,0,0.12)] shrink-0 w-[800px] max-w-full mx-auto transition-all duration-250 ease-out min-h-[calc(100vh+21px)]" 
+        className="bg-[#eef0f4] content-stretch flex flex-col gap-[48px] items-start p-[13px] md:p-[18px] pb-[82px] md:pb-[118px] relative shadow-[3px_6px_15px_0px_rgba(0,0,0,0.12)] shrink-0 w-[800px] max-w-full mx-auto transition-all duration-250 ease-out min-h-[calc(100vh+21px)]" 
         style={{ 
           marginTop: isAnimating ? '0px' : '-20px',
           transition: 'margin-top 0.25s ease-out'
@@ -151,7 +151,7 @@ export default function AdaptabloxOverview() {
         data-node-id="27:684"
       >
         <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full" data-node-id="44:869" style={{ marginTop: '71px' }}>
-          <div className="content-stretch flex flex-col gap-[18px] items-start pb-[12px] pt-[20px] px-[24px] relative shrink-0 w-full" data-node-id="27:685">
+          <div className="content-stretch flex flex-col gap-[18px] items-start pb-[8px] md:pb-[12px] pt-[14px] md:pt-[20px] px-[17px] md:px-[24px] relative shrink-0 w-full" data-node-id="27:685">
             <p className="font-sans font-semibold leading-[21px] relative shrink-0 text-[#4e4e4e] text-[24px]" data-node-id="27:687">
               An OS for Agents
             </p>
@@ -169,7 +169,7 @@ export default function AdaptabloxOverview() {
                 }}
               />
             </div>
-            <div className="content-stretch flex flex-col gap-[12px] items-start pb-[12px] pl-0 pr-[24px] pt-0 relative shrink-0 w-full" data-node-id="44:850">
+            <div className="content-stretch flex flex-col gap-[12px] items-start pb-[12px] pl-0 pr-[17px] md:pr-[24px] pt-0 relative shrink-0 w-full" data-node-id="44:850">
               <div className="font-sans font-normal leading-[21px] min-w-full relative shrink-0 text-[#4e4e4e] text-[15px]" data-node-id="44:852">
                 <p className="mb-0">Most AI governance today operates either before execution (prompts, policies, access control) or after execution (logs, audits, kill switches). Neither is sufficient once agents can reason, delegate, remember, and adapt in real time. What's missing is enforcement during action—when decisions are actually formed and committed.</p>
                 <p className="mb-0">&nbsp;</p>
@@ -177,8 +177,8 @@ export default function AdaptabloxOverview() {
               </div>
             </div>
           </div>
-          <div className="bg-white content-stretch flex flex-col gap-[24px] items-center justify-center pb-[24px] pt-[32px] px-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full" data-node-id="27:769">
-            <div className="content-stretch flex items-center justify-center px-[16px] py-0 relative shrink-0 w-full" data-node-id="42:785">
+          <div className="bg-white content-stretch flex flex-col gap-[24px] items-center justify-center pb-[17px] md:pb-[24px] pt-[22px] md:pt-[32px] px-[17px] md:px-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full" data-node-id="27:769">
+            <div className="content-stretch flex items-center justify-center px-[11px] md:px-[16px] py-0 relative shrink-0 w-full" data-node-id="42:785">
               <div className="basis-0 font-sans grow leading-[24px] min-h-px min-w-px not-italic relative shrink-0 text-[#4e4e4e] text-[15px]" data-node-id="27:770">
                 <p className="font-sans font-medium relative shrink-0 text-[#4e4e4e] text-[20px] text-nowrap mb-[18px]">
                   The Control Layer
@@ -192,10 +192,15 @@ export default function AdaptabloxOverview() {
                 </p>
               </div>
             </div>
-            <div className="bg-white content-stretch flex flex-col items-start px-[36px] py-[8px] relative shrink-0 w-full" data-node-id="42:782">
+            <div className="bg-white content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[8px] relative shrink-0 w-full" data-node-id="42:782">
               <div className="font-sans leading-[0] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                <p className="font-sans font-bold leading-[24px] mb-0 text-[#6aaf81]">{`Agent Role & Constraint (A.R.C.) governs the outer loop`}</p>
+                <p className="font-sans font-bold leading-[24px] mb-0 text-[#6aaf81]">{`Agent Role & Constraint (A.R.C.)`}</p>
                 <ul className="list-disc">
+                  <li className="mb-0 ms-[22.5px]">
+                    <span className="font-sans font-normal leading-[24px]">
+                      Governs the outer loop
+                    </span>
+                  </li>
                   <li className="mb-0 ms-[22.5px]">
                     <span className="font-sans font-normal leading-[24px]">
                       Agent behavior, tone, permissions, memory access, delegation, and coordination
@@ -214,10 +219,15 @@ export default function AdaptabloxOverview() {
                 </ul>
               </div>
             </div>
-            <div className="bg-white content-stretch flex flex-col items-start px-[36px] py-[8px] relative shrink-0 w-full" data-node-id="42:790">
+            <div className="bg-white content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[8px] relative shrink-0 w-full" data-node-id="42:790">
               <div className="font-sans leading-[0] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="42:791">
-                <p className="font-sans font-bold leading-[24px] mb-0 text-[#7b9eff]">{`Latent Role & Constraint (L.R.C.) governs the inner loop`}</p>
+                <p className="font-sans font-bold leading-[24px] mb-0 text-[#7b9eff]">{`Latent Role & Constraint (L.R.C.)`}</p>
                 <ul className="list-disc">
+                  <li className="mb-0 ms-[22.5px]">
+                    <span className="font-sans font-normal leading-[24px]">
+                      Governs the inner loop
+                    </span>
+                  </li>
                   <li className="mb-0 ms-[22.5px]">
                     <span className="font-sans font-normal leading-[24px]">
                       Internal reasoning dynamics, activation patterns, and latent deliberation
@@ -236,14 +246,14 @@ export default function AdaptabloxOverview() {
                 </ul>
               </div>
             </div>
-            <div className="content-stretch flex items-center justify-center px-[16px] py-0 pb-[24px] relative shrink-0 w-full" data-node-id="42:793">
+            <div className="content-stretch flex items-center justify-center px-[11px] md:px-[16px] py-0 pb-[17px] md:pb-[24px] relative shrink-0 w-full" data-node-id="42:793">
               <p className="basis-0 font-sans font-normal grow leading-[24px] min-h-px min-w-px relative shrink-0 text-[#4e4e4e] text-[15px]" data-node-id="42:794">
                 Together, these layers make autonomous systems governable in the same way enterprises govern human and software actors: through defined authority, enforced scope, and auditable decision paths.
               </p>
             </div>
           </div>
         </div>
-        <div className="content-stretch flex flex-col gap-[12px] items-start leading-[21px] pb-[12px] pt-0 px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="42:796">
+        <div className="content-stretch flex flex-col gap-[12px] items-start leading-[21px] pb-[8px] md:pb-[12px] pt-0 px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="42:796">
           <p className="font-sans font-medium relative shrink-0 text-[20px] text-nowrap" data-node-id="42:798">
             How It Works
           </p>
@@ -298,7 +308,7 @@ export default function AdaptabloxOverview() {
 `}
           </pre>
         </div>
-        <div className="content-stretch flex flex-col gap-[12px] items-start pb-[12px] pt-0 px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="42:803">
+        <div className="content-stretch flex flex-col gap-[12px] items-start pb-[8px] md:pb-[12px] pt-0 px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="42:803">
           <p className="font-sans font-medium leading-[21px] relative shrink-0 text-[20px] text-nowrap" data-node-id="42:805">
             Why This Matters
           </p>
@@ -330,7 +340,7 @@ export default function AdaptabloxOverview() {
             <p className="leading-[21px]">It provides the missing control layer required for agentic, ambient, and multi-agent AI systems to operate safely, coherently, and at scale.</p>
           </div>
         </div>
-        <div className="content-stretch flex flex-col gap-[12px] items-start pb-[12px] pt-0 px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="42:808">
+        <div className="content-stretch flex flex-col gap-[12px] items-start pb-[8px] md:pb-[12px] pt-0 px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="42:808">
           <p className="font-sans font-medium leading-[21px] relative shrink-0 text-[20px] text-nowrap" data-node-id="42:810">
             What Follows
           </p>
@@ -341,7 +351,7 @@ export default function AdaptabloxOverview() {
             <p>Adaptablox exists to stop them before they happen.</p>
           </div>
         </div>
-        <div className="content-stretch flex flex-col gap-[12px] items-center pb-[24px] pt-0 px-[24px] relative shrink-0 w-full">
+        <div className="content-stretch flex flex-col gap-[12px] items-center pb-[17px] md:pb-[24px] pt-0 px-[17px] md:px-[24px] relative shrink-0 w-full">
           <p className="font-sans font-normal leading-[21px] relative shrink-0 text-[#4e4e4e] text-[13px] text-center">
             © 2025 Adaptablox. Patents Pending.
           </p>
