@@ -216,7 +216,7 @@ export default function AdaptabloxAbout() {
           </p>
         </div>
         <div className="content-stretch flex flex-col items-start relative shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] rounded-[8px] overflow-hidden shrink-0 w-full" data-node-id="1:43">
-          <div className="bg-white border-l-[5px] border-l-[#ff4b4b] border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start pl-[8px] md:pl-[12px] pr-[17px] md:pr-[24px] py-[17px] md:py-[24px] relative rounded-tl-[8px] rounded-tr-[8px] shrink-0 w-full" data-node-id="1:44">
+          <div className="bg-white border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start pl-[8px] md:pl-[12px] pr-[17px] md:pr-[24px] py-[17px] md:py-[24px] relative rounded-tl-[8px] rounded-tr-[8px] shrink-0 w-full" data-node-id="1:44">
             <div className="content-stretch flex items-center justify-center px-[17px] md:px-[24px] py-0 relative shrink-0" data-node-id="1:45">
               <p className="font-sans font-extrabold leading-[normal] not-italic relative shrink-0 text-[18px] text-nowrap uppercase flex items-center gap-[6px]" data-node-id="1:46">
                 <img src={imgIconAlert} alt="Alert" className="inline-block w-[18px] h-[18px]" />
@@ -233,7 +233,7 @@ export default function AdaptabloxAbout() {
               </div>
             </div>
           </div>
-          <div className="bg-[#f7f7f7] border-t border-b border-t-[#E4E4E4] border-b-[#E4E4E4] border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full" data-node-id="1:49" style={{ borderTop: "1.5px solid #E4E4E4", borderBottom: "1.5px solid #E4E4E4", background: "#F7F7F7" }}>
+          <div className="bg-[#FFF0F0] border-t border-b border-t-[#FFD5D5] border-b-[#FFD5D5] border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full" data-node-id="1:49" style={{ borderTop: "1.5px solid #FFD5D5", borderBottom: "1.5px solid #FFD5D5", background: "#FFF0F0" }}>
             <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:51">
               <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
               <p className="font-sans font-normal">The system had no way to evaluate authority at the moment of action.</p>
@@ -255,7 +255,7 @@ export default function AdaptabloxAbout() {
                 </li>
               </ul>
             </div>
-            <div className="absolute bg-[#bfbfbf] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
+            <div className="absolute bg-[#FF4B4B] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
           </div>
           <div className="bg-white content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full">
             <div className="absolute bottom-0 left-0 top-0 w-[5px]" style={{ background: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)' }} />
@@ -285,7 +285,7 @@ export default function AdaptabloxAbout() {
           </div>
         </div>
         <div className="content-stretch flex flex-col items-start relative shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] rounded-[8px] overflow-hidden shrink-0 w-full" data-node-id="1:58">
-          <div className="bg-white border-l-[5px] border-l-[#ff4b4b] border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start pl-[8px] md:pl-[12px] pr-[17px] md:pr-[24px] py-[17px] md:py-[24px] relative rounded-tl-[8px] rounded-tr-[8px] shrink-0 w-full" data-node-id="1:59">
+          <div className="bg-white border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start pl-[8px] md:pl-[12px] pr-[17px] md:pr-[24px] py-[17px] md:py-[24px] relative rounded-tl-[8px] rounded-tr-[8px] shrink-0 w-full" data-node-id="1:59">
             <div className="content-stretch flex items-center justify-center pl-[11px] md:pl-[16px] pr-0 py-0 relative shrink-0" data-node-id="1:60">
               <p className="font-sans font-extrabold leading-[normal] not-italic relative shrink-0 text-[#ff4b4b] text-[18px] text-nowrap uppercase flex items-center gap-[6px]" data-node-id="1:61">
                 <img src={imgIconAlert} alt="Alert" className="inline-block w-[18px] h-[18px]" />
@@ -299,7 +299,7 @@ export default function AdaptabloxAbout() {
               </div>
             </div>
           </div>
-          <div className="bg-[#f7f7f7] border-t border-b border-t-[#E4E4E4] border-b-[#E4E4E4] border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full" data-node-id="1:64" style={{ borderTop: "1.5px solid #E4E4E4", borderBottom: "1.5px solid #E4E4E4", background: "#F7F7F7" }}>
+          <div className="bg-[#FFF0F0] border-t border-b border-t-[#FFD5D5] border-b-[#FFD5D5] border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full" data-node-id="1:64" style={{ borderTop: "1.5px solid #FFD5D5", borderBottom: "1.5px solid #FFD5D5", background: "#FFF0F0" }}>
             <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:66">
               <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
               <p className="font-sans font-normal">The system could not enforce policy scope while the refund decision was being generated.</p>
@@ -318,7 +318,7 @@ export default function AdaptabloxAbout() {
                 </li>
               </ul>
             </div>
-            <div className="absolute bg-[#bfbfbf] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
+            <div className="absolute bg-[#FF4B4B] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
           </div>
           <div className="bg-white content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full">
             <div className="absolute bottom-0 left-0 top-0 w-[5px]" style={{ background: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)' }} />
@@ -345,7 +345,7 @@ export default function AdaptabloxAbout() {
           </div>
         </div>
         <div className="content-stretch flex flex-col items-start relative shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] rounded-[8px] overflow-hidden shrink-0 w-full" data-node-id="1:71">
-          <div className="bg-white border-l-[5px] border-l-[#ff4b4b] border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start pl-[8px] md:pl-[12px] pr-[17px] md:pr-[24px] py-[17px] md:py-[24px] relative rounded-tl-[8px] rounded-tr-[8px] shrink-0 w-full" data-node-id="1:72">
+          <div className="bg-white border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start pl-[8px] md:pl-[12px] pr-[17px] md:pr-[24px] py-[17px] md:py-[24px] relative rounded-tl-[8px] rounded-tr-[8px] shrink-0 w-full" data-node-id="1:72">
             <div className="content-stretch flex items-center justify-center pl-[11px] md:pl-[16px] pr-0 py-0 relative shrink-0" data-node-id="1:73">
               <p className="font-sans font-extrabold leading-[normal] not-italic relative shrink-0 text-[#ff4b4b] text-[18px] text-nowrap uppercase flex items-center gap-[6px]" data-node-id="1:74">
                 <img src={imgIconAlert} alt="Alert" className="inline-block w-[18px] h-[18px]" />
@@ -359,7 +359,7 @@ export default function AdaptabloxAbout() {
               </div>
             </div>
           </div>
-          <div className="bg-[#f7f7f7] border-t border-b border-t-[#E4E4E4] border-b-[#E4E4E4] border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full" data-node-id="1:77" style={{ borderTop: "1.5px solid #E4E4E4", borderBottom: "1.5px solid #E4E4E4", background: "#F7F7F7" }}>
+          <div className="bg-[#FFF0F0] border-t border-b border-t-[#FFD5D5] border-b-[#FFD5D5] border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full" data-node-id="1:77" style={{ borderTop: "1.5px solid #FFD5D5", borderBottom: "1.5px solid #FFD5D5", background: "#FFF0F0" }}>
             <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:79">
               <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
               <p className="font-sans font-normal">The system treated inferred intent as permission to reallocate resources.</p>
@@ -378,7 +378,7 @@ export default function AdaptabloxAbout() {
                 </li>
               </ul>
             </div>
-            <div className="absolute bg-[#bfbfbf] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
+            <div className="absolute bg-[#FF4B4B] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
           </div>
           <div className="bg-white content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full">
             <div className="absolute bottom-0 left-0 top-0 w-[5px]" style={{ background: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)' }} />
@@ -405,7 +405,7 @@ export default function AdaptabloxAbout() {
           </div>
         </div>
         <div className="content-stretch flex flex-col items-start relative shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] rounded-[8px] overflow-hidden shrink-0 w-full" data-node-id="1:84">
-          <div className="bg-white border-l-[5px] border-l-[#ff4b4b] border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start pl-[8px] md:pl-[12px] pr-[17px] md:pr-[24px] py-[17px] md:py-[24px] relative rounded-tl-[8px] rounded-tr-[8px] shrink-0 w-full" data-node-id="1:85">
+          <div className="bg-white border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start pl-[8px] md:pl-[12px] pr-[17px] md:pr-[24px] py-[17px] md:py-[24px] relative rounded-tl-[8px] rounded-tr-[8px] shrink-0 w-full" data-node-id="1:85">
             <div className="content-stretch flex items-center justify-center pl-[11px] md:pl-[16px] pr-0 py-0 relative shrink-0" data-node-id="1:86">
               <p className="font-sans font-extrabold leading-[normal] not-italic relative shrink-0 text-[#ff4b4b] text-[18px] text-nowrap uppercase flex items-center gap-[6px]" data-node-id="1:87">
                 <img src={imgIconAlert} alt="Alert" className="inline-block w-[18px] h-[18px]" />
@@ -419,7 +419,7 @@ export default function AdaptabloxAbout() {
               </div>
             </div>
           </div>
-          <div className="bg-[#f7f7f7] border-t border-b border-t-[#E4E4E4] border-b-[#E4E4E4] border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full" data-node-id="1:90" style={{ borderTop: "1.5px solid #E4E4E4", borderBottom: "1.5px solid #E4E4E4", background: "#F7F7F7" }}>
+          <div className="bg-[#FFF0F0] border-t border-b border-t-[#FFD5D5] border-b-[#FFD5D5] border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full" data-node-id="1:90" style={{ borderTop: "1.5px solid #FFD5D5", borderBottom: "1.5px solid #FFD5D5", background: "#FFF0F0" }}>
             <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:92">
               <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
               <p className="font-sans font-normal">The system had no runtime awareness of legal exposure or communicative authority.</p>
@@ -438,7 +438,7 @@ export default function AdaptabloxAbout() {
                 </li>
               </ul>
             </div>
-            <div className="absolute bg-[#bfbfbf] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
+            <div className="absolute bg-[#FF4B4B] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
           </div>
           <div className="bg-white content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full">
             <div className="absolute bottom-0 left-0 top-0 w-[5px]" style={{ background: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)' }} />
@@ -465,7 +465,7 @@ export default function AdaptabloxAbout() {
           </div>
         </div>
         <div className="content-stretch flex flex-col items-start relative shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] rounded-[8px] overflow-hidden shrink-0 w-full" data-node-id="1:97">
-          <div className="bg-white border-l-[5px] border-l-[#ff4b4b] border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start pl-[8px] md:pl-[12px] pr-[17px] md:pr-[24px] py-[17px] md:py-[24px] relative rounded-tl-[8px] rounded-tr-[8px] shrink-0 w-full" data-node-id="1:98">
+          <div className="bg-white border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start pl-[8px] md:pl-[12px] pr-[17px] md:pr-[24px] py-[17px] md:py-[24px] relative rounded-tl-[8px] rounded-tr-[8px] shrink-0 w-full" data-node-id="1:98">
             <div className="content-stretch flex items-center justify-center pl-[11px] md:pl-[16px] pr-0 py-0 relative shrink-0" data-node-id="1:99">
               <p className="font-sans font-extrabold leading-[normal] not-italic relative shrink-0 text-[#ff4b4b] text-[18px] text-nowrap uppercase flex items-center gap-[6px]" data-node-id="1:100">
                 <img src={imgIconAlert} alt="Alert" className="inline-block w-[18px] h-[18px]" />
@@ -479,7 +479,7 @@ export default function AdaptabloxAbout() {
               </div>
             </div>
           </div>
-          <div className="bg-[#f7f7f7] border-t border-b border-t-[#E4E4E4] border-b-[#E4E4E4] border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full" data-node-id="1:103" style={{ borderTop: "1.5px solid #E4E4E4", borderBottom: "1.5px solid #E4E4E4", background: "#F7F7F7" }}>
+          <div className="bg-[#FFF0F0] border-t border-b border-t-[#FFD5D5] border-b-[#FFD5D5] border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full" data-node-id="1:103" style={{ borderTop: "1.5px solid #FFD5D5", borderBottom: "1.5px solid #FFD5D5", background: "#FFF0F0" }}>
             <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:105">
               <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
               <p className="font-sans font-normal">The system allowed cross-domain data use without enforcing contextual compliance boundaries.</p>
@@ -498,7 +498,7 @@ export default function AdaptabloxAbout() {
                 </li>
               </ul>
             </div>
-            <div className="absolute bg-[#bfbfbf] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
+            <div className="absolute bg-[#FF4B4B] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
           </div>
           <div className="bg-white content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full">
             <div className="absolute bottom-0 left-0 top-0 w-[5px]" style={{ background: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)' }} />
@@ -525,7 +525,7 @@ export default function AdaptabloxAbout() {
           </div>
         </div>
         <div className="content-stretch flex flex-col items-start relative shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] rounded-[8px] overflow-hidden shrink-0 w-full" data-node-id="1:110">
-          <div className="bg-white border-l-[5px] border-l-[#ff4b4b] border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start pl-[8px] md:pl-[12px] pr-[17px] md:pr-[24px] py-[17px] md:py-[24px] relative rounded-tl-[8px] rounded-tr-[8px] shrink-0 w-full" data-node-id="1:111">
+          <div className="bg-white border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start pl-[8px] md:pl-[12px] pr-[17px] md:pr-[24px] py-[17px] md:py-[24px] relative rounded-tl-[8px] rounded-tr-[8px] shrink-0 w-full" data-node-id="1:111">
             <div className="content-stretch flex items-center justify-center pl-[11px] md:pl-[16px] pr-0 py-0 relative shrink-0" data-node-id="1:112">
               <p className="font-sans font-extrabold leading-[normal] not-italic relative shrink-0 text-[#ff4b4b] text-[18px] text-nowrap uppercase flex items-center gap-[6px]" data-node-id="1:113">
                 <img src={imgIconAlert} alt="Alert" className="inline-block w-[18px] h-[18px]" />
@@ -539,7 +539,7 @@ export default function AdaptabloxAbout() {
               </div>
             </div>
           </div>
-          <div className="bg-[#f7f7f7] border-t border-b border-t-[#E4E4E4] border-b-[#E4E4E4] border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full" data-node-id="1:116" style={{ borderTop: "1.5px solid #E4E4E4", borderBottom: "1.5px solid #E4E4E4", background: "#F7F7F7" }}>
+          <div className="bg-[#FFF0F0] border-t border-b border-t-[#FFD5D5] border-b-[#FFD5D5] border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full" data-node-id="1:116" style={{ borderTop: "1.5px solid #FFD5D5", borderBottom: "1.5px solid #FFD5D5", background: "#FFF0F0" }}>
             <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:118">
               <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
               <p className="font-sans font-normal">The system prioritized optimization goals without enforcing safety constraints at the moment of action.</p>
@@ -558,7 +558,7 @@ export default function AdaptabloxAbout() {
                 </li>
               </ul>
             </div>
-            <div className="absolute bg-[#bfbfbf] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
+            <div className="absolute bg-[#FF4B4B] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
           </div>
           <div className="bg-white content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full">
             <div className="absolute bottom-0 left-0 top-0 w-[5px]" style={{ background: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)' }} />
