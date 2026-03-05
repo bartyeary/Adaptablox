@@ -255,7 +255,7 @@ export default function AdaptabloxAbout() {
                 </li>
               </ul>
             </div>
-            <div className="absolute bg-[#FF4B4B] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
+            <div className="absolute bg-[#FF9A9A] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
           </div>
           <div className="bg-white content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full">
             <div className="absolute bottom-0 left-0 top-0 w-[5px]" style={{ background: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)' }} />
@@ -318,7 +318,7 @@ export default function AdaptabloxAbout() {
                 </li>
               </ul>
             </div>
-            <div className="absolute bg-[#FF4B4B] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
+            <div className="absolute bg-[#FF9A9A] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
           </div>
           <div className="bg-white content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full">
             <div className="absolute bottom-0 left-0 top-0 w-[5px]" style={{ background: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)' }} />
@@ -378,7 +378,7 @@ export default function AdaptabloxAbout() {
                 </li>
               </ul>
             </div>
-            <div className="absolute bg-[#FF4B4B] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
+            <div className="absolute bg-[#FF9A9A] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
           </div>
           <div className="bg-white content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full">
             <div className="absolute bottom-0 left-0 top-0 w-[5px]" style={{ background: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)' }} />
@@ -438,7 +438,7 @@ export default function AdaptabloxAbout() {
                 </li>
               </ul>
             </div>
-            <div className="absolute bg-[#FF4B4B] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
+            <div className="absolute bg-[#FF9A9A] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
           </div>
           <div className="bg-white content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full">
             <div className="absolute bottom-0 left-0 top-0 w-[5px]" style={{ background: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)' }} />
@@ -498,7 +498,7 @@ export default function AdaptabloxAbout() {
                 </li>
               </ul>
             </div>
-            <div className="absolute bg-[#FF4B4B] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
+            <div className="absolute bg-[#FF9A9A] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
           </div>
           <div className="bg-white content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full">
             <div className="absolute bottom-0 left-0 top-0 w-[5px]" style={{ background: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)' }} />
@@ -558,7 +558,7 @@ export default function AdaptabloxAbout() {
                 </li>
               </ul>
             </div>
-            <div className="absolute bg-[#FF4B4B] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
+            <div className="absolute bg-[#FF9A9A] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
           </div>
           <div className="bg-white content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full">
             <div className="absolute bottom-0 left-0 top-0 w-[5px]" style={{ background: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)' }} />
