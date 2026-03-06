@@ -153,11 +153,11 @@ export default function AdaptabloxOverview() {
         <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full" data-node-id="44:869" style={{ marginTop: '71px' }}>
           <div className="content-stretch flex flex-col gap-[18px] items-start pb-[8px] md:pb-[12px] pt-[14px] md:pt-[20px] px-[17px] md:px-[24px] relative shrink-0 w-full" data-node-id="27:685">
             <p className="font-sans font-semibold leading-[21px] relative shrink-0 text-[#4e4e4e] text-[24px]" data-node-id="27:687">
-              An OS for Agents
+              An OS for Machine Cognition
             </p>
             <div className="min-w-full relative shrink-0 w-full">
               <p className="font-sans font-bold leading-[21px] min-w-full relative shrink-0 text-[#4e4e4e] text-[15px] mb-0" data-node-id="27:688">
-                A runtime control layer that governs agent behavior at the moment decisions are made.
+                A runtime control layer that governs how AI systems reason and act as decisions are formed.
               </p>
               <div 
                 className="mt-[12px] h-[4px] w-full overflow-hidden"
@@ -171,6 +171,8 @@ export default function AdaptabloxOverview() {
             </div>
             <div className="content-stretch flex flex-col gap-[12px] items-start pb-[12px] pl-0 pr-[17px] md:pr-[24px] pt-0 relative shrink-0 w-full" data-node-id="44:850">
               <div className="font-sans font-normal leading-[21px] min-w-full relative shrink-0 text-[#4e4e4e] text-[15px]" data-node-id="44:852">
+                <p className="mb-0">Adaptablox is a governance runtime for agentic systems. It regulates both agent behavior (ARC) and internal reasoning pathways (LRC) at the moment decisions are formed.</p>
+                <p className="mb-0">&nbsp;</p>
                 <p className="mb-0">Most AI governance today operates either before execution (prompts, policies, access control) or after execution (logs, audits, kill switches). Neither is sufficient once agents can reason, delegate, remember, and adapt in real time. What's missing is enforcement during action—when decisions are actually formed and committed.</p>
                 <p className="mb-0">&nbsp;</p>
                 <p>Adaptablox is a runtime guidance platform that fills this gap.</p>
