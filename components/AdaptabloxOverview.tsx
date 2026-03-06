@@ -194,7 +194,7 @@ export default function AdaptabloxOverview() {
             </div>
             <div className="bg-white content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[8px] relative shrink-0 w-full" data-node-id="42:782">
               <div className="font-sans leading-[0] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                <p className="font-sans font-bold leading-[24px] mb-0 text-[#6aaf81]">{`Agent Role & Constraint (A.R.C.)`}</p>
+                <p className="font-sans font-bold leading-[24px] mb-0 text-[#4e4e4e]">{`Agent Role & Constraint (A.R.C.)`}</p>
                 <p className="font-sans font-normal leading-[24px] mb-0 mt-[0.5em]">Governs the outer loop:</p>
                 <ul className="list-disc">
                   <li className="mb-0 ms-[22.5px]">
@@ -217,7 +217,7 @@ export default function AdaptabloxOverview() {
             </div>
             <div className="bg-white content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[8px] relative shrink-0 w-full" data-node-id="42:790">
               <div className="font-sans leading-[0] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="42:791">
-                <p className="font-sans font-bold leading-[24px] mb-0 text-[#7b9eff]">{`Latent Role & Constraint (L.R.C.)`}</p>
+                <p className="font-sans font-bold leading-[24px] mb-0 text-[#4e4e4e]">{`Latent Role & Constraint (L.R.C.)`}</p>
                 <p className="font-sans font-normal leading-[24px] mb-0 mt-[0.5em]">Governs the inner loop:</p>
                 <ul className="list-disc">
                   <li className="mb-0 ms-[22.5px]">
