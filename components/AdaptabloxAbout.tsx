@@ -8,6 +8,9 @@ const imgGroup28481 = "/assets/logo2.svg";
 const imgIconAlert = "/assets/alert.svg";
 const imgLogo = "/assets/logo2.svg";
 const imgHero = "/assets/hero.png";
+const imgCheck = "/assets/symbolCheck.png";
+const imgWarning = "/assets/symbolWarning.png";
+const imgX = "/assets/symbolX.png";
 
 export default function AdaptabloxAbout() {
   const { activePage, navigate } = useNavigation();
@@ -169,6 +172,51 @@ export default function AdaptabloxAbout() {
               alt="Adaptablox hero"
               className="w-full rounded-[12px] object-cover"
             />
+            <div
+              className="absolute hero-check-symbol pointer-events-none"
+              style={{
+                right: 'calc(14% + 50px)',
+                top: 'calc(14% - 20px)',
+                width: '18%',
+              }}
+              aria-hidden="true"
+            >
+              <img
+                src={imgCheck}
+                alt=""
+                className="w-full h-auto object-contain"
+              />
+            </div>
+            <div
+              className="absolute hero-x-symbol pointer-events-none"
+              style={{
+                right: '6%',
+                top: '23%',
+                width: '18%',
+              }}
+              aria-hidden="true"
+            >
+              <img
+                src={imgX}
+                alt=""
+                className="w-full h-auto object-contain"
+              />
+            </div>
+            <div
+              className="absolute hero-warning-symbol pointer-events-none"
+              style={{
+                right: 'calc(14% + 50px)',
+                top: 'calc(32% + 40px)',
+                width: '18%',
+              }}
+              aria-hidden="true"
+            >
+              <img
+                src={imgWarning}
+                alt=""
+                className="w-full h-auto object-contain"
+              />
+            </div>
             <div
               className="absolute"
               style={{

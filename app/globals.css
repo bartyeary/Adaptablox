@@ -122,7 +122,42 @@ ul.list-disc {
   overflow: hidden;
   text-overflow: clip;
 }
+/* Hero check symbol - animate in on load */
+.hero-check-symbol {
+  animation: hero-check-in 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  opacity: 0;
+  transform: scale(0.5);
+}
+@keyframes hero-check-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* Hero warning symbol - same animation, 500ms delay */
+.hero-warning-symbol {
+  animation: hero-check-in 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 200ms forwards;
+  opacity: 0;
+  transform: scale(0.5);
+}
+/* Hero X symbol - same animation, 1s delay */
+.hero-x-symbol {
+  animation: hero-check-in 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 500ms forwards;
+  opacity: 0;
+  transform: scale(0.5);
+}
 @media (prefers-reduced-motion: reduce) {
+  .hero-check-symbol,
+  .hero-warning-symbol,
+  .hero-x-symbol {
+    animation: none;
+    opacity: 1;
+    transform: scale(1);
+  }
   .hero-overlay-card {
     transform: none;
     transition: none;
