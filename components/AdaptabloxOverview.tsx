@@ -340,17 +340,6 @@ export default function AdaptabloxOverview() {
             <p className="leading-[21px]">It provides the missing control layer required for agentic, ambient, and multi-agent AI systems to operate safely, coherently, and at scale.</p>
           </div>
         </div>
-        <div className="content-stretch flex flex-col gap-[12px] items-start pb-[8px] md:pb-[12px] pt-0 px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="42:808">
-          <p className="font-sans font-medium leading-[21px] relative shrink-0 text-[20px] text-nowrap" data-node-id="42:810">
-            What Follows
-          </p>
-          <div className="font-sans font-normal leading-[21px] min-w-full relative shrink-0 text-[15px]" data-node-id="42:811">
-            <p className="mb-0">The failure cases that follow are not hypotheticals.</p>
-            <p className="mb-0">They are predictable consequences of deploying autonomy without runtime governance.</p>
-            <p className="mb-0">&nbsp;</p>
-            <p>Adaptablox exists to stop them before they happen.</p>
-          </div>
-        </div>
         <div className="content-stretch flex flex-col gap-[12px] items-center pb-[17px] md:pb-[24px] pt-0 px-[17px] md:px-[24px] relative shrink-0 w-full">
           <p className="font-sans font-normal leading-[21px] relative shrink-0 text-[#4e4e4e] text-[13px] text-center">
             © 2025 Adaptablox. Patents Pending.

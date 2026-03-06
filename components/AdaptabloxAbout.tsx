@@ -176,7 +176,7 @@ export default function AdaptabloxAbout() {
               className="absolute hero-check-symbol pointer-events-none"
               style={{
                 right: 'calc(14% + 50px)',
-                top: 'calc(14% - 20px)',
+                top: '14%',
                 width: '18%',
               }}
               aria-hidden="true"
@@ -191,7 +191,7 @@ export default function AdaptabloxAbout() {
               className="absolute hero-x-symbol pointer-events-none"
               style={{
                 right: '6%',
-                top: '23%',
+                top: 'calc(23% + 10px)',
                 width: '18%',
               }}
               aria-hidden="true"
