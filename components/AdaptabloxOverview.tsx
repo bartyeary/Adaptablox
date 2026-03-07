@@ -153,7 +153,7 @@ export default function AdaptabloxOverview() {
         <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full" data-node-id="44:869" style={{ marginTop: '71px' }}>
           <div className="content-stretch flex flex-col gap-[18px] items-start pb-[8px] md:pb-[12px] pt-[14px] md:pt-[20px] px-[17px] md:px-[24px] relative shrink-0 w-full" data-node-id="27:685">
             <p className="font-sans font-semibold leading-[21px] relative shrink-0 text-[#4e4e4e] text-[24px]" data-node-id="27:687">
-              An OS for Machine Cognition
+              An OS for Agent Behavior
             </p>
             <div className="min-w-full relative shrink-0 w-full">
               <p className="font-sans font-bold leading-[21px] min-w-full relative shrink-0 text-[#4e4e4e] text-[15px] mb-0" data-node-id="27:688">
