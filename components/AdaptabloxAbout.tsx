@@ -215,7 +215,7 @@ export default function AdaptabloxAbout() {
             className="font-sans font-normal min-w-full relative shrink-0 text-[15px] mb-0 w-full max-w-[720px]"
             style={{ fontVariationSettings: "'wdth' 100" }}
           >
-            Actions are permitted, modified, escalated, or blocked at the decision boundary.
+            At the decision boundary, actions are permitted, modified, escalated, or blocked.
           </p>
           <p
             className="font-sans font-normal min-w-full relative shrink-0 text-[15px] mb-0 w-full max-w-[720px]"
@@ -224,6 +224,12 @@ export default function AdaptabloxAbout() {
             Guardrails evaluate outputs after they exist.
             <br aria-hidden="true" />
             Adaptablox determines whether those outputs are allowed to exist.
+          </p>
+          <p
+            className="font-sans font-normal min-w-full relative shrink-0 text-[15px] mb-0 w-full max-w-[720px]"
+            style={{ fontVariationSettings: "'wdth' 100" }}
+          >
+            Authority does not emerge from reasoning. It must be enforced.
           </p>
         </div>
         <div className="content-stretch flex flex-col gap-[12px] items-start leading-[21px] pb-[8px] md:pb-[12px] pt-[14px] md:pt-[20px] px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="1:40">
@@ -632,7 +638,7 @@ export default function AdaptabloxAbout() {
             <p className="mb-0">Across every failure, the cause is the same.</p>
             <p className="mb-0">
               <br aria-hidden="true" />
-              Autonomous systems were allowed to act without verifying whether the action was within their delegated authority at the moment it was generated.
+              Agents are allowed to act without enforcing delegated authority at the moment of execution.
             </p>
             <p>
               <br aria-hidden="true" />
