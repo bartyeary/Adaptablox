@@ -151,7 +151,7 @@ export default function AdaptabloxAbout() {
             className="font-sans font-[590] relative shrink-0 text-[24px] w-full max-w-[720px]"
             style={{ fontVariationSettings: "'wdth' 100" }}
           >
-            AI Can Reason. It Cannot Govern Itself.
+            AI Cannot Enforce Its Own Authority
           </p>
           <div
             className="h-[4px] w-full max-w-[720px] overflow-hidden shrink-0"
@@ -167,7 +167,7 @@ export default function AdaptabloxAbout() {
             className="font-sans font-normal min-w-full relative shrink-0 text-[15px] mb-0 w-full max-w-[720px]"
             style={{ fontVariationSettings: "'wdth' 100" }}
           >
-            Adaptablox introduces a runtime control layer that enforces authority at the moment actions are formed—not after they fail.
+            Adaptablox introduces a runtime control layer that enforces authority at the moment actions are committed—not after they fail.
           </p>
           <ul
             className="font-sans font-normal list-disc text-[15px] w-full max-w-[720px] ps-[1.25em] m-0 space-y-[6px]"
@@ -183,59 +183,47 @@ export default function AdaptabloxAbout() {
             style={{ fontVariationSettings: "'wdth' 100" }}
           >
             AI has models. It has tools. It has agents.
-          </p>
-          <p
-            className="font-sans font-normal min-w-full relative shrink-0 text-[15px] mb-0 w-full max-w-[720px]"
-            style={{ fontVariationSettings: "'wdth' 100" }}
-          >
-            What it doesn't have is a control layer that governs what actually happens.
+            <br aria-hidden="true" />
+            What it does not have is enforceable authority.
           </p>
           <p
             className="font-sans font-bold min-w-full relative shrink-0 text-[15px] mb-0 w-full max-w-[720px]"
             style={{ fontVariationSettings: "'wdth' 100" }}
           >
-            Task → Reasoning (Under Constraint) → Action Decision
+            Task → Constrained Reasoning Loop → Action Decision Boundary
           </p>
-          <div className="content-stretch flex flex-col gap-[6px] items-start w-full max-w-[720px]">
-            <p
-              className="font-sans font-normal min-w-full relative shrink-0 text-[15px] mb-0 w-full"
-              style={{ fontVariationSettings: "'wdth' 100" }}
-            >
-              <span className="font-bold">ARC</span>
-              <span>: governs behavior at the surface</span>
-            </p>
-            <ul
-              className="font-sans font-normal list-disc text-[15px] w-full ps-[1.25em] m-0 space-y-[6px]"
-              style={{ fontVariationSettings: "'wdth' 100" }}
-            >
-              <li className="ps-[2px]">Authority</li>
-              <li className="ps-[2px]">Scope</li>
-              <li className="ps-[2px]">Delegation</li>
-              <li className="ps-[2px]">Arbitration</li>
-            </ul>
-          </div>
-          <div className="content-stretch flex flex-col gap-[6px] items-start w-full max-w-[720px]">
-            <p
-              className="font-sans font-normal min-w-full relative shrink-0 text-[15px] mb-0 w-full"
-              style={{ fontVariationSettings: "'wdth' 100" }}
-            >
-              <span className="font-bold">LRC</span>
-              <span>: governs reasoning inside the model</span>
-            </p>
-            <ul
-              className="font-sans font-normal list-disc text-[15px] w-full ps-[1.25em] m-0 space-y-[6px]"
-              style={{ fontVariationSettings: "'wdth' 100" }}
-            >
-              <li className="ps-[2px]">Path suppression</li>
-              <li className="ps-[2px]">Deliberation shaping</li>
-              <li className="ps-[2px]">Interpretation constraints</li>
-            </ul>
+          <p
+            className="font-sans font-normal min-w-full relative shrink-0 text-[15px] mb-0 w-full max-w-[720px]"
+            style={{ fontVariationSettings: "'wdth' 100" }}
+          >
+            The system doesn't validate outputs after they're generated.
+          </p>
+          <div
+            className="w-full max-w-[720px] relative shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] rounded-[8px] overflow-hidden shrink-0"
+            role="note"
+          >
+            <div className="bg-white content-stretch px-[17px] md:px-[24px] py-[17px] md:py-[24px]">
+              <p
+                className="font-sans font-bold min-w-full relative shrink-0 text-[16px] leading-[24px] mb-0 text-[#4e4e4e]"
+                style={{ fontVariationSettings: "'wdth' 100" }}
+              >
+                The system is only allowed to generate what it is authorized to generate—while it is deciding.
+              </p>
+            </div>
           </div>
           <p
             className="font-sans font-normal min-w-full relative shrink-0 text-[15px] mb-0 w-full max-w-[720px]"
             style={{ fontVariationSettings: "'wdth' 100" }}
           >
-            Together, they align what the system does with how it thinks.
+            Actions are permitted, modified, escalated, or blocked at the decision boundary.
+          </p>
+          <p
+            className="font-sans font-normal min-w-full relative shrink-0 text-[15px] mb-0 w-full max-w-[720px]"
+            style={{ fontVariationSettings: "'wdth' 100" }}
+          >
+            Guardrails evaluate outputs after they exist.
+            <br aria-hidden="true" />
+            Adaptablox determines whether those outputs are allowed to exist.
           </p>
         </div>
         <div className="content-stretch flex flex-col gap-[12px] items-start leading-[21px] pb-[8px] md:pb-[12px] pt-[14px] md:pt-[20px] px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="1:40">
@@ -254,7 +242,8 @@ export default function AdaptabloxAbout() {
           <div className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-[min-content]" style={{ fontVariationSettings: "'wdth' 100" }}>
             <p className="mb-[1em]">Autonomous systems are now capable of acting independently inside real organizations.</p>
             <p className="mb-[1em]">When those systems act without enforcing delegated authority at each handoff and at the moment of action, predictable failures occur.</p>
-            <p className="mb-[1em]">In the most dangerous cases, every agent acts within its assigned role, every permission check passes, and no policy is violated — yet the system produces outcomes no one explicitly authorized.</p>
+            <p className="mb-[1em]">As soon as systems can act, delegate, or coordinate, authority must be enforced at the moment of execution—or failure becomes systemic.</p>
+            <p className="mb-[1em]">In the most dangerous cases, every agent acts within its assigned role, every permission check passes, and no policy is violated — yet the system produces outcomes no one explicitly authorized—and no single component is at fault.</p>
             <p>Adaptablox is designed to enforce authority, policy, and safety before actions execute and before authority silently propagates, rather than after damage is done.</p>
           </div>
         </div>
