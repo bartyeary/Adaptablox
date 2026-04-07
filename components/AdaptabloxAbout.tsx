@@ -2,42 +2,22 @@
 
 import { useEffect, useState } from 'react';
 import { useNavigation } from '@/contexts/NavigationContext';
-import HeroOverlayCard from '@/components/HeroOverlayCard';
 
 const imgGroup28481 = "/assets/logo2.svg";
 const imgIconAlert = "/assets/alert.svg";
-const imgLogo = "/assets/logo2.svg";
-const imgHero = "/assets/hero.png";
-const imgCheck = "/assets/symbolCheck.png";
-const imgWarning = "/assets/symbolWarning.png";
-const imgX = "/assets/symbolX.png";
 
 export default function AdaptabloxAbout() {
   const { activePage, navigate } = useNavigation();
   const [isAnimating, setIsAnimating] = useState(false);
-  
+
   useEffect(() => {
-    console.log('AdaptabloxAbout rendered, activePage:', activePage);
-    // Reset and trigger animation on page change
     setIsAnimating(false);
-    // Use setTimeout to ensure the state change is applied before animation
-    setTimeout(() => {
-      requestAnimationFrame(() => {
-        setIsAnimating(true);
-      });
+    const t = window.setTimeout(() => {
+      requestAnimationFrame(() => setIsAnimating(true));
     }, 10);
+    return () => window.clearTimeout(t);
   }, [activePage]);
-  
-  // Trigger animation on initial mount
-  useEffect(() => {
-    setIsAnimating(false);
-    setTimeout(() => {
-      requestAnimationFrame(() => {
-        setIsAnimating(true);
-      });
-    }, 10);
-  }, []);
-  
+
   useEffect(() => {
     // Expose navigate functions to window for document-level listeners
     (window as any).testNavigate = () => {
@@ -86,7 +66,7 @@ export default function AdaptabloxAbout() {
             <span className={`font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap ${
               activePage === 'about' ? 'text-[#5b5b5f]' : 'text-white'
             }`}>
-              Diagnosis
+              About
             </span>
           </button>
           <button 
@@ -155,100 +135,123 @@ export default function AdaptabloxAbout() {
         </div>
       </div>
       <div 
-        className="bg-[#eef0f4] content-stretch flex flex-col gap-[24px] min-h-[calc(100vh+21px)] items-start p-[13px] md:p-[18px] pb-[82px] md:pb-[118px] relative shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-[800px] max-w-full mx-auto transition-all duration-250 ease-out" 
-        style={{ 
-          marginTop: isAnimating ? '0px' : '-30px',
-          transition: 'margin-top 0.25s ease-out'
+        className="bg-[#eef0f4] content-stretch flex flex-col gap-[24px] min-h-[calc(100vh+21px)] items-start p-[13px] md:p-[18px] pb-[82px] md:pb-[118px] relative shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-[800px] max-w-full mx-auto"
+        style={{
+          marginTop: isAnimating ? '0px' : '-12px',
+          transition: 'margin-top 0.25s ease-out',
         }}
         data-node-id="1:39"
       >
-        <div className="w-full flex justify-center mt-[38px] mb-[4px]">
-          <div
-            className="w-full max-w-[720px] relative"
-            style={{ perspective: '1100px' }}
+        <div
+          className="content-stretch flex flex-col gap-[12px] items-start leading-[21px] pb-[8px] md:pb-[12px] pt-[14px] md:pt-[20px] px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full"
+          data-node-id="about-intro-runtime"
+          style={{ marginTop: '71px' }}
+        >
+          <p
+            className="font-sans font-[590] relative shrink-0 text-[24px] w-full max-w-[720px]"
+            style={{ fontVariationSettings: "'wdth' 100" }}
           >
-            <img
-              src={imgHero}
-              alt="Adaptablox hero"
-              className="w-full rounded-[12px] object-cover"
-            />
-            <div
-              className="absolute hero-check-symbol pointer-events-none"
-              style={{
-                right: 'calc(14% + 50px)',
-                top: '14%',
-                width: '18%',
-              }}
-              aria-hidden="true"
+            AI Can Reason. It Cannot Govern Itself.
+          </p>
+          <div
+            className="h-[4px] w-full max-w-[720px] overflow-hidden shrink-0"
+            style={{
+              backgroundImage:
+                'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)',
+              backgroundSize: '22.627px 22.627px',
+              backgroundPosition: '0 0',
+              imageRendering: 'crisp-edges',
+            }}
+          />
+          <p
+            className="font-sans font-normal min-w-full relative shrink-0 text-[15px] mb-0 w-full max-w-[720px]"
+            style={{ fontVariationSettings: "'wdth' 100" }}
+          >
+            Adaptablox introduces a runtime control layer that enforces authority at the moment actions are formed—not after they fail.
+          </p>
+          <ul
+            className="font-sans font-normal list-disc text-[15px] w-full max-w-[720px] ps-[1.25em] m-0 space-y-[6px]"
+            style={{ fontVariationSettings: "'wdth' 100" }}
+          >
+            <li className="ps-[2px]">Not training</li>
+            <li className="ps-[2px]">Not prompting</li>
+            <li className="ps-[2px]">Not monitoring</li>
+            <li className="ps-[2px] font-bold">Execution-time control</li>
+          </ul>
+          <p
+            className="font-sans font-normal min-w-full relative shrink-0 text-[15px] mb-0 w-full max-w-[720px]"
+            style={{ fontVariationSettings: "'wdth' 100" }}
+          >
+            AI has models. It has tools. It has agents.
+          </p>
+          <p
+            className="font-sans font-normal min-w-full relative shrink-0 text-[15px] mb-0 w-full max-w-[720px]"
+            style={{ fontVariationSettings: "'wdth' 100" }}
+          >
+            What it doesn't have is a control layer that governs what actually happens.
+          </p>
+          <p
+            className="font-sans font-bold min-w-full relative shrink-0 text-[15px] mb-0 w-full max-w-[720px]"
+            style={{ fontVariationSettings: "'wdth' 100" }}
+          >
+            Task → Reasoning (Under Constraint) → Action Decision
+          </p>
+          <div className="content-stretch flex flex-col gap-[6px] items-start w-full max-w-[720px]">
+            <p
+              className="font-sans font-normal min-w-full relative shrink-0 text-[15px] mb-0 w-full"
+              style={{ fontVariationSettings: "'wdth' 100" }}
             >
-              <img
-                src={imgCheck}
-                alt=""
-                className="w-full h-auto object-contain"
-              />
-            </div>
-            <div
-              className="absolute hero-x-symbol pointer-events-none"
-              style={{
-                right: '6%',
-                top: 'calc(23% + 10px)',
-                width: '18%',
-              }}
-              aria-hidden="true"
+              <span className="font-bold">ARC</span>
+              <span>: governs behavior at the surface</span>
+            </p>
+            <ul
+              className="font-sans font-normal list-disc text-[15px] w-full ps-[1.25em] m-0 space-y-[6px]"
+              style={{ fontVariationSettings: "'wdth' 100" }}
             >
-              <img
-                src={imgX}
-                alt=""
-                className="w-full h-auto object-contain"
-              />
-            </div>
-            <div
-              className="absolute hero-warning-symbol pointer-events-none"
-              style={{
-                right: 'calc(14% + 50px)',
-                top: 'calc(32% + 40px)',
-                width: '18%',
-              }}
-              aria-hidden="true"
-            >
-              <img
-                src={imgWarning}
-                alt=""
-                className="w-full h-auto object-contain"
-              />
-            </div>
-            <div
-              className="absolute"
-              style={{
-                left: 'clamp(32px, 4vw, 44px)',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                pointerEvents: 'none',
-              }}
-            >
-              <HeroOverlayCard />
-            </div>
+              <li className="ps-[2px]">Authority</li>
+              <li className="ps-[2px]">Scope</li>
+              <li className="ps-[2px]">Delegation</li>
+              <li className="ps-[2px]">Arbitration</li>
+            </ul>
           </div>
+          <div className="content-stretch flex flex-col gap-[6px] items-start w-full max-w-[720px]">
+            <p
+              className="font-sans font-normal min-w-full relative shrink-0 text-[15px] mb-0 w-full"
+              style={{ fontVariationSettings: "'wdth' 100" }}
+            >
+              <span className="font-bold">LRC</span>
+              <span>: governs reasoning inside the model</span>
+            </p>
+            <ul
+              className="font-sans font-normal list-disc text-[15px] w-full ps-[1.25em] m-0 space-y-[6px]"
+              style={{ fontVariationSettings: "'wdth' 100" }}
+            >
+              <li className="ps-[2px]">Path suppression</li>
+              <li className="ps-[2px]">Deliberation shaping</li>
+              <li className="ps-[2px]">Interpretation constraints</li>
+            </ul>
+          </div>
+          <p
+            className="font-sans font-normal min-w-full relative shrink-0 text-[15px] mb-0 w-full max-w-[720px]"
+            style={{ fontVariationSettings: "'wdth' 100" }}
+          >
+            Together, they align what the system does with how it thinks.
+          </p>
         </div>
         <div className="content-stretch flex flex-col gap-[12px] items-start leading-[21px] pb-[8px] md:pb-[12px] pt-[14px] md:pt-[20px] px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="1:40">
           <p className="font-sans font-[590] relative shrink-0 text-[24px] text-nowrap" data-node-id="27:625" style={{ fontVariationSettings: "'wdth' 100" }}>
-            Failure at Decision Time
+            Why This Exists
           </p>
-          <div className="min-w-full relative shrink-0 w-[min-content]">
-            <p className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-[min-content] mb-0" style={{ fontVariationSettings: "'wdth' 100" }}>
-              <strong>Adaptablox prevents autonomous systems from producing outcomes no one explicitly authorized.</strong>
-            </p>
-            <div 
-              className="mt-[12px] h-[4px] w-full overflow-hidden"
-              style={{
-                backgroundImage: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)',
-                backgroundSize: '22.627px 22.627px',
-                backgroundPosition: '0 0',
-                imageRendering: 'crisp-edges'
-              }}
-            />
-          </div>
-          <div className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-[min-content] pt-[12px]" style={{ fontVariationSettings: "'wdth' 100" }}>
+          <div 
+            className="h-[4px] w-full overflow-hidden"
+            style={{
+              backgroundImage: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)',
+              backgroundSize: '22.627px 22.627px',
+              backgroundPosition: '0 0',
+              imageRendering: 'crisp-edges'
+            }}
+          />
+          <div className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-[min-content]" style={{ fontVariationSettings: "'wdth' 100" }}>
             <p className="mb-[1em]">Autonomous systems are now capable of acting independently inside real organizations.</p>
             <p className="mb-[1em]">When those systems act without enforcing delegated authority at each handoff and at the moment of action, predictable failures occur.</p>
             <p className="mb-[1em]">In the most dangerous cases, every agent acts within its assigned role, every permission check passes, and no policy is violated — yet the system produces outcomes no one explicitly authorized.</p>
