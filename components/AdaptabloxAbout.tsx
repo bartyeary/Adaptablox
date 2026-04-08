@@ -199,16 +199,25 @@ export default function AdaptabloxAbout() {
             The system doesn't validate outputs after they're generated.
           </p>
           <div
-            className="w-full max-w-[720px] relative shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] rounded-[8px] overflow-hidden shrink-0"
+            className="w-full relative shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] rounded-[8px] overflow-hidden shrink-0"
             role="note"
           >
-            <div className="bg-white content-stretch px-[17px] md:px-[24px] py-[17px] md:py-[24px]">
-              <p
-                className="font-sans font-bold min-w-full relative shrink-0 text-[16px] leading-[24px] mb-0 text-[#4e4e4e]"
-                style={{ fontVariationSettings: "'wdth' 100" }}
-              >
-                The system is only allowed to generate what it is authorized to generate—while it is deciding.
-              </p>
+            <div className="bg-white border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start pl-[8px] md:pl-[12px] pr-[17px] md:pr-[24px] py-[17px] md:py-[24px] relative rounded-tl-[8px] rounded-tr-[8px] w-full">
+              <div className="content-stretch flex items-center justify-start px-[17px] md:px-[24px] py-0 relative shrink-0 w-full">
+                <p className="font-sans font-extrabold leading-[normal] not-italic relative shrink-0 text-[18px] uppercase flex items-center gap-[6px] mb-0 text-left">
+                  <img src={imgIconAlert} alt="Alert" className="inline-block w-[18px] h-[18px] shrink-0" />
+                  <span className="text-[#ff4b4b]">Core Principle</span>
+                </p>
+              </div>
+              <div className="content-stretch flex items-start justify-start px-[17px] md:px-[24px] py-0 relative shrink-0 w-full">
+                <div className="basis-0 font-['Courier_New:Regular',sans-serif] grow leading-[24px] min-h-px min-w-px not-italic relative shrink-0 text-[#4e4e4e] text-[15px] text-left">
+                  <p className="font-sans font-normal mb-0">
+                    A system may only generate what it is authorized to generate—while it is deciding.
+                    <br aria-hidden="true" />
+                    Authority does not emerge from reasoning. It must be enforced.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
           <p
@@ -224,12 +233,6 @@ export default function AdaptabloxAbout() {
             Guardrails evaluate outputs after they exist.
             <br aria-hidden="true" />
             Adaptablox determines whether those outputs are allowed to exist.
-          </p>
-          <p
-            className="font-sans font-normal min-w-full relative shrink-0 text-[15px] mb-0 w-full max-w-[720px]"
-            style={{ fontVariationSettings: "'wdth' 100" }}
-          >
-            Authority does not emerge from reasoning. It must be enforced.
           </p>
         </div>
         <div className="content-stretch flex flex-col gap-[12px] items-start leading-[21px] pb-[8px] md:pb-[12px] pt-[14px] md:pt-[20px] px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="1:40">
