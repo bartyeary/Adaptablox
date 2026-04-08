@@ -1,6 +1,7 @@
 'use client';
 
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import SwipeNavigation from '@/components/SwipeNavigation';
 
 type Page = 'overview' | 'about' | 'faqs' | 'demo';
 
@@ -37,6 +38,7 @@ export function NavigationProvider({ children }: { children: ReactNode }) {
 
   return (
     <NavigationContext.Provider value={{ activePage, navigate }}>
+      <SwipeNavigation />
       {children}
     </NavigationContext.Provider>
   );
