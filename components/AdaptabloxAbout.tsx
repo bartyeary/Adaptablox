@@ -199,7 +199,7 @@ export default function AdaptabloxAbout() {
             The system doesn't validate outputs after they're generated.
           </p>
           <div
-            className="w-full relative shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] rounded-[8px] overflow-hidden shrink-0"
+            className="relative shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] rounded-[8px] overflow-hidden shrink-0 w-[calc(100%+34px)] max-w-none -mx-[17px] md:w-[calc(100%+48px)] md:-mx-[24px]"
             role="note"
           >
             <div className="bg-white border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start pl-[8px] md:pl-[12px] pr-[17px] md:pr-[24px] py-[17px] md:py-[24px] relative rounded-tl-[8px] rounded-tr-[8px] w-full">
