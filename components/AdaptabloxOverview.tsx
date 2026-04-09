@@ -156,11 +156,8 @@ export default function AdaptabloxOverview() {
               An OS for Agent Behavior
             </p>
             <div className="min-w-full relative shrink-0 w-full">
-              <p className="font-sans font-bold leading-[21px] min-w-full relative shrink-0 text-[#4e4e4e] text-[15px] mb-0" data-node-id="27:688">
-                A runtime control layer that governs how AI systems reason and act as decisions are formed.
-              </p>
-              <div 
-                className="mt-[12px] h-[4px] w-full overflow-hidden"
+              <div
+                className="h-[4px] w-full overflow-hidden"
                 style={{
                   backgroundImage: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)',
                   backgroundSize: '22.627px 22.627px',

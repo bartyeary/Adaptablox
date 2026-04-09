@@ -148,7 +148,7 @@ export default function AdaptabloxAbout() {
           style={{ marginTop: '71px' }}
         >
           <p
-            className="font-sans font-[590] relative shrink-0 text-[24px] w-full max-w-[720px]"
+            className="font-sans font-[590] relative shrink-0 text-[24px] leading-[1.38] w-full max-w-[720px]"
             style={{ fontVariationSettings: "'wdth' 100" }}
           >
             AI Cannot Enforce Its Own Authority
@@ -260,6 +260,15 @@ export default function AdaptabloxAbout() {
           <p className="font-sans font-[590] relative shrink-0 text-[24px] text-nowrap" data-node-id="27:625" style={{ fontVariationSettings: "'wdth' 100" }}>
             Predictable Failure Modes
           </p>
+          <div
+            className="h-[4px] w-full overflow-hidden"
+            style={{
+              backgroundImage: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)',
+              backgroundSize: '22.627px 22.627px',
+              backgroundPosition: '0 0',
+              imageRendering: 'crisp-edges',
+            }}
+          />
           <p className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-[min-content]" data-node-id="1:42" style={{ fontVariationSettings: "'wdth' 100" }}>
             The following are predictable outcomes of deploying autonomous and semi-autonomous agents whose outputs are treated as authoritative inputs for other agents, without runtime enforcement of delegated authority.
           </p>
@@ -637,6 +646,15 @@ export default function AdaptabloxAbout() {
           <p className="font-sans font-[590] relative shrink-0 text-[24px] text-nowrap" data-node-id="27:625" style={{ fontVariationSettings: "'wdth' 100" }}>
             The Underlying Cause
           </p>
+          <div
+            className="h-[4px] w-full overflow-hidden"
+            style={{
+              backgroundImage: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)',
+              backgroundSize: '22.627px 22.627px',
+              backgroundPosition: '0 0',
+              imageRendering: 'crisp-edges',
+            }}
+          />
           <div className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-[min-content]" data-node-id="1:124">
             <p className="mb-0">Across every failure, the cause is the same.</p>
             <p className="mb-0">
