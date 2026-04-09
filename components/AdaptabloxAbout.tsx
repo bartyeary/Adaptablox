@@ -206,7 +206,7 @@ export default function AdaptabloxAbout() {
               <div className="content-stretch flex items-center justify-start px-[17px] md:px-[24px] py-0 relative shrink-0 w-full">
                 <p className="font-sans font-extrabold leading-[normal] not-italic relative shrink-0 text-[18px] uppercase flex items-center gap-[6px] mb-0 text-left">
                   <img src={imgIconAlert} alt="Alert" className="inline-block w-[18px] h-[18px] shrink-0" />
-                  <span className="text-[#ff4b4b]">Core Principle</span>
+                  <span className="text-[#ff4b4b]">Core Constraint</span>
                 </p>
               </div>
               <div className="content-stretch flex items-start justify-start px-[17px] md:px-[24px] py-0 relative shrink-0 w-full">
