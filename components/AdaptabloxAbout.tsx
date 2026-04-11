@@ -41,14 +41,14 @@ export default function AdaptabloxAbout() {
   }, [navigate]);
   
   return (
-    <div className="content-stretch flex flex-col gap-[12px] items-center relative size-full min-h-screen" data-name="adaptablox - about" data-node-id="1:2" style={{ background: "radial-gradient(66.15% 98.68% at -6.3% -5.34%, #F1F2F4 0%, #D7D9DF 100%)" }}>
-      <div className="bg-[rgba(135,137,145,0.88)] backdrop-blur-sm h-[71px] overflow-clip fixed top-0 left-0 right-0 z-50 w-full" data-node-id="1:3" style={{ background: "rgba(135, 137, 145, 0.88)" }}>
+    <div className="content-stretch flex flex-col gap-[12px] items-center relative size-full min-h-screen" data-name="adaptablox - about" data-node-id="1:2" style={{ background: "radial-gradient(66.15% 98.68% at -6.3% -5.34%, #F2F4F8 0%, #DCDEE6 100%)" }}>
+      <div className="bg-[rgba(135,137,145,0.68)] backdrop-blur-sm h-[71px] overflow-clip fixed top-0 left-0 right-0 z-50 w-full" data-node-id="1:3" style={{ background: "rgba(135, 137, 145, 0.68)" }}>
         <div className="absolute left-[17px] top-[17px] h-[36px] w-[189px] hidden md:block" data-name="logo" data-node-id="1:14">
           <div className="absolute h-[35px] left-0 top-[1.5px] w-[188px]" data-node-id="1:176">
             <img alt="Adaptablox Logo" className="block max-w-none size-full" src={imgGroup28481} />
           </div>
         </div>
-        <div className="absolute left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-[17px] top-[17px] bg-[#7e8088] content-stretch flex gap-[6px] items-center p-[3px] rounded-[12px] z-[60]" data-name="control" data-node-id="1:5">
+        <div className="absolute left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-[17px] top-[17px] bg-[#93959d] content-stretch flex gap-[6px] items-center p-[3px] rounded-[12px] z-[60]" data-name="control" data-node-id="1:5">
           <button
             onClick={() => {
               console.log('Failures button clicked');
@@ -56,7 +56,7 @@ export default function AdaptabloxAbout() {
             }}
             className={`content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity ${
               activePage === 'about'
-                ? 'bg-[#eef0f4] shadow-[0px_6px_15px_0px_rgba(0,0,0,0.12)]'
+                ? 'bg-[#f7f9fc] shadow-[0px_5px_9px_0px_rgba(0,0,0,0.07)]'
                 : 'bg-transparent hover:opacity-80'
             }`}
             data-name="button"
@@ -76,7 +76,7 @@ export default function AdaptabloxAbout() {
             }}
             className={`content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity ${
               activePage === 'overview'
-                ? 'bg-[#eef0f4] shadow-[0px_6px_15px_0px_rgba(0,0,0,0.12)]'
+                ? 'bg-[#f7f9fc] shadow-[0px_5px_9px_0px_rgba(0,0,0,0.07)]'
                 : 'bg-transparent hover:opacity-80'
             }`}
             data-name="button" 
@@ -98,7 +98,7 @@ export default function AdaptabloxAbout() {
             }}
             className={`content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity ${
               activePage === 'faqs'
-                ? 'bg-[#eef0f4] shadow-[0px_6px_15px_0px_rgba(0,0,0,0.12)]'
+                ? 'bg-[#f7f9fc] shadow-[0px_5px_9px_0px_rgba(0,0,0,0.07)]'
                 : 'bg-transparent hover:opacity-80'
             }`}
             data-name="button"
@@ -119,7 +119,7 @@ export default function AdaptabloxAbout() {
             }}
             className={`content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity ${
               activePage === 'demo'
-                ? 'bg-[#eef0f4] shadow-[0px_6px_15px_0px_rgba(0,0,0,0.12)]'
+                ? 'bg-[#f7f9fc] shadow-[0px_5px_9px_0px_rgba(0,0,0,0.07)]'
                 : 'bg-transparent hover:opacity-80'
             }`}
             data-name="button"
@@ -135,7 +135,7 @@ export default function AdaptabloxAbout() {
         </div>
       </div>
       <div 
-        className="bg-[#eef0f4] content-stretch flex flex-col gap-[24px] min-h-[calc(100vh+21px)] items-start p-[13px] md:p-[18px] pb-[82px] md:pb-[118px] relative shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-[800px] max-w-full mx-auto"
+        className="bg-[#f7f9fc] content-stretch flex flex-col gap-[24px] min-h-[calc(100vh+21px)] items-start p-[13px] md:p-[18px] pb-[82px] md:pb-[118px] relative shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-[800px] max-w-full mx-auto"
         style={{
           marginTop: isAnimating ? '0px' : '-12px',
           transition: 'margin-top 0.25s ease-out',
@@ -199,7 +199,7 @@ export default function AdaptabloxAbout() {
             The system doesn't validate outputs after they're generated.
           </p>
           <div
-            className="relative shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] rounded-[8px] overflow-hidden shrink-0 w-[calc(100%+34px)] max-w-none -mx-[17px] md:w-[calc(100%+48px)] md:-mx-[24px]"
+            className="relative shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] rounded-[8px] overflow-hidden shrink-0 w-[calc(100%+34px)] max-w-none -mx-[17px] md:w-[calc(100%+48px)] md:-mx-[24px]"
             role="note"
           >
             <div className="bg-white border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start pl-[8px] md:pl-[12px] pr-[17px] md:pr-[24px] py-[17px] md:py-[24px] relative rounded-tl-[8px] rounded-tr-[8px] w-full">
@@ -273,7 +273,7 @@ export default function AdaptabloxAbout() {
             The following are predictable outcomes of deploying autonomous and semi-autonomous agents whose outputs are treated as authoritative inputs for other agents, without runtime enforcement of delegated authority.
           </p>
         </div>
-        <div className="content-stretch flex flex-col items-start relative shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] rounded-[8px] overflow-hidden shrink-0 w-full" data-node-id="1:43">
+        <div className="content-stretch flex flex-col items-start relative shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] rounded-[8px] overflow-hidden shrink-0 w-full" data-node-id="1:43">
           <div className="bg-white border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start pl-[8px] md:pl-[12px] pr-[17px] md:pr-[24px] py-[17px] md:py-[24px] relative rounded-tl-[8px] rounded-tr-[8px] shrink-0 w-full" data-node-id="1:44">
             <div className="content-stretch flex items-center justify-center px-[17px] md:px-[24px] py-0 relative shrink-0" data-node-id="1:45">
               <p className="font-sans font-extrabold leading-[normal] not-italic relative shrink-0 text-[18px] text-nowrap uppercase flex items-center gap-[6px]" data-node-id="1:46">
@@ -291,7 +291,7 @@ export default function AdaptabloxAbout() {
               </div>
             </div>
           </div>
-          <div className="bg-[#FFF4F4] content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full" data-node-id="1:49">
+          <div className="bg-[#FFFAFA] content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full" data-node-id="1:49">
             <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:51">
               <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
               <p className="font-sans font-normal">The system had no way to evaluate authority at the moment of action.</p>
@@ -335,14 +335,14 @@ export default function AdaptabloxAbout() {
               </ul>
             </div>
           </div>
-          <div className="bg-[#f0fdf4] border-l-[5px] border-l-[#85dba2] border-solid content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative rounded-bl-[8px] rounded-br-[8px] shrink-0 w-full" data-node-id="1:56">
+          <div className="bg-[#f7fdf9] border-l-[5px] border-l-[#85dba2] border-solid content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative rounded-bl-[8px] rounded-br-[8px] shrink-0 w-full" data-node-id="1:56">
             <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:57">
               <p className="font-sans font-bold mb-0 text-[#6aaf81]">Outcome</p>
               <p className="font-sans font-normal">Negotiation continues. Authority stays intact. Legal sleeps.</p>
             </div>
           </div>
         </div>
-        <div className="content-stretch flex flex-col items-start relative shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] rounded-[8px] overflow-hidden shrink-0 w-full" data-node-id="1:58">
+        <div className="content-stretch flex flex-col items-start relative shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] rounded-[8px] overflow-hidden shrink-0 w-full" data-node-id="1:58">
           <div className="bg-white border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start pl-[8px] md:pl-[12px] pr-[17px] md:pr-[24px] py-[17px] md:py-[24px] relative rounded-tl-[8px] rounded-tr-[8px] shrink-0 w-full" data-node-id="1:59">
             <div className="content-stretch flex items-center justify-center pl-[11px] md:pl-[16px] pr-0 py-0 relative shrink-0" data-node-id="1:60">
               <p className="font-sans font-extrabold leading-[normal] not-italic relative shrink-0 text-[#ff4b4b] text-[18px] text-nowrap uppercase flex items-center gap-[6px]" data-node-id="1:61">
@@ -357,7 +357,7 @@ export default function AdaptabloxAbout() {
               </div>
             </div>
           </div>
-          <div className="bg-[#FFF4F4] content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full" data-node-id="1:64">
+          <div className="bg-[#FFFAFA] content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full" data-node-id="1:64">
             <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:66">
               <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
               <p className="font-sans font-normal">The system could not enforce policy scope while the refund decision was being generated.</p>
@@ -395,14 +395,14 @@ export default function AdaptabloxAbout() {
               </ul>
             </div>
           </div>
-          <div className="bg-[#f0fdf4] border-l-[5px] border-l-[#85dba2] border-solid content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative rounded-bl-[8px] rounded-br-[8px] shrink-0 w-full" data-node-id="1:69">
+          <div className="bg-[#f7fdf9] border-l-[5px] border-l-[#85dba2] border-solid content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative rounded-bl-[8px] rounded-br-[8px] shrink-0 w-full" data-node-id="1:69">
             <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:70">
               <p className="font-sans font-bold mb-0 text-[#6aaf81]">Outcome</p>
               <p className="font-sans font-normal">Support stays empathetic. Financial controls remain real.</p>
             </div>
           </div>
         </div>
-        <div className="content-stretch flex flex-col items-start relative shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] rounded-[8px] overflow-hidden shrink-0 w-full" data-node-id="1:71">
+        <div className="content-stretch flex flex-col items-start relative shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] rounded-[8px] overflow-hidden shrink-0 w-full" data-node-id="1:71">
           <div className="bg-white border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start pl-[8px] md:pl-[12px] pr-[17px] md:pr-[24px] py-[17px] md:py-[24px] relative rounded-tl-[8px] rounded-tr-[8px] shrink-0 w-full" data-node-id="1:72">
             <div className="content-stretch flex items-center justify-center pl-[11px] md:pl-[16px] pr-0 py-0 relative shrink-0" data-node-id="1:73">
               <p className="font-sans font-extrabold leading-[normal] not-italic relative shrink-0 text-[#ff4b4b] text-[18px] text-nowrap uppercase flex items-center gap-[6px]" data-node-id="1:74">
@@ -417,7 +417,7 @@ export default function AdaptabloxAbout() {
               </div>
             </div>
           </div>
-          <div className="bg-[#FFF4F4] content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full" data-node-id="1:77">
+          <div className="bg-[#FFFAFA] content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full" data-node-id="1:77">
             <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:79">
               <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
               <p className="font-sans font-normal">The system treated inferred intent as permission to reallocate resources.</p>
@@ -455,14 +455,14 @@ export default function AdaptabloxAbout() {
               </ul>
             </div>
           </div>
-          <div className="bg-[#f0fdf4] border-l-[5px] border-l-[#85dba2] border-solid content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative rounded-bl-[8px] rounded-br-[8px] shrink-0 w-full" data-node-id="1:82">
+          <div className="bg-[#f7fdf9] border-l-[5px] border-l-[#85dba2] border-solid content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative rounded-bl-[8px] rounded-br-[8px] shrink-0 w-full" data-node-id="1:82">
             <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:83">
               <p className="font-sans font-bold mb-0 text-[#6aaf81]">Outcome</p>
               <p className="font-sans font-normal">Velocity without organizational chaos.</p>
             </div>
           </div>
         </div>
-        <div className="content-stretch flex flex-col items-start relative shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] rounded-[8px] overflow-hidden shrink-0 w-full" data-node-id="1:84">
+        <div className="content-stretch flex flex-col items-start relative shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] rounded-[8px] overflow-hidden shrink-0 w-full" data-node-id="1:84">
           <div className="bg-white border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start pl-[8px] md:pl-[12px] pr-[17px] md:pr-[24px] py-[17px] md:py-[24px] relative rounded-tl-[8px] rounded-tr-[8px] shrink-0 w-full" data-node-id="1:85">
             <div className="content-stretch flex items-center justify-center pl-[11px] md:pl-[16px] pr-0 py-0 relative shrink-0" data-node-id="1:86">
               <p className="font-sans font-extrabold leading-[normal] not-italic relative shrink-0 text-[#ff4b4b] text-[18px] text-nowrap uppercase flex items-center gap-[6px]" data-node-id="1:87">
@@ -477,7 +477,7 @@ export default function AdaptabloxAbout() {
               </div>
             </div>
           </div>
-          <div className="bg-[#FFF4F4] content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full" data-node-id="1:90">
+          <div className="bg-[#FFFAFA] content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full" data-node-id="1:90">
             <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:92">
               <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
               <p className="font-sans font-normal">The system had no runtime awareness of legal exposure or communicative authority.</p>
@@ -515,14 +515,14 @@ export default function AdaptabloxAbout() {
               </ul>
             </div>
           </div>
-          <div className="bg-[#f0fdf4] border-l-[5px] border-l-[#85dba2] border-solid content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative rounded-bl-[8px] rounded-br-[8px] shrink-0 w-full" data-node-id="1:95">
+          <div className="bg-[#f7fdf9] border-l-[5px] border-l-[#85dba2] border-solid content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative rounded-bl-[8px] rounded-br-[8px] shrink-0 w-full" data-node-id="1:95">
             <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:96">
               <p className="font-sans font-bold mb-0 text-[#6aaf81]">Outcome</p>
               <p className="font-sans font-normal">Communication without accidental admissions.</p>
             </div>
           </div>
         </div>
-        <div className="content-stretch flex flex-col items-start relative shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] rounded-[8px] overflow-hidden shrink-0 w-full" data-node-id="1:97">
+        <div className="content-stretch flex flex-col items-start relative shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] rounded-[8px] overflow-hidden shrink-0 w-full" data-node-id="1:97">
           <div className="bg-white border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start pl-[8px] md:pl-[12px] pr-[17px] md:pr-[24px] py-[17px] md:py-[24px] relative rounded-tl-[8px] rounded-tr-[8px] shrink-0 w-full" data-node-id="1:98">
             <div className="content-stretch flex items-center justify-center pl-[11px] md:pl-[16px] pr-0 py-0 relative shrink-0" data-node-id="1:99">
               <p className="font-sans font-extrabold leading-[normal] not-italic relative shrink-0 text-[#ff4b4b] text-[18px] text-nowrap uppercase flex items-center gap-[6px]" data-node-id="1:100">
@@ -537,7 +537,7 @@ export default function AdaptabloxAbout() {
               </div>
             </div>
           </div>
-          <div className="bg-[#FFF4F4] content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full" data-node-id="1:103">
+          <div className="bg-[#FFFAFA] content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full" data-node-id="1:103">
             <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:105">
               <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
               <p className="font-sans font-normal">The system allowed cross-domain data use without enforcing contextual compliance boundaries.</p>
@@ -575,14 +575,14 @@ export default function AdaptabloxAbout() {
               </ul>
             </div>
           </div>
-          <div className="bg-[#f0fdf4] border-l-[5px] border-l-[#85dba2] border-solid content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative rounded-bl-[8px] rounded-br-[8px] shrink-0 w-full" data-node-id="1:108">
+          <div className="bg-[#f7fdf9] border-l-[5px] border-l-[#85dba2] border-solid content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative rounded-bl-[8px] rounded-br-[8px] shrink-0 w-full" data-node-id="1:108">
             <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:109">
               <p className="font-sans font-bold mb-0 text-[#6aaf81]">Outcome</p>
               <p className="font-sans font-normal">Compliance enforced at the moment of action, not retroactively.</p>
             </div>
           </div>
         </div>
-        <div className="content-stretch flex flex-col items-start relative shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] rounded-[8px] overflow-hidden shrink-0 w-full" data-node-id="1:110">
+        <div className="content-stretch flex flex-col items-start relative shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] rounded-[8px] overflow-hidden shrink-0 w-full" data-node-id="1:110">
           <div className="bg-white border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start pl-[8px] md:pl-[12px] pr-[17px] md:pr-[24px] py-[17px] md:py-[24px] relative rounded-tl-[8px] rounded-tr-[8px] shrink-0 w-full" data-node-id="1:111">
             <div className="content-stretch flex items-center justify-center pl-[11px] md:pl-[16px] pr-0 py-0 relative shrink-0" data-node-id="1:112">
               <p className="font-sans font-extrabold leading-[normal] not-italic relative shrink-0 text-[#ff4b4b] text-[18px] text-nowrap uppercase flex items-center gap-[6px]" data-node-id="1:113">
@@ -597,7 +597,7 @@ export default function AdaptabloxAbout() {
               </div>
             </div>
           </div>
-          <div className="bg-[#FFF4F4] content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full" data-node-id="1:116">
+          <div className="bg-[#FFFAFA] content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full" data-node-id="1:116">
             <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:118">
               <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
               <p className="font-sans font-normal">The system prioritized optimization goals without enforcing safety constraints at the moment of action.</p>
@@ -635,7 +635,7 @@ export default function AdaptabloxAbout() {
               </ul>
             </div>
           </div>
-          <div className="bg-[#f0fdf4] border-l-[5px] border-l-[#85dba2] border-solid content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative rounded-bl-[8px] rounded-br-[8px] shrink-0 w-full" data-node-id="1:121">
+          <div className="bg-[#f7fdf9] border-l-[5px] border-l-[#85dba2] border-solid content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative rounded-bl-[8px] rounded-br-[8px] shrink-0 w-full" data-node-id="1:121">
             <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:122">
               <p className="font-sans font-bold mb-0 text-[#6aaf81]">Outcome</p>
               <p className="font-sans font-normal">Efficiency without headlines.</p>

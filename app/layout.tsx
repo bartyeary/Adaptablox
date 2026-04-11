@@ -38,7 +38,7 @@ export default function RootLayout({
                     const btn = overviewBtn;
                     const span = btn.querySelector('span');
                     if (activePage === 'overview') {
-                      btn.className = 'content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity bg-[#eef0f4] shadow-[0px_6px_15px_0px_rgba(0,0,0,0.12)]';
+                      btn.className = 'content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity bg-[#f7f9fc] shadow-[0px_5px_9px_0px_rgba(0,0,0,0.07)]';
                       if (span) span.className = 'font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap text-[#5b5b5f]';
                     } else {
                       btn.className = 'content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity bg-transparent hover:opacity-80';
@@ -52,7 +52,7 @@ export default function RootLayout({
                     const btn = aboutBtn;
                     const span = btn.querySelector('span');
                     if (activePage === 'about') {
-                      btn.className = 'content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity bg-[#eef0f4] shadow-[0px_6px_15px_0px_rgba(0,0,0,0.12)]';
+                      btn.className = 'content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity bg-[#f7f9fc] shadow-[0px_5px_9px_0px_rgba(0,0,0,0.07)]';
                       if (span) span.className = 'font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap text-[#5b5b5f]';
                     } else {
                       btn.className = 'content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity bg-transparent hover:opacity-80';
@@ -66,7 +66,7 @@ export default function RootLayout({
                     const btn = faqsBtn;
                     const span = btn.querySelector('span');
                     if (activePage === 'faqs') {
-                      btn.className = 'content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity bg-[#eef0f4] shadow-[0px_6px_15px_0px_rgba(0,0,0,0.12)]';
+                      btn.className = 'content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity bg-[#f7f9fc] shadow-[0px_5px_9px_0px_rgba(0,0,0,0.07)]';
                       if (span) span.className = 'font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap text-[#5b5b5f]';
                     } else {
                       btn.className = 'content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity bg-transparent hover:opacity-80';
@@ -80,7 +80,7 @@ export default function RootLayout({
                     const btn = demoBtn;
                     const span = btn.querySelector('span');
                     if (activePage === 'demo') {
-                      btn.className = 'content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity bg-[#eef0f4] shadow-[0px_6px_15px_0px_rgba(0,0,0,0.12)]';
+                      btn.className = 'content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity bg-[#f7f9fc] shadow-[0px_5px_9px_0px_rgba(0,0,0,0.07)]';
                       if (span) span.className = 'font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap text-[#5b5b5f]';
                     } else {
                       btn.className = 'content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity bg-transparent hover:opacity-80';

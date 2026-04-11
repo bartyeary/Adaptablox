@@ -49,14 +49,14 @@ export default function AdaptabloxOverview() {
   }, [navigate]);
   
   return (
-    <div className="content-stretch flex flex-col gap-[12px] items-center relative size-full min-h-screen" data-name="adaptablox - overview" data-node-id="27:645" style={{ background: "radial-gradient(66.15% 98.68% at -6.3% -5.34%, #F1F2F4 0%, #D7D9DF 100%)" }}>
-      <div className="bg-[rgba(135,137,145,0.88)] backdrop-blur-sm h-[71px] overflow-clip fixed top-0 left-0 right-0 z-50 w-full" data-node-id="27:646" style={{ background: "rgba(135, 137, 145, 0.88)" }}>
+    <div className="content-stretch flex flex-col gap-[12px] items-center relative size-full min-h-screen" data-name="adaptablox - overview" data-node-id="27:645" style={{ background: "radial-gradient(66.15% 98.68% at -6.3% -5.34%, #F2F4F8 0%, #DCDEE6 100%)" }}>
+      <div className="bg-[rgba(135,137,145,0.68)] backdrop-blur-sm h-[71px] overflow-clip fixed top-0 left-0 right-0 z-50 w-full" data-node-id="27:646" style={{ background: "rgba(135, 137, 145, 0.68)" }}>
         <div className="absolute left-[17px] top-[17px] h-[36px] w-[189px] hidden md:block" data-name="logo" data-node-id="27:648">
           <div className="absolute h-[35px] left-0 top-[1.5px] w-[188px]" data-node-id="27:649">
             <img alt="Adaptablox Logo" className="block max-w-none size-full" src={imgGroup28481} />
           </div>
         </div>
-        <div className="absolute left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-[17px] top-[17px] bg-[#7e8088] content-stretch flex gap-[6px] items-center p-[3px] rounded-[12px] z-[60]" data-name="control" data-node-id="27:668">
+        <div className="absolute left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-[17px] top-[17px] bg-[#93959d] content-stretch flex gap-[6px] items-center p-[3px] rounded-[12px] z-[60]" data-name="control" data-node-id="27:668">
           <button
             onClick={() => {
               console.log('Failures button clicked');
@@ -64,7 +64,7 @@ export default function AdaptabloxOverview() {
             }}
             className={`content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity ${
               activePage === 'about'
-                ? 'bg-[#eef0f4] shadow-[0px_6px_15px_0px_rgba(0,0,0,0.12)]'
+                ? 'bg-[#f7f9fc] shadow-[0px_5px_9px_0px_rgba(0,0,0,0.07)]'
                 : 'bg-transparent hover:opacity-80'
             }`}
             data-name="button"
@@ -84,7 +84,7 @@ export default function AdaptabloxOverview() {
             }}
             className={`content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity ${
               activePage === 'overview'
-                ? 'bg-[#eef0f4] shadow-[0px_6px_15px_0px_rgba(0,0,0,0.12)]'
+                ? 'bg-[#f7f9fc] shadow-[0px_5px_9px_0px_rgba(0,0,0,0.07)]'
                 : 'bg-transparent hover:opacity-80'
             }`}
             data-name="button"
@@ -106,7 +106,7 @@ export default function AdaptabloxOverview() {
             }}
             className={`content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity ${
               activePage === 'faqs'
-                ? 'bg-[#eef0f4] shadow-[0px_6px_15px_0px_rgba(0,0,0,0.12)]'
+                ? 'bg-[#f7f9fc] shadow-[0px_5px_9px_0px_rgba(0,0,0,0.07)]'
                 : 'bg-transparent hover:opacity-80'
             }`}
             data-name="button"
@@ -127,7 +127,7 @@ export default function AdaptabloxOverview() {
             }}
             className={`content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity ${
               activePage === 'demo'
-                ? 'bg-[#eef0f4] shadow-[0px_6px_15px_0px_rgba(0,0,0,0.12)]'
+                ? 'bg-[#f7f9fc] shadow-[0px_5px_9px_0px_rgba(0,0,0,0.07)]'
                 : 'bg-transparent hover:opacity-80'
             }`}
             data-name="button"
@@ -143,7 +143,7 @@ export default function AdaptabloxOverview() {
         </div>
       </div>
       <div 
-        className="bg-[#eef0f4] content-stretch flex flex-col gap-[48px] items-start p-[13px] md:p-[18px] pb-[82px] md:pb-[118px] relative shadow-[3px_6px_15px_0px_rgba(0,0,0,0.12)] shrink-0 w-[800px] max-w-full mx-auto transition-all duration-250 ease-out min-h-[calc(100vh+21px)]" 
+        className="bg-[#f7f9fc] content-stretch flex flex-col gap-[48px] items-start p-[13px] md:p-[18px] pb-[82px] md:pb-[118px] relative shadow-[2px_5px_9px_0px_rgba(0,0,0,0.07)] shrink-0 w-[800px] max-w-full mx-auto transition-all duration-250 ease-out min-h-[calc(100vh+21px)]" 
         style={{ 
           marginTop: isAnimating ? '0px' : '-20px',
           transition: 'margin-top 0.25s ease-out'
@@ -176,7 +176,7 @@ export default function AdaptabloxOverview() {
               </div>
             </div>
           </div>
-          <div className="bg-white content-stretch flex flex-col gap-[24px] items-center justify-center pb-[17px] md:pb-[24px] pt-[22px] md:pt-[32px] px-[17px] md:px-[24px] relative rounded-[8px] shadow-[1px_3px_8px_0px_rgba(0,0,0,0.1)] shrink-0 w-full" data-node-id="27:769">
+          <div className="bg-white content-stretch flex flex-col gap-[24px] items-center justify-center pb-[17px] md:pb-[24px] pt-[22px] md:pt-[32px] px-[17px] md:px-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full" data-node-id="27:769">
             <div className="content-stretch flex items-center justify-center px-[11px] md:px-[16px] py-0 relative shrink-0 w-full" data-node-id="42:785">
               <div className="basis-0 font-sans grow leading-[24px] min-h-px min-w-px not-italic relative shrink-0 text-[#4e4e4e] text-[15px]" data-node-id="27:770">
                 <p className="font-sans font-medium relative shrink-0 text-[#4e4e4e] text-[20px] text-nowrap mb-[18px]">
@@ -248,6 +248,17 @@ export default function AdaptabloxOverview() {
           <p className="font-sans font-medium relative shrink-0 text-[20px] text-nowrap" data-node-id="42:798">
             How It Works
           </p>
+          <div className="min-w-full relative shrink-0 w-full">
+            <div
+              className="h-[4px] w-full overflow-hidden"
+              style={{
+                backgroundImage: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)',
+                backgroundSize: '22.627px 22.627px',
+                backgroundPosition: '0 0',
+                imageRendering: 'crisp-edges',
+              }}
+            />
+          </div>
           <p className="font-sans font-normal min-w-full relative shrink-0 text-[15px]" data-node-id="42:799">
             This dual-loop approach ensures that what the system does and how it reasons remain aligned with delegated authority in real time.
           </p>
@@ -303,6 +314,17 @@ export default function AdaptabloxOverview() {
           <p className="font-sans font-medium leading-[21px] relative shrink-0 text-[20px] text-nowrap" data-node-id="42:805">
             Why This Matters
           </p>
+          <div className="min-w-full relative shrink-0 w-full">
+            <div
+              className="h-[4px] w-full overflow-hidden"
+              style={{
+                backgroundImage: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)',
+                backgroundSize: '22.627px 22.627px',
+                backgroundPosition: '0 0',
+                imageRendering: 'crisp-edges',
+              }}
+            />
+          </div>
           <div className="font-sans font-normal leading-[0] min-w-full relative shrink-0 text-[15px]" data-node-id="42:806">
             <p className="leading-[21px] mb-0">Without runtime authority enforcement:</p>
             <ul className="list-disc mb-0">
