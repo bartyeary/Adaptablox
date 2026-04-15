@@ -3,7 +3,7 @@ import './globals.css'
 import { NavigationProvider } from '@/contexts/NavigationContext'
 
 export const metadata: Metadata = {
-  title: 'Adaptablox - About',
+  title: 'Adaptablox',
   description: 'Autonomous AI authority enforcement',
 }
 
