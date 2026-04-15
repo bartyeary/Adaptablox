@@ -148,7 +148,7 @@ export default function AdaptabloxFAQs() {
         <div className="content-stretch flex flex-col gap-[12px] items-start pb-[8px] md:pb-[12px] pt-[14px] md:pt-[20px] px-[17px] md:px-[24px] relative shrink-0 w-full" data-node-id="1:201" style={{ marginTop: '71px' }}>
           <div className="min-w-full relative shrink-0 w-full">
             <p className="font-sans font-[590] leading-[21px] relative shrink-0 text-[24px] text-[#4E4E4E] text-nowrap mb-0" data-node-id="27:627" style={{ fontVariationSettings: "'wdth' 100" }}>
-              The Adaptablox System
+              The System
             </p>
             <div 
               className="mt-[12px] h-[4px] w-full overflow-hidden"
@@ -160,26 +160,90 @@ export default function AdaptabloxFAQs() {
               }}
             />
           </div>
-          <div className="font-sans font-normal leading-[0] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:203">
-            <p className="leading-[21px] mb-0">Adaptablox shapes how agents behave at the surface level and how models reason at the internal level. It brings coherence, stability, and continuity to autonomous AI by combining two complementary layers:</p>
-            <p className="leading-[21px]">
-              <span>
-                <br aria-hidden="true" />
-              </span>
-              <span className="font-sans font-bold not-italic">{`Agent Role & Constraint (A.R.C.) `}</span>
-              <span>
-                guides the outer loop: agent behavior, tone, memory, delegation, and coordination across agents.
-                <br aria-hidden="true" />
-                <br aria-hidden="true" />
-              </span>
-              <span className="font-sans font-bold not-italic">{`Latent Role & Constraint (L.R.C.) `}</span>
-              <span>
-                orchestrates the inner loop: internal reasoning dynamics, latent representations, activation patterns, and controlled deliberation within the model.
-                <br aria-hidden="true" />
-                <br aria-hidden="true" />
-                Together, ARC and LRC make autonomous systems governable in the same way enterprises govern human and software actors.
-              </span>
+          <div className="font-sans font-normal leading-[0] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:203">
+            <p className="leading-[21px] mb-[1em]">Adaptablox is a runtime control system for AI behavior.</p>
+            <p className="leading-[21px] mb-[0.5em]">It enforces constraints across both:</p>
+            <ul className="list-disc mb-[1em]">
+              <li className="mb-0 ms-[22.5px] leading-[21px]">external behavior</li>
+              <li className="ms-[22.5px] leading-[21px]">internal reasoning</li>
+            </ul>
+            <p className="leading-[21px] mb-[1em]">Control is applied continuously as the system operates.</p>
+            <p className="font-sans font-bold leading-[21px] mb-[1em] text-[#4e4e4e]">Two Interlocking Layers</p>
+            <p className="leading-[21px] mb-[0.5em]">Adaptablox operates through two tightly coupled layers:</p>
+            <ul className="list-disc mb-[1em]">
+              <li className="mb-0 ms-[22.5px] leading-[21px]">ARC controls what the system is allowed to do</li>
+              <li className="ms-[22.5px] leading-[21px]">LRC controls how the system is allowed to reason</li>
+            </ul>
+            <p className="leading-[21px] mb-[1em]">
+              These layers operate together at runtime to ensure that both actions and reasoning remain within defined constraints.
             </p>
+            <p className="font-sans font-bold leading-[21px] mb-0 text-[#4e4e4e]">Agent Role & Constraint (ARC)</p>
+            <p className="font-sans font-normal italic leading-[21px] mb-0 mt-[0.5em] text-[#4e4e4e]">Behavioral Control</p>
+            <p className="leading-[21px] mb-0 mt-[0.75em]">
+              ARC enforces constraints on actions, communication, and delegation.
+            </p>
+            <ul className="list-disc mt-[0.5em] mb-[1em]">
+              <li className="mb-0 ms-[22.5px] leading-[21px]">
+                Evaluates actions against role, scope, and permissions before execution
+              </li>
+              <li className="mb-0 ms-[22.5px] leading-[21px]">
+                Blocks, modifies, or reroutes actions that exceed constraints
+              </li>
+              <li className="mb-0 ms-[22.5px] leading-[21px]">
+                Regulates memory access and delegation boundaries
+              </li>
+              <li className="ms-[22.5px] leading-[21px]">
+                Maintains consistent behavior across interactions
+              </li>
+            </ul>
+            <p className="leading-[21px] mb-[1em]">ARC ensures that behavior remains admissible at every step.</p>
+            <p className="font-sans font-bold leading-[21px] mb-0 text-[#4e4e4e]">Latent Role & Constraint (LRC)</p>
+            <p className="font-sans font-normal italic leading-[21px] mb-0 mt-[0.5em] text-[#4e4e4e]">Reasoning Control</p>
+            <p className="leading-[21px] mb-0 mt-[0.75em]">
+              LRC enforces constraints within the reasoning process during inference.
+            </p>
+            <ul className="list-disc mt-[0.5em] mb-[1em]">
+              <li className="mb-0 ms-[22.5px] leading-[21px]">
+                Evaluates internal reasoning pathways and activation patterns in real time
+              </li>
+              <li className="mb-0 ms-[22.5px] leading-[21px]">
+                Suppresses or redirects pathways that violate constraints
+              </li>
+              <li className="mb-0 ms-[22.5px] leading-[21px]">
+                Selects only constraint-compliant reasoning trajectories
+              </li>
+              <li className="ms-[22.5px] leading-[21px]">
+                Resolves conflicts between competing internal interpretations
+              </li>
+            </ul>
+            <p className="leading-[21px] mb-[1em]">
+              LRC ensures that reasoning remains admissible before outputs are formed.
+            </p>
+            <p className="font-sans font-bold leading-[21px] mb-[1em] text-[#4e4e4e]">Combined Operation</p>
+            <p className="leading-[21px] mb-[0.5em]">ARC and LRC operate together during runtime.</p>
+            <ul className="list-disc mb-[1em]">
+              <li className="mb-0 ms-[22.5px] leading-[21px]">ARC constrains what actions are allowed</li>
+              <li className="ms-[22.5px] leading-[21px]">LRC constrains which reasoning paths are allowed</li>
+            </ul>
+            <p className="leading-[21px] mb-[1em]">
+              The system does not assume correct reasoning leads to correct behavior.
+            </p>
+            <p className="leading-[21px] mb-[1em]">
+              Both reasoning and behavior are evaluated before they are allowed.
+            </p>
+            <p className="font-sans font-bold leading-[21px] mb-[1em] text-[#4e4e4e]">Outcome</p>
+            <p className="leading-[21px] mb-[0.5em]">This structure ensures:</p>
+            <ul className="list-disc mb-[1em]">
+              <li className="mb-0 ms-[22.5px] leading-[21px]">Actions remain within defined authority</li>
+              <li className="mb-0 ms-[22.5px] leading-[21px]">Reasoning remains aligned with constraints</li>
+              <li className="mb-0 ms-[22.5px] leading-[21px]">Behavior remains consistent across time and context</li>
+              <li className="ms-[22.5px] leading-[21px]">
+                All control is applied at runtime without modifying model weights or training.
+              </li>
+            </ul>
+            <p className="leading-[21px] mb-[1em]">Control is continuous, not static.</p>
+            <p className="leading-[21px] mb-[1em]">We do not rely on models to behave correctly.</p>
+            <p className="leading-[21px] mb-0">We control how they reason and what they do.</p>
           </div>
         </div>
         <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0 w-full" data-node-id="1:204">
@@ -198,7 +262,13 @@ export default function AdaptabloxFAQs() {
               </p>
               <div className="bg-[#85dba2] h-[1.5px] shrink-0 w-full" data-node-id="1:212" />
               <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:213">
-                Access governance defines who can use a resource. A.R.C. governs how agents behave once access is granted, modulating tone, permissions, and escalation at the moment of action.
+                Access governance controls who can access a resource.
+              </p>
+              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                A.R.C. controls what happens after access is granted.
+              </p>
+              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                Actions are evaluated and constrained at execution.
               </p>
             </div>
             <div className="content-stretch flex flex-col gap-[12px] items-start px-[17px] md:px-[24px] pt-[17px] md:pt-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full min-[600px]:w-[242px] flex-shrink-0 h-auto min-[600px]:h-[335px] pb-[14px] md:pb-[24px] bg-white" data-faq-card data-node-id="1:214">
@@ -207,7 +277,13 @@ export default function AdaptabloxFAQs() {
               </p>
               <div className="bg-[#85dba2] h-[1.5px] shrink-0 w-full" data-node-id="1:216" />
               <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:217">
-                No. A.R.C. governs authority and behavior at the moment of action, without modifying model weights or training.
+                No.
+              </p>
+              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                A.R.C. does not change the model.
+              </p>
+              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                It enforces whether actions are allowed at runtime.
               </p>
             </div>
             <div className="content-stretch flex flex-col gap-[12px] items-start px-[17px] md:px-[24px] pt-[17px] md:pt-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full min-[600px]:w-[242px] flex-shrink-0 h-auto min-[600px]:h-[335px] pb-[14px] md:pb-[24px] bg-white" data-faq-card data-node-id="1:218">
@@ -216,7 +292,13 @@ export default function AdaptabloxFAQs() {
               </p>
               <div className="bg-[#85dba2] h-[1.5px] shrink-0 w-full" data-node-id="1:220" />
               <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:221">
-                It evaluates tone, intent, domain cues, and policy fit. When a prompt falls outside scope, A.R.C. adjusts behavior or hands off the task without requiring retraining.
+                A.R.C. evaluates whether an action is within scope.
+              </p>
+              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                Out-of-scope actions are blocked or rerouted.
+              </p>
+              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                Escalation occurs when no valid action is available.
               </p>
             </div>
             <div className="content-stretch flex flex-col gap-[12px] items-start px-[17px] md:px-[24px] pt-[17px] md:pt-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full min-[600px]:w-[242px] flex-shrink-0 h-auto min-[600px]:h-[335px] pb-[14px] md:pb-[24px] bg-white" data-faq-card data-node-id="1:222">
@@ -225,7 +307,13 @@ export default function AdaptabloxFAQs() {
               </p>
               <div className="bg-[#85dba2] h-[1.5px] shrink-0 w-full" data-node-id="1:224" />
               <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:225">
-                A.R.C. compares each agent's confidence and constraint alignment, then blends or selects outputs to deliver a balanced and transparent response.
+                A.R.C. evaluates outputs against constraints.
+              </p>
+              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                Non-compliant responses are excluded.
+              </p>
+              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                Only valid outputs are used.
               </p>
             </div>
             <div className="content-stretch flex flex-col gap-[12px] items-start px-[17px] md:px-[24px] pt-[17px] md:pt-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full min-[600px]:w-[242px] flex-shrink-0 h-auto min-[600px]:h-[335px] pb-[14px] md:pb-[24px] bg-white" data-faq-card data-node-id="1:226">
@@ -234,7 +322,13 @@ export default function AdaptabloxFAQs() {
               </p>
               <div className="bg-[#85dba2] h-[1.5px] shrink-0 w-full" data-node-id="1:228" />
               <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:229">
-                It adapts its behavioral parameters through feedback, refining tone, escalation behavior, and constraint balance from real use.
+                A.R.C. does not retrain the model.
+              </p>
+              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                It updates how constraints are evaluated.
+              </p>
+              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                Changes apply immediately at runtime.
               </p>
             </div>
             <div className="content-stretch flex flex-col gap-[12px] items-start px-[17px] md:px-[24px] pt-[17px] md:pt-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full min-[600px]:w-[242px] flex-shrink-0 h-auto min-[600px]:h-[335px] pb-[14px] md:pb-[24px] bg-white" data-faq-card data-node-id="1:230">
@@ -243,7 +337,13 @@ export default function AdaptabloxFAQs() {
               </p>
               <div className="bg-[#85dba2] h-[1.5px] shrink-0 w-full" data-node-id="1:232" />
               <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:233">
-                A controller agent reconciles outputs across domains through constraint-aware arbitration and tone alignment.
+                Outputs are evaluated before being combined.
+              </p>
+              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                Non-compliant responses are removed.
+              </p>
+              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                Synthesis occurs under constraint.
               </p>
             </div>
             <div className="content-stretch flex flex-col gap-[12px] items-start px-[17px] md:px-[24px] pt-[17px] md:pt-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full min-[600px]:w-[242px] flex-shrink-0 h-auto min-[600px]:h-[335px] pb-[14px] md:pb-[24px] bg-white" data-faq-card data-node-id="1:234">
@@ -252,7 +352,13 @@ export default function AdaptabloxFAQs() {
               </p>
               <div className="bg-[#85dba2] h-[1.5px] shrink-0 w-full" data-node-id="1:236" />
               <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:237">
-                No. Training improves factual accuracy, but not behavior. Runtime governance enables adaptive modulation and policy updates without retraining, ensuring consistency across contexts.
+                No.
+              </p>
+              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                Capability does not enforce behavior.
+              </p>
+              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                Control requires runtime evaluation.
               </p>
             </div>
             <div className="content-stretch flex flex-col gap-[12px] items-start px-[17px] md:px-[24px] pt-[17px] md:pt-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full min-[600px]:w-[242px] flex-shrink-0 h-auto min-[600px]:h-[335px] pb-[14px] md:pb-[24px] bg-white" data-faq-card data-node-id="1:238">
@@ -261,7 +367,13 @@ export default function AdaptabloxFAQs() {
               </p>
               <div className="bg-[#85dba2] h-[1.5px] shrink-0 w-full" data-node-id="1:240" />
               <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:241">
-                A.R.C. enforces behavioral constraints at the moment of action, reducing drift and policy violations through escalation, fallback, and constraint-aware synthesis.
+                Yes.
+              </p>
+              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                Actions are evaluated before execution.
+              </p>
+              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                Violations are blocked or modified.
               </p>
             </div>
             <div className="content-stretch flex flex-col gap-[12px] items-start px-[17px] md:px-[24px] pt-[17px] md:pt-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full min-[600px]:w-[242px] flex-shrink-0 h-auto min-[600px]:h-[335px] pb-[14px] md:pb-[24px] bg-white" data-faq-card data-node-id="1:242">
@@ -270,7 +382,13 @@ export default function AdaptabloxFAQs() {
               </p>
               <div className="bg-[#85dba2] h-[1.5px] shrink-0 w-full" data-node-id="1:244" />
               <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:245">
-                It derives a compact context signature from task semantics and tone, matching it to relevant domains and agents to determine whether to invoke a single role or a coordinated ensemble.
+                Agents are selected based on task constraints.
+              </p>
+              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                Only permitted roles are invoked.
+              </p>
+              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                Coordination is constrained at runtime.
               </p>
             </div>
             <div className="content-stretch flex flex-col gap-[12px] items-start px-[17px] md:px-[24px] pt-[17px] md:pt-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full min-[600px]:w-[242px] flex-shrink-0 h-auto min-[600px]:h-[335px] pb-[14px] md:pb-[24px] bg-white" data-faq-card data-node-id="1:246">
@@ -279,7 +397,13 @@ export default function AdaptabloxFAQs() {
               </p>
               <div className="bg-[#85dba2] h-[1.5px] shrink-0 w-full" data-node-id="1:248" />
               <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:249">
-                It segments memory by type and applies constraint-aware rules for access, retention, and redaction. It enforces retention limits, filters sensitive content, and logs every access for review.
+                Memory access is evaluated against constraints.
+              </p>
+              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                Sensitive data is restricted at runtime.
+              </p>
+              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                All access is logged.
               </p>
             </div>
             <div className="content-stretch flex flex-col gap-[12px] items-start px-[17px] md:px-[24px] pt-[17px] md:pt-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full min-[600px]:w-[242px] flex-shrink-0 h-auto min-[600px]:h-[335px] pb-[14px] md:pb-[24px] bg-white" data-faq-card data-node-id="1:250">
@@ -288,7 +412,13 @@ export default function AdaptabloxFAQs() {
               </p>
               <div className="bg-[#85dba2] h-[1.5px] shrink-0 w-full" data-node-id="1:252" />
               <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:253">
-                Yes. A.R.C. preserves behavioral and tonal continuity across chained agents, maintaining consistent context, policy alignment, and governance throughout.
+                Yes.
+              </p>
+              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                Each step is evaluated in sequence.
+              </p>
+              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                Invalid transitions are blocked.
               </p>
             </div>
             <div className="content-stretch flex flex-col gap-[12px] items-start px-[17px] md:px-[24px] pt-[17px] md:pt-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full min-[600px]:w-[242px] flex-shrink-0 h-auto min-[600px]:h-[335px] pb-[14px] md:pb-[24px] bg-white" data-faq-card data-node-id="1:254">
@@ -297,7 +427,13 @@ export default function AdaptabloxFAQs() {
               </p>
               <div className="bg-[#85dba2] h-[1.5px] shrink-0 w-full" data-node-id="1:256" />
               <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:257">
-                By reducing unnecessary reasoning and limiting redundant agent or internal activation, Adaptablox minimizes compute waste and promotes efficient task routing.
+                Invalid reasoning and actions are stopped early.
+              </p>
+              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                Only compliant paths are executed.
+              </p>
+              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                This reduces wasted computation.
               </p>
             </div>
           </div>
@@ -318,7 +454,13 @@ export default function AdaptabloxFAQs() {
               </p>
               <div className="bg-[#7b9eff] h-[1.5px] shrink-0 w-full" data-node-id="1:266" />
               <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:267">
-                No. L.R.C. governs internal reasoning at the moment of action and shapes activation behavior without modifying or retraining the underlying model.
+                No.
+              </p>
+              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                It evaluates reasoning during inference.
+              </p>
+              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                Control is applied without retraining.
               </p>
             </div>
             <div className="content-stretch flex flex-col gap-[12px] items-start px-[17px] md:px-[24px] pt-[17px] md:pt-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full min-[600px]:w-[242px] flex-shrink-0 h-auto min-[600px]:h-[335px] pb-[14px] md:pb-[24px] bg-white" data-faq-card data-node-id="1:268">
@@ -327,7 +469,13 @@ export default function AdaptabloxFAQs() {
               </p>
               <div className="bg-[#7b9eff] h-[1.5px] shrink-0 w-full" data-node-id="1:270" />
               <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:271">
-                A.R.C. governs agent behavior at the surface. L.R.C. governs internal reasoning dynamics. Together they align how the system thinks with how it communicates and acts.
+                A.R.C. controls actions.
+              </p>
+              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                L.R.C. controls reasoning.
+              </p>
+              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                Both operate during runtime.
               </p>
             </div>
             <div className="content-stretch flex flex-col gap-[12px] items-start px-[17px] md:px-[24px] pt-[17px] md:pt-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full min-[600px]:w-[242px] flex-shrink-0 h-auto min-[600px]:h-[335px] pb-[14px] md:pb-[24px] bg-white" data-faq-card data-node-id="1:272">
@@ -336,7 +484,13 @@ export default function AdaptabloxFAQs() {
               </p>
               <div className="bg-[#7b9eff] h-[1.5px] shrink-0 w-full" data-node-id="1:274" />
               <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:275">
-                It reduces risk by constraining internal reasoning patterns, limiting unsafe pathways, and guiding activation toward policy-aligned interpretations.
+                Yes.
+              </p>
+              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                It constrains reasoning before output is formed.
+              </p>
+              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                Invalid pathways are suppressed.
               </p>
             </div>
             <div className="content-stretch flex flex-col gap-[12px] items-start px-[17px] md:px-[24px] pt-[17px] md:pt-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full min-[600px]:w-[242px] flex-shrink-0 h-auto min-[600px]:h-[335px] pb-[14px] md:pb-[24px] bg-white" data-faq-card data-node-id="1:276">
@@ -345,7 +499,13 @@ export default function AdaptabloxFAQs() {
               </p>
               <div className="bg-[#7b9eff] h-[1.5px] shrink-0 w-full" data-node-id="1:278" />
               <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:279">
-                Yes. L.R.C. can incorporate insights from interpretability methods when available, but does not depend on any specific approach or tool.
+                Yes.
+              </p>
+              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                It can use external signals when available.
+              </p>
+              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                It does not depend on them.
               </p>
             </div>
             <div className="content-stretch flex flex-col gap-[12px] items-start px-[17px] md:px-[24px] pt-[17px] md:pt-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full min-[600px]:w-[242px] flex-shrink-0 h-auto min-[600px]:h-[335px] pb-[14px] md:pb-[24px] bg-white" data-faq-card data-node-id="1:280">
@@ -354,7 +514,13 @@ export default function AdaptabloxFAQs() {
               </p>
               <div className="bg-[#7b9eff] h-[1.5px] shrink-0 w-full" data-node-id="1:282" />
               <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:283">
-                Output-only governance reacts to errors after they occur. L.R.C. addresses risk earlier by shaping internal reasoning before a response is generated.
+                No.
+              </p>
+              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                Output control happens too late.
+              </p>
+              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                L.R.C. constrains reasoning before output.
               </p>
             </div>
             <div className="content-stretch flex flex-col gap-[12px] items-start px-[17px] md:px-[24px] pt-[17px] md:pt-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full min-[600px]:w-[242px] flex-shrink-0 h-auto min-[600px]:h-[335px] pb-[14px] md:pb-[24px] bg-white" data-faq-card data-node-id="1:284">
@@ -363,7 +529,13 @@ export default function AdaptabloxFAQs() {
               </p>
               <div className="bg-[#7b9eff] h-[1.5px] shrink-0 w-full" data-node-id="1:286" />
               <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:287">
-                Yes. It is model-agnostic and compatible with proprietary, open, fine-tuned, or emerging architectures without requiring structural assumptions.
+                Yes.
+              </p>
+              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                It is model-agnostic.
+              </p>
+              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                No architecture changes are required.
               </p>
             </div>
           </div>

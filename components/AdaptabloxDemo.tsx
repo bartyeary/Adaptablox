@@ -152,43 +152,39 @@ export default function AdaptabloxDemo() {
         }}
         data-node-id="27:520"
       >
-        <div className="content-stretch flex flex-col gap-[12px] items-start pb-[8px] md:pb-[12px] pt-[14px] md:pt-[20px] px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="27:521" style={{ marginTop: '71px' }}>
+        <div
+          className="content-stretch flex flex-col gap-[12px] items-start pb-[8px] md:pb-[12px] pt-[14px] md:pt-[20px] px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full"
+          data-node-id="demo-runtime-behavior-practice"
+          style={{ marginTop: '71px' }}
+        >
           <div className="min-w-full relative shrink-0 w-full">
-            <p className="font-sans font-[590] leading-[21px] relative shrink-0 text-[24px] text-[#4E4E4E] text-nowrap mb-0" data-node-id="27:643" style={{ fontVariationSettings: "'wdth' 100" }}>
-              Demos
+            <p
+              className="font-sans font-[590] leading-[21px] relative shrink-0 text-[24px] text-[#4E4E4E] text-nowrap mb-0"
+              style={{ fontVariationSettings: "'wdth' 100" }}
+            >
+              Runtime Behavior in Practice
             </p>
-            <div 
+            <div
               className="mt-[12px] h-[4px] w-full overflow-hidden"
               style={{
                 backgroundImage: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)',
                 backgroundSize: '22.627px 22.627px',
                 backgroundPosition: '0 0',
-                imageRendering: 'crisp-edges'
+                imageRendering: 'crisp-edges',
               }}
             />
           </div>
-          <div className="font-sans font-normal leading-[21px] min-w-full relative shrink-0 text-[15px] w-[min-content]" data-node-id="27:523" style={{ fontVariationSettings: "'wdth' 100" }}>
-            <p className="mb-0">
-              <span>{`These demonstrations show how Adaptablox governs autonomous systems `}</span>
-              <span className="font-sans font-normal italic" style={{ fontVariationSettings: "'YAXS' 400" }}>
-                while they operate
-              </span>
-              <span>{` — not before execution and not after failure.`}</span>
-            </p>
+          <div
+            className="font-sans font-normal leading-[21px] min-w-full relative shrink-0 text-[15px] w-full"
+            style={{ fontVariationSettings: "'wdth' 100" }}
+          >
+            <p className="mb-0">These simulations show Adaptablox enforcing control during execution.</p>
             <p className="mb-0">&nbsp;</p>
-            <p className="mb-0">
-              <span>{`They are simulations designed to illustrate runtime authority enforcement, `}</span>
-              <span className="font-sans font-bold" style={{ fontVariationSettings: "'wdth' 100" }}>
-                multi-agent arbitration
-              </span>
-              <span>{`, and `}</span>
-              <span className="font-sans font-bold" style={{ fontVariationSettings: "'wdth' 100" }}>
-                ambient continuity across contexts
-              </span>
-              .
-            </p>
+            <p className="mb-0">No retraining occurs between scenarios.</p>
+            <p className="mb-0">The system applies constraint evaluation in real time.</p>
             <p className="mb-0">&nbsp;</p>
-            <p>Each demo highlights a different aspect of the system.</p>
+            <p className="mb-0">Behavior changes because control is applied at runtime.</p>
+            <p className="mb-0">Not because the model was modified.</p>
           </div>
         </div>
         <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full" data-node-id="44:849">
@@ -196,7 +192,7 @@ export default function AdaptabloxDemo() {
             <div className="bg-white overflow-clip relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full flex flex-col" data-node-id="27:608">
               <div className="content-stretch flex flex-col gap-[12px] items-start pt-[17px] md:pt-[24px] px-[17px] md:px-[24px] pb-0 relative shrink-0 w-full" data-node-id="44:818">
                 <p className="font-sans font-[510] leading-[21px] relative shrink-0 text-[#4e4e4e] text-[20px] text-nowrap" data-node-id="44:820" style={{ fontVariationSettings: "'wdth' 100" }}>
-                  Governed Sub-Agents
+                  Super Agent Demo
                 </p>
               </div>
               <div className="relative w-full" style={{ paddingBottom: '63.58%' }}>
@@ -217,47 +213,27 @@ export default function AdaptabloxDemo() {
           </div>
           <div className="content-stretch flex flex-col gap-[12px] items-start pb-[8px] md:pb-[12px] pt-0 px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="42:813">
             <p className="font-sans font-medium relative shrink-0 text-[20px] text-nowrap" data-node-id="42:815">
-              What You're Seeing
+              What is Enforced
             </p>
-            <div className="font-sans font-normal leading-[0] min-w-full relative shrink-0 text-[15px] w-[min-content]" data-node-id="42:816" style={{ fontVariationSettings: "'wdth' 100" }}>
-              <p className="leading-[21px] mb-0">A single conversational interface backed by a super-agent that delegates tasks to specialized agents operating under defined roles and constraints.</p>
-              <p className="leading-[21px] mb-0">&nbsp;</p>
-              <p className="leading-[21px] mb-0">Each sub-agent is activated with:</p>
+            <div className="font-sans font-normal leading-[0] min-w-full relative shrink-0 text-[15px] w-full" data-node-id="42:816" style={{ fontVariationSettings: "'wdth' 100" }}>
               <ul className="list-disc mb-0">
                 <li className="mb-0 ms-[22.5px]">
-                  <span className="leading-[21px]">A scoped role</span>
+                  <span className="leading-[21px]">Each agent operates within a defined role and constraint scope</span>
                 </li>
                 <li className="mb-0 ms-[22.5px]">
-                  <span className="leading-[21px]">Explicit authority boundaries</span>
+                  <span className="leading-[21px]">Actions are evaluated before they are allowed to execute</span>
                 </li>
                 <li className="mb-0 ms-[22.5px]">
-                  <span className="leading-[21px]">Tone and communication limits</span>
+                  <span className="leading-[21px]">Outputs are checked for alignment before being combined</span>
+                </li>
+                <li className="mb-0 ms-[22.5px]">
+                  <span className="leading-[21px]">Convergent responses are detected and challenged</span>
                 </li>
                 <li className="ms-[22.5px]">
-                  <span className="leading-[21px]">Governed access to memory and tools</span>
+                  <span className="leading-[21px]">Conflicting actions are resolved before execution</span>
                 </li>
               </ul>
-              <p className="leading-[21px] mb-0">&nbsp;</p>
-              <p className="leading-[21px] mb-0">The super-agent does not simply merge outputs.</p>
-              <p className="leading-[21px] mb-0">It arbitrates them under policy before responding.</p>
-              <p className="leading-[21px] mb-0">&nbsp;</p>
-              <p className="leading-[21px] mb-0">What to notice</p>
-              <ul className="list-disc mb-0">
-                <li className="mb-0 ms-[22.5px]">
-                  <span className="leading-[21px]">The system evaluates authority before delegation, not after synthesis</span>
-                </li>
-                <li className="mb-0 ms-[22.5px]">
-                  <span className="leading-[21px]">Specialized agents may disagree, but their outputs are reconciled under constraint</span>
-                </li>
-                <li className="mb-0 ms-[22.5px]">
-                  <span className="leading-[21px]">Escalation and deferral are treated as valid outcomes, not failures</span>
-                </li>
-                <li className="ms-[22.5px]">
-                  <span className="leading-[21px]">The final response reflects a single, policy-aligned voice — not a blended average</span>
-                </li>
-              </ul>
-              <p className="leading-[21px] mb-0">&nbsp;</p>
-              <p className="leading-[21px]">This demo illustrates how Adaptablox enables multi-agent reasoning without loss of control.</p>
+              <p className="leading-[21px] mb-0 mt-[1em]">Evaluation occurs before any action is allowed.</p>
             </div>
           </div>
         </div>
@@ -266,7 +242,7 @@ export default function AdaptabloxDemo() {
             <div className="bg-white overflow-clip relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full flex flex-col" data-node-id="27:620">
               <div className="content-stretch flex flex-col gap-[12px] items-start pt-[17px] md:pt-[24px] px-[17px] md:px-[24px] pb-0 relative shrink-0 w-full" data-node-id="44:828">
                 <p className="font-sans font-[510] leading-[21px] relative shrink-0 text-[#4e4e4e] text-[20px] text-nowrap" data-node-id="44:830" style={{ fontVariationSettings: "'wdth' 100" }}>
-                  Ambient Assistant Across Contexts
+                  Ambient AI Demo
                 </p>
               </div>
               <div className="relative w-full" style={{ paddingBottom: '63.58%' }}>
@@ -287,109 +263,85 @@ export default function AdaptabloxDemo() {
           </div>
           <div className="content-stretch flex flex-col gap-[12px] items-start pb-[8px] md:pb-[12px] pt-0 px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="44:833">
             <p className="font-sans font-medium relative shrink-0 text-[20px] text-nowrap" data-node-id="44:835">
-              What You're Seeing
+              What is Enforced
             </p>
-            <div className="font-sans font-normal leading-[0] min-w-full relative shrink-0 text-[15px] w-[min-content]" data-node-id="44:836" style={{ fontVariationSettings: "'wdth' 100" }}>
-              <p className="leading-[21px] mb-0">An ambient AI assistant that follows a user across environments — home, transit, and work — while maintaining behavioral continuity and appropriate authority in each setting.</p>
+            <div className="font-sans font-normal leading-[0] min-w-full relative shrink-0 text-[15px] w-full" data-node-id="44:836" style={{ fontVariationSettings: "'wdth' 100" }}>
+              <p className="leading-[21px] mb-0">
+                An ambient assistant that operates across environments while enforcing context-specific constraints.
+              </p>
               <p className="leading-[21px] mb-0">&nbsp;</p>
-              <p className="leading-[21px] mb-0">The assistant adapts in real time based on:</p>
+              <p className="leading-[21px] mb-0">The system evaluates context continuously:</p>
               <ul className="list-disc mb-0">
                 <li className="mb-0 ms-[22.5px]">
-                  <span className="leading-[32px]">Contextual signals</span>
+                  <span className="leading-[21px]">location and environment</span>
                 </li>
                 <li className="mb-0 ms-[22.5px]">
-                  <span className="leading-[32px]">Active role and domain</span>
+                  <span className="leading-[21px]">active role and domain</span>
                 </li>
                 <li className="mb-0 ms-[22.5px]">
-                  <span className="leading-[32px]">Environmental risk and sensitivity</span>
+                  <span className="leading-[21px]">risk and sensitivity</span>
                 </li>
                 <li className="ms-[22.5px]">
-                  <span className="leading-[32px]">Delegated authority in the current setting</span>
+                  <span className="leading-[21px]">delegated authority</span>
                 </li>
               </ul>
+              <p className="leading-[21px] mb-0">&nbsp;</p>
+              <p className="leading-[21px] mb-0">Behavior is adjusted at runtime.</p>
+              <p className="leading-[21px] mb-0">&nbsp;</p>
+              <p className="leading-[21px] mb-0">Tone and behavior shift automatically as context changes.</p>
+              <p className="leading-[21px] mb-0">Memory access is constrained by domain boundaries.</p>
+              <p className="leading-[21px] mb-0">Actions valid in one environment are blocked or deferred in another.</p>
+              <p className="leading-[21px] mb-0">The system does not rely on user correction to remain compliant.</p>
               <p className="leading-[21px] mb-0">&nbsp;</p>
               <p className="leading-[21px] mb-0">No retraining occurs between contexts.</p>
               <p className="leading-[21px] mb-0">&nbsp;</p>
-              <p className="leading-[21px] mb-0">What to notice</p>
-              <ul className="list-disc mb-0">
-                <li className="mb-0 ms-[22.5px]">
-                  <span className="leading-[32px]">Tone and behavior shift automatically as context changes</span>
-                </li>
-                <li className="mb-0 ms-[22.5px]">
-                  <span className="leading-[32px]">Memory is selectively accessed or suppressed based on domain boundaries</span>
-                </li>
-                <li className="mb-0 ms-[22.5px]">
-                  <span className="leading-[32px]">Actions that would be appropriate in one environment are deferred or blocked in another</span>
-                </li>
-                <li className="ms-[22.5px]">
-                  <span className="leading-[32px]">The system does not rely on user correction to remain compliant</span>
-                </li>
-              </ul>
-              <p className="leading-[21px] mb-0">&nbsp;</p>
-              <p className="leading-[21px]">This demo illustrates how Adaptablox enables ambient AI without behavioral drift.</p>
+              <p className="leading-[21px] mb-0">Control is enforced as conditions change. Behavior adapts because constraints change.</p>
             </div>
           </div>
         </div>
         <div className="content-stretch flex flex-col gap-[12px] items-start pb-[8px] md:pb-[12px] pt-0 px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="44:843">
-          <p className="font-sans font-medium relative shrink-0 text-[20px] text-nowrap" data-node-id="44:845">
-            What These Demos Are – and Are Not
+          <p className="font-sans font-medium relative shrink-0 text-[20px]" data-node-id="44:845">
+            What These Demos Do Not Show
           </p>
-          <div className="font-sans font-normal leading-[0] min-w-full relative shrink-0 text-[15px] w-[min-content]" data-node-id="44:846" style={{ fontVariationSettings: "'wdth' 100" }}>
-            <p className="leading-[21px] mb-0">These demonstrations are not product mockups and not UI proposals. They do not represent a finished product surface.</p>
+          <div className="font-sans font-normal leading-[0] min-w-full relative shrink-0 text-[15px] w-full" data-node-id="44:846" style={{ fontVariationSettings: "'wdth' 100" }}>
+            <p className="leading-[21px] mb-0">These are not prompt variations or tuned responses.</p>
+            <p className="leading-[21px] mb-0">No fine-tuning or retraining is used.</p>
             <p className="leading-[21px] mb-0">&nbsp;</p>
-            <p className="leading-[21px] mb-0">They are behavioral simulations designed to make runtime governance visible.</p>
+            <p className="leading-[21px] mb-0">No post-processing or output filtering is applied.</p>
             <p className="leading-[21px] mb-0">&nbsp;</p>
-            <p className="leading-[21px] mb-0">They show:</p>
-            <ul className="list-disc mb-0">
-              <li className="mb-0 ms-[22.5px]">
-                <span className="leading-[32px]">How authority is enforced at the moment of action</span>
-              </li>
-              <li className="mb-0 ms-[22.5px]">
-                <span className="leading-[32px]">How reasoning is shaped before outputs are generated</span>
-              </li>
-              <li className="ms-[22.5px]">
-                <span className="leading-[32px]">How escalation replaces silent failure</span>
-              </li>
-            </ul>
-            <p className="leading-[21px] mb-0">&nbsp;</p>
-            <p className="leading-[21px] mb-0">They do not depend on:</p>
-            <ul className="list-disc">
-              <li className="mb-0 ms-[22.5px]">
-                <span className="leading-[32px]">Specific models</span>
-              </li>
-              <li className="mb-0 ms-[22.5px]">
-                <span className="leading-[32px]">Prompt engineering</span>
-              </li>
-              <li className="mb-0 ms-[22.5px]">
-                <span className="leading-[32px]">Static rules</span>
-              </li>
-              <li className="ms-[22.5px]">
-                <span className="leading-[32px]">Post-hoc moderation</span>
-              </li>
-            </ul>
+            <p className="leading-[21px] mb-0">Control is not applied after results are produced.</p>
+            <p className="leading-[21px] mb-0">It is enforced during execution.</p>
           </div>
         </div>
         <div className="content-stretch flex flex-col gap-[12px] items-start pb-[8px] md:pb-[12px] pt-0 px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="44:854">
           <p className="font-sans font-medium relative shrink-0 text-[20px] text-nowrap" data-node-id="44:856">
             Why This Matters
           </p>
-          <div className="font-sans font-normal leading-[0] min-w-full relative shrink-0 text-[15px] w-[min-content]" data-node-id="44:857" style={{ fontVariationSettings: "'wdth' 100" }}>
-            <p className="leading-[21px] mb-0">As AI systems move toward autonomy, delegation, and ambient presence, governance can no longer be an afterthought.</p>
+          <div className="font-sans font-normal leading-[0] min-w-full relative shrink-0 text-[15px] w-full" data-node-id="44:857" style={{ fontVariationSettings: "'wdth' 100" }}>
+            <p className="leading-[21px] mb-0">
+              As AI systems operate with greater autonomy, control must be enforced during execution.
+            </p>
             <p className="leading-[21px] mb-0">&nbsp;</p>
-            <p className="leading-[21px] mb-0">Adaptablox exists to ensure that:</p>
+            <p className="leading-[21px] mb-0">Governance cannot depend on prompts, policies, or post-hoc review.</p>
+            <p className="leading-[21px] mb-0">&nbsp;</p>
+            <p className="leading-[21px] mb-0">Adaptablox ensures:</p>
             <ul className="list-disc mb-0">
               <li className="mb-0 ms-[22.5px]">
-                <span className="leading-[32px]">Autonomy does not exceed authority</span>
+                <span className="leading-[21px]">Autonomy remains within defined authority.</span>
               </li>
               <li className="mb-0 ms-[22.5px]">
-                <span className="leading-[32px]">Reasoning remains policy-aligned</span>
+                <span className="leading-[21px]">Reasoning remains within constraint.</span>
               </li>
               <li className="ms-[22.5px]">
-                <span className="leading-[32px]">Failures are prevented, not merely logged</span>
+                <span className="leading-[21px]">Invalid actions are prevented before they occur.</span>
               </li>
             </ul>
             <p className="leading-[21px] mb-0">&nbsp;</p>
-            <p className="leading-[21px]">The demos show what that looks like in practice.</p>
+            <p className="leading-[21px] mb-0">Failures are not logged after the fact.</p>
+            <p className="leading-[21px] mb-0">They are blocked before execution.</p>
+            <p className="leading-[21px] mb-0">&nbsp;</p>
+            <p className="leading-[21px] mb-0">The model remains the same.</p>
+            <p className="leading-[21px] mb-0">The behavior does not.</p>
           </div>
         </div>
         <div className="content-stretch flex flex-col gap-[12px] items-center pb-[17px] md:pb-[24px] pt-0 px-[17px] md:px-[24px] relative shrink-0 w-full">

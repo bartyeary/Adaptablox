@@ -151,9 +151,12 @@ export default function AdaptabloxOverview() {
         data-node-id="27:684"
       >
         <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full" data-node-id="44:869" style={{ marginTop: '71px' }}>
-          <div className="content-stretch flex flex-col gap-[18px] items-start pb-[8px] md:pb-[12px] pt-[14px] md:pt-[20px] px-[17px] md:px-[24px] relative shrink-0 w-full" data-node-id="27:685">
-            <p className="font-sans font-semibold leading-[21px] relative shrink-0 text-[#4e4e4e] text-[24px]" data-node-id="27:687">
-              An OS for Agent Behavior
+          <div
+            className="content-stretch flex flex-col gap-[18px] items-start pb-[8px] md:pb-[12px] pt-[14px] md:pt-[20px] px-[17px] md:px-[24px] relative shrink-0 w-full"
+            data-node-id="overview-control-enforced-runtime"
+          >
+            <p className="font-sans font-semibold leading-[21px] relative shrink-0 text-[#4e4e4e] text-[24px]">
+              Control Enforced at Runtime
             </p>
             <div className="min-w-full relative shrink-0 w-full">
               <div
@@ -162,17 +165,43 @@ export default function AdaptabloxOverview() {
                   backgroundImage: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)',
                   backgroundSize: '22.627px 22.627px',
                   backgroundPosition: '0 0',
-                  imageRendering: 'crisp-edges'
+                  imageRendering: 'crisp-edges',
                 }}
               />
             </div>
-            <div className="content-stretch flex flex-col gap-[12px] items-start pb-[12px] pl-0 pr-[17px] md:pr-[24px] pt-0 relative shrink-0 w-full" data-node-id="44:850">
-              <div className="font-sans font-normal leading-[21px] min-w-full relative shrink-0 text-[#4e4e4e] text-[15px]" data-node-id="44:852">
-                <p className="mb-0">Adaptablox is a governance runtime for agentic systems. It regulates both agent behavior (ARC) and internal reasoning pathways (LRC) at the moment decisions are formed.</p>
-                <p className="mb-0">&nbsp;</p>
-                <p className="mb-0">Most AI governance today operates either before execution (prompts, policies, access control) or after execution (logs, audits, kill switches). Neither is sufficient once agents can reason, delegate, remember, and adapt in real time. What's missing is enforcement during action—when decisions are actually formed and committed.</p>
-                <p className="mb-0">&nbsp;</p>
-                <p>Adaptablox is a runtime guidance platform that fills this gap.</p>
+            <div className="content-stretch flex flex-col gap-[12px] items-start pb-[12px] pl-0 pr-[17px] md:pr-[24px] pt-0 relative shrink-0 w-full">
+              <div className="font-sans font-normal leading-[21px] min-w-full relative shrink-0 text-[#4e4e4e] text-[15px]">
+                <p className="mb-[1em]">Adaptablox is a runtime control system.</p>
+                <p className="mb-[1em]">It does not rely on models to behave correctly.</p>
+                <p className="mb-[1em]">It evaluates and constrains behavior as the system operates.</p>
+                <p className="mb-[0.5em]">Most systems apply control:</p>
+                <ul className="list-disc mb-[1em]">
+                  <li className="mb-0 ms-[22.5px]">
+                    <span className="font-sans font-normal leading-[21px]">
+                      before execution through policies and prompts
+                    </span>
+                  </li>
+                  <li className="ms-[22.5px]">
+                    <span className="font-sans font-normal leading-[21px]">
+                      or after execution through monitoring and audit
+                    </span>
+                  </li>
+                </ul>
+                <p className="mb-[1em]">This is not sufficient once systems act continuously.</p>
+                <p className="mb-[1em]">Control must be enforced during execution.</p>
+                <p className="mb-[0.5em]">Adaptablox applies control across three layers:</p>
+                <ul className="list-disc mb-[1em]">
+                  <li className="mb-0 ms-[22.5px]">
+                    <span className="font-sans font-normal leading-[21px]">execution</span>
+                  </li>
+                  <li className="mb-0 ms-[22.5px]">
+                    <span className="font-sans font-normal leading-[21px]">reasoning</span>
+                  </li>
+                  <li className="ms-[22.5px]">
+                    <span className="font-sans font-normal leading-[21px]">multi-agent coordination</span>
+                  </li>
+                </ul>
+                <p className="mb-0">Each layer enforces constraints at the moment decisions are made.</p>
               </div>
             </div>
           </div>
@@ -180,67 +209,154 @@ export default function AdaptabloxOverview() {
             <div className="content-stretch flex items-center justify-center px-[11px] md:px-[16px] py-0 relative shrink-0 w-full" data-node-id="42:785">
               <div className="basis-0 font-sans grow leading-[24px] min-h-px min-w-px not-italic relative shrink-0 text-[#4e4e4e] text-[15px]" data-node-id="27:770">
                 <p className="font-sans font-medium relative shrink-0 text-[#4e4e4e] text-[20px] text-nowrap mb-[18px]">
-                  The Control Layer
+                  The Control Layers
+                </p>
+                <p className="font-sans font-normal mb-[1em]">
+                  Adaptablox enforces behavior at the execution and reasoning layers without modifying model weights.
+                </p>
+                <p className="font-sans font-normal mb-[1em]">
+                  It operates as a runtime control layer that continuously evaluates actions and reasoning before outcomes are produced.
                 </p>
                 <p className="font-sans font-normal mb-0">
-                  Adaptablox introduces a behavioral operating layer for autonomous systems. It governs how agents behave at the surface level and how models reason internally, without retraining or modifying model weights.
-                </p>
-                <p className="mb-0">&nbsp;</p>
-                <p className="font-sans font-normal">
-                  It does this through two complementary runtime layers:
+                  Control is applied through constraint evaluation, pathway selection, and real-time intervention.
                 </p>
               </div>
             </div>
             <div className="bg-white content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[8px] relative shrink-0 w-full" data-node-id="42:782">
               <div className="font-sans leading-[0] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                <p className="font-sans font-bold leading-[24px] mb-0 text-[#4e4e4e]">{`Agent Role & Constraint (A.R.C.)`}</p>
-                <p className="font-sans font-normal leading-[24px] mb-0 mt-[0.5em]">Governs the outer loop:</p>
-                <ul className="list-disc">
+                <p className="font-sans font-bold leading-[24px] mb-0 text-[#4e4e4e]">Agent Role & Constraint (ARC)</p>
+                <p className="font-sans font-normal italic leading-[24px] mb-0 mt-[0.5em] text-[#4e4e4e]">Execution Control</p>
+                <p className="font-sans font-normal leading-[24px] mb-0 mt-[0.75em]">
+                  ARC enforces constraints at the moment of action.
+                </p>
+                <ul className="list-disc mt-[0.5em] mb-[1em]">
                   <li className="mb-0 ms-[22.5px]">
                     <span className="font-sans font-normal leading-[24px]">
-                      Agent behavior, tone, permissions, memory access, delegation, and coordination
+                      Every action is evaluated against a constraint stack before execution
                     </span>
                   </li>
                   <li className="mb-0 ms-[22.5px]">
                     <span className="font-sans font-normal leading-[24px]">
-                      Enforces role-bounded authority at the moment of action
+                      Role boundaries define what actions are permitted
                     </span>
                   </li>
                   <li className="ms-[22.5px]">
                     <span className="font-sans font-normal leading-[24px]">
-                      Escalates, blocks, or reroutes actions that exceed scope
+                      Actions that exceed scope are blocked, modified, or rerouted
                     </span>
                   </li>
                 </ul>
+                <p className="font-sans font-normal leading-[24px] mb-[1em]">
+                  The system does not assume valid inputs produce valid behavior.
+                </p>
+                <p className="font-sans font-normal leading-[24px] mb-0">
+                  It enforces admissibility at every step.
+                </p>
               </div>
             </div>
             <div className="bg-white content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[8px] relative shrink-0 w-full" data-node-id="42:790">
               <div className="font-sans leading-[0] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="42:791">
-                <p className="font-sans font-bold leading-[24px] mb-0 text-[#4e4e4e]">{`Latent Role & Constraint (L.R.C.)`}</p>
-                <p className="font-sans font-normal leading-[24px] mb-0 mt-[0.5em]">Governs the inner loop:</p>
-                <ul className="list-disc">
+                <p className="font-sans font-bold leading-[24px] mb-0 text-[#4e4e4e]">Latent Role & Constraint (LRC)</p>
+                <p className="font-sans font-normal italic leading-[24px] mb-0 mt-[0.5em] text-[#4e4e4e]">Reasoning Control</p>
+                <p className="font-sans font-normal leading-[24px] mb-0 mt-[0.75em]">
+                  LRC enforces constraints within the reasoning process during inference.
+                </p>
+                <ul className="list-disc mt-[0.5em] mb-[1em]">
                   <li className="mb-0 ms-[22.5px]">
                     <span className="font-sans font-normal leading-[24px]">
-                      Internal reasoning dynamics, activation patterns, and latent deliberation
+                      Evaluate internal reasoning pathways during inference
                     </span>
                   </li>
                   <li className="mb-0 ms-[22.5px]">
                     <span className="font-sans font-normal leading-[24px]">
-                      Constrains unsafe or misaligned reasoning pathways before outputs are generated
+                      Suppress or redirect pathways that violate constraints
+                    </span>
+                  </li>
+                  <li className="mb-0 ms-[22.5px]">
+                    <span className="font-sans font-normal leading-[24px]">
+                      Select only constraint-compliant reasoning trajectories
                     </span>
                   </li>
                   <li className="ms-[22.5px]">
                     <span className="font-sans font-normal leading-[24px]">
-                      Resolves conflicts between competing internal interpretations
+                      Resolve conflicts between competing internal interpretations
                     </span>
                   </li>
                 </ul>
+                <p className="font-sans font-normal leading-[24px] mb-[1em]">
+                  The system does not wait for a response to be generated.
+                </p>
+                <p className="font-sans font-normal leading-[24px] mb-0">
+                  It constrains reasoning before the output is formed.
+                </p>
               </div>
             </div>
-            <div className="content-stretch flex items-center justify-center px-[11px] md:px-[16px] py-0 pb-[17px] md:pb-[24px] relative shrink-0 w-full" data-node-id="42:793">
-              <p className="basis-0 font-sans font-normal grow leading-[24px] min-h-px min-w-px relative shrink-0 text-[#4e4e4e] text-[15px]" data-node-id="42:794">
-                Together, these layers make autonomous systems governable in the same way enterprises govern human and software actors: through defined authority, enforced scope, and auditable decision paths.
-              </p>
+            <div
+              className="bg-white content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[8px] relative shrink-0 w-full"
+              data-node-id="overview-disagreement-scaffolding"
+            >
+              <div className="font-sans leading-[0] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
+                <p className="font-sans font-bold leading-[24px] mb-0 text-[#4e4e4e]">Disagreement Scaffolding (DS)</p>
+                <p className="font-sans font-normal italic leading-[24px] mb-0 mt-[0.5em] text-[#4e4e4e]">
+                  Multi-Agent Control
+                </p>
+                <p className="font-sans font-normal leading-[24px] mb-0 mt-[0.75em]">
+                  DS enforces control across interacting agents.
+                </p>
+                <ul className="list-disc mt-[0.5em] mb-[1em]">
+                  <li className="mb-0 ms-[22.5px]">
+                    <span className="font-sans font-normal leading-[24px]">
+                      Outputs are evaluated for similarity and divergence across agents
+                    </span>
+                  </li>
+                  <li className="mb-0 ms-[22.5px]">
+                    <span className="font-sans font-normal leading-[24px]">
+                      Convergence on a single perspective is detected before synthesis
+                    </span>
+                  </li>
+                  <li className="ms-[22.5px]">
+                    <span className="font-sans font-normal leading-[24px]">
+                      Counter-agents are introduced with modified constraints when required
+                    </span>
+                  </li>
+                </ul>
+                <p className="font-sans font-normal leading-[24px] mb-[1em]">The system does not rely on consensus.</p>
+                <p className="font-sans font-normal leading-[24px] mb-0">
+                  It enforces structured disagreement to prevent false agreement.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            className="content-stretch flex flex-col gap-[12px] items-start leading-[21px] mt-[12px] md:mt-[16px] pb-[8px] md:pb-[12px] pt-0 px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full"
+            data-node-id="overview-full-stack-control"
+          >
+            <p className="font-sans font-medium relative shrink-0 text-[#4e4e4e] text-[20px] text-nowrap">
+              Full-Stack Control
+            </p>
+            <div className="min-w-full relative shrink-0 w-full">
+              <div
+                className="h-[4px] w-full overflow-hidden"
+                style={{
+                  backgroundImage: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)',
+                  backgroundSize: '22.627px 22.627px',
+                  backgroundPosition: '0 0',
+                  imageRendering: 'crisp-edges',
+                }}
+              />
+            </div>
+            <div className="font-sans font-normal min-w-full relative shrink-0 text-[#4e4e4e] text-[15px] w-full leading-[24px]">
+              <p className="mb-0 mt-[0.25em]">Adaptablox enforces control across:</p>
+              <p className="font-sans font-bold mb-0 mt-[0.75em] text-[#4e4e4e]">Execution</p>
+              <p className="mb-0 mt-[0.35em]">Actions are constrained at the moment of execution</p>
+              <p className="font-sans font-bold mb-0 mt-[0.75em] text-[#4e4e4e]">Reasoning</p>
+              <p className="mb-0 mt-[0.35em]">Internal pathways are constrained before outputs are formed</p>
+              <p className="font-sans font-bold mb-0 mt-[0.75em] text-[#4e4e4e]">Coordination</p>
+              <p className="mb-0 mt-[0.35em]">Multi-agent interactions are governed to prevent convergence failure</p>
+              <p className="mb-[1em] mt-[1em]">These layers operate continuously during runtime.</p>
+              <p className="mb-[1em]">Control is not static. It is enforced as the system runs.</p>
+              <p className="mb-[1em]">We do not filter outputs.</p>
+              <p className="mb-0">We control the conditions under which outputs are produced.</p>
             </div>
           </div>
         </div>
@@ -259,56 +375,66 @@ export default function AdaptabloxOverview() {
               }}
             />
           </div>
-          <p className="font-sans font-normal min-w-full relative shrink-0 text-[15px]" data-node-id="42:799">
-            This dual-loop approach ensures that what the system does and how it reasons remain aligned with delegated authority in real time.
-          </p>
         </div>
-        <div className="content-stretch flex flex-col items-center justify-center px-[20px] md:px-[40px] py-0 relative size-full" data-node-id="42:801">
-          <pre className="font-mono leading-[12px] md:leading-[18px] not-italic relative shrink-0 text-[#4e4e4e] text-[10px] md:text-[15px] text-center w-full max-w-[546px] whitespace-pre" data-node-id="42:802" style={{ fontFamily: 'monospace' }}>
-{`+------------------------------------------------------+
-|               USER / ENVIRONMENT INPUT               |
-|    (Prompt, signal, context, ambient trigger, etc.)  |
-+------------------------------------------------------+
+        <div className="content-stretch flex flex-col gap-[12px] md:gap-[16px] items-center justify-center px-[20px] md:px-[40px] py-0 relative size-full" data-node-id="42:801">
+          <p
+            className="font-mono leading-[12px] md:leading-[18px] not-italic relative shrink-0 text-[#4e4e4e] text-[10px] md:text-[15px] text-center w-full max-w-[780px]"
+            style={{ fontFamily: 'monospace' }}
+          >
+            All evaluation and enforcement occurs during runtime, not after output is produced. Below is a sequence of enforced decisions.
+          </p>
+          <pre className="font-mono leading-[12px] md:leading-[18px] not-italic relative shrink-0 text-[#4e4e4e] text-[10px] md:text-[15px] text-center w-full max-w-[780px] whitespace-pre" data-node-id="42:802" style={{ fontFamily: 'monospace' }}>
+{`+----------------------------------------------------------------------+
+|                       USER / ENVIRONMENT INPUT                       |
+|           (Prompt, signal, context, ambient trigger, etc.)           |
++----------------------------------------------------------------------+
 ▼
-+------------------------------------------------------+
-|        A.R.C. — BEHAVIORAL GOVERNANCE LAYER          |
-|                                                      |
-|  - Evaluates delegated authority                     |
-|  - Enforces role, scope, and permissions             |
-|  - Modulates tone and communication boundaries       |
-|  - Governs memory access and delegation              |
-+------------------------------------------------------+
++----------------------------------------------------------------------+
+|                 A.R.C. — BEHAVIORAL GOVERNANCE LAYER                 |
+|                                                                      |
+|  - Evaluate delegated authority against role and constraint stack    |
+|  - Validate scope, permissions, and execution context                |
+|  - Block, modify, or reroute actions that exceed constraints         |
+|  - Regulate memory access and delegation boundaries                  |
++----------------------------------------------------------------------+
 ▼
-+------------------------------------------------------+
-|        L.R.C. — INTERNAL REASONING GOVERNANCE        |
-|                                                      |
-|  - Constrains activation pathways                    |
-|  - Applies deliberation limits                       |
-|  - Selects policy-aligned reasoning trajectories     |
-|  - Resolves conflicting internal interpretations     |
-+------------------------------------------------------+
++----------------------------------------------------------------------+
+|                L.R.C. — INTERNAL REASONING GOVERNANCE                |
+|                                                                      |
+|  - Evaluate internal reasoning pathways during inference             |
+|  - Suppress or redirect pathways that violate constraints            |
+|  - Select only constraint-compliant reasoning trajectories           |
+|  - Resolve conflicts between competing internal interpretations      |
++----------------------------------------------------------------------+
 ▼
-+------------------------------------------------------+
-|               MODEL REASONING ENGINE                 |
-|         (Weights and training unchanged)             |
-+------------------------------------------------------+
++----------------------------------------------------------------------+
+|                        MODEL REASONING ENGINE                        |
+|                   (Weights and training unchanged)                   |
++----------------------------------------------------------------------+
 ▼
-+------------------------------------------------------+
-|         POLICY-ALIGNED ACTION OR ESCALATION          |
-|                                                      |
-|  - Execute permitted action                          |
-|  - Defer, reroute, or escalate when out of scope     |
-+------------------------------------------------------+
++----------------------------------------------------------------------+
+|                 POLICY-ALIGNED ACTION OR ESCALATION                  |
+|                                                                      |
+|  - Execute permitted actions within constraint boundaries            |
+|  - Defer, reroute, or escalate actions when constraints are violated |
+|  - Introduce alternative actions when primary paths are blocked      |
++----------------------------------------------------------------------+
 ▼
-+------------------------------------------------------+
-|                     AUDIT TRAIL                      |
-|                                                      |
-|  - What authority applied                            |
-|  - When the decision was made                        |
-|  - Why the action was allowed, blocked, or escalated |
-+------------------------------------------------------+
++----------------------------------------------------------------------+
+|                             AUDIT TRAIL                              |
+|                                                                      |
+|  - Record which constraints were applied                             |
+|  - Record when the decision was evaluated                            |
+|  - Record why the action was allowed, modified, or blocked           |
++----------------------------------------------------------------------+
 `}
           </pre>
+          <p
+            className="font-mono leading-[12px] md:leading-[18px] not-italic relative shrink-0 text-[#4e4e4e] text-[10px] md:text-[15px] text-center w-full max-w-[780px]"
+            style={{ fontFamily: 'monospace' }}
+          >
+            Control is enforced at every decision point in the system.
+          </p>
         </div>
         <div className="content-stretch flex flex-col gap-[12px] items-start pb-[8px] md:pb-[12px] pt-0 px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="42:803">
           <p className="font-sans font-medium leading-[21px] relative shrink-0 text-[20px] text-nowrap" data-node-id="42:805">
@@ -326,31 +452,28 @@ export default function AdaptabloxOverview() {
             />
           </div>
           <div className="font-sans font-normal leading-[0] min-w-full relative shrink-0 text-[15px]" data-node-id="42:806">
-            <p className="leading-[21px] mb-0">Without runtime authority enforcement:</p>
-            <ul className="list-disc mb-0">
+            <p className="leading-[21px] mb-[0.5em]">Without runtime enforcement:</p>
+            <ul className="list-disc mb-[1em]">
               <li className="mb-0 ms-[22.5px]">
-                <span className="font-sans font-normal leading-[24px]">Agents optimize for goals while violating policy</span>
+                <span className="font-sans font-normal leading-[24px]">Agents optimize for goals while violating constraints</span>
               </li>
               <li className="mb-0 ms-[22.5px]">
-                <span className="font-sans font-normal leading-[24px]">Memory leaks across domains</span>
+                <span className="font-sans font-normal leading-[24px]">Memory access crosses domains without validation</span>
               </li>
               <li className="mb-0 ms-[22.5px]">
                 <span className="font-sans font-normal leading-[24px]">Reasoning drifts into unsafe or noncompliant paths</span>
               </li>
               <li className="ms-[22.5px]">
-                <span className="font-sans font-normal leading-[24px]">Failures are discovered only after damage occurs</span>
+                <span className="font-sans font-normal leading-[24px]">Failures are detected only after damage occurs</span>
               </li>
             </ul>
-            <p className="leading-[21px] mb-0">&nbsp;</p>
-            <p className="leading-[21px] mb-0">
-              Adaptablox prevents these outcomes by enforcing authority before actions execute, not after they're logged.
+            <p className="leading-[21px] mb-[1em]">These are not edge cases.</p>
+            <p className="leading-[21px] mb-[1em]">
+              They are the result of systems that do not enforce constraints during execution.
             </p>
-            <p className="leading-[21px] mb-0">&nbsp;</p>
-            <p className="leading-[21px] mb-0">It does not replace models.</p>
-            <p className="leading-[21px] mb-0">It does not rely on brittle rules.</p>
-            <p className="leading-[21px] mb-0">It does not assume perfect prompts.</p>
-            <p className="leading-[21px] mb-0">&nbsp;</p>
-            <p className="leading-[21px]">It provides the missing control layer required for agentic, ambient, and multi-agent AI systems to operate safely, coherently, and at scale.</p>
+            <p className="leading-[21px] mb-0">
+              Adaptablox enforces authority before actions execute, not after they are logged.
+            </p>
           </div>
         </div>
         <div className="content-stretch flex flex-col gap-[12px] items-center pb-[17px] md:pb-[24px] pt-0 px-[17px] md:px-[24px] relative shrink-0 w-full">

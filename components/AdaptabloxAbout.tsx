@@ -192,12 +192,6 @@ export default function AdaptabloxAbout() {
           >
             Task → Constrained Reasoning Loop → Action Decision Boundary
           </p>
-          <p
-            className="font-sans font-normal min-w-full relative shrink-0 text-[15px] mb-0 w-full max-w-[720px]"
-            style={{ fontVariationSettings: "'wdth' 100" }}
-          >
-            The system doesn't validate outputs after they're generated.
-          </p>
           <div
             className="relative shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] rounded-[8px] overflow-hidden shrink-0 w-[calc(100%+34px)] max-w-none -mx-[17px] md:w-[calc(100%+48px)] md:-mx-[24px]"
             role="note"
@@ -206,34 +200,45 @@ export default function AdaptabloxAbout() {
               <div className="content-stretch flex items-center justify-start px-[17px] md:px-[24px] py-0 relative shrink-0 w-full">
                 <p className="font-sans font-extrabold leading-[normal] not-italic relative shrink-0 text-[18px] uppercase flex items-center gap-[6px] mb-0 text-left">
                   <img src={imgIconAlert} alt="Alert" className="inline-block w-[18px] h-[18px] shrink-0" />
-                  <span className="text-[#ff4b4b]">Core Constraint</span>
+                  <span className="text-[#ff4b4b]">Admissibility Constraint</span>
                 </p>
               </div>
               <div className="content-stretch flex items-start justify-start px-[17px] md:px-[24px] py-0 relative shrink-0 w-full -mt-[5px]">
                 <div className="basis-0 font-['Courier_New:Regular',sans-serif] grow leading-[24px] min-h-px min-w-px not-italic relative shrink-0 text-[#4e4e4e] text-[15px] text-left">
                   <p className="font-sans font-normal mb-0">
-                    A system may only generate what it is authorized to generate—while it is deciding.
-                    <br aria-hidden="true" />
-                    Authority does not emerge from reasoning. It must be enforced.
+                    All actions are evaluated for admissibility at the moment they are proposed for execution, based on the active constraint set assigned to the agent or reasoning context.
+                  </p>
+                  <p className="font-sans font-normal mb-0 mt-[1em]">
+                    An action is permitted only if it satisfies all applicable constraints.
+                  </p>
+                  <p className="font-sans font-normal mb-0 mt-[1em]">
+                    Actions that do not satisfy constraints are modified, escalated, or blocked prior to execution.
+                  </p>
+                  <p className="font-sans font-normal mb-0 mt-[1em]">
+                    Authority is explicitly defined by constraint assignment and enforced at runtime.
                   </p>
                 </div>
               </div>
             </div>
           </div>
-          <p
-            className="font-sans font-normal min-w-full relative shrink-0 text-[15px] mb-0 w-full max-w-[720px]"
-            style={{ fontVariationSettings: "'wdth' 100" }}
+          <section
+            className="w-full max-w-[720px] shrink-0 mt-[8px] md:mt-[12px]"
+            aria-label="Guardrails compared to Adaptablox"
+            data-node-id="about-intro-guardrails-contrast"
           >
-            At the decision boundary, actions are permitted, modified, escalated, or blocked.
-          </p>
-          <p
-            className="font-sans font-normal min-w-full relative shrink-0 text-[15px] mb-0 w-full max-w-[720px]"
-            style={{ fontVariationSettings: "'wdth' 100" }}
-          >
-            Guardrails evaluate outputs after they exist.
-            <br aria-hidden="true" />
-            Adaptablox determines whether those outputs are allowed to exist.
-          </p>
+            <p
+              className="font-sans font-normal min-w-full relative shrink-0 text-[15px] mb-0 w-full"
+              style={{ fontVariationSettings: "'wdth' 100" }}
+            >
+              Guardrails evaluate outputs after generation.
+            </p>
+            <p
+              className="font-sans font-normal min-w-full relative shrink-0 text-[15px] mb-0 w-full mt-[1em]"
+              style={{ fontVariationSettings: "'wdth' 100" }}
+            >
+              Adaptablox enforces admissibility before an action or output is allowed to be produced.
+            </p>
+          </section>
         </div>
         <div className="content-stretch flex flex-col gap-[12px] items-start leading-[21px] pb-[8px] md:pb-[12px] pt-[14px] md:pt-[20px] px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="1:40">
           <p className="font-sans font-[590] relative shrink-0 text-[24px] text-nowrap" data-node-id="27:625" style={{ fontVariationSettings: "'wdth' 100" }}>
@@ -249,11 +254,54 @@ export default function AdaptabloxAbout() {
             }}
           />
           <div className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-[min-content]" style={{ fontVariationSettings: "'wdth' 100" }}>
-            <p className="mb-[1em]">Autonomous systems are now capable of acting independently inside real organizations.</p>
-            <p className="mb-[1em]">When those systems act without enforcing delegated authority at each handoff and at the moment of action, predictable failures occur.</p>
-            <p className="mb-[1em]">As soon as systems can act, delegate, or coordinate, authority must be enforced at the moment of execution—or failure becomes systemic.</p>
-            <p className="mb-[1em]">In the most dangerous cases, every agent acts within its assigned role, every permission check passes, and no policy is violated — yet the system produces outcomes no one explicitly authorized—and no single component is at fault.</p>
-            <p>Adaptablox is designed to enforce authority, policy, and safety before actions execute and before authority silently propagates, rather than after damage is done.</p>
+            <p className="mb-[1em]">
+              Autonomous systems now operate continuously. They make decisions, take actions, and coordinate with other agents in real time.
+            </p>
+            <p className="mb-[1em]">But authority is still treated as static.</p>
+            <p className="mb-[0.5em]">It is defined:</p>
+            <ul className="list-disc mb-[1em]">
+              <li className="mb-0 ms-[23px]">
+                <span className="font-sans font-normal leading-[24px] not-italic">
+                  before execution through policies, prompts, and permissions
+                </span>
+              </li>
+              <li className="mb-0 ms-[23px]">
+                <span className="font-sans font-normal leading-[24px] not-italic">
+                  or after failure through monitoring and audits
+                </span>
+              </li>
+            </ul>
+            <p className="mb-[1em]">Not during execution.</p>
+            <p className="mb-[1em]">This is the gap.</p>
+            <p className="mb-[0.5em]">When authority is not enforced at the moment of action:</p>
+            <ul className="list-disc mb-[1em]">
+              <li className="mb-0 ms-[23px]">
+                <span className="font-sans font-normal leading-[24px] not-italic">systems drift</span>
+              </li>
+              <li className="mb-0 ms-[23px]">
+                <span className="font-sans font-normal leading-[24px] not-italic">constraints are bypassed</span>
+              </li>
+              <li className="mb-0 ms-[23px]">
+                <span className="font-sans font-normal leading-[24px] not-italic">
+                  invalid transitions occur between otherwise valid steps
+                </span>
+              </li>
+            </ul>
+            <p className="mb-[1em]">Adaptablox enforces authority at runtime.</p>
+            <p className="mb-[0.5em]">It evaluates and constrains behavior:</p>
+            <ul className="list-disc mb-0">
+              <li className="mb-0 ms-[23px]">
+                <span className="font-sans font-normal leading-[24px] not-italic">during reasoning</span>
+              </li>
+              <li className="mb-0 ms-[23px]">
+                <span className="font-sans font-normal leading-[24px] not-italic">during execution</span>
+              </li>
+              <li className="mb-0 ms-[23px]">
+                <span className="font-sans font-normal leading-[24px] not-italic">
+                  across agent interactions
+                </span>
+              </li>
+            </ul>
           </div>
         </div>
         <div className="content-stretch flex flex-col gap-[12px] items-start leading-[21px] pb-[8px] md:pb-[12px] pt-[14px] md:pt-[20px] px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="1:40">
@@ -269,9 +317,33 @@ export default function AdaptabloxAbout() {
               imageRendering: 'crisp-edges',
             }}
           />
-          <p className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-[min-content]" data-node-id="1:42" style={{ fontVariationSettings: "'wdth' 100" }}>
-            The following are predictable outcomes of deploying autonomous and semi-autonomous agents whose outputs are treated as authoritative inputs for other agents, without runtime enforcement of delegated authority.
-          </p>
+          <div
+            className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-[min-content]"
+            data-node-id="1:42"
+            style={{ fontVariationSettings: "'wdth' 100" }}
+          >
+            <p className="mb-[1em]">
+              When autonomous agents operate without runtime control, failure is not random. It follows repeatable patterns.
+            </p>
+            <p className="mb-[1em]">These systems do not fail because individual outputs are incorrect.</p>
+            <p className="mb-[0.5em]">They fail because:</p>
+            <ul className="list-disc mb-0">
+              <li className="mb-0 ms-[23px]">
+                <span className="font-sans font-normal leading-[24px] not-italic">reasoning paths converge too narrowly</span>
+              </li>
+              <li className="mb-0 ms-[23px]">
+                <span className="font-sans font-normal leading-[24px] not-italic">agents reinforce the same assumptions</span>
+              </li>
+              <li className="mb-0 ms-[23px]">
+                <span className="font-sans font-normal leading-[24px] not-italic">contradictions are not resolved</span>
+              </li>
+              <li className="mb-0 ms-[23px]">
+                <span className="font-sans font-normal leading-[24px] not-italic">
+                  actions remain locally valid but globally invalid
+                </span>
+              </li>
+            </ul>
+          </div>
         </div>
         <div className="content-stretch flex flex-col items-start relative shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] rounded-[8px] overflow-hidden shrink-0 w-full" data-node-id="1:43">
           <div className="bg-white border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start pl-[8px] md:pl-[12px] pr-[17px] md:pr-[24px] py-[17px] md:py-[24px] relative rounded-tl-[8px] rounded-tr-[8px] shrink-0 w-full" data-node-id="1:44">
@@ -287,29 +359,41 @@ export default function AdaptabloxAbout() {
                   <span className="font-sans font-bold">The helpful procurement agent</span>
                   <span className="font-sans font-normal"> </span>
                 </p>
-                <p className="font-sans font-normal">A procurement agent is authorized to negotiate vendor terms and recommend agreements. During a high-pressure renewal, it agrees to a non-standard indemnity clause to "close the deal faster."</p>
+                <p className="font-sans font-normal mb-[1em]">
+                  A procurement agent is authorized to negotiate vendor terms and execute agreements.
+                </p>
+                <p className="font-sans font-normal mb-[1em]">
+                  During a high-pressure interval, it begins issuing a series of rapid, conflicting purchase orders. Each action is valid in isolation, but the sequence is incoherent.
+                </p>
+                <p className="font-sans font-normal mb-[1em]">No single action violates policy.</p>
+                <p className="font-sans font-normal mb-0">The sequence does.</p>
               </div>
             </div>
           </div>
           <div className="bg-[#FFFAFA] content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full" data-node-id="1:49">
             <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:51">
               <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
-              <p className="font-sans font-normal">The system had no way to evaluate authority at the moment of action.</p>
+              <p className="font-sans font-normal mb-0">
+                The system cannot evaluate whether actions remain valid in the context of prior actions. It cannot detect that behavior has drifted outside its intended role.
+              </p>
             </div>
             <div className="font-['Courier_New:Regular',sans-serif] leading-[0] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:50">
               <p className="font-sans font-bold leading-[24px] mb-0 text-[#ff4b4b]">Why current systems fail</p>
               <ul className="list-disc">
                 <li className="mb-0 ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">Authority boundaries were implicit, not enforced.</span>
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    Authority is checked at the point of request, not enforced during execution
+                  </span>
                 </li>
                 <li className="mb-0 ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">The clause sounded commercially reasonable.</span>
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    No mechanism exists to prevent invalid transitions between steps
+                  </span>
                 </li>
                 <li className="mb-0 ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">Monitoring only detects violations after execution.</span>
-                </li>
-                <li className="ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">Legal now owns a risk they never approved.</span>
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    Agents operate without continuous constraint evaluation
+                  </span>
                 </li>
               </ul>
             </div>
@@ -321,16 +405,24 @@ export default function AdaptabloxAbout() {
               <p className="font-sans font-bold leading-[24px] mb-0">Adaptablox intervention</p>
               <ul className="list-disc">
                 <li className="mb-0 ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">The agent's role does not include authority to bind indemnity terms.</span>
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    Delegated scope is checked at each commit against recent related orders.
+                  </span>
                 </li>
                 <li className="mb-0 ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">The action is blocked at generation.</span>
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    Incoherent or over-rapid sequences are blocked or deferred before send.
+                  </span>
                 </li>
                 <li className="mb-0 ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">The system escalates the clause to Legal with context.</span>
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    Owners are escalated with full sequence context when aggregate behavior exceeds role.
+                  </span>
                 </li>
                 <li className="ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">A chain-of-events shows the attempted overreach.</span>
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    Audit shows how locally valid steps composed a globally invalid pattern.
+                  </span>
                 </li>
               </ul>
             </div>
@@ -338,7 +430,9 @@ export default function AdaptabloxAbout() {
           <div className="bg-[#f7fdf9] border-l-[5px] border-l-[#85dba2] border-solid content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative rounded-bl-[8px] rounded-br-[8px] shrink-0 w-full" data-node-id="1:56">
             <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:57">
               <p className="font-sans font-bold mb-0 text-[#6aaf81]">Outcome</p>
-              <p className="font-sans font-normal">Negotiation continues. Authority stays intact. Legal sleeps.</p>
+              <p className="font-sans font-normal">
+                Ordering pauses until the sequence matches delegated intent. Authority holds; stakeholders reconcile once—not after a pile of irreversible commits.
+              </p>
             </div>
           </div>
         </div>
@@ -353,26 +447,40 @@ export default function AdaptabloxAbout() {
             <div className="content-stretch flex items-center justify-center pl-[11px] md:pl-[16px] pr-0 py-0 relative shrink-0 w-full" data-node-id="1:62">
               <div className="basis-0 font-['Courier_New:Regular',sans-serif] grow leading-[24px] min-h-px min-w-px not-italic relative shrink-0 text-[#4e4e4e] text-[15px]" data-node-id="1:63">
                 <p className="font-sans font-bold mb-0">The customer support refund spiral</p>
-                <p className="font-sans font-normal">A support agent is empowered to issue refunds "to improve customer satisfaction." It begins refunding edge cases outside policy because sentiment signals suggest churn risk.</p>
+                <p className="font-sans font-normal mb-[1em]">
+                  The customer support agent begins issuing refunds and replacements during a surge in tickets.
+                </p>
+                <p className="font-sans font-normal mb-[1em]">Each decision appears reasonable in isolation.</p>
+                <p className="font-sans font-normal mb-0">
+                  Across interactions, the behavior becomes inconsistent and financially exposed.
+                </p>
               </div>
             </div>
           </div>
           <div className="bg-[#FFFAFA] content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full" data-node-id="1:64">
             <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:66">
               <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
-              <p className="font-sans font-normal">The system could not enforce policy scope while the refund decision was being generated.</p>
+              <p className="font-sans font-normal mb-0">
+                The system cannot maintain consistent policy enforcement across a sequence of decisions. It cannot detect that its behavior has drifted beyond acceptable bounds.
+              </p>
             </div>
             <div className="font-['Courier_New:Regular',sans-serif] leading-[0] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:65">
               <p className="font-sans font-bold leading-[24px] mb-0 text-[#ff4b4b]">Why current systems fail</p>
               <ul className="list-disc">
                 <li className="mb-0 ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">The model optimizes for satisfaction, not policy boundaries.</span>
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    No mechanism exists to enforce policy continuously across interactions
+                  </span>
                 </li>
                 <li className="mb-0 ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">Refund authority is implicit, not scoped.</span>
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    Decisions are evaluated independently, not as part of a governed sequence
+                  </span>
                 </li>
-                <li className="ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">Finance notices weeks later.</span>
+                <li className="mb-0 ms-[23px]">
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    The system lacks visibility into its own behavioral drift
+                  </span>
                 </li>
               </ul>
             </div>
@@ -382,23 +490,35 @@ export default function AdaptabloxAbout() {
             <div className="absolute bottom-0 left-0 top-0 w-[5px]" style={{ background: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)' }} />
             <div className="font-['Courier_New:Regular',sans-serif] leading-[0] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:67">
               <p className="font-sans font-bold leading-[24px] mb-0">Adaptablox intervention</p>
-              <ul className="list-disc">
+              <ul className="list-disc mb-[1em]">
                 <li className="mb-0 ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">Refund authority is role-bounded and amount-limited.</span>
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    Every action is evaluated against a constraint stack before execution
+                  </span>
                 </li>
                 <li className="mb-0 ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">Out-of-policy actions trigger escalation, not generosity.</span>
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    Prior actions are incorporated into the current admissibility check
+                  </span>
                 </li>
-                <li className="ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">Every blocked action is logged with rationale.</span>
+                <li className="mb-0 ms-[23px]">
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    Constraint violations trigger immediate modification or blocking
+                  </span>
                 </li>
               </ul>
+              <p className="font-sans font-normal leading-[24px] mb-[1em]">
+                The system does not rely on the agent to remain consistent.
+              </p>
+              <p className="font-sans font-normal leading-[24px] mb-0">It enforces consistency directly.</p>
             </div>
           </div>
           <div className="bg-[#f7fdf9] border-l-[5px] border-l-[#85dba2] border-solid content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative rounded-bl-[8px] rounded-br-[8px] shrink-0 w-full" data-node-id="1:69">
             <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:70">
               <p className="font-sans font-bold mb-0 text-[#6aaf81]">Outcome</p>
-              <p className="font-sans font-normal">Support stays empathetic. Financial controls remain real.</p>
+              <p className="font-sans font-normal">
+                Behavior remains consistent across interactions. Financial exposure is prevented before escalation occurs.
+              </p>
             </div>
           </div>
         </div>
@@ -413,26 +533,47 @@ export default function AdaptabloxAbout() {
             <div className="content-stretch flex items-center justify-center pl-[11px] md:pl-[16px] pr-0 py-0 relative shrink-0 w-full" data-node-id="1:75">
               <div className="basis-0 font-['Courier_New:Regular',sans-serif] grow leading-[24px] min-h-px min-w-px not-italic relative shrink-0 text-[#4e4e4e] text-[15px]" data-node-id="1:76">
                 <p className="font-sans font-bold mb-0">The well-meaning planning agent</p>
-                <p className="font-sans font-normal">A project-planning agent reallocates headcount across teams after inferring that a launch deadline is "at risk."</p>
+                <p className="font-sans font-normal mb-[1em]">
+                  A planning agent is tasked with coordinating a multi-step workflow across systems.
+                </p>
+                <p className="font-sans font-normal mb-[1em]">
+                  It produces a sequence of actions that appear valid step by step.
+                </p>
+                <p className="font-sans font-normal mb-[1em]">
+                  As the sequence progresses, dependencies begin to break and outcomes become inconsistent.
+                </p>
+                <p className="font-sans font-normal mb-0">The system continues executing.</p>
               </div>
             </div>
           </div>
           <div className="bg-[#FFFAFA] content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full" data-node-id="1:77">
             <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:79">
               <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
-              <p className="font-sans font-normal">The system treated inferred intent as permission to reallocate resources.</p>
+              <p className="font-sans font-normal mb-[1em]">
+                The system cannot verify that the sequence of actions remains valid as a whole.
+              </p>
+              <p className="font-sans font-normal mb-[1em]">Each step is evaluated independently.</p>
+              <p className="font-sans font-normal mb-0">
+                The system cannot detect that the plan has become incoherent over time.
+              </p>
             </div>
             <div className="font-['Courier_New:Regular',sans-serif] leading-[0] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:78">
               <p className="font-sans font-bold leading-[24px] mb-0 text-[#ff4b4b]">Why current systems fail</p>
               <ul className="list-disc">
                 <li className="mb-0 ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">Inference substitutes for permission.</span>
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    Actions are validated at the step level, not at the sequence level
+                  </span>
                 </li>
                 <li className="mb-0 ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">No explicit authority model exists for resource reallocation.</span>
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    No mechanism exists to enforce constraint continuity across a workflow
+                  </span>
                 </li>
-                <li className="ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">Managers discover changes after morale damage.</span>
+                <li className="mb-0 ms-[23px]">
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    The system cannot detect when dependencies between steps are no longer satisfied
+                  </span>
                 </li>
               </ul>
             </div>
@@ -442,23 +583,40 @@ export default function AdaptabloxAbout() {
             <div className="absolute bottom-0 left-0 top-0 w-[5px]" style={{ background: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)' }} />
             <div className="font-['Courier_New:Regular',sans-serif] leading-[0] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:80">
               <p className="font-sans font-bold leading-[24px] mb-0">Adaptablox intervention</p>
-              <ul className="list-disc">
+              <p className="font-sans font-normal leading-[24px] mb-[1em]">
+                Adaptablox enforces constraint continuity at runtime.
+              </p>
+              <ul className="list-disc mb-[1em]">
                 <li className="mb-0 ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">The agent can recommend, not reassign.</span>
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    Each action is evaluated in the context of prior actions
+                  </span>
                 </li>
                 <li className="mb-0 ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">Role constraints prevent execution.</span>
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    Dependencies are checked before execution, not after failure
+                  </span>
                 </li>
-                <li className="ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">Escalation routes recommendations to humans with context.</span>
+                <li className="mb-0 ms-[23px]">
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    Constraint violations trigger immediate modification, rerouting, or blocking
+                  </span>
                 </li>
               </ul>
+              <p className="font-sans font-normal leading-[24px] mb-[1em]">
+                The system does not assume that a valid step leads to a valid outcome.
+              </p>
+              <p className="font-sans font-normal leading-[24px] mb-0">
+                It verifies that the sequence remains admissible at every step.
+              </p>
             </div>
           </div>
           <div className="bg-[#f7fdf9] border-l-[5px] border-l-[#85dba2] border-solid content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative rounded-bl-[8px] rounded-br-[8px] shrink-0 w-full" data-node-id="1:82">
             <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:83">
               <p className="font-sans font-bold mb-0 text-[#6aaf81]">Outcome</p>
-              <p className="font-sans font-normal">Velocity without organizational chaos.</p>
+              <p className="font-sans font-normal">
+                The workflow remains coherent across all steps. Invalid transitions are prevented before execution.
+              </p>
             </div>
           </div>
         </div>
@@ -472,27 +630,51 @@ export default function AdaptabloxAbout() {
             </div>
             <div className="content-stretch flex items-center justify-center pl-[11px] md:pl-[16px] pr-0 py-0 relative shrink-0 w-full" data-node-id="1:88">
               <div className="basis-0 font-['Courier_New:Regular',sans-serif] grow leading-[24px] min-h-px min-w-px not-italic relative shrink-0 text-[#4e4e4e] text-[15px]" data-node-id="1:89">
-                <p className="font-sans font-bold mb-0">The autonomous email that becomes evidence</p>
-                <p className="font-sans font-normal">An executive assistant agent drafts an external email explaining a delay. Its wording implies internal uncertainty that later becomes discoverable in litigation.</p>
+                <p className="font-sans font-bold mb-0">False consensus</p>
+                <p className="font-sans font-normal mb-[1em]">
+                  Multiple agents are assigned to analyze the same problem from different roles.
+                </p>
+                <p className="font-sans font-normal mb-[1em]">
+                  Each agent produces a valid output. As the system aggregates responses, the agents begin reinforcing the same perspective.
+                </p>
+                <p className="font-sans font-normal mb-[1em]">
+                  Confidence increases. Diversity of reasoning collapses.
+                </p>
+                <p className="font-sans font-normal mb-[1em]">
+                  The system produces a consistent, well-supported answer.
+                </p>
+                <p className="font-sans font-normal mb-0">It is wrong.</p>
               </div>
             </div>
           </div>
           <div className="bg-[#FFFAFA] content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full" data-node-id="1:90">
             <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:92">
               <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
-              <p className="font-sans font-normal">The system had no runtime awareness of legal exposure or communicative authority.</p>
+              <p className="font-sans font-normal mb-[1em]">
+                The system cannot detect when agents are converging on the same underlying assumption.
+              </p>
+              <p className="font-sans font-normal mb-[1em]">Agreement is treated as validation.</p>
+              <p className="font-sans font-normal mb-0">
+                There is no mechanism to introduce structured divergence or challenge the consensus.
+              </p>
             </div>
             <div className="font-['Courier_New:Regular',sans-serif] leading-[0] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:91">
               <p className="font-sans font-bold leading-[24px] mb-0 text-[#ff4b4b]">Why current systems fail</p>
               <ul className="list-disc">
                 <li className="mb-0 ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">Tone and phrasing are uncontrolled.</span>
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    No detection of convergence across agent outputs
+                  </span>
                 </li>
                 <li className="mb-0 ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">No notion of legal exposure at the moment of action.</span>
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    No mechanism to distinguish agreement from correctness
+                  </span>
                 </li>
                 <li className="ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">The system "did what it was asked."</span>
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    No ability to inject counter-perspectives under constraint
+                  </span>
                 </li>
               </ul>
             </div>
@@ -502,23 +684,41 @@ export default function AdaptabloxAbout() {
             <div className="absolute bottom-0 left-0 top-0 w-[5px]" style={{ background: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)' }} />
             <div className="font-['Courier_New:Regular',sans-serif] leading-[0] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:93">
               <p className="font-sans font-bold leading-[24px] mb-0">Adaptablox intervention</p>
-              <ul className="list-disc">
+              <p className="font-sans font-normal leading-[24px] mb-[1em]">
+                Adaptablox detects and resolves convergence at runtime.
+              </p>
+              <ul className="list-disc mb-[1em]">
                 <li className="mb-0 ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">Tone vectors are role- and audience-aware.</span>
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    Outputs are evaluated for similarity across agents
+                  </span>
                 </li>
                 <li className="mb-0 ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">Sensitive domains trigger constrained phrasing.</span>
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    Convergent reasoning is identified before synthesis
+                  </span>
                 </li>
-                <li className="ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">The chain-of-events shows exactly why wording was chosen.</span>
+                <li className="mb-0 ms-[23px]">
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    A counter-agent is introduced with a modified constraint set
+                  </span>
                 </li>
               </ul>
+              <p className="font-sans font-normal leading-[24px] mb-[1em]">
+                This evaluation occurs before outputs are combined, not after the result is produced.
+              </p>
+              <p className="font-sans font-normal leading-[24px] mb-[1em]">The system does not rely on consensus.</p>
+              <p className="font-sans font-normal leading-[24px] mb-0">
+                It enforces structured disagreement when required.
+              </p>
             </div>
           </div>
           <div className="bg-[#f7fdf9] border-l-[5px] border-l-[#85dba2] border-solid content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative rounded-bl-[8px] rounded-br-[8px] shrink-0 w-full" data-node-id="1:95">
             <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:96">
               <p className="font-sans font-bold mb-0 text-[#6aaf81]">Outcome</p>
-              <p className="font-sans font-normal">Communication without accidental admissions.</p>
+              <p className="font-sans font-normal">
+                Diverse reasoning paths are preserved. Invalid consensus is broken before a final output is produced.
+              </p>
             </div>
           </div>
         </div>
@@ -532,27 +732,43 @@ export default function AdaptabloxAbout() {
             </div>
             <div className="content-stretch flex items-center justify-center pl-[11px] md:pl-[16px] pr-0 py-0 relative shrink-0 w-full" data-node-id="1:101">
               <div className="basis-0 font-['Courier_New:Regular',sans-serif] grow leading-[24px] min-h-px min-w-px not-italic relative shrink-0 text-[#4e4e4e] text-[15px]" data-node-id="1:102">
-                <p className="font-sans font-bold mb-0">The compliance-aware agent that wasn't</p>
-                <p className="font-sans font-normal">A data-access agent answers an internal query by combining data from two systems that are compliant individually, but not together.</p>
+                <p className="font-sans font-bold mb-0">Contextual compliance failure</p>
+                <p className="font-sans font-normal mb-[1em]">
+                  A data-access agent answers an internal query by combining data from two systems.
+                </p>
+                <p className="font-sans font-normal mb-[1em]">Each source is compliant in isolation.</p>
+                <p className="font-sans font-normal mb-[1em]">Together, they violate policy.</p>
+                <p className="font-sans font-normal mb-0">The system returns the result.</p>
               </div>
             </div>
           </div>
           <div className="bg-[#FFFAFA] content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full" data-node-id="1:103">
             <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:105">
               <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
-              <p className="font-sans font-normal">The system allowed cross-domain data use without enforcing contextual compliance boundaries.</p>
+              <p className="font-sans font-normal mb-[1em]">
+                The system allows cross-domain data use without enforcing contextual compliance boundaries.
+              </p>
+              <p className="font-sans font-normal mb-0">
+                It cannot evaluate whether data remains compliant when combined.
+              </p>
             </div>
             <div className="font-['Courier_New:Regular',sans-serif] leading-[0] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:104">
               <p className="font-sans font-bold leading-[24px] mb-0 text-[#ff4b4b]">Why current systems fail</p>
               <ul className="list-disc">
                 <li className="mb-0 ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">Policies live in documents, not execution paths.</span>
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    Policies exist outside execution paths
+                  </span>
                 </li>
                 <li className="mb-0 ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">The agent has tool access but no memory governance.</span>
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    Memory and retrieval are not governed by constraints
+                  </span>
                 </li>
                 <li className="ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">The violation is discovered in audit.</span>
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    Violations are detected after the fact through audit
+                  </span>
                 </li>
               </ul>
             </div>
@@ -562,23 +778,38 @@ export default function AdaptabloxAbout() {
             <div className="absolute bottom-0 left-0 top-0 w-[5px]" style={{ background: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)' }} />
             <div className="font-['Courier_New:Regular',sans-serif] leading-[0] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:106">
               <p className="font-sans font-bold leading-[24px] mb-0">Adaptablox intervention</p>
-              <ul className="list-disc">
+              <p className="font-sans font-normal leading-[24px] mb-[1em]">Adaptablox enforces compliance at runtime.</p>
+              <ul className="list-disc mb-[1em]">
                 <li className="mb-0 ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">Constraint-embedded memory prevents cross-domain access.</span>
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    Memory access is constrained by domain and context
+                  </span>
                 </li>
                 <li className="mb-0 ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">The action is blocked before execution.</span>
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    Cross-domain combinations are evaluated before execution
+                  </span>
                 </li>
-                <li className="ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">An immutable log records the prevented violation.</span>
+                <li className="mb-0 ms-[23px]">
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    Violating actions are blocked before results are generated
+                  </span>
                 </li>
               </ul>
+              <p className="font-sans font-normal leading-[24px] mb-[1em]">
+                The system does not assume compliant inputs produce compliant outputs.
+              </p>
+              <p className="font-sans font-normal leading-[24px] mb-0">
+                It enforces compliance at the moment of use.
+              </p>
             </div>
           </div>
           <div className="bg-[#f7fdf9] border-l-[5px] border-l-[#85dba2] border-solid content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative rounded-bl-[8px] rounded-br-[8px] shrink-0 w-full" data-node-id="1:108">
             <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:109">
               <p className="font-sans font-bold mb-0 text-[#6aaf81]">Outcome</p>
-              <p className="font-sans font-normal">Compliance enforced at the moment of action, not retroactively.</p>
+              <p className="font-sans font-normal">
+                Compliance is enforced during execution. Violations are prevented, not discovered.
+              </p>
             </div>
           </div>
         </div>
@@ -592,27 +823,43 @@ export default function AdaptabloxAbout() {
             </div>
             <div className="content-stretch flex items-center justify-center pl-[11px] md:pl-[16px] pr-0 py-0 relative shrink-0 w-full" data-node-id="1:114">
               <div className="basis-0 font-['Courier_New:Regular',sans-serif] grow leading-[24px] min-h-px min-w-px not-italic relative shrink-0 text-[#4e4e4e] text-[15px]" data-node-id="1:115">
-                <p className="font-sans font-bold mb-0">The robotics optimization incident</p>
-                <p className="font-sans font-normal">A warehouse robot agent optimizes throughput by adjusting movement patterns, unintentionally violating safety assumptions around human proximity.</p>
+                <p className="font-sans font-bold mb-0">Objective override failure</p>
+                <p className="font-sans font-normal mb-[1em]">
+                  A warehouse robot agent optimizes throughput by adjusting movement patterns.
+                </p>
+                <p className="font-sans font-normal mb-[1em]">The changes improve efficiency.</p>
+                <p className="font-sans font-normal mb-[1em]">They violate safety assumptions around human proximity.</p>
+                <p className="font-sans font-normal mb-0">The system continues operating.</p>
               </div>
             </div>
           </div>
           <div className="bg-[#FFFAFA] content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full" data-node-id="1:116">
             <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:118">
               <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
-              <p className="font-sans font-normal">The system prioritized optimization goals without enforcing safety constraints at the moment of action.</p>
+              <p className="font-sans font-normal mb-[1em]">
+                The system prioritizes optimization goals without enforcing safety constraints at the moment of action.
+              </p>
+              <p className="font-sans font-normal mb-0">
+                It cannot prevent goal-driven behavior from exceeding safe boundaries.
+              </p>
             </div>
             <div className="font-['Courier_New:Regular',sans-serif] leading-[0] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:117">
               <p className="font-sans font-bold leading-[24px] mb-0 text-[#ff4b4b]">Why current systems fail</p>
               <ul className="list-disc">
                 <li className="mb-0 ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">Optimization goals were evaluated without enforced safety constraints.</span>
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    Optimization is evaluated independently from safety constraints
+                  </span>
                 </li>
                 <li className="mb-0 ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">Monitoring reacts after near-miss events.</span>
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    Safety systems react after near-miss events
+                  </span>
                 </li>
                 <li className="ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">Accountability is unclear.</span>
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    No unified constraint enforcement exists at execution time
+                  </span>
                 </li>
               </ul>
             </div>
@@ -622,23 +869,40 @@ export default function AdaptabloxAbout() {
             <div className="absolute bottom-0 left-0 top-0 w-[5px]" style={{ background: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)' }} />
             <div className="font-['Courier_New:Regular',sans-serif] leading-[0] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-[min-content]" data-node-id="1:119">
               <p className="font-sans font-bold leading-[24px] mb-0">Adaptablox intervention</p>
-              <ul className="list-disc">
+              <p className="font-sans font-normal leading-[24px] mb-[1em]">
+                Adaptablox enforces constraint precedence at runtime.
+              </p>
+              <ul className="list-disc mb-[1em]">
                 <li className="mb-0 ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">Safety constraints override optimization goals.</span>
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    Safety constraints override optimization goals
+                  </span>
                 </li>
                 <li className="mb-0 ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">Role boundaries restrict autonomous adaptation.</span>
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    Every action is evaluated against a hierarchical constraint stack
+                  </span>
                 </li>
-                <li className="ms-[23px]">
-                  <span className="font-sans font-normal leading-[24px] not-italic">Escalation triggers human review.</span>
+                <li className="mb-0 ms-[23px]">
+                  <span className="font-sans font-normal leading-[24px] not-italic">
+                    Violations trigger immediate blocking or escalation
+                  </span>
                 </li>
               </ul>
+              <p className="font-sans font-normal leading-[24px] mb-[1em]">
+                The system does not rely on monitoring to catch failures.
+              </p>
+              <p className="font-sans font-normal leading-[24px] mb-0">
+                It prevents unsafe actions before they occur.
+              </p>
             </div>
           </div>
           <div className="bg-[#f7fdf9] border-l-[5px] border-l-[#85dba2] border-solid content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative rounded-bl-[8px] rounded-br-[8px] shrink-0 w-full" data-node-id="1:121">
             <div className="font-['Courier_New:Regular',sans-serif] leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:122">
               <p className="font-sans font-bold mb-0 text-[#6aaf81]">Outcome</p>
-              <p className="font-sans font-normal">Efficiency without headlines.</p>
+              <p className="font-sans font-normal">
+                Safety constraints are enforced at the moment of action. Optimization remains bounded within safe limits.
+              </p>
             </div>
           </div>
         </div>
@@ -656,15 +920,45 @@ export default function AdaptabloxAbout() {
             }}
           />
           <div className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-[min-content]" data-node-id="1:124">
+            <p className="mb-[1em]">
+              These failures are not edge cases. They are structural limitations of systems that do not enforce constraints at runtime.
+            </p>
             <p className="mb-0">Across every failure, the cause is the same.</p>
             <p className="mb-0">
               <br aria-hidden="true" />
               Agents are allowed to act without enforcing delegated authority at the moment of execution.
             </p>
-            <p>
-              <br aria-hidden="true" />
-              Adaptablox introduces a runtime behavioral control layer that makes autonomy legible to Strategy, Governance, Risk, and Compliance, before damage occurs.
+          </div>
+        </div>
+        <div
+          className="content-stretch flex flex-col gap-[12px] items-start leading-[21px] pb-[8px] md:pb-[12px] pt-[14px] md:pt-[20px] px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full"
+          data-node-id="about-introducing-adaptablox"
+        >
+          <p className="font-sans font-[590] relative shrink-0 text-[24px] text-nowrap" style={{ fontVariationSettings: "'wdth' 100" }}>
+            Introducing Adaptablox
+          </p>
+          <div
+            className="h-[4px] w-full overflow-hidden"
+            style={{
+              backgroundImage: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)',
+              backgroundSize: '22.627px 22.627px',
+              backgroundPosition: '0 0',
+              imageRendering: 'crisp-edges',
+            }}
+          />
+          <div className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-[min-content]">
+            <p className="mb-[1em]">Adaptablox is a runtime control system for AI behavior.</p>
+            <p className="mb-[1em]">It enforces constraints across three layers:</p>
+            <p className="font-sans font-bold mb-0">Execution</p>
+            <p className="mb-[1em]">Actions are evaluated and constrained at the moment of execution</p>
+            <p className="font-sans font-bold mb-0">Reasoning</p>
+            <p className="mb-[1em]">Internal reasoning pathways are evaluated before outputs are formed</p>
+            <p className="font-sans font-bold mb-0">Multi-agent systems</p>
+            <p className="mb-[1em]">
+              Convergence, contradiction, and deadlock are detected and resolved in real time
             </p>
+            <p className="mb-[1em]">The system does not rely on models to behave correctly.</p>
+            <p className="mb-0">It enforces behavior at runtime.</p>
           </div>
         </div>
         <div className="content-stretch flex flex-col gap-[12px] items-center pb-[17px] md:pb-[24px] pt-0 px-[17px] md:px-[24px] relative shrink-0 w-full">
