@@ -227,7 +227,7 @@ export default function AdaptabloxDemo() {
                   <span className="leading-[21px]">Outputs are checked for alignment before being combined</span>
                 </li>
                 <li className="mb-0 ms-[22.5px]">
-                  <span className="leading-[21px]">Convergent responses are detected and challenged</span>
+                  <span className="leading-[21px]">Premature convergence is identified and prevented before synthesis</span>
                 </li>
                 <li className="ms-[22.5px]">
                   <span className="leading-[21px]">Conflicting actions are resolved before execution</span>

@@ -301,28 +301,28 @@ export default function AdaptabloxOverview() {
                   Multi-Agent Control
                 </p>
                 <p className="font-sans font-normal leading-[24px] mb-0 mt-[0.75em]">
-                  DS enforces control across interacting agents.
+                  DS enforces coordination integrity across interacting agents.
                 </p>
                 <ul className="list-disc mt-[0.5em] mb-[1em]">
                   <li className="mb-0 ms-[22.5px]">
                     <span className="font-sans font-normal leading-[24px]">
-                      Outputs are evaluated for similarity and divergence across agents
+                      Agent outputs are evaluated for coordination quality before being combined
                     </span>
                   </li>
                   <li className="mb-0 ms-[22.5px]">
                     <span className="font-sans font-normal leading-[24px]">
-                      Convergence on a single perspective is detected before synthesis
+                      Premature convergence and irreconcilable conflict are treated as coordination failures
                     </span>
                   </li>
                   <li className="ms-[22.5px]">
                     <span className="font-sans font-normal leading-[24px]">
-                      Counter-agents are introduced with modified constraints when required
+                      When coordination fails, the system intervenes before synthesis occurs
                     </span>
                   </li>
                 </ul>
                 <p className="font-sans font-normal leading-[24px] mb-[1em]">The system does not rely on consensus.</p>
                 <p className="font-sans font-normal leading-[24px] mb-0">
-                  It enforces structured disagreement to prevent false agreement.
+                  It enforces the conditions under which agreement is valid.
                 </p>
               </div>
             </div>
