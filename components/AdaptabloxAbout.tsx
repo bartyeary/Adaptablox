@@ -673,7 +673,7 @@ export default function AdaptabloxAbout() {
                 </li>
                 <li className="ms-[23px]">
                   <span className="font-sans font-normal leading-[24px] not-italic">
-                    No ability to inject counter-perspectives under constraint
+                    No mechanism to preserve reasoning diversity when agents converge
                   </span>
                 </li>
               </ul>
@@ -690,17 +690,17 @@ export default function AdaptabloxAbout() {
               <ul className="list-disc mb-[1em]">
                 <li className="mb-0 ms-[23px]">
                   <span className="font-sans font-normal leading-[24px] not-italic">
-                    Outputs are evaluated for similarity across agents
+                    Outputs are evaluated for coordination quality before being combined
                   </span>
                 </li>
                 <li className="mb-0 ms-[23px]">
                   <span className="font-sans font-normal leading-[24px] not-italic">
-                    Convergent reasoning is identified before synthesis
+                    Convergent reasoning is identified as a coordination failure before synthesis
                   </span>
                 </li>
                 <li className="mb-0 ms-[23px]">
                   <span className="font-sans font-normal leading-[24px] not-italic">
-                    A counter-agent is introduced with a modified constraint set
+                    When coordination fails, the system intervenes to restore reasoning diversity
                   </span>
                 </li>
               </ul>
