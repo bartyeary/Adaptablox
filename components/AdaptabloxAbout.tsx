@@ -186,12 +186,6 @@ export default function AdaptabloxAbout() {
             <br aria-hidden="true" />
             What it does not have is enforceable authority.
           </p>
-          <p
-            className="font-sans font-bold min-w-full relative shrink-0 text-[15px] mb-0 w-full max-w-[720px]"
-            style={{ fontVariationSettings: "'wdth' 100" }}
-          >
-            Task → Constrained Reasoning Loop → Action Decision Boundary
-          </p>
           <div
             className="relative shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] rounded-[8px] overflow-hidden shrink-0 w-[calc(100%+34px)] max-w-none -mx-[17px] md:w-[calc(100%+48px)] md:-mx-[24px]"
             role="note"
@@ -201,6 +195,14 @@ export default function AdaptabloxAbout() {
                 <p className="font-sans font-extrabold leading-[normal] not-italic relative shrink-0 text-[18px] uppercase flex items-center gap-[6px] mb-0 text-left">
                   <img src={imgIconAlert} alt="Alert" className="inline-block w-[18px] h-[18px] shrink-0" />
                   <span className="text-[#ff4b4b]">Admissibility Constraint</span>
+                </p>
+              </div>
+              <div className="content-stretch flex items-start justify-start px-[17px] md:px-[24px] py-0 relative shrink-0 w-full -mt-[5px]">
+                <p
+                  className="font-sans font-bold min-w-full relative shrink-0 text-[15px] mb-0 w-full max-w-[720px]"
+                  style={{ fontVariationSettings: "'wdth' 100" }}
+                >
+                  Task → Constrained Reasoning Loop → Action Decision Boundary
                 </p>
               </div>
               <div className="content-stretch flex items-start justify-start px-[17px] md:px-[24px] py-0 relative shrink-0 w-full -mt-[5px]">
