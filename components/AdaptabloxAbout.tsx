@@ -167,7 +167,7 @@ export default function AdaptabloxAbout() {
             className="font-sans font-normal min-w-full relative shrink-0 text-[15px] mb-0 w-full max-w-[720px]"
             style={{ fontVariationSettings: "'wdth' 100" }}
           >
-            Adaptablox introduces a runtime control layer that enforces authority at the moment actions are committed—not after they fail.
+            Adaptablox introduces a runtime control layer that enforces authority at the moment actions are committed, not after they fail.
           </p>
           <ul
             className="font-sans font-normal list-disc text-[15px] w-full max-w-[720px] ps-[1.25em] m-0 space-y-[6px]"
@@ -448,7 +448,7 @@ export default function AdaptabloxAbout() {
               <div className="basis-0 font-['Courier_New:Regular',sans-serif] grow leading-[24px] min-h-px min-w-px not-italic relative shrink-0 text-[#4e4e4e] text-[15px]" data-node-id="1:63">
                 <p className="font-sans font-bold mb-0">The customer support refund spiral</p>
                 <p className="font-sans font-normal mb-[1em]">
-                  The customer support agent begins issuing refunds and replacements during a surge in tickets.
+                  A customer support agent begins issuing refunds and replacements during a surge in tickets.
                 </p>
                 <p className="font-sans font-normal mb-[1em]">Each decision appears reasonable in isolation.</p>
                 <p className="font-sans font-normal mb-0">
