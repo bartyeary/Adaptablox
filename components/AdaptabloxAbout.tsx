@@ -35,7 +35,7 @@ const failureFamilies: FailureFamily[] = [
     summary:
       "No single action breaks policy. The pattern does. A procurement agent issues rapid, conflicting purchase orders, each valid in isolation, incoherent in aggregate. A support agent's refunds are each defensible; across a hundred tickets, they're a financial exposure.",
     whyCurrentSystemsMissIt:
-      'authority is checked per request. Nothing evaluates whether an action remains admissible given the actions that came before it.',
+      'authority is checked per request. Nothing evaluates whether an action remains admissible given the actions that came before it. Sequence-aware enforcement requires evaluating accumulated state. A per-snapshot check does not.',
     whatAdaptabloxDoes:
       'every action is evaluated in the context of the sequence it belongs to. Incoherent or over-rapid sequences are blocked or deferred before they commit. A snapshot check cannot do this. Sequence-aware enforcement can.',
     detailLine: 'Detailed scenarios',
@@ -78,7 +78,6 @@ const failureFamilies: FailureFamily[] = [
           'The system cannot maintain consistent policy enforcement across a sequence of decisions. It cannot detect that its behavior has drifted beyond acceptable bounds.',
         ],
         whyCurrentSystemsFail: [
-          'Per-interaction checks evaluate each action in isolation. Continuous policy enforcement across interactions requires evaluating accumulated state, which stateless checks cannot do.',
           'Decisions are evaluated independently, not as part of a governed sequence',
           'The system lacks visibility into its own behavioral drift',
         ],
@@ -109,7 +108,6 @@ const failureFamilies: FailureFamily[] = [
         ],
         whyCurrentSystemsFail: [
           'Actions are validated at the step level, not at the sequence level',
-          'Step-level checks evaluate each action in isolation. Constraint continuity across a workflow requires evaluating accumulated state, which stateless checks cannot do.',
           'The system cannot detect when dependencies between steps are no longer satisfied',
         ],
         interventionIntro: 'Adaptablox enforces constraint continuity at runtime.',
@@ -149,7 +147,6 @@ const failureFamilies: FailureFamily[] = [
         coreFailure: [
           'The system cannot detect when agents are converging on the same underlying assumption.',
           'Agreement is treated as validation.',
-          'Per-output checks evaluate each agent in isolation. Structured divergence requires evaluating coordination state, which stateless checks cannot do.',
         ],
         whyCurrentSystemsFail: [
           'No detection of convergence across agent outputs',
@@ -437,9 +434,9 @@ export default function AdaptabloxAbout() {
             {failureFamilies.map((family) => (
               <details className="failure-family-details bg-white rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] w-full group" key={family.title}>
                 <summary className="cursor-pointer list-none px-[17px] md:px-[24px] py-[17px] md:py-[24px]">
-                  <p className="font-sans font-bold text-[#4e4e4e] text-[18px] mb-[0.75em] flex items-center gap-[6px]">
+                  <p className="font-sans text-[#4e4e4e] text-[18px] mb-[0.75em] flex items-center gap-[6px]">
                     <img src="/assets/alert.svg" alt="" className="shrink-0 w-[19px] h-[18px]" aria-hidden="true" />
-                    <span>{family.title}</span>
+                    <span className="font-bold">{family.title}</span>
                   </p>
                   <p className="font-sans font-normal text-[#4e4e4e] text-[15px] mb-[1em]">{family.summary}</p>
                   <p className="font-sans font-normal text-[#4e4e4e] text-[15px] mb-[0.5em]">
@@ -488,9 +485,8 @@ export default function AdaptabloxAbout() {
         </section>
 
         <section className={sectionClass} data-node-id="enforcement-evidence" id="enforcement-evidence">
-          <SectionTitle>Every enforcement decision leaves evidence.</SectionTitle>
+          <SectionTitle>Governance you can't verify is just policy.</SectionTitle>
           <div className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-full max-w-[720px]" style={{ fontVariationSettings: "'wdth' 100" }}>
-            <p className="font-sans font-bold mb-[1em]">Governance you can't verify is just policy.</p>
             <p className="mb-[0.5em]">Every runtime intervention Adaptablox makes produces a record:</p>
             <ul className="list-disc mb-[1em]">
               <li className="mb-0 ms-[23px]"><strong>Which constraints</strong> were evaluated</li>

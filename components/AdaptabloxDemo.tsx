@@ -179,7 +179,7 @@ export default function AdaptabloxDemo() {
             style={{ fontVariationSettings: "'wdth' 100" }}
           >
             <p className="mb-0">
-              These simulations show control being enforced during execution. No retraining occurs between scenarios. No prompt tuning. No output post-processing. Behavior changes because constraints change, and constraints are enforced as the system runs.
+              These simulations show control being enforced during execution. Behavior changes because constraints change, and constraints are enforced as the system runs.
             </p>
           </div>
         </div>

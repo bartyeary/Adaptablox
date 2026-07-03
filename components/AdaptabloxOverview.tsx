@@ -94,21 +94,10 @@ export default function AdaptabloxOverview() {
           <SectionTitle>How control is enforced</SectionTitle>
           <div className="font-sans font-normal min-w-full relative shrink-0 text-[#4e4e4e] text-[15px] w-full max-w-[720px]" style={{ fontVariationSettings: "'wdth' 100" }}>
             <p className="mb-[1em]">Adaptablox applies control where agentic systems actually operate:</p>
-
-            <p className="font-sans font-bold mb-0">Execution, Agent Role & Constraint (ARC)</p>
-            <p className="mb-[1em] mt-[0.5em]">
-              Every action is evaluated against a constraint stack before it executes. Role boundaries define what is permitted. Prior actions inform the current admissibility check. Actions that exceed scope are blocked, modified, or rerouted, and memory access and delegation are governed by the same boundaries.
-            </p>
-
-            <p className="font-sans font-bold mb-0">Coordination, Disagreement Scaffolding (DS)</p>
-            <p className="mb-[1em] mt-[0.5em]">
-              Agent outputs are evaluated for coordination quality before being combined. Premature convergence, irreconcilable conflict, and deadlock are detected and resolved before synthesis. The system does not rely on consensus; it enforces the conditions under which agreement is valid.
-            </p>
-
-            <p className="font-sans font-bold mb-0">Reasoning, Latent Role & Constraint (LRC) <span className="font-normal italic">(research direction)</span></p>
-            <p className="mb-0 mt-[0.5em]">
-              LRC extends the same constraint model inside the inference process, evaluating reasoning trajectories rather than only their outputs. It is designed to constrain reasoning paths that lead toward non-compliant behavior, without modifying model weights. LRC is an active research and development direction that deepens the control stack.
-            </p>
+            <p className="mb-[1em]">At execution, in coordination, and inside inference.</p>
+            <button className="font-sans font-bold text-[#4e4e4e] text-left cursor-pointer arrow-link" type="button" onClick={() => navigate('faqs')}>
+              See ARC, DS, and LRC on System <span className="arrow-link-arrow" aria-hidden="true">→</span>
+            </button>
           </div>
         </section>
 
@@ -185,7 +174,7 @@ export default function AdaptabloxOverview() {
                 <strong>Not access governance.</strong> Access control decides who gets in. Adaptablox governs what happens after access is granted.
               </li>
               <li className="mb-[0.75em] ms-[23px]">
-                <strong>Not model modification.</strong> No retraining, no fine-tuning, no weight changes. The model stays the same. The behavior doesn't.
+                <strong>Not model modification.</strong> No retraining, no fine-tuning, no weight changes.
               </li>
               <li className="ms-[23px]">
                 <strong>Not post-hoc filtering.</strong> We don't clean up results after the fact. We gate whether results are admissible at the moment they would be produced or released.
