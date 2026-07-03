@@ -13,7 +13,7 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
         {children}
       </p>
       <div
-        className="h-[4px] w-full max-w-[720px] overflow-hidden shrink-0"
+        className="h-[4px] w-full max-w-[720px] overflow-hidden shrink-0 mb-[6px]"
         style={{
           backgroundImage:
             'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)',
@@ -95,19 +95,19 @@ export default function AdaptabloxOverview() {
           <div className="font-sans font-normal min-w-full relative shrink-0 text-[#4e4e4e] text-[15px] w-full max-w-[720px]" style={{ fontVariationSettings: "'wdth' 100" }}>
             <p className="mb-[1em]">Adaptablox applies control where agentic systems actually operate:</p>
 
-            <p className="font-sans font-bold mb-0">Execution — Agent Role & Constraint (ARC)</p>
+            <p className="font-sans font-bold mb-0">Execution, Agent Role & Constraint (ARC)</p>
             <p className="mb-[1em] mt-[0.5em]">
-              Every action is evaluated against a constraint stack before it executes. Role boundaries define what is permitted. Prior actions inform the current admissibility check. Actions that exceed scope are blocked, modified, or rerouted — and memory access and delegation are governed by the same boundaries.
+              Every action is evaluated against a constraint stack before it executes. Role boundaries define what is permitted. Prior actions inform the current admissibility check. Actions that exceed scope are blocked, modified, or rerouted, and memory access and delegation are governed by the same boundaries.
             </p>
 
-            <p className="font-sans font-bold mb-0">Coordination — Disagreement Scaffolding (DS)</p>
+            <p className="font-sans font-bold mb-0">Coordination, Disagreement Scaffolding (DS)</p>
             <p className="mb-[1em] mt-[0.5em]">
               Agent outputs are evaluated for coordination quality before being combined. Premature convergence, irreconcilable conflict, and deadlock are detected and resolved before synthesis. The system does not rely on consensus; it enforces the conditions under which agreement is valid.
             </p>
 
-            <p className="font-sans font-bold mb-0">Reasoning — Latent Role & Constraint (LRC) <span className="font-normal italic">(research direction)</span></p>
+            <p className="font-sans font-bold mb-0">Reasoning, Latent Role & Constraint (LRC) <span className="font-normal italic">(research direction)</span></p>
             <p className="mb-0 mt-[0.5em]">
-              LRC extends the same constraint model inside the inference process — evaluating reasoning trajectories rather than only their outputs. It is designed to constrain reasoning paths that lead toward non-compliant behavior, without modifying model weights. LRC is an active research and development direction that deepens the control stack.
+              LRC extends the same constraint model inside the inference process, evaluating reasoning trajectories rather than only their outputs. It is designed to constrain reasoning paths that lead toward non-compliant behavior, without modifying model weights. LRC is an active research and development direction that deepens the control stack.
             </p>
           </div>
         </section>
@@ -124,7 +124,7 @@ export default function AdaptabloxOverview() {
 +----------------------------------------------------------------------+
 ▼
 +----------------------------------------------------------------------+
-|                 A.R.C. — BEHAVIORAL GOVERNANCE LAYER                 |
+|                 A.R.C., BEHAVIORAL GOVERNANCE LAYER                 |
 |                                                                      |
 |  - Evaluate delegated authority against role and constraint stack    |
 |  - Validate scope, permissions, and execution context                |
@@ -133,7 +133,7 @@ export default function AdaptabloxOverview() {
 +----------------------------------------------------------------------+
 ▼
 +----------------------------------------------------------------------+
-|                L.R.C. — INTERNAL REASONING GOVERNANCE                |
+|                L.R.C., INTERNAL REASONING GOVERNANCE                |
 |                                                                      |
 |  - Evaluate internal reasoning pathways during inference             |
 |  - Suppress or redirect pathways that violate constraints            |
@@ -163,7 +163,7 @@ export default function AdaptabloxOverview() {
 +----------------------------------------------------------------------+
 `}
           </pre>
-          <button className="font-sans font-bold text-[#4e4e4e] underline text-left" type="button" onClick={goToEvidence}>
+          <button className="font-sans font-bold text-[#4e4e4e] text-left" type="button" onClick={goToEvidence}>
             View Enforcement + Evidence →
           </button>
         </section>
@@ -173,7 +173,7 @@ export default function AdaptabloxOverview() {
           <div className="font-sans font-normal min-w-full relative shrink-0 text-[#4e4e4e] text-[15px] w-full max-w-[720px]" style={{ fontVariationSettings: "'wdth' 100" }}>
             <ul className="list-disc mb-0">
               <li className="mb-[0.75em] ms-[23px]">
-                <strong>Not a guardrail.</strong> Guardrails evaluate outputs after generation. Adaptablox evaluates admissibility <em>before</em> an action or output is allowed to cross the boundary — before it commits, sends, or externalizes.
+                <strong>Not a guardrail.</strong> Guardrails evaluate outputs after generation. Adaptablox evaluates admissibility <em>before</em> an action or output is allowed to cross the boundary, before it commits, sends, or externalizes.
               </li>
               <li className="mb-[0.75em] ms-[23px]">
                 <strong>Not access governance.</strong> Access control decides who gets in. Adaptablox governs what happens after access is granted.

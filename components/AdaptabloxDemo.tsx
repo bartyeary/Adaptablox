@@ -165,7 +165,7 @@ export default function AdaptabloxDemo() {
               Runtime Behavior in Practice
             </p>
             <div
-              className="mt-[12px] h-[4px] w-full overflow-hidden"
+              className="mt-[12px] h-[4px] w-full overflow-hidden mb-[6px]"
               style={{
                 backgroundImage: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)',
                 backgroundSize: '22.627px 22.627px',
@@ -179,7 +179,7 @@ export default function AdaptabloxDemo() {
             style={{ fontVariationSettings: "'wdth' 100" }}
           >
             <p className="mb-0">
-              These simulations show control being enforced during execution. No retraining occurs between scenarios. No prompt tuning. No output post-processing. Behavior changes because constraints change — and constraints are enforced as the system runs.
+              These simulations show control being enforced during execution. No retraining occurs between scenarios. No prompt tuning. No output post-processing. Behavior changes because constraints change, and constraints are enforced as the system runs.
             </p>
           </div>
         </div>

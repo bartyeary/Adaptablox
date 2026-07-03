@@ -26,14 +26,14 @@ type FailureFamily = {
   scenarios: Scenario[];
 };
 
-const scenarioClass = "content-stretch flex flex-col items-start relative shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] rounded-[8px] overflow-hidden shrink-0 w-full";
+const scenarioClass = "content-stretch flex flex-col items-start relative shadow-[0px_4px_18px_0px_rgba(0,0,0,0.14)] rounded-[8px] overflow-hidden shrink-0 w-full";
 const sectionClass = "content-stretch flex flex-col gap-[12px] items-start leading-[21px] pb-[8px] md:pb-[12px] pt-[14px] md:pt-[20px] px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full";
 
 const failureFamilies: FailureFamily[] = [
   {
     title: 'Failure mode 1: The sequence is the violation.',
     summary:
-      "No single action breaks policy. The pattern does. A procurement agent issues rapid, conflicting purchase orders — each valid in isolation, incoherent in aggregate. A support agent's refunds are each defensible; across a hundred tickets, they're a financial exposure.",
+      "No single action breaks policy. The pattern does. A procurement agent issues rapid, conflicting purchase orders, each valid in isolation, incoherent in aggregate. A support agent's refunds are each defensible; across a hundred tickets, they're a financial exposure.",
     whyCurrentSystemsMissIt:
       'authority is checked per request. Nothing evaluates whether an action remains admissible given the actions that came before it.',
     whatAdaptabloxDoes:
@@ -64,7 +64,7 @@ const failureFamilies: FailureFamily[] = [
           'Audit shows how locally valid steps composed a globally invalid pattern.',
         ],
         outcome:
-          'Ordering pauses until the sequence matches delegated intent. Authority holds; stakeholders reconcile once—not after a pile of irreversible commits.',
+          'Ordering pauses until the sequence matches delegated intent. Authority holds; stakeholders reconcile once, not after a pile of irreversible commits.',
       },
       {
         label: 'Fail Scenario # 2',
@@ -129,11 +129,11 @@ const failureFamilies: FailureFamily[] = [
   {
     title: 'Failure mode 2: Agreement is not correctness.',
     summary:
-      'Multiple agents converge on the same answer — because they converged on the same assumption. Confidence rises as reasoning diversity collapses. The system produces a consistent, well-supported answer. It is wrong.',
+      'Multiple agents converge on the same answer, because they converged on the same assumption. Confidence rises as reasoning diversity collapses. The system produces a consistent, well-supported answer. It is wrong.',
     whyCurrentSystemsMissIt:
       'consensus is treated as validation. There is no mechanism to distinguish agreement from correctness, or to detect that diversity has collapsed.',
     whatAdaptabloxDoes:
-      'agent outputs are evaluated for coordination quality before they are combined. Premature convergence and irreconcilable conflict are treated as coordination failures, and the system intervenes — restoring structured disagreement — before synthesis occurs.',
+      'agent outputs are evaluated for coordination quality before they are combined. Premature convergence and irreconcilable conflict are treated as coordination failures, and the system intervenes, restoring structured disagreement, before synthesis occurs.',
     detailLine: 'Detailed scenario: false consensus',
     scenarios: [
       {
@@ -176,7 +176,7 @@ const failureFamilies: FailureFamily[] = [
     summary:
       'An agent combines data from two systems. Each source is compliant in isolation. Together, they violate policy. Or an agent optimizes throughput in ways that are individually efficient and collectively unsafe.',
     whyCurrentSystemsMissIt:
-      'compliance is evaluated per source, per output, per step — never on the composition.',
+      'compliance is evaluated per source, per output, per step, never on the composition.',
     whatAdaptabloxDoes:
       'composite results are evaluated for admissibility before they are produced or released. The system does not assume that compliant inputs produce compliant outputs. It evaluates the combination.',
     detailLine: 'Detailed scenarios: contextual compliance failure, objective override failure',
@@ -252,7 +252,7 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
         {children}
       </p>
       <div
-        className="h-[4px] w-full max-w-[720px] overflow-hidden shrink-0"
+        className="h-[4px] w-full max-w-[720px] overflow-hidden shrink-0 mb-[6px]"
         style={{
           backgroundImage:
             'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)',
@@ -268,7 +268,7 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
 function ScenarioCard({ scenario }: { scenario: Scenario }) {
   return (
     <article className={scenarioClass}>
-      <div className="bg-white border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start pl-[8px] md:pl-[12px] pr-[17px] md:pr-[24px] py-[17px] md:py-[24px] relative rounded-tl-[8px] rounded-tr-[8px] shrink-0 w-full">
+      <div className="bg-white border-solid content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative rounded-tl-[8px] rounded-tr-[8px] shrink-0 w-full">
         <p className="font-sans font-extrabold leading-[normal] not-italic relative shrink-0 text-[#ff4b4b] text-[18px] uppercase flex items-center gap-[6px] mb-0">
           {scenario.label}
         </p>
@@ -391,7 +391,7 @@ export default function AdaptabloxAbout() {
           <div className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-full max-w-[720px]" style={{ fontVariationSettings: "'wdth' 100" }}>
             <p className="font-sans font-bold mb-[1em]">Every action is valid. The sequence isn't.</p>
             <p className="mb-[1em]">
-              Adaptablox is a runtime control layer that enforces delegated authority at the moment of execution — across actions, sequences of actions, and coordination between agents.
+              Adaptablox is a runtime control layer that enforces delegated authority at the moment of execution, across actions, sequences of actions, and coordination between agents.
             </p>
             <ul className="list-disc mb-[1em]">
               <li className="mb-0 ms-[23px]">Not training.</li>
@@ -400,10 +400,10 @@ export default function AdaptabloxAbout() {
               <li className="ms-[23px]">Enforcement, during execution.</li>
             </ul>
             <div className="flex flex-col sm:flex-row gap-[10px] sm:gap-[16px]">
-              <a className="font-sans font-bold text-[#4e4e4e] underline" href="#failure-families">
+              <a className="font-sans font-bold text-[#4e4e4e]" href="#failure-families">
                 See how agents fail →
               </a>
-              <button className="font-sans font-bold text-[#4e4e4e] underline text-left" type="button" onClick={() => navigate('demo')}>
+              <button className="font-sans font-bold text-[#4e4e4e] text-left" type="button" onClick={() => navigate('demo')}>
                 Watch the demos →
               </button>
             </div>
@@ -415,10 +415,10 @@ export default function AdaptabloxAbout() {
           <div className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-full max-w-[720px]" style={{ fontVariationSettings: "'wdth' 100" }}>
             <p className="mb-[1em]">Autonomous agents don't fail the way software fails, and they don't fail the way models fail.</p>
             <p className="mb-[1em]">
-              Software fails when code is wrong. Models fail when outputs are wrong. Agents fail when <strong>behavior drifts</strong> — when a system composed of individually correct steps produces an outcome no one authorized.
+              Software fails when code is wrong. Models fail when outputs are wrong. Agents fail when <strong>behavior drifts</strong>, when a system composed of individually correct steps produces an outcome no one authorized.
             </p>
             <p className="mb-[1em]">
-              Today, authority over agents is defined <em>before</em> execution (policies, prompts, permissions) or reconstructed <em>after</em> failure (logs, monitoring, audits). Nothing enforces it <em>during</em> execution — at the moment an agent commits an action.
+              Today, authority over agents is defined <em>before</em> execution (policies, prompts, permissions) or reconstructed <em>after</em> failure (logs, monitoring, audits). Nothing enforces it <em>during</em> execution, at the moment an agent commits an action.
             </p>
             <p className="mb-0">That gap is where agentic failures live. Adaptablox closes it.</p>
           </div>
@@ -428,7 +428,7 @@ export default function AdaptabloxAbout() {
           <SectionTitle>Three ways agents fail</SectionTitle>
           <div className="content-stretch flex flex-col gap-[16px] items-start w-full">
             {failureFamilies.map((family) => (
-              <details className="bg-white rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] w-full group" key={family.title}>
+              <details className="failure-family-details bg-white rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] w-full group" key={family.title}>
                 <summary className="cursor-pointer list-none px-[17px] md:px-[24px] py-[17px] md:py-[24px]">
                   <p className="font-sans font-bold text-[#4e4e4e] text-[18px] mb-[0.75em]">{family.title}</p>
                   <p className="font-sans font-normal text-[#4e4e4e] text-[15px] mb-[1em]">{family.summary}</p>
@@ -438,7 +438,14 @@ export default function AdaptabloxAbout() {
                   <p className="font-sans font-normal text-[#4e4e4e] text-[15px] mb-[1em]">
                     <strong>What Adaptablox does:</strong> {family.whatAdaptabloxDoes}
                   </p>
-                  <p className="font-sans font-normal italic text-[#4e4e4e] text-[15px] mb-0">→ {family.detailLine}</p>
+                  <p className="font-sans font-normal italic text-[#4e4e4e] text-[15px] mb-0 flex items-center gap-[8px]">
+                    <span className="failure-family-chevron text-[#4e4e4e]" aria-hidden="true">
+                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4.5 2.5L8 6L4.5 9.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </span>
+                    <span>{family.detailLine}</span>
+                  </p>
                 </summary>
                 <div className="content-stretch flex flex-col gap-[16px] px-[17px] md:px-[24px] pb-[17px] md:pb-[24px]">
                   {family.scenarios.map((scenario) => (
@@ -453,7 +460,7 @@ export default function AdaptabloxAbout() {
         <section className={sectionClass} data-node-id="about-regulators">
           <SectionTitle>What regulators are about to ask</SectionTitle>
           <div className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-full max-w-[720px]" style={{ fontVariationSettings: "'wdth' 100" }}>
-            <p className="font-sans font-bold mb-[1em]">Not what the model can do. Whether this agent should be allowed to do it — now, in this context, under this authority.</p>
+            <p className="font-sans font-bold mb-[1em]">Not what the model can do. Whether this agent should be allowed to do it now, in this context, under this authority.</p>
             <p className="mb-[1em]">
               Regulatory pressure on frontier models governs <em>capability</em>: what models may be built and who may access them. But once a model is deployed as an agent, capability governance stops answering the question that matters:
             </p>
@@ -478,7 +485,7 @@ export default function AdaptabloxAbout() {
               <li className="ms-[23px]"><strong>Why</strong> the action was allowed, modified, rerouted, or blocked</li>
             </ul>
             <p className="mb-[1em]">
-              These records are cryptographically chained, so the history of enforcement decisions is tamper-evident. An auditor doesn't have to trust that governance happened. The record shows it — and shows that the record itself hasn't been altered.
+              These records are cryptographically chained, so the history of enforcement decisions is tamper-evident. An auditor doesn't have to trust that governance happened. The record shows it, and shows that the record itself hasn't been altered.
             </p>
             <p className="mb-[0.5em]">This is the difference between governance as a promise and governance as a produced artifact:</p>
             <ul className="list-disc mb-0">
@@ -494,7 +501,7 @@ export default function AdaptabloxAbout() {
           <SectionTitle>Who this is for</SectionTitle>
           <div className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-full max-w-[720px]" style={{ fontVariationSettings: "'wdth' 100" }}>
             <p className="mb-[1em]">
-              Adaptablox is built for teams deploying autonomous agents where behavior carries consequence: financial services, healthcare, legal, and government — environments where "the agent seemed fine in testing" is not an acceptable control posture, and where every enforcement decision must be demonstrable after the fact.
+              Adaptablox is built for teams deploying autonomous agents where behavior carries consequence: financial services, healthcare, legal, and government, environments where "the agent seemed fine in testing" is not an acceptable control posture, and where every enforcement decision must be demonstrable after the fact.
             </p>
             <p className="mb-0">
               If your agents can spend money, touch regulated data, or act across systems, the question is no longer whether they're capable. It's whether their authority is enforced.

@@ -26,7 +26,21 @@ html {
   color: inherit;
 }
 
-/* Prevent single-word orphans at end of wrapped lines */
+/* Failure family expand chevron */
+.failure-family-chevron {
+  display: inline-flex;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+details.failure-family-details[open] .failure-family-chevron {
+  transform: rotate(90deg);
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
 p {
   text-wrap: pretty;
 }

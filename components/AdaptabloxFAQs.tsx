@@ -13,7 +13,7 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
         {children}
       </p>
       <div
-        className="mt-[12px] h-[4px] w-full max-w-[720px] overflow-hidden"
+        className="mt-[12px] h-[4px] w-full max-w-[720px] overflow-hidden mb-[6px]"
         style={{
           backgroundImage: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)',
           backgroundSize: '22.627px 22.627px',
@@ -101,19 +101,19 @@ export default function AdaptabloxFAQs() {
             <p className="mb-[1em]">Adaptablox applies control where agentic systems actually operate:</p>
           </div>
           <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full">
-            <SystemCard title="Execution — Agent Role & Constraint (ARC)">
+            <SystemCard title="Execution, Agent Role & Constraint (ARC)">
               <p className="mb-0">
-                Every action is evaluated against a constraint stack before it executes. Role boundaries define what is permitted. Prior actions inform the current admissibility check. Actions that exceed scope are blocked, modified, or rerouted — and memory access and delegation are governed by the same boundaries.
+                Every action is evaluated against a constraint stack before it executes. Role boundaries define what is permitted. Prior actions inform the current admissibility check. Actions that exceed scope are blocked, modified, or rerouted, and memory access and delegation are governed by the same boundaries.
               </p>
             </SystemCard>
-            <SystemCard title="Coordination — Disagreement Scaffolding (DS)">
+            <SystemCard title="Coordination, Disagreement Scaffolding (DS)">
               <p className="mb-0">
                 Agent outputs are evaluated for coordination quality before being combined. Premature convergence, irreconcilable conflict, and deadlock are detected and resolved before synthesis. The system does not rely on consensus; it enforces the conditions under which agreement is valid.
               </p>
             </SystemCard>
-            <SystemCard title="Reasoning — Latent Role & Constraint (LRC)" subtitle="research direction">
+            <SystemCard title="Reasoning, Latent Role & Constraint (LRC)" subtitle="research direction">
               <p className="mb-0">
-                LRC extends the same constraint model inside the inference process — evaluating reasoning trajectories rather than only their outputs. It is designed to constrain reasoning paths that lead toward non-compliant behavior, without modifying model weights. LRC is an active research and development direction that deepens the control stack.
+                LRC extends the same constraint model inside the inference process, evaluating reasoning trajectories rather than only their outputs. It is designed to constrain reasoning paths that lead toward non-compliant behavior, without modifying model weights. LRC is an active research and development direction that deepens the control stack.
               </p>
             </SystemCard>
           </div>
