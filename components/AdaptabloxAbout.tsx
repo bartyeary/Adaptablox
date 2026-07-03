@@ -31,7 +31,7 @@ const sectionClass = "content-stretch flex flex-col gap-[12px] items-start leadi
 
 const failureFamilies: FailureFamily[] = [
   {
-    title: 'Failure mode 1: The sequence is the violation.',
+    title: 'Failure: The sequence is the violation.',
     summary:
       "No single action breaks policy. The pattern does. A procurement agent issues rapid, conflicting purchase orders, each valid in isolation, incoherent in aggregate. A support agent's refunds are each defensible; across a hundred tickets, they're a financial exposure.",
     whyCurrentSystemsMissIt:
@@ -127,7 +127,7 @@ const failureFamilies: FailureFamily[] = [
     ],
   },
   {
-    title: 'Failure mode 2: Agreement is not correctness.',
+    title: 'Failure: Agreement is not correctness.',
     summary:
       'Multiple agents converge on the same answer, because they converged on the same assumption. Confidence rises as reasoning diversity collapses. The system produces a consistent, well-supported answer. It is wrong.',
     whyCurrentSystemsMissIt:
@@ -172,7 +172,7 @@ const failureFamilies: FailureFamily[] = [
     ],
   },
   {
-    title: 'Failure mode 3: Compliant parts, non-compliant whole.',
+    title: 'Failure: Compliant parts, non-compliant whole.',
     summary:
       'An agent combines data from two systems. Each source is compliant in isolation. Together, they violate policy. Or an agent optimizes throughput in ways that are individually efficient and collectively unsafe.',
     whyCurrentSystemsMissIt:

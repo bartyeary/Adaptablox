@@ -125,7 +125,7 @@ export default function AdaptabloxOverview() {
 +----------------------------------------------------------------------+
 ▼
 +----------------------------------------------------------------------+
-|                 A.R.C., BEHAVIORAL GOVERNANCE LAYER                 |
+|                 A.R.C., BEHAVIORAL GOVERNANCE LAYER                  |
 |                                                                      |
 |  - Evaluate delegated authority against role and constraint stack    |
 |  - Validate scope, permissions, and execution context                |
@@ -134,7 +134,7 @@ export default function AdaptabloxOverview() {
 +----------------------------------------------------------------------+
 ▼`}
             </pre>
-            <pre className="font-mono leading-[12px] md:leading-[18px] not-italic relative shrink-0 text-[#4e4e4e] text-[10px] md:text-[15px] text-center w-full whitespace-pre overflow-x-auto opacity-60" style={{ fontFamily: 'monospace' }}>
+            <pre className="font-mono leading-[12px] md:leading-[18px] not-italic relative shrink-0 text-[#4e4e4e] text-[10px] md:text-[15px] text-center w-full whitespace-pre overflow-x-auto" style={{ fontFamily: 'monospace' }}>
 {`+----------------------------------------------------------------------+
 |      L.R.C., INTERNAL REASONING GOVERNANCE (research direction)      |
 |                                                                      |
@@ -169,7 +169,7 @@ export default function AdaptabloxOverview() {
 `}
             </pre>
           </div>
-          <button className="font-sans font-bold text-[#4e4e4e] text-left" type="button" onClick={goToEvidence}>
+          <button className="font-sans font-bold text-[#4e4e4e] text-left mt-[12px]" type="button" onClick={goToEvidence}>
             View Enforcement + Evidence →
           </button>
         </section>

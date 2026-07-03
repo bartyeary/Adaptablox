@@ -25,7 +25,6 @@ a:I[6523,["931","static/chunks/app/page-4c83fbd0f5d1dd09.js"],""]
                     const btn = overviewBtn;
                     const span = btn.querySelector('span');
                     if (activePage === 'overview') {
-                      btn.className = 'content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity bg-[#eef0f4] shadow-[0px_6px_15px_0px_rgba(0,0,0,0.12)]';
                       if (span) span.className = 'font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap text-[#5b5b5f]';
                     } else {
                       btn.className = 'content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity bg-transparent hover:opacity-80';
