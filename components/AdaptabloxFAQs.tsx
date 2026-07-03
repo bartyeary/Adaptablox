@@ -4,45 +4,66 @@ import { useEffect, useState } from 'react';
 import { useNavigation } from '@/contexts/NavigationContext';
 
 const imgGroup28481 = "/assets/logo2.svg";
+const sectionClass = "content-stretch flex flex-col gap-[12px] items-start pb-[8px] md:pb-[12px] pt-[14px] md:pt-[20px] px-[17px] md:px-[24px] relative shrink-0 w-full text-[#4e4e4e]";
+
+function SectionTitle({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <p className="font-sans font-[590] leading-[21px] relative shrink-0 text-[24px] text-[#4E4E4E] mb-0" style={{ fontVariationSettings: "'wdth' 100" }}>
+        {children}
+      </p>
+      <div
+        className="mt-[12px] h-[4px] w-full max-w-[720px] overflow-hidden"
+        style={{
+          backgroundImage: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)',
+          backgroundSize: '22.627px 22.627px',
+          backgroundPosition: '0 0',
+          imageRendering: 'crisp-edges',
+        }}
+      />
+    </>
+  );
+}
+
+function SystemCard({ title, subtitle, children }: { title: string; subtitle?: string; children: React.ReactNode }) {
+  return (
+    <div className="content-stretch flex flex-col gap-[12px] items-start px-[17px] md:px-[24px] py-[17px] md:py-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full bg-white">
+      <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full mb-0">
+        {title}
+        {subtitle && <span className="font-normal italic"> ({subtitle})</span>}
+      </p>
+      <div className="bg-[#d9d9d9] h-[1.5px] shrink-0 w-full" />
+      <div className="font-sans font-normal leading-[21px] text-[#4e4e4e] text-[15px] w-full">
+        {children}
+      </div>
+    </div>
+  );
+}
 
 export default function AdaptabloxFAQs() {
   const { activePage, navigate } = useNavigation();
   const [isAnimating, setIsAnimating] = useState(false);
-  
+
   useEffect(() => {
-    console.log('AdaptabloxFAQs rendered, activePage:', activePage);
-    // Reset and trigger animation on page change
     setIsAnimating(false);
-    // Use setTimeout to ensure the state change is applied before animation
-    setTimeout(() => {
-      requestAnimationFrame(() => {
-        setIsAnimating(true);
-      });
+    const t = window.setTimeout(() => {
+      requestAnimationFrame(() => setIsAnimating(true));
     }, 10);
+    return () => window.clearTimeout(t);
   }, [activePage]);
-  
+
   useEffect(() => {
-    // Expose navigate functions to window for document-level listeners
-    (window as any).testNavigate = () => {
-      console.log('window.testNavigate called - navigating to FAQs');
-      navigate('faqs');
-    };
-    (window as any).testNavigateAbout = () => {
-      console.log('window.testNavigateAbout called - navigating to About');
-      navigate('about');
-    };
-    (window as any).testNavigateDemo = () => {
-      console.log('window.testNavigateDemo called - navigating to Demo');
-      navigate('demo');
-    };
-    
+    (window as any).testNavigate = () => navigate('faqs');
+    (window as any).testNavigateAbout = () => navigate('about');
+    (window as any).testNavigateDemo = () => navigate('demo');
+
     return () => {
       delete (window as any).testNavigate;
       delete (window as any).testNavigateAbout;
       delete (window as any).testNavigateDemo;
     };
   }, [navigate]);
-  
+
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-center relative size-full min-h-screen" data-name="adaptablox - faqs" data-node-id="1:163" style={{ background: "radial-gradient(66.15% 98.68% at -6.3% -5.34%, #F2F4F8 0%, #DCDEE6 100%)" }}>
       <div className="bg-[rgba(135,137,145,0.68)] backdrop-blur-sm h-[71px] overflow-clip fixed top-0 left-0 right-0 z-50 w-full" data-node-id="1:164" style={{ background: "rgba(135, 137, 145, 0.68)" }}>
@@ -52,501 +73,89 @@ export default function AdaptabloxFAQs() {
           </div>
         </div>
         <div className="absolute left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-[17px] top-[17px] bg-[#93959d] content-stretch flex gap-[6px] items-center p-[3px] rounded-[12px] z-[60]" data-name="control" data-node-id="1:166">
-          <button
-            onClick={() => {
-              console.log('Failures button clicked');
-              navigate('about');
-            }}
-            className={`content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity ${
-              activePage === 'about'
-                ? 'bg-[#f7f9fc] shadow-[0px_5px_9px_0px_rgba(0,0,0,0.07)]'
-                : 'bg-transparent hover:opacity-80'
-            }`}
-            data-name="button"
-            data-node-id="27:671"
-            type="button"
-          >
-            <span className={`font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap ${
-              activePage === 'about' ? 'text-[#5b5b5f]' : 'text-white'
-            }`}>
-              About
-            </span>
+          <button onClick={() => navigate('about')} className={`content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity ${activePage === 'about' ? 'bg-[#f7f9fc] shadow-[0px_5px_9px_0px_rgba(0,0,0,0.07)]' : 'bg-transparent hover:opacity-80'}`} data-name="button" data-node-id="27:671" type="button">
+            <span className={`font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap ${activePage === 'about' ? 'text-[#5b5b5f]' : 'text-white'}`}>About</span>
           </button>
-          <button 
-            onClick={() => {
-              console.log('Control button clicked');
-              navigate('overview');
-            }}
-            className={`content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity ${
-              activePage === 'overview'
-                ? 'bg-[#f7f9fc] shadow-[0px_5px_9px_0px_rgba(0,0,0,0.07)]'
-                : 'bg-transparent hover:opacity-80'
-            }`}
-            data-name="button" 
-            data-node-id="27:669"
-            type="button"
-          >
-            <span className={`font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap ${
-              activePage === 'overview' ? 'text-[#5b5b5f]' : 'text-white'
-            }`}>
-              Control
-            </span>
+          <button onClick={() => navigate('overview')} className={`content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity ${activePage === 'overview' ? 'bg-[#f7f9fc] shadow-[0px_5px_9px_0px_rgba(0,0,0,0.07)]' : 'bg-transparent hover:opacity-80'}`} data-name="button" data-node-id="27:669" type="button">
+            <span className={`font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap ${activePage === 'overview' ? 'text-[#5b5b5f]' : 'text-white'}`}>Control</span>
           </button>
-          <button
-            onClick={(e) => {
-              console.log('System button clicked');
-              e.preventDefault();
-              e.stopPropagation();
-              navigate('faqs');
-            }}
-            className={`content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity ${
-              activePage === 'faqs'
-                ? 'bg-[#f7f9fc] shadow-[0px_5px_9px_0px_rgba(0,0,0,0.07)]'
-                : 'bg-transparent hover:opacity-80'
-            }`}
-            data-name="button"
-            data-node-id="1:10"
-            type="button"
-            style={{ zIndex: 10001, position: 'relative' }}
-          >
-            <span className={`font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap ${
-              activePage === 'faqs' ? 'text-[#5b5b5f]' : 'text-white'
-            }`}>
-              System
-            </span>
+          <button onClick={() => navigate('faqs')} className={`content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity ${activePage === 'faqs' ? 'bg-[#f7f9fc] shadow-[0px_5px_9px_0px_rgba(0,0,0,0.07)]' : 'bg-transparent hover:opacity-80'}`} data-name="button" data-node-id="1:10" type="button" style={{ zIndex: 10001, position: 'relative' }}>
+            <span className={`font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap ${activePage === 'faqs' ? 'text-[#5b5b5f]' : 'text-white'}`}>System</span>
           </button>
-          <button
-            onClick={() => {
-              console.log('Demo button clicked');
-              navigate('demo');
-            }}
-            className={`content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity ${
-              activePage === 'demo'
-                ? 'bg-[#f7f9fc] shadow-[0px_5px_9px_0px_rgba(0,0,0,0.07)]'
-                : 'bg-transparent hover:opacity-80'
-            }`}
-            data-name="button"
-            data-node-id="1:12"
-            type="button"
-          >
-            <span className={`font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap ${
-              activePage === 'demo' ? 'text-[#5b5b5f]' : 'text-white'
-            }`}>
-              Demo
-            </span>
+          <button onClick={() => navigate('demo')} className={`content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity ${activePage === 'demo' ? 'bg-[#f7f9fc] shadow-[0px_5px_9px_0px_rgba(0,0,0,0.07)]' : 'bg-transparent hover:opacity-80'}`} data-name="button" data-node-id="1:12" type="button">
+            <span className={`font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap ${activePage === 'demo' ? 'text-[#5b5b5f]' : 'text-white'}`}>Demo</span>
           </button>
         </div>
       </div>
-      <div 
-        className="bg-[#f7f9fc] content-stretch flex flex-col gap-[48px] items-start p-[13px] md:p-[18px] pb-[82px] md:pb-[118px] relative shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-[800px] max-w-full mx-auto transition-all duration-250 ease-out min-h-[calc(100vh+21px)]" 
-        style={{ 
+      <div
+        className="bg-[#f7f9fc] content-stretch flex flex-col gap-[32px] items-start p-[13px] md:p-[18px] pb-[82px] md:pb-[118px] relative shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-[800px] max-w-full mx-auto transition-all duration-250 ease-out min-h-[calc(100vh+21px)]"
+        style={{
           marginTop: isAnimating ? '0px' : '-20px',
-          transition: 'margin-top 0.25s ease-out'
+          transition: 'margin-top 0.25s ease-out',
         }}
         data-node-id="1:200"
       >
-        <div className="content-stretch flex flex-col gap-[12px] items-start pb-[8px] md:pb-[12px] pt-[14px] md:pt-[20px] px-[17px] md:px-[24px] relative shrink-0 w-full" data-node-id="1:201" style={{ marginTop: '71px' }}>
-          <div className="min-w-full relative shrink-0 w-full">
-            <p className="font-sans font-[590] leading-[21px] relative shrink-0 text-[24px] text-[#4E4E4E] text-nowrap mb-0" data-node-id="27:627" style={{ fontVariationSettings: "'wdth' 100" }}>
-              The System
-            </p>
-            <div 
-              className="mt-[12px] h-[4px] w-full overflow-hidden"
-              style={{
-                backgroundImage: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)',
-                backgroundSize: '22.627px 22.627px',
-                backgroundPosition: '0 0',
-                imageRendering: 'crisp-edges'
-              }}
-            />
+        <section className={sectionClass} data-node-id="system-control-layers" style={{ marginTop: '71px' }}>
+          <SectionTitle>The System</SectionTitle>
+          <div className="font-sans font-normal leading-[21px] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full max-w-[720px]" style={{ fontVariationSettings: "'wdth' 100" }}>
+            <p className="mb-[1em]">Adaptablox applies control where agentic systems actually operate:</p>
           </div>
-          <div className="font-sans font-normal leading-[0] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:203">
-            <p className="leading-[21px] mb-[1em]">Adaptablox is a runtime control system for AI behavior.</p>
-            <p className="leading-[21px] mb-[0.5em]">It enforces constraints across both:</p>
-            <ul className="list-disc mb-[1em]">
-              <li className="mb-0 ms-[22.5px] leading-[21px]">external behavior</li>
-              <li className="ms-[22.5px] leading-[21px]">internal reasoning</li>
-            </ul>
-            <p className="leading-[21px] mb-[1em]">Control is applied continuously as the system operates.</p>
-            <p className="font-sans font-bold leading-[21px] mb-[1em] text-[#4e4e4e]">Two Interlocking Layers</p>
-            <p className="leading-[21px] mb-[0.5em]">Adaptablox operates through two tightly coupled layers:</p>
-            <ul className="list-disc mb-[1em]">
-              <li className="mb-0 ms-[22.5px] leading-[21px]">ARC controls what the system is allowed to do</li>
-              <li className="ms-[22.5px] leading-[21px]">LRC controls how the system is allowed to reason</li>
-            </ul>
-            <p className="leading-[21px] mb-[1em]">
-              These layers operate together at runtime to ensure that both actions and reasoning remain within defined constraints.
-            </p>
-            <p className="font-sans font-bold leading-[21px] mb-0 text-[#4e4e4e]">Agent Role & Constraint (ARC)</p>
-            <p className="font-sans font-normal italic leading-[21px] mb-0 mt-[0.5em] text-[#4e4e4e]">Behavioral Control</p>
-            <p className="leading-[21px] mb-0 mt-[0.75em]">
-              ARC enforces constraints on actions, communication, and delegation.
-            </p>
-            <ul className="list-disc mt-[0.5em] mb-[1em]">
-              <li className="mb-0 ms-[22.5px] leading-[21px]">
-                Evaluates actions against role, scope, and permissions before execution
-              </li>
-              <li className="mb-0 ms-[22.5px] leading-[21px]">
-                Blocks, modifies, or reroutes actions that exceed constraints
-              </li>
-              <li className="mb-0 ms-[22.5px] leading-[21px]">
-                Regulates memory access and delegation boundaries
-              </li>
-              <li className="ms-[22.5px] leading-[21px]">
-                Maintains consistent behavior across interactions
-              </li>
-            </ul>
-            <p className="leading-[21px] mb-[1em]">ARC ensures that behavior remains admissible at every step.</p>
-            <p className="font-sans font-bold leading-[21px] mb-0 text-[#4e4e4e]">Latent Role & Constraint (LRC)</p>
-            <p className="font-sans font-normal italic leading-[21px] mb-0 mt-[0.5em] text-[#4e4e4e]">Reasoning Control</p>
-            <p className="leading-[21px] mb-0 mt-[0.75em]">
-              LRC enforces constraints within the reasoning process during inference.
-            </p>
-            <ul className="list-disc mt-[0.5em] mb-[1em]">
-              <li className="mb-0 ms-[22.5px] leading-[21px]">
-                Evaluates internal reasoning pathways and activation patterns in real time
-              </li>
-              <li className="mb-0 ms-[22.5px] leading-[21px]">
-                Suppresses or redirects pathways that violate constraints
-              </li>
-              <li className="mb-0 ms-[22.5px] leading-[21px]">
-                Selects only constraint-compliant reasoning trajectories
-              </li>
-              <li className="ms-[22.5px] leading-[21px]">
-                Resolves conflicts between competing internal interpretations
-              </li>
-            </ul>
-            <p className="leading-[21px] mb-[1em]">
-              LRC ensures that reasoning remains admissible before outputs are formed.
-            </p>
-            <p className="font-sans font-bold leading-[21px] mb-[1em] text-[#4e4e4e]">Combined Operation</p>
-            <p className="leading-[21px] mb-[0.5em]">ARC and LRC operate together during runtime.</p>
-            <ul className="list-disc mb-[1em]">
-              <li className="mb-0 ms-[22.5px] leading-[21px]">ARC constrains what actions are allowed</li>
-              <li className="ms-[22.5px] leading-[21px]">LRC constrains which reasoning paths are allowed</li>
-            </ul>
-            <p className="leading-[21px] mb-[1em]">
-              The system does not assume correct reasoning leads to correct behavior.
-            </p>
-            <p className="leading-[21px] mb-[1em]">
-              Both reasoning and behavior are evaluated before they are allowed.
-            </p>
-            <p className="font-sans font-bold leading-[21px] mb-[1em] text-[#4e4e4e]">Outcome</p>
-            <p className="leading-[21px] mb-[0.5em]">This structure ensures:</p>
-            <ul className="list-disc mb-[1em]">
-              <li className="mb-0 ms-[22.5px] leading-[21px]">Actions remain within defined authority</li>
-              <li className="mb-0 ms-[22.5px] leading-[21px]">Reasoning remains aligned with constraints</li>
-              <li className="mb-0 ms-[22.5px] leading-[21px]">Behavior remains consistent across time and context</li>
-              <li className="ms-[22.5px] leading-[21px]">
-                All control is applied at runtime without modifying model weights or training.
-              </li>
-            </ul>
-            <p className="leading-[21px] mb-[1em]">Control is continuous, not static.</p>
-            <p className="leading-[21px] mb-[1em]">We do not rely on models to behave correctly.</p>
-            <p className="leading-[21px] mb-0">We control how they reason and what they do.</p>
+          <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full">
+            <SystemCard title="Execution — Agent Role & Constraint (ARC)">
+              <p className="mb-0">
+                Every action is evaluated against a constraint stack before it executes. Role boundaries define what is permitted. Prior actions inform the current admissibility check. Actions that exceed scope are blocked, modified, or rerouted — and memory access and delegation are governed by the same boundaries.
+              </p>
+            </SystemCard>
+            <SystemCard title="Coordination — Disagreement Scaffolding (DS)">
+              <p className="mb-0">
+                Agent outputs are evaluated for coordination quality before being combined. Premature convergence, irreconcilable conflict, and deadlock are detected and resolved before synthesis. The system does not rely on consensus; it enforces the conditions under which agreement is valid.
+              </p>
+            </SystemCard>
+            <SystemCard title="Reasoning — Latent Role & Constraint (LRC)" subtitle="research direction">
+              <p className="mb-0">
+                LRC extends the same constraint model inside the inference process — evaluating reasoning trajectories rather than only their outputs. It is designed to constrain reasoning paths that lead toward non-compliant behavior, without modifying model weights. LRC is an active research and development direction that deepens the control stack.
+              </p>
+            </SystemCard>
           </div>
-        </div>
-        <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0 w-full" data-node-id="1:204">
-          <div className="content-stretch flex gap-[6px] h-[21px] items-center px-[5px] py-0 relative shrink-0 w-full" data-node-id="1:205">
-            <div className="basis-0 bg-[#d9d9d9] grow h-[1.5px] min-h-px min-w-px shrink-0" data-node-id="1:206" />
-            <p className="font-sans font-normal leading-[21px] not-italic relative shrink-0 text-[#6aaf81] text-[15px] text-center text-nowrap" data-node-id="1:207">
-              <span className="font-sans font-bold">Behavioral Reasoning Governance</span>
-              <span>{` (A.R.C.)`}</span>
-            </p>
-            <div className="basis-0 bg-[#d9d9d9] grow h-[1.5px] min-h-px min-w-px shrink-0" data-node-id="1:208" />
+        </section>
+
+        <section className={sectionClass} data-node-id="system-faq-cards">
+          <SectionTitle>Questions</SectionTitle>
+          <div className="content-start flex flex-wrap gap-[18px] items-start justify-center relative shrink-0 w-full">
+            <SystemCard title="How does A.R.C. differ from access governance?">
+              <p className="mb-[1em]">Access governance controls who can access a resource.</p>
+              <p className="mb-[1em]">A.R.C. controls what happens after access is granted.</p>
+              <p className="mb-0">Actions are evaluated and constrained at execution.</p>
+            </SystemCard>
+            <SystemCard title="Does A.R.C. improve model accuracy?">
+              <p className="mb-[1em]">No.</p>
+              <p className="mb-[1em]">A.R.C. does not change the model.</p>
+              <p className="mb-0">It enforces whether actions are allowed at runtime.</p>
+            </SystemCard>
+            <SystemCard title="How are agent responses synthesized?">
+              <p className="mb-[1em]">Outputs are evaluated before being combined.</p>
+              <p className="mb-[1em]">Non-compliant responses are removed.</p>
+              <p className="mb-0">Synthesis occurs under constraint.</p>
+            </SystemCard>
+            <SystemCard title="Does L.R.C. change the model's weights?">
+              <p className="mb-[1em]">No.</p>
+              <p className="mb-[1em]">It is designed to constrain reasoning during inference.</p>
+              <p className="mb-0">Control is applied without retraining.</p>
+            </SystemCard>
+            <SystemCard title="Why govern internal reasoning at all? Isn't output control enough?">
+              <p className="mb-[1em]">No.</p>
+              <p className="mb-[1em]">Output control happens too late.</p>
+              <p className="mb-0">L.R.C. is designed to constrain reasoning before output.</p>
+            </SystemCard>
           </div>
-          <div className="content-start flex flex-wrap gap-[18px] items-start justify-center relative shrink-0 w-full" data-node-id="1:209">
-            <div className="content-stretch flex flex-col gap-[12px] items-start px-[17px] md:px-[24px] pt-[17px] md:pt-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full min-[600px]:w-[242px] flex-shrink-0 h-auto min-[600px]:h-[335px] pb-[14px] md:pb-[24px] bg-white" data-node-id="1:210">
-              <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:211">
-                How does A.R.C. differ from access governance?
-              </p>
-              <div className="bg-[#85dba2] h-[1.5px] shrink-0 w-full" data-node-id="1:212" />
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:213">
-                Access governance controls who can access a resource.
-              </p>
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                A.R.C. controls what happens after access is granted.
-              </p>
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                Actions are evaluated and constrained at execution.
-              </p>
-            </div>
-            <div className="content-stretch flex flex-col gap-[12px] items-start px-[17px] md:px-[24px] pt-[17px] md:pt-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full min-[600px]:w-[242px] flex-shrink-0 h-auto min-[600px]:h-[335px] pb-[14px] md:pb-[24px] bg-white" data-faq-card data-node-id="1:214">
-              <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:215">
-                Does A.R.C. improve model accuracy?
-              </p>
-              <div className="bg-[#85dba2] h-[1.5px] shrink-0 w-full" data-node-id="1:216" />
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:217">
-                No.
-              </p>
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                A.R.C. does not change the model.
-              </p>
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                It enforces whether actions are allowed at runtime.
-              </p>
-            </div>
-            <div className="content-stretch flex flex-col gap-[12px] items-start px-[17px] md:px-[24px] pt-[17px] md:pt-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full min-[600px]:w-[242px] flex-shrink-0 h-auto min-[600px]:h-[335px] pb-[14px] md:pb-[24px] bg-white" data-faq-card data-node-id="1:218">
-              <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:219">
-                How does A.R.C. decide when an agent should evolve or escalate?
-              </p>
-              <div className="bg-[#85dba2] h-[1.5px] shrink-0 w-full" data-node-id="1:220" />
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:221">
-                A.R.C. evaluates whether an action is within scope.
-              </p>
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                Out-of-scope actions are blocked or rerouted.
-              </p>
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                Escalation occurs when no valid action is available.
-              </p>
-            </div>
-            <div className="content-stretch flex flex-col gap-[12px] items-start px-[17px] md:px-[24px] pt-[17px] md:pt-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full min-[600px]:w-[242px] flex-shrink-0 h-auto min-[600px]:h-[335px] pb-[14px] md:pb-[24px] bg-white" data-faq-card data-node-id="1:222">
-              <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:223">
-                What if agents interpret a prompt differently?
-              </p>
-              <div className="bg-[#85dba2] h-[1.5px] shrink-0 w-full" data-node-id="1:224" />
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:225">
-                A.R.C. evaluates outputs against constraints.
-              </p>
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                Non-compliant responses are excluded.
-              </p>
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                Only valid outputs are used.
-              </p>
-            </div>
-            <div className="content-stretch flex flex-col gap-[12px] items-start px-[17px] md:px-[24px] pt-[17px] md:pt-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full min-[600px]:w-[242px] flex-shrink-0 h-auto min-[600px]:h-[335px] pb-[14px] md:pb-[24px] bg-white" data-faq-card data-node-id="1:226">
-              <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:227">
-                Can A.R.C. learn over time?
-              </p>
-              <div className="bg-[#85dba2] h-[1.5px] shrink-0 w-full" data-node-id="1:228" />
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:229">
-                A.R.C. does not retrain the model.
-              </p>
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                It updates how constraints are evaluated.
-              </p>
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                Changes apply immediately at runtime.
-              </p>
-            </div>
-            <div className="content-stretch flex flex-col gap-[12px] items-start px-[17px] md:px-[24px] pt-[17px] md:pt-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full min-[600px]:w-[242px] flex-shrink-0 h-auto min-[600px]:h-[335px] pb-[14px] md:pb-[24px] bg-white" data-faq-card data-node-id="1:230">
-              <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:231">
-                How are agent responses synthesized?
-              </p>
-              <div className="bg-[#85dba2] h-[1.5px] shrink-0 w-full" data-node-id="1:232" />
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:233">
-                Outputs are evaluated before being combined.
-              </p>
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                Non-compliant responses are removed.
-              </p>
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                Synthesis occurs under constraint.
-              </p>
-            </div>
-            <div className="content-stretch flex flex-col gap-[12px] items-start px-[17px] md:px-[24px] pt-[17px] md:pt-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full min-[600px]:w-[242px] flex-shrink-0 h-auto min-[600px]:h-[335px] pb-[14px] md:pb-[24px] bg-white" data-faq-card data-node-id="1:234">
-              <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:235">
-                Will frontier models solve governance?
-              </p>
-              <div className="bg-[#85dba2] h-[1.5px] shrink-0 w-full" data-node-id="1:236" />
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:237">
-                No.
-              </p>
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                Capability does not enforce behavior.
-              </p>
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                Control requires runtime evaluation.
-              </p>
-            </div>
-            <div className="content-stretch flex flex-col gap-[12px] items-start px-[17px] md:px-[24px] pt-[17px] md:pt-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full min-[600px]:w-[242px] flex-shrink-0 h-auto min-[600px]:h-[335px] pb-[14px] md:pb-[24px] bg-white" data-faq-card data-node-id="1:238">
-              <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:239">
-                Can A.R.C. prevent harmful or off-policy outputs?
-              </p>
-              <div className="bg-[#85dba2] h-[1.5px] shrink-0 w-full" data-node-id="1:240" />
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:241">
-                Yes.
-              </p>
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                Actions are evaluated before execution.
-              </p>
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                Violations are blocked or modified.
-              </p>
-            </div>
-            <div className="content-stretch flex flex-col gap-[12px] items-start px-[17px] md:px-[24px] pt-[17px] md:pt-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full min-[600px]:w-[242px] flex-shrink-0 h-auto min-[600px]:h-[335px] pb-[14px] md:pb-[24px] bg-white" data-faq-card data-node-id="1:242">
-              <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:243">
-                How does the system assemble multiple agents?
-              </p>
-              <div className="bg-[#85dba2] h-[1.5px] shrink-0 w-full" data-node-id="1:244" />
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:245">
-                Agents are selected based on task constraints.
-              </p>
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                Only permitted roles are invoked.
-              </p>
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                Coordination is constrained at runtime.
-              </p>
-            </div>
-            <div className="content-stretch flex flex-col gap-[12px] items-start px-[17px] md:px-[24px] pt-[17px] md:pt-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full min-[600px]:w-[242px] flex-shrink-0 h-auto min-[600px]:h-[335px] pb-[14px] md:pb-[24px] bg-white" data-faq-card data-node-id="1:246">
-              <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:247">
-                How does A.R.C. handle memory in regulated environments?
-              </p>
-              <div className="bg-[#85dba2] h-[1.5px] shrink-0 w-full" data-node-id="1:248" />
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:249">
-                Memory access is evaluated against constraints.
-              </p>
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                Sensitive data is restricted at runtime.
-              </p>
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                All access is logged.
-              </p>
-            </div>
-            <div className="content-stretch flex flex-col gap-[12px] items-start px-[17px] md:px-[24px] pt-[17px] md:pt-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full min-[600px]:w-[242px] flex-shrink-0 h-auto min-[600px]:h-[335px] pb-[14px] md:pb-[24px] bg-white" data-faq-card data-node-id="1:250">
-              <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:251">
-                Can A.R.C. support multistep chaining of agent tasks?
-              </p>
-              <div className="bg-[#85dba2] h-[1.5px] shrink-0 w-full" data-node-id="1:252" />
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:253">
-                Yes.
-              </p>
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                Each step is evaluated in sequence.
-              </p>
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                Invalid transitions are blocked.
-              </p>
-            </div>
-            <div className="content-stretch flex flex-col gap-[12px] items-start px-[17px] md:px-[24px] pt-[17px] md:pt-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full min-[600px]:w-[242px] flex-shrink-0 h-auto min-[600px]:h-[335px] pb-[14px] md:pb-[24px] bg-white" data-faq-card data-node-id="1:254">
-              <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:255">
-                How does Adaptablox improve efficiency?
-              </p>
-              <div className="bg-[#85dba2] h-[1.5px] shrink-0 w-full" data-node-id="1:256" />
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:257">
-                Invalid reasoning and actions are stopped early.
-              </p>
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                Only compliant paths are executed.
-              </p>
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                This reduces wasted computation.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0 w-full" data-node-id="1:258">
-          <div className="content-stretch flex gap-[6px] h-[21px] items-center px-[5px] py-0 relative shrink-0 w-full" data-node-id="1:259">
-            <div className="basis-0 bg-[#d9d9d9] grow h-[1.5px] min-h-px min-w-px shrink-0" data-node-id="1:260" />
-            <p className="font-sans font-normal leading-[21px] not-italic relative shrink-0 text-[#7b9eff] text-[15px] text-center text-nowrap" data-node-id="1:261">
-              <span className="font-sans font-bold">Internal Reasoning Governance</span>
-              <span>{` (L.R.C.)`}</span>
-            </p>
-            <div className="basis-0 bg-[#d9d9d9] grow h-[1.5px] min-h-px min-w-px shrink-0" data-node-id="1:262" />
-          </div>
-          <div className="content-start flex flex-wrap gap-[18px] items-start justify-center relative shrink-0 w-full" data-node-id="1:263">
-            <div className="content-stretch flex flex-col gap-[12px] items-start px-[17px] md:px-[24px] pt-[17px] md:pt-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full min-[600px]:w-[242px] flex-shrink-0 h-auto min-[600px]:h-[335px] pb-[14px] md:pb-[24px] bg-white" data-faq-card data-node-id="1:264">
-              <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:265">
-                Does L.R.C. change the model's weights?
-              </p>
-              <div className="bg-[#7b9eff] h-[1.5px] shrink-0 w-full" data-node-id="1:266" />
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:267">
-                No.
-              </p>
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                It evaluates reasoning during inference.
-              </p>
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                Control is applied without retraining.
-              </p>
-            </div>
-            <div className="content-stretch flex flex-col gap-[12px] items-start px-[17px] md:px-[24px] pt-[17px] md:pt-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full min-[600px]:w-[242px] flex-shrink-0 h-auto min-[600px]:h-[335px] pb-[14px] md:pb-[24px] bg-white" data-faq-card data-node-id="1:268">
-              <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:269">
-                How does L.R.C. interact with A.R.C.?
-              </p>
-              <div className="bg-[#7b9eff] h-[1.5px] shrink-0 w-full" data-node-id="1:270" />
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:271">
-                A.R.C. controls actions.
-              </p>
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                L.R.C. controls reasoning.
-              </p>
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                Both operate during runtime.
-              </p>
-            </div>
-            <div className="content-stretch flex flex-col gap-[12px] items-start px-[17px] md:px-[24px] pt-[17px] md:pt-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full min-[600px]:w-[242px] flex-shrink-0 h-auto min-[600px]:h-[335px] pb-[14px] md:pb-[24px] bg-white" data-faq-card data-node-id="1:272">
-              <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:273">
-                Can L.R.C. reduce hallucinations?
-              </p>
-              <div className="bg-[#7b9eff] h-[1.5px] shrink-0 w-full" data-node-id="1:274" />
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:275">
-                Yes.
-              </p>
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                It constrains reasoning before output is formed.
-              </p>
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                Invalid pathways are suppressed.
-              </p>
-            </div>
-            <div className="content-stretch flex flex-col gap-[12px] items-start px-[17px] md:px-[24px] pt-[17px] md:pt-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full min-[600px]:w-[242px] flex-shrink-0 h-auto min-[600px]:h-[335px] pb-[14px] md:pb-[24px] bg-white" data-faq-card data-node-id="1:276">
-              <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:277">
-                Is L.R.C. compatible with interpretability tools?
-              </p>
-              <div className="bg-[#7b9eff] h-[1.5px] shrink-0 w-full" data-node-id="1:278" />
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:279">
-                Yes.
-              </p>
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                It can use external signals when available.
-              </p>
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                It does not depend on them.
-              </p>
-            </div>
-            <div className="content-stretch flex flex-col gap-[12px] items-start px-[17px] md:px-[24px] pt-[17px] md:pt-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full min-[600px]:w-[242px] flex-shrink-0 h-auto min-[600px]:h-[335px] pb-[14px] md:pb-[24px] bg-white" data-faq-card data-node-id="1:280">
-              <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:281">
-                Why govern internal reasoning at all? Isn't output control enough?
-              </p>
-              <div className="bg-[#7b9eff] h-[1.5px] shrink-0 w-full" data-node-id="1:282" />
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:283">
-                No.
-              </p>
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                Output control happens too late.
-              </p>
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                L.R.C. constrains reasoning before output.
-              </p>
-            </div>
-            <div className="content-stretch flex flex-col gap-[12px] items-start px-[17px] md:px-[24px] pt-[17px] md:pt-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full min-[600px]:w-[242px] flex-shrink-0 h-auto min-[600px]:h-[335px] pb-[14px] md:pb-[24px] bg-white" data-faq-card data-node-id="1:284">
-              <p className="font-sans font-bold leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:285">
-                Can L.R.C. work with any model?
-              </p>
-              <div className="bg-[#7b9eff] h-[1.5px] shrink-0 w-full" data-node-id="1:286" />
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="1:287">
-                Yes.
-              </p>
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                It is model-agnostic.
-              </p>
-              <p className="font-sans font-normal leading-[24px] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                No architecture changes are required.
-              </p>
-            </div>
-          </div>
-        </div>
+        </section>
+
         <div className="content-stretch flex flex-col gap-[12px] items-center pb-[17px] md:pb-[24px] pt-0 px-[17px] md:px-[24px] relative shrink-0 w-full">
           <p className="font-sans font-normal leading-[21px] relative shrink-0 text-[#4e4e4e] text-[13px] text-center">
-            © 2025 Adaptablox. Patents Pending.
+            © 2026 Adaptablox. Patents Pending.
           </p>
         </div>
       </div>
     </div>
   );
 }
-

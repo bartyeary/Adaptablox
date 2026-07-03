@@ -4,42 +4,46 @@ import { useEffect, useState } from 'react';
 import { useNavigation } from '@/contexts/NavigationContext';
 
 const imgGroup28481 = "/assets/logo2.svg";
+const sectionClass = "content-stretch flex flex-col gap-[12px] items-start leading-[21px] pb-[8px] md:pb-[12px] pt-[14px] md:pt-[20px] px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full";
+
+function SectionTitle({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <p className="font-sans font-[590] relative shrink-0 text-[24px] leading-[1.38] w-full max-w-[720px]" style={{ fontVariationSettings: "'wdth' 100" }}>
+        {children}
+      </p>
+      <div
+        className="h-[4px] w-full max-w-[720px] overflow-hidden shrink-0"
+        style={{
+          backgroundImage:
+            'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)',
+          backgroundSize: '22.627px 22.627px',
+          backgroundPosition: '0 0',
+          imageRendering: 'crisp-edges',
+        }}
+      />
+    </>
+  );
+}
 
 export default function AdaptabloxOverview() {
   const { activePage, navigate } = useNavigation();
   const [isAnimating, setIsAnimating] = useState(false);
-  
+
   useEffect(() => {
-    console.log('AdaptabloxOverview rendered, activePage:', activePage);
-    // Reset and trigger animation on page change
     setIsAnimating(false);
-    // Use setTimeout to ensure the state change is applied before animation
-    setTimeout(() => {
-      requestAnimationFrame(() => {
-        setIsAnimating(true);
-      });
+    const t = window.setTimeout(() => {
+      requestAnimationFrame(() => setIsAnimating(true));
     }, 10);
+    return () => window.clearTimeout(t);
   }, [activePage]);
-  
+
   useEffect(() => {
-    // Expose navigate functions to window for document-level listeners
-    (window as any).testNavigate = () => {
-      console.log('window.testNavigate called - navigating to FAQs');
-      navigate('faqs');
-    };
-    (window as any).testNavigateAbout = () => {
-      console.log('window.testNavigateAbout called - navigating to About');
-      navigate('about');
-    };
-    (window as any).testNavigateDemo = () => {
-      console.log('window.testNavigateDemo called - navigating to Demo');
-      navigate('demo');
-    };
-    (window as any).testNavigateOverview = () => {
-      console.log('window.testNavigateOverview called - navigating to Overview');
-      navigate('overview');
-    };
-    
+    (window as any).testNavigate = () => navigate('faqs');
+    (window as any).testNavigateAbout = () => navigate('about');
+    (window as any).testNavigateDemo = () => navigate('demo');
+    (window as any).testNavigateOverview = () => navigate('overview');
+
     return () => {
       delete (window as any).testNavigate;
       delete (window as any).testNavigateAbout;
@@ -47,7 +51,14 @@ export default function AdaptabloxOverview() {
       delete (window as any).testNavigateOverview;
     };
   }, [navigate]);
-  
+
+  const goToEvidence = () => {
+    navigate('about');
+    window.setTimeout(() => {
+      document.getElementById('enforcement-evidence')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 50);
+  };
+
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-center relative size-full min-h-screen" data-name="adaptablox - overview" data-node-id="27:645" style={{ background: "radial-gradient(66.15% 98.68% at -6.3% -5.34%, #F2F4F8 0%, #DCDEE6 100%)" }}>
       <div className="bg-[rgba(135,137,145,0.68)] backdrop-blur-sm h-[71px] overflow-clip fixed top-0 left-0 right-0 z-50 w-full" data-node-id="27:646" style={{ background: "rgba(135, 137, 145, 0.68)" }}>
@@ -57,333 +68,56 @@ export default function AdaptabloxOverview() {
           </div>
         </div>
         <div className="absolute left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-[17px] top-[17px] bg-[#93959d] content-stretch flex gap-[6px] items-center p-[3px] rounded-[12px] z-[60]" data-name="control" data-node-id="27:668">
-          <button
-            onClick={() => {
-              console.log('Failures button clicked');
-              navigate('about');
-            }}
-            className={`content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity ${
-              activePage === 'about'
-                ? 'bg-[#f7f9fc] shadow-[0px_5px_9px_0px_rgba(0,0,0,0.07)]'
-                : 'bg-transparent hover:opacity-80'
-            }`}
-            data-name="button"
-            data-node-id="27:671"
-            type="button"
-          >
-            <span className={`font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap ${
-              activePage === 'about' ? 'text-[#5b5b5f]' : 'text-white'
-            }`}>
-              About
-            </span>
+          <button onClick={() => navigate('about')} className={`content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity ${activePage === 'about' ? 'bg-[#f7f9fc] shadow-[0px_5px_9px_0px_rgba(0,0,0,0.07)]' : 'bg-transparent hover:opacity-80'}`} data-name="button" data-node-id="27:671" type="button">
+            <span className={`font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap ${activePage === 'about' ? 'text-[#5b5b5f]' : 'text-white'}`}>About</span>
           </button>
-          <button
-            onClick={() => {
-              console.log('Control button clicked');
-              navigate('overview');
-            }}
-            className={`content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity ${
-              activePage === 'overview'
-                ? 'bg-[#f7f9fc] shadow-[0px_5px_9px_0px_rgba(0,0,0,0.07)]'
-                : 'bg-transparent hover:opacity-80'
-            }`}
-            data-name="button"
-            data-node-id="27:669"
-            type="button"
-          >
-            <span className={`font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap ${
-              activePage === 'overview' ? 'text-[#5b5b5f]' : 'text-white'
-            }`}>
-              Control
-            </span>
+          <button onClick={() => navigate('overview')} className={`content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity ${activePage === 'overview' ? 'bg-[#f7f9fc] shadow-[0px_5px_9px_0px_rgba(0,0,0,0.07)]' : 'bg-transparent hover:opacity-80'}`} data-name="button" data-node-id="27:669" type="button">
+            <span className={`font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap ${activePage === 'overview' ? 'text-[#5b5b5f]' : 'text-white'}`}>Control</span>
           </button>
-          <button
-            onClick={(e) => {
-              console.log('System button clicked');
-              e.preventDefault();
-              e.stopPropagation();
-              navigate('faqs');
-            }}
-            className={`content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity ${
-              activePage === 'faqs'
-                ? 'bg-[#f7f9fc] shadow-[0px_5px_9px_0px_rgba(0,0,0,0.07)]'
-                : 'bg-transparent hover:opacity-80'
-            }`}
-            data-name="button"
-            data-node-id="1:10"
-            type="button"
-            style={{ zIndex: 10001, position: 'relative' }}
-          >
-            <span className={`font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap ${
-              activePage === 'faqs' ? 'text-[#5b5b5f]' : 'text-white'
-            }`}>
-              System
-            </span>
+          <button onClick={() => navigate('faqs')} className={`content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity ${activePage === 'faqs' ? 'bg-[#f7f9fc] shadow-[0px_5px_9px_0px_rgba(0,0,0,0.07)]' : 'bg-transparent hover:opacity-80'}`} data-name="button" data-node-id="1:10" type="button" style={{ zIndex: 10001, position: 'relative' }}>
+            <span className={`font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap ${activePage === 'faqs' ? 'text-[#5b5b5f]' : 'text-white'}`}>System</span>
           </button>
-          <button
-            onClick={() => {
-              console.log('Demo button clicked');
-              navigate('demo');
-            }}
-            className={`content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity ${
-              activePage === 'demo'
-                ? 'bg-[#f7f9fc] shadow-[0px_5px_9px_0px_rgba(0,0,0,0.07)]'
-                : 'bg-transparent hover:opacity-80'
-            }`}
-            data-name="button"
-            data-node-id="1:12"
-            type="button"
-          >
-            <span className={`font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap ${
-              activePage === 'demo' ? 'text-[#5b5b5f]' : 'text-white'
-            }`}>
-              Demo
-            </span>
+          <button onClick={() => navigate('demo')} className={`content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity ${activePage === 'demo' ? 'bg-[#f7f9fc] shadow-[0px_5px_9px_0px_rgba(0,0,0,0.07)]' : 'bg-transparent hover:opacity-80'}`} data-name="button" data-node-id="1:12" type="button">
+            <span className={`font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap ${activePage === 'demo' ? 'text-[#5b5b5f]' : 'text-white'}`}>Demo</span>
           </button>
         </div>
       </div>
-      <div 
-        className="bg-[#f7f9fc] content-stretch flex flex-col gap-[48px] items-start p-[13px] md:p-[18px] pb-[82px] md:pb-[118px] relative shadow-[2px_5px_9px_0px_rgba(0,0,0,0.07)] shrink-0 w-[800px] max-w-full mx-auto transition-all duration-250 ease-out min-h-[calc(100vh+21px)]" 
-        style={{ 
+      <div
+        className="bg-[#f7f9fc] content-stretch flex flex-col gap-[32px] items-start p-[13px] md:p-[18px] pb-[82px] md:pb-[118px] relative shadow-[2px_5px_9px_0px_rgba(0,0,0,0.07)] shrink-0 w-[800px] max-w-full mx-auto transition-all duration-250 ease-out min-h-[calc(100vh+21px)]"
+        style={{
           marginTop: isAnimating ? '0px' : '-20px',
-          transition: 'margin-top 0.25s ease-out'
+          transition: 'margin-top 0.25s ease-out',
         }}
         data-node-id="27:684"
       >
-        <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full" data-node-id="44:869" style={{ marginTop: '71px' }}>
-          <div
-            className="content-stretch flex flex-col gap-[18px] items-start pb-[8px] md:pb-[12px] pt-[14px] md:pt-[20px] px-[17px] md:px-[24px] relative shrink-0 w-full"
-            data-node-id="overview-control-enforced-runtime"
-          >
-            <p className="font-sans font-semibold leading-[21px] relative shrink-0 text-[#4e4e4e] text-[24px]">
-              Control Enforced at Runtime
+        <section className={sectionClass} data-node-id="overview-control-layers" style={{ marginTop: '71px' }}>
+          <SectionTitle>How control is enforced</SectionTitle>
+          <div className="font-sans font-normal min-w-full relative shrink-0 text-[#4e4e4e] text-[15px] w-full max-w-[720px]" style={{ fontVariationSettings: "'wdth' 100" }}>
+            <p className="mb-[1em]">Adaptablox applies control where agentic systems actually operate:</p>
+
+            <p className="font-sans font-bold mb-0">Execution — Agent Role & Constraint (ARC)</p>
+            <p className="mb-[1em] mt-[0.5em]">
+              Every action is evaluated against a constraint stack before it executes. Role boundaries define what is permitted. Prior actions inform the current admissibility check. Actions that exceed scope are blocked, modified, or rerouted — and memory access and delegation are governed by the same boundaries.
             </p>
-            <div className="min-w-full relative shrink-0 w-full">
-              <div
-                className="h-[4px] w-full overflow-hidden"
-                style={{
-                  backgroundImage: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)',
-                  backgroundSize: '22.627px 22.627px',
-                  backgroundPosition: '0 0',
-                  imageRendering: 'crisp-edges',
-                }}
-              />
-            </div>
-            <div className="content-stretch flex flex-col gap-[12px] items-start pb-[12px] pl-0 pr-[17px] md:pr-[24px] pt-0 relative shrink-0 w-full">
-              <div className="font-sans font-normal leading-[21px] min-w-full relative shrink-0 text-[#4e4e4e] text-[15px]">
-                <p className="mb-[1em]">Adaptablox is a runtime control system.</p>
-                <p className="mb-[1em]">It does not rely on models to behave correctly.</p>
-                <p className="mb-[1em]">It evaluates and constrains behavior as the system operates.</p>
-                <p className="mb-[0.5em]">Most systems apply control:</p>
-                <ul className="list-disc mb-[1em]">
-                  <li className="mb-0 ms-[22.5px]">
-                    <span className="font-sans font-normal leading-[21px]">
-                      before execution through policies and prompts
-                    </span>
-                  </li>
-                  <li className="ms-[22.5px]">
-                    <span className="font-sans font-normal leading-[21px]">
-                      or after execution through monitoring and audit
-                    </span>
-                  </li>
-                </ul>
-                <p className="mb-[1em]">This is not sufficient once systems act continuously.</p>
-                <p className="mb-[1em]">Control must be enforced during execution.</p>
-                <p className="mb-[0.5em]">Adaptablox applies control across three layers:</p>
-                <ul className="list-disc mb-[1em]">
-                  <li className="mb-0 ms-[22.5px]">
-                    <span className="font-sans font-normal leading-[21px]">execution</span>
-                  </li>
-                  <li className="mb-0 ms-[22.5px]">
-                    <span className="font-sans font-normal leading-[21px]">reasoning</span>
-                  </li>
-                  <li className="ms-[22.5px]">
-                    <span className="font-sans font-normal leading-[21px]">multi-agent coordination</span>
-                  </li>
-                </ul>
-                <p className="mb-0">Each layer enforces constraints at the moment decisions are made.</p>
-              </div>
-            </div>
-          </div>
-          <div className="bg-white content-stretch flex flex-col gap-[24px] items-center justify-center pb-[17px] md:pb-[24px] pt-[22px] md:pt-[32px] px-[17px] md:px-[24px] relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full" data-node-id="27:769">
-            <div className="content-stretch flex items-center justify-center px-[11px] md:px-[16px] py-0 relative shrink-0 w-full" data-node-id="42:785">
-              <div className="basis-0 font-sans grow leading-[24px] min-h-px min-w-px not-italic relative shrink-0 text-[#4e4e4e] text-[15px]" data-node-id="27:770">
-                <p className="font-sans font-medium relative shrink-0 text-[#4e4e4e] text-[20px] text-nowrap mb-[18px]">
-                  The Control Layers
-                </p>
-                <p className="font-sans font-normal mb-[1em]">
-                  Adaptablox enforces behavior at the execution and reasoning layers without modifying model weights.
-                </p>
-                <p className="font-sans font-normal mb-[1em]">
-                  It operates as a runtime control layer that continuously evaluates actions and reasoning before outcomes are produced.
-                </p>
-                <p className="font-sans font-normal mb-0">
-                  Control is applied through constraint evaluation, pathway selection, and real-time intervention.
-                </p>
-              </div>
-            </div>
-            <div className="bg-white content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[8px] relative shrink-0 w-full" data-node-id="42:782">
-              <div className="font-sans leading-[0] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                <p className="font-sans font-bold leading-[24px] mb-0 text-[#4e4e4e]">Agent Role & Constraint (ARC)</p>
-                <p className="font-sans font-normal italic leading-[24px] mb-0 mt-[0.5em] text-[#4e4e4e]">Execution Control</p>
-                <p className="font-sans font-normal leading-[24px] mb-0 mt-[0.75em]">
-                  ARC enforces constraints at the moment of action.
-                </p>
-                <ul className="list-disc mt-[0.5em] mb-[1em]">
-                  <li className="mb-0 ms-[22.5px]">
-                    <span className="font-sans font-normal leading-[24px]">
-                      Every action is evaluated against a constraint stack before execution
-                    </span>
-                  </li>
-                  <li className="mb-0 ms-[22.5px]">
-                    <span className="font-sans font-normal leading-[24px]">
-                      Role boundaries define what actions are permitted
-                    </span>
-                  </li>
-                  <li className="ms-[22.5px]">
-                    <span className="font-sans font-normal leading-[24px]">
-                      Actions that exceed scope are blocked, modified, or rerouted
-                    </span>
-                  </li>
-                </ul>
-                <p className="font-sans font-normal leading-[24px] mb-[1em]">
-                  The system does not assume valid inputs produce valid behavior.
-                </p>
-                <p className="font-sans font-normal leading-[24px] mb-0">
-                  It enforces admissibility at every step.
-                </p>
-              </div>
-            </div>
-            <div className="bg-white content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[8px] relative shrink-0 w-full" data-node-id="42:790">
-              <div className="font-sans leading-[0] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full" data-node-id="42:791">
-                <p className="font-sans font-bold leading-[24px] mb-0 text-[#4e4e4e]">Latent Role & Constraint (LRC)</p>
-                <p className="font-sans font-normal italic leading-[24px] mb-0 mt-[0.5em] text-[#4e4e4e]">Reasoning Control</p>
-                <p className="font-sans font-normal leading-[24px] mb-0 mt-[0.75em]">
-                  LRC enforces constraints within the reasoning process during inference.
-                </p>
-                <ul className="list-disc mt-[0.5em] mb-[1em]">
-                  <li className="mb-0 ms-[22.5px]">
-                    <span className="font-sans font-normal leading-[24px]">
-                      Evaluate internal reasoning pathways during inference
-                    </span>
-                  </li>
-                  <li className="mb-0 ms-[22.5px]">
-                    <span className="font-sans font-normal leading-[24px]">
-                      Suppress or redirect pathways that violate constraints
-                    </span>
-                  </li>
-                  <li className="mb-0 ms-[22.5px]">
-                    <span className="font-sans font-normal leading-[24px]">
-                      Select only constraint-compliant reasoning trajectories
-                    </span>
-                  </li>
-                  <li className="ms-[22.5px]">
-                    <span className="font-sans font-normal leading-[24px]">
-                      Resolve conflicts between competing internal interpretations
-                    </span>
-                  </li>
-                </ul>
-                <p className="font-sans font-normal leading-[24px] mb-[1em]">
-                  The system does not wait for a response to be generated.
-                </p>
-                <p className="font-sans font-normal leading-[24px] mb-0">
-                  It constrains reasoning before the output is formed.
-                </p>
-              </div>
-            </div>
-            <div
-              className="bg-white content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[8px] relative shrink-0 w-full"
-              data-node-id="overview-disagreement-scaffolding"
-            >
-              <div className="font-sans leading-[0] not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-                <p className="font-sans font-bold leading-[24px] mb-0 text-[#4e4e4e]">Disagreement Scaffolding (DS)</p>
-                <p className="font-sans font-normal italic leading-[24px] mb-0 mt-[0.5em] text-[#4e4e4e]">
-                  Multi-Agent Control
-                </p>
-                <p className="font-sans font-normal leading-[24px] mb-0 mt-[0.75em]">
-                  DS enforces coordination integrity across interacting agents.
-                </p>
-                <ul className="list-disc mt-[0.5em] mb-[1em]">
-                  <li className="mb-0 ms-[22.5px]">
-                    <span className="font-sans font-normal leading-[24px]">
-                      Agent outputs are evaluated for coordination quality before being combined
-                    </span>
-                  </li>
-                  <li className="mb-0 ms-[22.5px]">
-                    <span className="font-sans font-normal leading-[24px]">
-                      Premature convergence and irreconcilable conflict are treated as coordination failures
-                    </span>
-                  </li>
-                  <li className="ms-[22.5px]">
-                    <span className="font-sans font-normal leading-[24px]">
-                      When coordination fails, the system intervenes before synthesis occurs
-                    </span>
-                  </li>
-                </ul>
-                <p className="font-sans font-normal leading-[24px] mb-[1em]">The system does not rely on consensus.</p>
-                <p className="font-sans font-normal leading-[24px] mb-0">
-                  It enforces the conditions under which agreement is valid.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div
-            className="content-stretch flex flex-col gap-[12px] items-start leading-[21px] mt-[12px] md:mt-[16px] pb-[8px] md:pb-[12px] pt-0 px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full"
-            data-node-id="overview-full-stack-control"
-          >
-            <p className="font-sans font-medium relative shrink-0 text-[#4e4e4e] text-[20px] text-nowrap">
-              Full-Stack Control
+
+            <p className="font-sans font-bold mb-0">Coordination — Disagreement Scaffolding (DS)</p>
+            <p className="mb-[1em] mt-[0.5em]">
+              Agent outputs are evaluated for coordination quality before being combined. Premature convergence, irreconcilable conflict, and deadlock are detected and resolved before synthesis. The system does not rely on consensus; it enforces the conditions under which agreement is valid.
             </p>
-            <div className="min-w-full relative shrink-0 w-full">
-              <div
-                className="h-[4px] w-full overflow-hidden"
-                style={{
-                  backgroundImage: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)',
-                  backgroundSize: '22.627px 22.627px',
-                  backgroundPosition: '0 0',
-                  imageRendering: 'crisp-edges',
-                }}
-              />
-            </div>
-            <div className="font-sans font-normal min-w-full relative shrink-0 text-[#4e4e4e] text-[15px] w-full leading-[24px]">
-              <p className="mb-0 mt-[0.25em]">Adaptablox enforces control across:</p>
-              <p className="font-sans font-bold mb-0 mt-[0.75em] text-[#4e4e4e]">Execution</p>
-              <p className="mb-0 mt-[0.35em]">Actions are constrained at the moment of execution</p>
-              <p className="font-sans font-bold mb-0 mt-[0.75em] text-[#4e4e4e]">Reasoning</p>
-              <p className="mb-0 mt-[0.35em]">Internal pathways are constrained before outputs are formed</p>
-              <p className="font-sans font-bold mb-0 mt-[0.75em] text-[#4e4e4e]">Coordination</p>
-              <p className="mb-0 mt-[0.35em]">Multi-agent interactions are governed to prevent convergence failure</p>
-              <p className="mb-[1em] mt-[1em]">These layers operate continuously during runtime.</p>
-              <p className="mb-[1em]">Control is not static. It is enforced as the system runs.</p>
-              <p className="mb-[1em]">We do not filter outputs.</p>
-              <p className="mb-0">We control the conditions under which outputs are produced.</p>
-            </div>
+
+            <p className="font-sans font-bold mb-0">Reasoning — Latent Role & Constraint (LRC) <span className="font-normal italic">(research direction)</span></p>
+            <p className="mb-0 mt-[0.5em]">
+              LRC extends the same constraint model inside the inference process — evaluating reasoning trajectories rather than only their outputs. It is designed to constrain reasoning paths that lead toward non-compliant behavior, without modifying model weights. LRC is an active research and development direction that deepens the control stack.
+            </p>
           </div>
-        </div>
-        <div className="content-stretch flex flex-col gap-[12px] items-start leading-[21px] pb-[8px] md:pb-[12px] pt-0 px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="42:796">
-          <p className="font-sans font-medium relative shrink-0 text-[20px] text-nowrap" data-node-id="42:798">
-            How It Works
-          </p>
-          <div className="min-w-full relative shrink-0 w-full">
-            <div
-              className="h-[4px] w-full overflow-hidden"
-              style={{
-                backgroundImage: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)',
-                backgroundSize: '22.627px 22.627px',
-                backgroundPosition: '0 0',
-                imageRendering: 'crisp-edges',
-              }}
-            />
-          </div>
-        </div>
-        <div className="content-stretch flex flex-col gap-[12px] md:gap-[16px] items-center justify-center px-[20px] md:px-[40px] py-0 relative size-full" data-node-id="42:801">
-          <p
-            className="font-mono leading-[12px] md:leading-[18px] not-italic relative shrink-0 text-[#4e4e4e] text-[10px] md:text-[15px] text-center w-full max-w-[780px]"
-            style={{ fontFamily: 'monospace' }}
-          >
+        </section>
+
+        <section className={sectionClass} data-node-id="overview-how-it-works">
+          <SectionTitle>How It Works</SectionTitle>
+          <p className="font-mono leading-[12px] md:leading-[18px] not-italic relative shrink-0 text-[#4e4e4e] text-[10px] md:text-[15px] text-center w-full max-w-[780px]" style={{ fontFamily: 'monospace' }}>
             All evaluation and enforcement occurs during runtime, not after output is produced. Below is a sequence of enforced decisions.
           </p>
-          <pre className="font-mono leading-[12px] md:leading-[18px] not-italic relative shrink-0 text-[#4e4e4e] text-[10px] md:text-[15px] text-center w-full max-w-[780px] whitespace-pre" data-node-id="42:802" style={{ fontFamily: 'monospace' }}>
+          <pre className="font-mono leading-[12px] md:leading-[18px] not-italic relative shrink-0 text-[#4e4e4e] text-[10px] md:text-[15px] text-center w-full max-w-[780px] whitespace-pre overflow-x-auto" data-node-id="42:802" style={{ fontFamily: 'monospace' }}>
 {`+----------------------------------------------------------------------+
 |                       USER / ENVIRONMENT INPUT                       |
 |           (Prompt, signal, context, ambient trigger, etc.)           |
@@ -421,7 +155,7 @@ export default function AdaptabloxOverview() {
 +----------------------------------------------------------------------+
 ▼
 +----------------------------------------------------------------------+
-|                             AUDIT TRAIL                              |
+|                      ENFORCEMENT + EVIDENCE                          |
 |                                                                      |
 |  - Record which constraints were applied                             |
 |  - Record when the decision was evaluated                            |
@@ -429,60 +163,37 @@ export default function AdaptabloxOverview() {
 +----------------------------------------------------------------------+
 `}
           </pre>
-          <p
-            className="font-mono leading-[12px] md:leading-[18px] not-italic relative shrink-0 text-[#4e4e4e] text-[10px] md:text-[15px] text-center w-full max-w-[780px]"
-            style={{ fontFamily: 'monospace' }}
-          >
-            Control is enforced at every decision point in the system.
-          </p>
-        </div>
-        <div className="content-stretch flex flex-col gap-[12px] items-start pb-[8px] md:pb-[12px] pt-0 px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="42:803">
-          <p className="font-sans font-medium leading-[21px] relative shrink-0 text-[20px] text-nowrap" data-node-id="42:805">
-            Why This Matters
-          </p>
-          <div className="min-w-full relative shrink-0 w-full">
-            <div
-              className="h-[4px] w-full overflow-hidden"
-              style={{
-                backgroundImage: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)',
-                backgroundSize: '22.627px 22.627px',
-                backgroundPosition: '0 0',
-                imageRendering: 'crisp-edges',
-              }}
-            />
-          </div>
-          <div className="font-sans font-normal leading-[0] min-w-full relative shrink-0 text-[15px]" data-node-id="42:806">
-            <p className="leading-[21px] mb-[0.5em]">Without runtime enforcement:</p>
-            <ul className="list-disc mb-[1em]">
-              <li className="mb-0 ms-[22.5px]">
-                <span className="font-sans font-normal leading-[24px]">Agents optimize for goals while violating constraints</span>
+          <button className="font-sans font-bold text-[#4e4e4e] underline text-left" type="button" onClick={goToEvidence}>
+            View Enforcement + Evidence →
+          </button>
+        </section>
+
+        <section className={sectionClass} data-node-id="overview-what-adaptablox-is-not">
+          <SectionTitle>What Adaptablox is not</SectionTitle>
+          <div className="font-sans font-normal min-w-full relative shrink-0 text-[#4e4e4e] text-[15px] w-full max-w-[720px]" style={{ fontVariationSettings: "'wdth' 100" }}>
+            <ul className="list-disc mb-0">
+              <li className="mb-[0.75em] ms-[23px]">
+                <strong>Not a guardrail.</strong> Guardrails evaluate outputs after generation. Adaptablox evaluates admissibility <em>before</em> an action or output is allowed to cross the boundary — before it commits, sends, or externalizes.
               </li>
-              <li className="mb-0 ms-[22.5px]">
-                <span className="font-sans font-normal leading-[24px]">Memory access crosses domains without validation</span>
+              <li className="mb-[0.75em] ms-[23px]">
+                <strong>Not access governance.</strong> Access control decides who gets in. Adaptablox governs what happens after access is granted.
               </li>
-              <li className="mb-0 ms-[22.5px]">
-                <span className="font-sans font-normal leading-[24px]">Reasoning drifts into unsafe or noncompliant paths</span>
+              <li className="mb-[0.75em] ms-[23px]">
+                <strong>Not model modification.</strong> No retraining, no fine-tuning, no weight changes. The model stays the same. The behavior doesn't.
               </li>
-              <li className="ms-[22.5px]">
-                <span className="font-sans font-normal leading-[24px]">Failures are detected only after damage occurs</span>
+              <li className="ms-[23px]">
+                <strong>Not post-hoc filtering.</strong> We don't clean up results after the fact. We gate whether results are admissible at the moment they would be produced or released.
               </li>
             </ul>
-            <p className="leading-[21px] mb-[1em]">These are not edge cases.</p>
-            <p className="leading-[21px] mb-[1em]">
-              They are the result of systems that do not enforce constraints during execution.
-            </p>
-            <p className="leading-[21px] mb-0">
-              Adaptablox enforces authority before actions execute, not after they are logged.
-            </p>
           </div>
-        </div>
+        </section>
+
         <div className="content-stretch flex flex-col gap-[12px] items-center pb-[17px] md:pb-[24px] pt-0 px-[17px] md:px-[24px] relative shrink-0 w-full">
           <p className="font-sans font-normal leading-[21px] relative shrink-0 text-[#4e4e4e] text-[13px] text-center">
-            © 2025 Adaptablox. Patents Pending.
+            © 2026 Adaptablox. Patents Pending.
           </p>
         </div>
       </div>
     </div>
   );
 }
-

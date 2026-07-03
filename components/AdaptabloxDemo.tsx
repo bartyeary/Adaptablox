@@ -178,13 +178,9 @@ export default function AdaptabloxDemo() {
             className="font-sans font-normal leading-[21px] min-w-full relative shrink-0 text-[15px] w-full"
             style={{ fontVariationSettings: "'wdth' 100" }}
           >
-            <p className="mb-0">These simulations show Adaptablox enforcing control during execution.</p>
-            <p className="mb-0">&nbsp;</p>
-            <p className="mb-0">No retraining occurs between scenarios.</p>
-            <p className="mb-0">The system applies constraint evaluation in real time.</p>
-            <p className="mb-0">&nbsp;</p>
-            <p className="mb-0">Behavior changes because control is applied at runtime.</p>
-            <p className="mb-0">Not because the model was modified.</p>
+            <p className="mb-0">
+              These simulations show control being enforced during execution. No retraining occurs between scenarios. No prompt tuning. No output post-processing. Behavior changes because constraints change — and constraints are enforced as the system runs.
+            </p>
           </div>
         </div>
         <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full" data-node-id="44:849">
@@ -346,7 +342,7 @@ export default function AdaptabloxDemo() {
         </div>
         <div className="content-stretch flex flex-col gap-[12px] items-center pb-[17px] md:pb-[24px] pt-0 px-[17px] md:px-[24px] relative shrink-0 w-full">
           <p className="font-sans font-normal leading-[21px] relative shrink-0 text-[#4e4e4e] text-[13px] text-center">
-            © 2025 Adaptablox. Patents Pending.
+            © 2026 Adaptablox. Patents Pending.
           </p>
         </div>
       </div>
