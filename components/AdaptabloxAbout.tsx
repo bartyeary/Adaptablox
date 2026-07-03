@@ -54,7 +54,7 @@ const failureFamilies: FailureFamily[] = [
         ],
         whyCurrentSystemsFail: [
           'Authority is checked at the point of request, not enforced during execution',
-          'No mechanism exists to prevent invalid transitions between steps',
+          "Per-step checks don't compose. Each transition is evaluated as if the steps before it never happened.",
           'Agents operate without continuous constraint evaluation',
         ],
         intervention: [
@@ -78,7 +78,7 @@ const failureFamilies: FailureFamily[] = [
           'The system cannot maintain consistent policy enforcement across a sequence of decisions. It cannot detect that its behavior has drifted beyond acceptable bounds.',
         ],
         whyCurrentSystemsFail: [
-          'No mechanism exists to enforce policy continuously across interactions',
+          'Per-interaction checks evaluate each action in isolation. Continuous policy enforcement across interactions requires evaluating accumulated state, which stateless checks cannot do.',
           'Decisions are evaluated independently, not as part of a governed sequence',
           'The system lacks visibility into its own behavioral drift',
         ],
@@ -109,7 +109,7 @@ const failureFamilies: FailureFamily[] = [
         ],
         whyCurrentSystemsFail: [
           'Actions are validated at the step level, not at the sequence level',
-          'No mechanism exists to enforce constraint continuity across a workflow',
+          'Step-level checks evaluate each action in isolation. Constraint continuity across a workflow requires evaluating accumulated state, which stateless checks cannot do.',
           'The system cannot detect when dependencies between steps are no longer satisfied',
         ],
         interventionIntro: 'Adaptablox enforces constraint continuity at runtime.',
@@ -131,7 +131,7 @@ const failureFamilies: FailureFamily[] = [
     summary:
       'Multiple agents converge on the same answer, because they converged on the same assumption. Confidence rises as reasoning diversity collapses. The system produces a consistent, well-supported answer. It is wrong.',
     whyCurrentSystemsMissIt:
-      'consensus is treated as validation. There is no mechanism to distinguish agreement from correctness, or to detect that diversity has collapsed.',
+      'consensus is treated as validation. Per-output checks evaluate each agent in isolation. Nothing evaluates coordination state to distinguish agreement from correctness, or to detect that diversity has collapsed.',
     whatAdaptabloxDoes:
       'agent outputs are evaluated for coordination quality before they are combined. Premature convergence and irreconcilable conflict are treated as coordination failures, and the system intervenes, restoring structured disagreement, before synthesis occurs.',
     detailLine: 'Detailed scenario: false consensus',
@@ -149,12 +149,12 @@ const failureFamilies: FailureFamily[] = [
         coreFailure: [
           'The system cannot detect when agents are converging on the same underlying assumption.',
           'Agreement is treated as validation.',
-          'There is no mechanism to introduce structured divergence or challenge the consensus.',
+          'Per-output checks evaluate each agent in isolation. Structured divergence requires evaluating coordination state, which stateless checks cannot do.',
         ],
         whyCurrentSystemsFail: [
           'No detection of convergence across agent outputs',
-          'No mechanism to distinguish agreement from correctness',
-          'No mechanism to preserve reasoning diversity when agents converge',
+          'Per-output checks cannot distinguish agreement from correctness across coordination state',
+          'Per-output checks cannot preserve reasoning diversity when agents converge',
         ],
         interventionIntro: 'Adaptablox detects and resolves convergence at runtime.',
         intervention: [
@@ -237,7 +237,7 @@ const failureFamilies: FailureFamily[] = [
         ],
         interventionOutro: [
           'The system does not rely on monitoring to catch failures.',
-          'It prevents unsafe actions before they occur.',
+          'It blocks constraint-violating actions before execution.',
         ],
         outcome: 'Safety constraints are enforced at the moment of action. Optimization remains bounded within safe limits.',
       },
@@ -418,7 +418,7 @@ export default function AdaptabloxAbout() {
               Software fails when code is wrong. Models fail when outputs are wrong. Agents fail when <strong>behavior drifts</strong>, when a system composed of individually correct steps produces an outcome no one authorized.
             </p>
             <p className="mb-[1em]">
-              Today, authority over agents is defined <em>before</em> execution (policies, prompts, permissions) or reconstructed <em>after</em> failure (logs, monitoring, audits). Nothing enforces it <em>during</em> execution, at the moment an agent commits an action.
+              Today, authority over agents is defined <em>before</em> execution (policies, prompts, permissions) or reconstructed <em>after</em> failure (logs, monitoring, audits). Enforcement today is per-request. Nothing evaluates the sequence, the composition, or the coordination state.
             </p>
             <p className="mb-0">That gap is where agentic failures live. Adaptablox closes it.</p>
           </div>

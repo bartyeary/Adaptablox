@@ -117,7 +117,8 @@ export default function AdaptabloxOverview() {
           <p className="font-mono leading-[12px] md:leading-[18px] not-italic relative shrink-0 text-[#4e4e4e] text-[10px] md:text-[15px] text-center w-full max-w-[780px]" style={{ fontFamily: 'monospace' }}>
             All evaluation and enforcement occurs during runtime, not after output is produced. Below is a sequence of enforced decisions.
           </p>
-          <pre className="font-mono leading-[12px] md:leading-[18px] not-italic relative shrink-0 text-[#4e4e4e] text-[10px] md:text-[15px] text-center w-full max-w-[780px] whitespace-pre overflow-x-auto" data-node-id="42:802" style={{ fontFamily: 'monospace' }}>
+          <div className="flex flex-col items-center w-full max-w-[780px] mx-auto">
+            <pre className="font-mono leading-[12px] md:leading-[18px] not-italic relative shrink-0 text-[#4e4e4e] text-[10px] md:text-[15px] text-center w-full whitespace-pre overflow-x-auto" data-node-id="42:802" style={{ fontFamily: 'monospace' }}>
 {`+----------------------------------------------------------------------+
 |                       USER / ENVIRONMENT INPUT                       |
 |           (Prompt, signal, context, ambient trigger, etc.)           |
@@ -131,17 +132,21 @@ export default function AdaptabloxOverview() {
 |  - Block, modify, or reroute actions that exceed constraints         |
 |  - Regulate memory access and delegation boundaries                  |
 +----------------------------------------------------------------------+
-▼
-+----------------------------------------------------------------------+
-|                L.R.C., INTERNAL REASONING GOVERNANCE                |
+▼`}
+            </pre>
+            <pre className="font-mono leading-[12px] md:leading-[18px] not-italic relative shrink-0 text-[#4e4e4e] text-[10px] md:text-[15px] text-center w-full whitespace-pre overflow-x-auto opacity-60" style={{ fontFamily: 'monospace' }}>
+{`+----------------------------------------------------------------------+
+|      L.R.C., INTERNAL REASONING GOVERNANCE (research direction)      |
 |                                                                      |
-|  - Evaluate internal reasoning pathways during inference             |
-|  - Suppress or redirect pathways that violate constraints            |
-|  - Select only constraint-compliant reasoning trajectories           |
-|  - Resolve conflicts between competing internal interpretations      |
+|  - Designed to evaluate internal reasoning pathways during inference |
+|  - Designed to suppress or redirect pathways that violate constraints|
+|  - Designed to select only compliant reasoning trajectories          |
+|  - Designed to resolve conflicts between competing interpretations   |
 +----------------------------------------------------------------------+
-▼
-+----------------------------------------------------------------------+
+▼`}
+            </pre>
+            <pre className="font-mono leading-[12px] md:leading-[18px] not-italic relative shrink-0 text-[#4e4e4e] text-[10px] md:text-[15px] text-center w-full whitespace-pre overflow-x-auto" style={{ fontFamily: 'monospace' }}>
+{`+----------------------------------------------------------------------+
 |                        MODEL REASONING ENGINE                        |
 |                   (Weights and training unchanged)                   |
 +----------------------------------------------------------------------+
@@ -162,7 +167,8 @@ export default function AdaptabloxOverview() {
 |  - Record why the action was allowed, modified, or blocked           |
 +----------------------------------------------------------------------+
 `}
-          </pre>
+            </pre>
+          </div>
           <button className="font-sans font-bold text-[#4e4e4e] text-left" type="button" onClick={goToEvidence}>
             View Enforcement + Evidence →
           </button>
