@@ -67,7 +67,7 @@ export default function AdaptabloxOverview() {
             <img alt="Adaptablox Logo" className="block max-w-none size-full" src={imgGroup28481} />
           </div>
         </div>
-        <div className="absolute left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-[17px] top-[17px] bg-[#93959d] content-stretch flex gap-[6px] items-center p-[3px] rounded-[12px] z-[60]" data-name="control" data-node-id="27:668">
+        <div className="absolute left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-[17px] top-[17px] bg-[#82848e] content-stretch flex gap-[6px] items-center p-[3px] rounded-[12px] z-[60]" data-name="control" data-node-id="27:668">
           <button onClick={() => navigate('about')} className={`content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity ${activePage === 'about' ? 'bg-[#f7f9fc] shadow-[0px_5px_9px_0px_rgba(0,0,0,0.07)]' : 'bg-transparent hover:opacity-80'}`} data-name="button" data-node-id="27:671" type="button">
             <span className={`font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap ${activePage === 'about' ? 'text-[#5b5b5f]' : 'text-white'}`}>About</span>
           </button>
@@ -169,8 +169,8 @@ export default function AdaptabloxOverview() {
 `}
             </pre>
           </div>
-          <button className="font-sans font-bold text-[#4e4e4e] text-left mt-[12px]" type="button" onClick={goToEvidence}>
-            View Enforcement + Evidence →
+          <button className="font-sans font-bold text-[#4e4e4e] text-left mt-[12px] cursor-pointer arrow-link" type="button" onClick={goToEvidence}>
+            View Enforcement + Evidence <span className="arrow-link-arrow" aria-hidden="true">→</span>
           </button>
         </section>
 

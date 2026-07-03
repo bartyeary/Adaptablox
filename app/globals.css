@@ -41,6 +41,15 @@ summary::-webkit-details-marker {
   display: none;
 }
 
+.arrow-link .arrow-link-arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.arrow-link:hover .arrow-link-arrow {
+  transform: translateX(4px);
+}
+
 p {
   text-wrap: pretty;
 }

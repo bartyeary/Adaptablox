@@ -38,7 +38,7 @@ const failureFamilies: FailureFamily[] = [
       'authority is checked per request. Nothing evaluates whether an action remains admissible given the actions that came before it.',
     whatAdaptabloxDoes:
       'every action is evaluated in the context of the sequence it belongs to. Incoherent or over-rapid sequences are blocked or deferred before they commit. A snapshot check cannot do this. Sequence-aware enforcement can.',
-    detailLine: 'Detailed scenarios: the helpful procurement agent, the refund spiral, the well-meaning planner',
+    detailLine: 'Detailed scenarios',
     scenarios: [
       {
         label: 'Fail Scenario # 1',
@@ -134,7 +134,7 @@ const failureFamilies: FailureFamily[] = [
       'consensus is treated as validation. Per-output checks evaluate each agent in isolation. Nothing evaluates coordination state to distinguish agreement from correctness, or to detect that diversity has collapsed.',
     whatAdaptabloxDoes:
       'agent outputs are evaluated for coordination quality before they are combined. Premature convergence and irreconcilable conflict are treated as coordination failures, and the system intervenes, restoring structured disagreement, before synthesis occurs.',
-    detailLine: 'Detailed scenario: false consensus',
+    detailLine: 'Detailed scenarios',
     scenarios: [
       {
         label: 'Fail Scenario # 4',
@@ -179,7 +179,7 @@ const failureFamilies: FailureFamily[] = [
       'compliance is evaluated per source, per output, per step, never on the composition.',
     whatAdaptabloxDoes:
       'composite results are evaluated for admissibility before they are produced or released. The system does not assume that compliant inputs produce compliant outputs. It evaluates the combination.',
-    detailLine: 'Detailed scenarios: contextual compliance failure, objective override failure',
+    detailLine: 'Detailed scenarios',
     scenarios: [
       {
         label: 'Fail Scenario # 5',
@@ -263,6 +263,13 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
       />
     </>
   );
+}
+
+function collapseFailureFamilyDetails(event: React.MouseEvent<HTMLElement>) {
+  const details = event.currentTarget.closest('details');
+  if (details instanceof HTMLDetailsElement) {
+    details.open = false;
+  }
 }
 
 function ScenarioCard({ scenario }: { scenario: Scenario }) {
@@ -363,7 +370,7 @@ export default function AdaptabloxAbout() {
             <img alt="Adaptablox Logo" className="block max-w-none size-full" src={imgGroup28481} />
           </div>
         </div>
-        <div className="absolute left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-[17px] top-[17px] bg-[#93959d] content-stretch flex gap-[6px] items-center p-[3px] rounded-[12px] z-[60]" data-name="control" data-node-id="1:5">
+        <div className="absolute left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-[17px] top-[17px] bg-[#82848e] content-stretch flex gap-[6px] items-center p-[3px] rounded-[12px] z-[60]" data-name="control" data-node-id="1:5">
           <button onClick={() => navigate('about')} className={`content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity ${activePage === 'about' ? 'bg-[#f7f9fc] shadow-[0px_5px_9px_0px_rgba(0,0,0,0.07)]' : 'bg-transparent hover:opacity-80'}`} data-name="button" data-node-id="27:671" type="button">
             <span className={`font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap ${activePage === 'about' ? 'text-[#5b5b5f]' : 'text-white'}`}>About</span>
           </button>
@@ -400,11 +407,11 @@ export default function AdaptabloxAbout() {
               <li className="ms-[23px]">Enforcement, during execution.</li>
             </ul>
             <div className="flex flex-col sm:flex-row gap-[10px] sm:gap-[16px]">
-              <a className="font-sans font-bold text-[#4e4e4e]" href="#failure-families">
-                See how agents fail →
+              <a className="font-sans font-bold text-[#4e4e4e] arrow-link" href="#failure-families">
+                See how agents fail <span className="arrow-link-arrow" aria-hidden="true">→</span>
               </a>
-              <button className="font-sans font-bold text-[#4e4e4e] text-left" type="button" onClick={() => navigate('demo')}>
-                Watch the demos →
+              <button className="font-sans font-bold text-[#4e4e4e] text-left cursor-pointer arrow-link" type="button" onClick={() => navigate('demo')}>
+                Watch the demos <span className="arrow-link-arrow" aria-hidden="true">→</span>
               </button>
             </div>
           </div>
@@ -450,7 +457,10 @@ export default function AdaptabloxAbout() {
                     <span>{family.detailLine}</span>
                   </p>
                 </summary>
-                <div className="content-stretch flex flex-col gap-[16px] px-[17px] md:px-[24px] pb-[17px] md:pb-[24px]">
+                <div
+                  className="content-stretch flex flex-col gap-[16px] px-[17px] md:px-[24px] pb-[17px] md:pb-[24px] cursor-pointer"
+                  onClick={collapseFailureFamilyDetails}
+                >
                   {family.scenarios.map((scenario) => (
                     <ScenarioCard key={scenario.title} scenario={scenario} />
                   ))}

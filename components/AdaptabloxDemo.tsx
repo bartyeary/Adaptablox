@@ -58,7 +58,7 @@ export default function AdaptabloxDemo() {
             <img alt="Adaptablox Logo" className="block max-w-none size-full" src={imgGroup28481} />
           </div>
         </div>
-        <div className="absolute left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-[17px] top-[17px] bg-[#93959d] content-stretch flex gap-[6px] items-center p-[3px] rounded-[12px] z-[60]" data-name="control" data-node-id="27:486">
+        <div className="absolute left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-[17px] top-[17px] bg-[#82848e] content-stretch flex gap-[6px] items-center p-[3px] rounded-[12px] z-[60]" data-name="control" data-node-id="27:486">
           <button
             onClick={() => {
               console.log('Failures button clicked');
