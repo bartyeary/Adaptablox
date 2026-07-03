@@ -406,7 +406,7 @@ export default function AdaptabloxAbout() {
               <li className="mb-0 ms-[23px]">Not post-hoc monitoring.</li>
               <li className="ms-[23px]">Enforcement, during execution.</li>
             </ul>
-            <div className="flex flex-col sm:flex-row gap-[10px] sm:gap-[16px]">
+            <div className="flex flex-col gap-[10px]">
               <a className="font-sans font-bold text-[#4e4e4e] arrow-link" href="#failure-families">
                 See how agents fail <span className="arrow-link-arrow" aria-hidden="true">→</span>
               </a>
