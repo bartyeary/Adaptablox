@@ -31,7 +31,7 @@ const sectionClass = "content-stretch flex flex-col gap-[12px] items-start leadi
 
 const failureFamilies: FailureFamily[] = [
   {
-    title: 'Failure: The sequence is the violation.',
+    title: 'The sequence is the violation.',
     summary:
       "No single action breaks policy. The pattern does. A procurement agent issues rapid, conflicting purchase orders, each valid in isolation, incoherent in aggregate. A support agent's refunds are each defensible; across a hundred tickets, they're a financial exposure.",
     whyCurrentSystemsMissIt:
@@ -127,7 +127,7 @@ const failureFamilies: FailureFamily[] = [
     ],
   },
   {
-    title: 'Failure: Agreement is not correctness.',
+    title: 'Agreement is not correctness.',
     summary:
       'Multiple agents converge on the same answer, because they converged on the same assumption. Confidence rises as reasoning diversity collapses. The system produces a consistent, well-supported answer. It is wrong.',
     whyCurrentSystemsMissIt:
@@ -172,7 +172,7 @@ const failureFamilies: FailureFamily[] = [
     ],
   },
   {
-    title: 'Failure: Compliant parts, non-compliant whole.',
+    title: 'Compliant parts, non-compliant whole.',
     summary:
       'An agent combines data from two systems. Each source is compliant in isolation. Together, they violate policy. Or an agent optimizes throughput in ways that are individually efficient and collectively unsafe.',
     whyCurrentSystemsMissIt:
@@ -430,7 +430,10 @@ export default function AdaptabloxAbout() {
             {failureFamilies.map((family) => (
               <details className="failure-family-details bg-white rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] w-full group" key={family.title}>
                 <summary className="cursor-pointer list-none px-[17px] md:px-[24px] py-[17px] md:py-[24px]">
-                  <p className="font-sans font-bold text-[#4e4e4e] text-[18px] mb-[0.75em]">{family.title}</p>
+                  <p className="font-sans font-bold text-[#4e4e4e] text-[18px] mb-[0.75em] flex items-center gap-[6px]">
+                    <img src="/assets/alert.svg" alt="" className="shrink-0 w-[19px] h-[18px]" aria-hidden="true" />
+                    <span>{family.title}</span>
+                  </p>
                   <p className="font-sans font-normal text-[#4e4e4e] text-[15px] mb-[1em]">{family.summary}</p>
                   <p className="font-sans font-normal text-[#4e4e4e] text-[15px] mb-[0.5em]">
                     <strong>Why current systems miss it:</strong> {family.whyCurrentSystemsMissIt}
@@ -477,7 +480,7 @@ export default function AdaptabloxAbout() {
         <section className={sectionClass} data-node-id="enforcement-evidence" id="enforcement-evidence">
           <SectionTitle>Every enforcement decision leaves evidence.</SectionTitle>
           <div className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-full max-w-[720px]" style={{ fontVariationSettings: "'wdth' 100" }}>
-            <p className="font-sans font-bold mb-[1em]">Governance you can't prove is governance you don't have.</p>
+            <p className="font-sans font-bold mb-[1em]">Governance you can't verify is just policy.</p>
             <p className="mb-[0.5em]">Every runtime intervention Adaptablox makes produces a record:</p>
             <ul className="list-disc mb-[1em]">
               <li className="mb-0 ms-[23px]"><strong>Which constraints</strong> were evaluated</li>

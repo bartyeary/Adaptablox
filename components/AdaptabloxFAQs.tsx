@@ -32,7 +32,6 @@ function SystemCard({ title, subtitle, children }: { title: string; subtitle?: s
         {title}
         {subtitle && <span className="font-normal italic"> ({subtitle})</span>}
       </p>
-      <div className="bg-[#d9d9d9] h-[1.5px] shrink-0 w-full" />
       <div className="font-sans font-normal leading-[21px] text-[#4e4e4e] text-[15px] w-full">
         {children}
       </div>
