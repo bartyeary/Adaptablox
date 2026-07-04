@@ -93,10 +93,13 @@ export default function AdaptabloxOverview() {
         <section className={sectionClass} data-node-id="overview-control-layers" style={{ marginTop: '71px' }}>
           <SectionTitle>How control is enforced</SectionTitle>
           <div className="font-sans font-normal min-w-full relative shrink-0 text-[#4e4e4e] text-[15px] w-full max-w-[720px]" style={{ fontVariationSettings: "'wdth' 100" }}>
-            <p className="mb-[1em]">Adaptablox applies control where agentic systems actually operate:</p>
-            <p className="mb-[1em]">At execution, in coordination, and inside inference.</p>
+            <p className="mb-[1em]">
+              Adaptablox applies control where agentic systems actually operate:
+              <br />
+              At execution, in coordination, and inside inference.
+            </p>
             <button className="font-sans font-bold text-[#4e4e4e] text-left cursor-pointer arrow-link" type="button" onClick={() => navigate('faqs')}>
-              See ARC, DS, and LRC on System <span className="arrow-link-arrow" aria-hidden="true">→</span>
+              Adaptablox system <span className="arrow-link-arrow" aria-hidden="true">→</span>
             </button>
           </div>
         </section>
