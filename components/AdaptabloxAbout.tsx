@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import { useNavigation } from '@/contexts/NavigationContext';
+import AxSequenceWidget from '@/components/AxSequenceWidget';
+import AxReceiptWidget from '@/components/AxReceiptWidget';
 
 const imgGroup28481 = "/assets/logo2.svg";
 
@@ -41,7 +43,7 @@ const failureFamilies: FailureFamily[] = [
     detailLine: 'Detailed scenarios',
     scenarios: [
       {
-        label: 'Fail Scenario # 1',
+        label: 'Fail Scenario',
         title: 'The helpful procurement agent',
         body: [
           'A procurement agent is authorized to negotiate vendor terms and execute agreements.',
@@ -67,7 +69,7 @@ const failureFamilies: FailureFamily[] = [
           'Ordering pauses until the sequence matches delegated intent. Authority holds; stakeholders reconcile once, not after a pile of irreversible commits.',
       },
       {
-        label: 'Fail Scenario # 2',
+        label: 'Fail Scenario',
         title: 'The customer support refund spiral',
         body: [
           'A customer support agent begins issuing refunds and replacements during a surge in tickets.',
@@ -93,7 +95,7 @@ const failureFamilies: FailureFamily[] = [
         outcome: 'Behavior remains consistent across interactions. Financial exposure is prevented before escalation occurs.',
       },
       {
-        label: 'Fail Scenario # 3',
+        label: 'Fail Scenario',
         title: 'The well-meaning planning agent',
         body: [
           'A planning agent is tasked with coordinating a multi-step workflow across systems.',
@@ -135,7 +137,7 @@ const failureFamilies: FailureFamily[] = [
     detailLine: 'Detailed scenarios',
     scenarios: [
       {
-        label: 'Fail Scenario # 4',
+        label: 'Fail Scenario',
         title: 'False consensus',
         body: [
           'Multiple agents are assigned to analyze the same problem from different roles.',
@@ -179,7 +181,7 @@ const failureFamilies: FailureFamily[] = [
     detailLine: 'Detailed scenarios',
     scenarios: [
       {
-        label: 'Fail Scenario # 5',
+        label: 'Fail Scenario',
         title: 'Contextual compliance failure',
         body: [
           'A data-access agent answers an internal query by combining data from two systems.',
@@ -209,7 +211,7 @@ const failureFamilies: FailureFamily[] = [
         outcome: 'Compliance is enforced during execution. Violations are prevented, not discovered.',
       },
       {
-        label: 'Fail Scenario # 6',
+        label: 'Fail Scenario',
         title: 'Objective override failure',
         body: [
           'A warehouse robot agent optimizes throughput by adjusting movement patterns.',
@@ -309,7 +311,7 @@ function ScenarioCard({ scenario }: { scenario: Scenario }) {
       <div className="bg-white content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full">
         <div className="absolute bottom-0 left-0 top-0 w-[5px]" style={{ background: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)' }} />
         <div className="font-sans leading-[24px] relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-          <p className="font-sans font-bold leading-[24px] mb-0">Adaptablox intervention</p>
+          <p className="font-sans font-bold leading-[24px] mb-0">Runtime intervention</p>
           {scenario.interventionIntro && <p className="font-sans font-normal leading-[24px] mb-[1em]">{scenario.interventionIntro}</p>}
           <ul className="list-disc mb-[1em]">
             {scenario.intervention.map((text) => (
@@ -407,10 +409,11 @@ export default function AdaptabloxAbout() {
               <a className="font-sans font-bold text-[#4e4e4e] arrow-link" href="#failure-families">
                 See how agents fail <span className="arrow-link-arrow" aria-hidden="true">→</span>
               </a>
-              <button className="font-sans font-bold text-[#4e4e4e] text-left cursor-pointer arrow-link" type="button" onClick={() => navigate('demo')}>
-                Watch the demos <span className="arrow-link-arrow" aria-hidden="true">→</span>
-              </button>
             </div>
+            <AxSequenceWidget />
+            <button className="font-sans font-bold text-[#4e4e4e] text-left cursor-pointer arrow-link mt-[16px]" type="button" onClick={() => navigate('demo')}>
+              Watch the demos <span className="arrow-link-arrow" aria-hidden="true">→</span>
+            </button>
           </div>
         </section>
 
@@ -504,6 +507,7 @@ export default function AdaptabloxAbout() {
             </ul>
             <span dangerouslySetInnerHTML={{ __html: '<!-- HOLD: pending counsel review -->' }} />
           </div>
+          <AxReceiptWidget />
         </section>
 
         <section className={sectionClass} data-node-id="about-who-this-is-for">

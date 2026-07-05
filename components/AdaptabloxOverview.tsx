@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useNavigation } from '@/contexts/NavigationContext';
+import AxOutcomesWidget from '@/components/AxOutcomesWidget';
 
 const imgGroup28481 = "/assets/logo2.svg";
 const sectionClass = "content-stretch flex flex-col gap-[12px] items-start leading-[21px] pb-[8px] md:pb-[12px] pt-[14px] md:pt-[20px] px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full";
@@ -102,6 +103,7 @@ export default function AdaptabloxOverview() {
               Adaptablox system <span className="arrow-link-arrow" aria-hidden="true">→</span>
             </button>
           </div>
+          <AxOutcomesWidget />
         </section>
 
         <section className={sectionClass} data-node-id="overview-how-it-works">

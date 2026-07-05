@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useNavigation } from '@/contexts/NavigationContext';
+import AxSignalsWidget from '@/components/AxSignalsWidget';
 
 const imgGroup28481 = "/assets/logo2.svg";
 const sectionClass = "content-stretch flex flex-col gap-[12px] items-start pb-[8px] md:pb-[12px] pt-[14px] md:pt-[20px] px-[17px] md:px-[24px] relative shrink-0 w-full text-[#4e4e4e]";
@@ -117,6 +118,10 @@ export default function AdaptabloxFAQs() {
             </SystemCard>
           </div>
         </section>
+
+        <div className="px-[17px] md:px-[24px] w-full">
+          <AxSignalsWidget />
+        </div>
 
         <section className={sectionClass} data-node-id="system-faq-cards">
           <SectionTitle>Questions</SectionTitle>
