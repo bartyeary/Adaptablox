@@ -444,12 +444,15 @@
     defaultHeight() { return 280; }
     css() {
       return (
+        ":host([theme='light']){--green:#479a60;--blue:#5280b8;--violet:#8d78c4;" +
+        "--ar:82,128,184;--vr:141,120,196;--line:rgba(var(--ar),.18);--line-hi:rgba(var(--ar),.42)}" +
         ".gate{position:absolute;left:50%;top:50%;width:4px;height:96px;transform:translate(-50%,-50%);" +
         "background:repeating-linear-gradient(45deg,#D4DAE3 0px,#D4DAE3 8px,#AEB5BF 8px,#AEB5BF 16px);" +
         "background-size:22.627px 22.627px;z-index:6;pointer-events:none}" +
         ".track{position:absolute;left:10%;right:10%;top:50%;height:1px;background:var(--line)}" +
         ".alt{position:absolute;left:50%;width:34%;top:74%;height:1px;" +
         "background:repeating-linear-gradient(90deg,var(--line) 0 5px,transparent 5px 11px)}" +
+        ":host([theme='light']) .alt{background:repeating-linear-gradient(90deg,rgba(var(--vr),.34) 0 5px,transparent 5px 11px)}" +
         ".human{position:absolute;left:72%;top:17%;width:22px;height:22px;border-radius:50%;" +
         "border:1px solid rgba(var(--ar),.55);background:rgba(var(--ar),.1);transform:translate(-50%,-50%);transition:box-shadow .4s}" +
         ".human.hit{box-shadow:0 0 18px rgba(var(--ar),.5)}" +
@@ -460,7 +463,8 @@
         ".endr2{position:absolute;left:84%;top:74%;width:7px;height:7px;border-radius:50%;transform:translate(-50%,-50%);" +
         "border:1px solid rgba(var(--vr),.5);background:rgba(var(--vr),.12)}" +
         ".pill{position:absolute;top:50%;left:0;width:11px;height:11px;margin-top:-5.5px;border-radius:50%;" +
-        "background:var(--faint);box-shadow:0 0 8px rgba(var(--wr),.1);will-change:transform,opacity}" +
+        "background:rgba(139,148,168,.45);box-shadow:0 0 8px rgba(var(--wr),.1);will-change:transform,opacity}" +
+        ":host([theme='light']) .pill{background:#b0b7bf}" +
         ".olabel{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);font-size:10.5px;font-weight:600;" +
         "letter-spacing:.16em;text-transform:uppercase;transition:opacity .4s,color .4s;color:var(--muted)}"
       );
@@ -477,6 +481,13 @@
       );
     }
     setup() {
+      if (this.getAttribute("theme") === "light") {
+        this._out = {
+          allow: "#479a60",
+          modify: "#5280b8",
+          reroute: "#8d78c4",
+        };
+      }
       this.SC = [
         { name: "allow", color: "var(--green)" },
         { name: "modify", color: "#F0A84B" },
@@ -514,11 +525,12 @@
           ol.textContent = sc.name;
           ol.style.color = sc.color;
           ol.style.opacity = 1;
+          const out = this._out || this.T.out;
           const col =
-            sc.name === "escalate" ? this.T.out.modify :
+            sc.name === "escalate" ? out.modify :
             sc.name === "deny" ? "#F54141" :
             sc.name === "modify" ? "#F0A84B" :
-            this.T.out[sc.name];
+            out[sc.name];
           p.style.background = col;
           p.style.boxShadow = "0 0 12px " + col + "88";
           let anim;
@@ -945,12 +957,15 @@
         ".stick{position:absolute;transform:translate(-50%,0);font-size:10px;opacity:0;transition:opacity .3s;" +
         "color:var(--green);z-index:5}" +
         ".stick.in{opacity:1}.stick.blocked{color:#F54141}" +
-        ".cap{opacity:0;transition:opacity .28s ease}.cap.show{opacity:1}"
+        ".cap{opacity:0;transition:opacity .28s ease}.cap.show{opacity:1}" +
+        ".th-cap{position:absolute;left:16px;font-size:9.5px;font-weight:600;letter-spacing:.2em;" +
+        "text-transform:uppercase;color:var(--faint);z-index:8;pointer-events:none;transform:translateY(-50%)}"
       );
     }
     html() {
       return (
         '<div class="cap" id="cap"></div>' +
+        '<div class="th-cap" id="th-cap">Admissibility</div>' +
         '<svg id="sq" xmlns="http://www.w3.org/2000/svg"></svg>' +
         '<div id="layer" data-tiptitle="Locally valid" data-tip="Every individual step passes its own check. The risk lives in the pattern they compose." style="position:absolute;inset:0"></div>'
       );
@@ -990,12 +1005,15 @@
       const stickY = base + 28;
       const threshY = base - span;       /* the delegated-intent envelope */
       const thLineY = threshY - 5;
+      const thCap = f.querySelector("#th-cap");
+      thCap.style.top = thLineY + "px";
+      const lineStart = 16 + (thCap.offsetWidth || 0) + 10;
       const xs = [0, 1, 2, 3, 4, 5].map((i) => W * (0.12 + i * 0.14));
       const drift = [0.1, 0.22, 0.4, 0.62, 1.08, 1.5]; /* ×span; crosses at step 5 */
 
       /* admissibility threshold line */
       const th = document.createElementNS(NS, "line");
-      th.setAttribute("x1", W * 0.08); th.setAttribute("x2", W * 0.92);
+      th.setAttribute("x1", lineStart); th.setAttribute("x2", W * 0.92);
       th.setAttribute("y1", thLineY); th.setAttribute("y2", thLineY);
       th.setAttribute("class", "thl");
       svg.appendChild(th);
