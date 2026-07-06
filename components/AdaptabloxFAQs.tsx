@@ -96,7 +96,7 @@ export default function AdaptabloxFAQs() {
         data-node-id="1:200"
       >
         <section className={sectionClass} data-node-id="system-control-layers" style={{ marginTop: '71px' }}>
-          <SectionTitle>The System</SectionTitle>
+          <SectionTitle>The system</SectionTitle>
           <div className="font-sans font-normal leading-[21px] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full max-w-[720px]" style={{ fontVariationSettings: "'wdth' 100" }}>
             <p className="mb-[1em]">Adaptablox applies control where agentic systems actually operate:</p>
           </div>

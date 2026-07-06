@@ -107,7 +107,7 @@ export default function AdaptabloxOverview() {
         </section>
 
         <section className={sectionClass} data-node-id="overview-how-it-works">
-          <SectionTitle>How It Works</SectionTitle>
+          <SectionTitle>How it works</SectionTitle>
           <p className="font-mono leading-[12px] md:leading-[18px] not-italic relative shrink-0 text-[#4e4e4e] text-[10px] md:text-[15px] text-center w-full max-w-[780px]" style={{ fontFamily: 'monospace' }}>
             All evaluation and enforcement occurs during runtime, not after output is produced. Below is a sequence of enforced decisions.
           </p>

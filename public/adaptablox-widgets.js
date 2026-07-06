@@ -453,10 +453,11 @@
         ".alt{position:absolute;left:50%;width:34%;top:74%;height:1px;" +
         "background:repeating-linear-gradient(90deg,var(--line) 0 5px,transparent 5px 11px)}" +
         ":host([theme='light']) .alt{background:repeating-linear-gradient(90deg,rgba(var(--vr),.34) 0 5px,transparent 5px 11px)}" +
-        ".human{position:absolute;left:72%;top:17%;width:22px;height:22px;border-radius:50%;" +
-        "border:1px solid rgba(var(--ar),.55);background:rgba(var(--ar),.1);transform:translate(-50%,-50%);transition:box-shadow .4s}" +
-        ".human.hit{box-shadow:0 0 18px rgba(var(--ar),.5)}" +
-        ".hlbl{position:absolute;left:72%;top:17%;transform:translate(-50%,16px);font-size:9px;letter-spacing:.12em;" +
+        ".human{position:absolute;left:72%;top:17%;transform:translate(-50%,-50%);" +
+        "transition:filter .4s;z-index:5;line-height:0}" +
+        ".human img{display:block;width:33px;height:30px}" +
+        ".human.hit{filter:drop-shadow(0 0 10px rgba(var(--ar),.55))}" +
+        ".hlbl{position:absolute;left:72%;top:17%;transform:translate(-50%,20px);font-size:9px;letter-spacing:.12em;" +
         "text-transform:uppercase;color:var(--faint)}" +
         ".endr{position:absolute;left:90%;top:50%;width:9px;height:9px;border-radius:50%;transform:translate(-50%,-50%);" +
         "border:1px solid var(--line-hi);background:rgba(var(--ar),.12)}" +
@@ -474,7 +475,8 @@
         '<div class="cap">Governed outcomes</div>' +
         '<div class="track"></div><div class="alt"></div>' +
         '<div class="gate" data-tiptitle="The same governance" data-tip="One boundary, many outcomes. The situation decides which."></div>' +
-        '<div class="human" data-tiptitle="Escalation" data-tip="Some decisions belong to a person. They arrive with full context attached."></div>' +
+        '<div class="human" data-tiptitle="Escalation" data-tip="Some decisions belong to a person. They arrive with full context attached.">' +
+        '<img src="/assets/human.svg" alt="" aria-hidden="true" width="33" height="30"></div>' +
         '<div class="hlbl">human</div>' +
         '<div class="endr"></div><div class="endr2"></div>' +
         '<div class="olabel" id="ol" style="opacity:0"></div>'
@@ -556,7 +558,7 @@
               { duration: 950, easing: "cubic-bezier(.4,0,.3,1)", fill: "forwards" }
             );
           } else if (sc.name === "escalate") {
-            const hx = W * 0.72 - 5, hy = H * 0.17 - yMid;
+            const hx = W * 0.72 - 5, hy = H * 0.17 - yMid - 5;
             anim = p.animate(
               [
                 { transform: "translate(" + (xm - 16) + "px,0)" },

@@ -162,7 +162,7 @@ export default function AdaptabloxDemo() {
               className="font-sans font-[590] leading-[21px] relative shrink-0 text-[24px] text-[#4E4E4E] text-nowrap mb-0"
               style={{ fontVariationSettings: "'wdth' 100" }}
             >
-              Runtime Behavior in Practice
+              Runtime behavior in practice
             </p>
             <div
               className="mt-[12px] h-[4px] w-full overflow-hidden mb-[6px]"
@@ -209,7 +209,7 @@ export default function AdaptabloxDemo() {
           </div>
           <div className="content-stretch flex flex-col gap-[12px] items-start pb-[8px] md:pb-[12px] pt-0 px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="42:813">
             <p className="font-sans font-medium relative shrink-0 text-[20px] text-nowrap" data-node-id="42:815">
-              What is Enforced
+              What is enforced
             </p>
             <div className="font-sans font-normal leading-[0] min-w-full relative shrink-0 text-[15px] w-full" data-node-id="42:816" style={{ fontVariationSettings: "'wdth' 100" }}>
               <ul className="list-disc mb-0">
@@ -259,7 +259,7 @@ export default function AdaptabloxDemo() {
           </div>
           <div className="content-stretch flex flex-col gap-[12px] items-start pb-[8px] md:pb-[12px] pt-0 px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="44:833">
             <p className="font-sans font-medium relative shrink-0 text-[20px] text-nowrap" data-node-id="44:835">
-              What is Enforced
+              What is enforced
             </p>
             <div className="font-sans font-normal leading-[0] min-w-full relative shrink-0 text-[15px] w-full" data-node-id="44:836" style={{ fontVariationSettings: "'wdth' 100" }}>
               <p className="leading-[21px] mb-0">
@@ -297,7 +297,7 @@ export default function AdaptabloxDemo() {
         </div>
         <div className="content-stretch flex flex-col gap-[12px] items-start pb-[8px] md:pb-[12px] pt-0 px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="44:843">
           <p className="font-sans font-medium relative shrink-0 text-[20px]" data-node-id="44:845">
-            What These Demos Do Not Show
+            What these demos do not show
           </p>
           <div className="font-sans font-normal leading-[0] min-w-full relative shrink-0 text-[15px] w-full" data-node-id="44:846" style={{ fontVariationSettings: "'wdth' 100" }}>
             <p className="leading-[21px] mb-0">These are not prompt variations or tuned responses.</p>
@@ -311,7 +311,7 @@ export default function AdaptabloxDemo() {
         </div>
         <div className="content-stretch flex flex-col gap-[12px] items-start pb-[8px] md:pb-[12px] pt-0 px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="44:854">
           <p className="font-sans font-medium relative shrink-0 text-[20px] text-nowrap" data-node-id="44:856">
-            Why This Matters
+            Why this matters
           </p>
           <div className="font-sans font-normal leading-[0] min-w-full relative shrink-0 text-[15px] w-full" data-node-id="44:857" style={{ fontVariationSettings: "'wdth' 100" }}>
             <p className="leading-[21px] mb-0">
