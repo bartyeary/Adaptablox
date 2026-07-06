@@ -37,7 +37,7 @@ const failureFamilies: FailureFamily[] = [
     summary:
       "No single action breaks policy. The pattern does. A procurement agent issues rapid, conflicting purchase orders, each valid in isolation, incoherent in aggregate. A support agent's refunds are each defensible; across a hundred tickets, they're a financial exposure.",
     whyCurrentSystemsMissIt:
-      'authority is checked per request. Nothing evaluates whether an action remains admissible given the actions that came before it. Sequence-aware enforcement requires evaluating accumulated state. A per-snapshot check does not.',
+      'authority is checked per request. Nothing evaluates whether an action remains admissible given the actions that came before it.',
     whatAdaptabloxDoes:
       'every action is evaluated in the context of the sequence it belongs to. Incoherent or over-rapid sequences are blocked or deferred before they commit. A snapshot check cannot do this. Sequence-aware enforcement can.',
     detailLine: 'Detailed scenarios',
@@ -499,7 +499,7 @@ export default function AdaptabloxAbout() {
             <p className="mb-[1em]">
               These records are cryptographically chained, so the history of enforcement decisions is tamper-evident. An auditor doesn't have to trust that governance happened. The record shows it, and shows that the record itself hasn't been altered.
             </p>
-            <p className="mb-[0.5em]">This is the difference between governance as a promise and governance as a produced artifact:</p>
+            <p className="mb-[0.5em]">This is the difference between governance as a promise and governance as a verifiable record:</p>
             <ul className="list-disc mb-0">
               <li className="mb-0 ms-[23px]">A compliance officer can answer "show me every action this agent was blocked from taking in Q3."</li>
               <li className="mb-0 ms-[23px]">An incident review can reconstruct exactly which constraint held, and when.</li>

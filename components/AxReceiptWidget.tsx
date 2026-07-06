@@ -49,7 +49,7 @@ export default function AxReceiptWidget() {
     <div
       ref={hostRef}
       className="w-full max-w-[720px] mt-[16px] rounded-[8px] overflow-hidden"
-      aria-label="Governance receipt"
+      aria-label="Admissibility record"
     />
   );
 }

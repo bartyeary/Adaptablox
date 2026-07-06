@@ -638,9 +638,9 @@
     }
     html() {
       return (
-        '<div class="cap">Governance receipt</div>' +
+        '<div class="cap">Admissibility record</div>' +
         '<div class="rc" data-tiptitle="Evidence, not logs" data-tip="Signed at the moment of decision, chained to what came before. Anyone can verify it. No one can forge it.">' +
-        '<div class="h"><span class="a">receipt</span><span class="b" id="rid"></span></div>' +
+        '<div class="h"><span class="a">record</span><span class="b" id="rid"></span></div>' +
         '<div id="rows"></div>' +
         '<div class="sig"><div class="k"><span>signature</span><span class="vmark" id="vm">' +
         '<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>' +
