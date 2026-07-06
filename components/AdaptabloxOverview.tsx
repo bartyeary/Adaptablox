@@ -126,10 +126,8 @@ export default function AdaptabloxOverview() {
 |  - Block, modify, or reroute actions that exceed constraints         |
 |  - Regulate memory access and delegation boundaries                  |
 +----------------------------------------------------------------------+
-▼`}
-            </pre>
-            <pre className="font-mono leading-[12px] md:leading-[18px] not-italic relative shrink-0 text-[#4e4e4e] text-[10px] md:text-[15px] text-center w-full whitespace-pre overflow-x-auto" style={{ fontFamily: 'monospace' }}>
-{`+----------------------------------------------------------------------+
+▼
++----------------------------------------------------------------------+
 |      L.R.C., INTERNAL REASONING GOVERNANCE (research direction)      |
 |                                                                      |
 |  - Designed to evaluate internal reasoning pathways during inference |
@@ -137,10 +135,8 @@ export default function AdaptabloxOverview() {
 |  - Designed to select only compliant reasoning trajectories          |
 |  - Designed to resolve conflicts between competing interpretations   |
 +----------------------------------------------------------------------+
-▼`}
-            </pre>
-            <pre className="font-mono leading-[12px] md:leading-[18px] not-italic relative shrink-0 text-[#4e4e4e] text-[10px] md:text-[15px] text-center w-full whitespace-pre overflow-x-auto" style={{ fontFamily: 'monospace' }}>
-{`+----------------------------------------------------------------------+
+▼
++----------------------------------------------------------------------+
 |                        MODEL REASONING ENGINE                        |
 |                   (Weights and training unchanged)                   |
 +----------------------------------------------------------------------+
