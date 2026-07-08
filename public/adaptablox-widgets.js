@@ -56,11 +56,35 @@
     "--blue:#3e6ea8;--text:#191c21;--muted:#6b7280;--faint:#99a0ab;" +
     "--green:#35864d;--amber:#c5850f;--rose:#c4483d;--violet:#7a5fb8}" +
     "*{box-sizing:border-box;margin:0;padding:0}" +
-    ".frame{position:relative;width:100%;height:100%;border-radius:16px;overflow:hidden;" +
+    ".frame{position:relative;width:100%;height:100%;border-radius:16px;overflow:hidden;isolation:isolate;" +
     "background:linear-gradient(168deg,rgba(var(--ar),.05),rgba(var(--wr),.012)),var(--frame-bg);" +
     "border:1px solid var(--frame-line);box-shadow:inset 0 1px 0 rgba(var(--wr),.04)}" +
+    "@property --grid-f1{syntax:'<percentage>';inherits:false;initial-value:28%}" +
+    "@property --grid-f2{syntax:'<percentage>';inherits:false;initial-value:46%}" +
+    "@property --grid-f3{syntax:'<percentage>';inherits:false;initial-value:60%}" +
+    "@property --grid-f4{syntax:'<percentage>';inherits:false;initial-value:78%}" +
+    "@keyframes grid-feather{0%,100%{--grid-f1:36%;--grid-f2:48%;--grid-f3:58%;--grid-f4:70%}" +
+    "50%{--grid-f1:30%;--grid-f2:44%;--grid-f3:58%;--grid-f4:78%}}" +
+    ".grid-bg{position:absolute;inset:0;z-index:0;pointer-events:none;" +
+    "background-image:" +
+    "linear-gradient(to right,rgba(var(--ar),.18) 1px,transparent 1px)," +
+    "linear-gradient(to bottom,rgba(var(--ar),.18) 1px,transparent 1px);" +
+    "background-size:10px 10px;" +
+    "-webkit-mask-image:radial-gradient(ellipse 95% 95% at 50% 52%," +
+    "transparent 0%,transparent var(--grid-f1),rgba(0,0,0,.35) var(--grid-f2),rgba(0,0,0,.72) var(--grid-f3),#000 var(--grid-f4));" +
+    "mask-image:radial-gradient(ellipse 95% 95% at 50% 52%," +
+    "transparent 0%,transparent var(--grid-f1),rgba(0,0,0,.35) var(--grid-f2),rgba(0,0,0,.72) var(--grid-f3),#000 var(--grid-f4));" +
+    "will-change:--grid-f1,--grid-f2,--grid-f3,--grid-f4;animation:grid-feather 16s ease-in-out infinite}" +
+    ":host([theme='light']) .grid-bg{background-image:" +
+    "linear-gradient(to right,rgba(62,110,168,.16) 1px,transparent 1px)," +
+    "linear-gradient(to bottom,rgba(62,110,168,.16) 1px,transparent 1px)}" +
+    "@media (prefers-reduced-motion:reduce){.grid-bg{animation:none;--grid-f1:28%;--grid-f2:46%;--grid-f3:60%;--grid-f4:78%}}" +
+    ".frame-content{position:absolute;inset:0;z-index:1}" +
+    ".frame>*:not(.grid-bg):not(.frame-content):not(.tip){z-index:2}" +
     ".cap{position:absolute;left:16px;top:13px;font-size:9.5px;font-weight:600;letter-spacing:.2em;" +
-    "text-transform:uppercase;color:var(--faint);z-index:8;pointer-events:none}" +
+    "text-transform:uppercase;color:var(--faint);z-index:8;pointer-events:none;" +
+    "text-shadow:0 0 6px var(--frame-bg),0 0 14px var(--frame-bg),0 0 24px var(--frame-bg),0 0 36px var(--frame-bg),0 0 48px var(--frame-bg)}" +
+    ".th-cap{text-shadow:0 0 6px var(--frame-bg),0 0 14px var(--frame-bg),0 0 24px var(--frame-bg),0 0 36px var(--frame-bg),0 0 48px var(--frame-bg)}" +
     ".sub{position:absolute;right:16px;bottom:11px;font-size:10.5px;color:var(--faint);z-index:8;pointer-events:none;" +
     "font-weight:500;letter-spacing:.02em}" +
     /* tooltip stays dark-on-dark chrome in both themes (matches site tooltips) */
@@ -91,7 +115,14 @@
       root.appendChild(style);
       const frame = document.createElement("div");
       frame.className = "frame";
-      frame.innerHTML = this.html();
+      const gridBg = document.createElement("div");
+      gridBg.className = "grid-bg";
+      gridBg.setAttribute("aria-hidden", "true");
+      const content = document.createElement("div");
+      content.className = "frame-content";
+      content.innerHTML = this.html();
+      frame.appendChild(gridBg);
+      frame.appendChild(content);
       root.appendChild(frame);
       this.frame = frame;
       this.tipEl = document.createElement("div");
@@ -942,7 +973,7 @@
     defaultHeight() { return 235; }
     css() {
       return (
-        "svg{position:absolute;inset:0;width:100%;height:100%}" +
+        "svg{position:absolute;inset:0;width:100%;height:100%;z-index:2}" +
         ".dl{fill:none;stroke:rgba(var(--ar),.75);stroke-width:1.6;stroke-linecap:round;transition:stroke .5s}" +
         ".dl.warn{stroke:#F54141}" +
         ".thl{stroke:var(--faint);stroke-width:1;stroke-dasharray:4 6;opacity:.55}" +
@@ -959,9 +990,10 @@
         ".stick{position:absolute;transform:translate(-50%,0);font-size:10px;opacity:0;transition:opacity .3s;" +
         "color:var(--green);z-index:5}" +
         ".stick.in{opacity:1}.stick.blocked{color:#F54141}" +
-        ".cap{opacity:0;transition:opacity .28s ease}.cap.show{opacity:1}" +
+        ".cap{opacity:0;transition:opacity .28s ease;z-index:8}.cap.show{opacity:1}" +
         ".th-cap{position:absolute;left:16px;font-size:9.5px;font-weight:600;letter-spacing:.2em;" +
-        "text-transform:uppercase;color:var(--faint);z-index:8;pointer-events:none;transform:translateY(-50%)}"
+        "text-transform:uppercase;color:var(--faint);z-index:8;pointer-events:none;transform:translateY(-50%)}" +
+        "#layer{z-index:3;position:absolute;inset:0}"
       );
     }
     html() {
