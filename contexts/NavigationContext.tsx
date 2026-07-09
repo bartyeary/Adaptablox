@@ -1,9 +1,13 @@
 'use client';
 
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, useCallback, useRef, ReactNode } from 'react';
 import SwipeNavigation from '@/components/SwipeNavigation';
-
-type Page = 'overview' | 'about' | 'faqs' | 'demo';
+import {
+  type Page,
+  hashToPage,
+  readPageFromLocation,
+  writeHashForPage,
+} from '@/lib/navigationHash';
 
 interface NavigationContextType {
   activePage: Page;
@@ -12,29 +16,40 @@ interface NavigationContextType {
 
 const NavigationContext = createContext<NavigationContextType | undefined>(undefined);
 
+function initialPage(): Page {
+  return readPageFromLocation() ?? 'about';
+}
+
 export function NavigationProvider({ children }: { children: ReactNode }) {
-  const [activePage, setActivePage] = useState<Page>('about');
+  const [activePage, setActivePage] = useState<Page>(initialPage);
 
   useEffect(() => {
-    console.log('NavigationProvider mounted, activePage:', activePage);
+    const syncFromHash = () => {
+      const page = hashToPage(window.location.hash);
+      if (page) setActivePage(page);
+    };
+
+    syncFromHash();
+    window.addEventListener('hashchange', syncFromHash);
+    return () => window.removeEventListener('hashchange', syncFromHash);
   }, []);
 
-  useEffect(() => {
-    console.log('NavigationProvider activePage changed to:', activePage);
-    // Scroll to top whenever page changes (client-side only)
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'auto' });
-    }
-  }, [activePage]);
-
-  const navigate = (page: Page) => {
-    console.log('NavigationContext navigate called with:', page);
-    console.log('Current activePage before update:', activePage);
+  const navigate = useCallback((page: Page) => {
     setActivePage(page);
-    console.log('setActivePage called with:', page);
-  };
+  }, []);
 
-  console.log('NavigationProvider rendering, activePage:', activePage);
+  const isInitialMount = useRef(true);
+  useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      if (!window.location.hash && activePage === 'about') {
+        window.scrollTo({ top: 0, behavior: 'auto' });
+        return;
+      }
+    }
+    writeHashForPage(activePage);
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }, [activePage]);
 
   return (
     <NavigationContext.Provider value={{ activePage, navigate }}>
@@ -51,4 +66,3 @@ export function useNavigation() {
   }
   return context;
 }
-

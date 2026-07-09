@@ -7,6 +7,109 @@ import AxOutcomesWidget from '@/components/AxOutcomesWidget';
 const imgGroup28481 = "/assets/logo2.svg";
 const sectionClass = "content-stretch flex flex-col gap-[12px] items-start leading-[21px] pb-[8px] md:pb-[12px] pt-[14px] md:pt-[20px] px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full";
 
+const FLOW_DIAGRAM_MOBILE = `+-------------------------------+
+|   USER / ENVIRONMENT INPUT    |
+|   (Prompt, signal, context,   |
+|     ambient trigger, etc.)    |
++-------------------------------+
+▼
++-------------------------------+
+|      A.R.C., BEHAVIORAL       |
+|       GOVERNANCE LAYER        |
+|                               |
+| - Evaluate delegated authority|
+|   against role & constraints  |
+| - Validate scope, permissions,|
+|   and execution context       |
+| - Block, modify, or reroute   |
+|   over-constraint actions     |
+| - Regulate memory & delegation|
++-------------------------------+
+▼
++-------------------------------+
+|  L.R.C., INTERNAL REASONING   |
+|  GOVERNANCE (research dir.)   |
+|                               |
+| - Evaluate reasoning pathways |
+|   during inference            |
+| - Suppress non-compliant      |
+|   reasoning pathways          |
+| - Select only compliant       |
+|   reasoning trajectories      |
+| - Resolve competing           |
+|   interpretations             |
++-------------------------------+
+▼
++-------------------------------+
+|    MODEL REASONING ENGINE     |
+|(Weights & training unchanged) |
++-------------------------------+
+▼
++-------------------------------+
+|     POLICY-ALIGNED ACTION     |
+|         OR ESCALATION         |
+|                               |
+| - Execute permitted actions   |
+|   within constraint bounds    |
+| - Defer, reroute, or escalate |
+|   when constraints violated   |
+| - Offer alternatives when     |
+|   primary paths are blocked   |
++-------------------------------+
+▼
++-------------------------------+
+|    ENFORCEMENT + EVIDENCE     |
+|                               |
+| - Record constraints applied  |
+| - Record when evaluated       |
+| - Record why allowed,         |
+|   modified, or blocked        |
++-------------------------------+`;
+
+const FLOW_DIAGRAM_DESKTOP = `+----------------------------------------------------------------------+
+|                       USER / ENVIRONMENT INPUT                       |
+|           (Prompt, signal, context, ambient trigger, etc.)           |
++----------------------------------------------------------------------+
+▼
++----------------------------------------------------------------------+
+|                 A.R.C., BEHAVIORAL GOVERNANCE LAYER                  |
+|                                                                      |
+|  - Evaluate delegated authority against role and constraint stack    |
+|  - Validate scope, permissions, and execution context                |
+|  - Block, modify, or reroute actions that exceed constraints         |
+|  - Regulate memory access and delegation boundaries                  |
++----------------------------------------------------------------------+
+▼
++----------------------------------------------------------------------+
+|      L.R.C., INTERNAL REASONING GOVERNANCE (research direction)      |
+|                                                                      |
+|  - Designed to evaluate internal reasoning pathways during inference |
+|  - Designed to suppress or redirect pathways that violate constraints|
+|  - Designed to select only compliant reasoning trajectories          |
+|  - Designed to resolve conflicts between competing interpretations   |
++----------------------------------------------------------------------+
+▼
++----------------------------------------------------------------------+
+|                        MODEL REASONING ENGINE                        |
+|                   (Weights and training unchanged)                   |
++----------------------------------------------------------------------+
+▼
++----------------------------------------------------------------------+
+|                 POLICY-ALIGNED ACTION OR ESCALATION                  |
+|                                                                      |
+|  - Execute permitted actions within constraint boundaries            |
+|  - Defer, reroute, or escalate actions when constraints are violated |
+|  - Introduce alternative actions when primary paths are blocked      |
++----------------------------------------------------------------------+
+▼
++----------------------------------------------------------------------+
+|                      ENFORCEMENT + EVIDENCE                          |
+|                                                                      |
+|  - Record which constraints were applied                             |
+|  - Record when the decision was evaluated                            |
+|  - Record why the action was allowed, modified, or blocked           |
++----------------------------------------------------------------------+`;
+
 function SectionTitle({ children }: { children: React.ReactNode }) {
   return (
     <>
@@ -111,56 +214,20 @@ export default function AdaptabloxOverview() {
           <p className="font-mono leading-[12px] md:leading-[18px] not-italic relative shrink-0 text-[#4e4e4e] text-[10px] md:text-[15px] text-center w-full max-w-[780px]" style={{ fontFamily: 'monospace' }}>
             All evaluation and enforcement occurs during runtime, not after output is produced. Below is a sequence of enforced decisions.
           </p>
-          <div className="flow-diagram-fit min-w-0 w-[calc(100%+34px)] -mx-[17px] md:w-[calc(100%+48px)] md:-mx-[24px]">
+          <div className="flow-diagram-fit min-w-0 w-[calc(100%+34px)] -mx-[17px] md:-mx-[42px] md:w-[calc(100%+84px)]">
             <pre
-              className="font-mono not-italic relative text-[#4e4e4e] whitespace-pre text-center"
+              className="flow-diagram-mobile font-mono not-italic relative text-[#4e4e4e] whitespace-pre text-center"
+              data-node-id="42:802-mobile"
+              style={{ fontFamily: 'monospace' }}
+            >
+{FLOW_DIAGRAM_MOBILE}
+            </pre>
+            <pre
+              className="flow-diagram-desktop font-mono not-italic relative text-[#4e4e4e] whitespace-pre text-center"
               data-node-id="42:802"
               style={{ fontFamily: 'monospace' }}
             >
-{`+----------------------------------------------------------------------+
-|                       USER / ENVIRONMENT INPUT                       |
-|           (Prompt, signal, context, ambient trigger, etc.)           |
-+----------------------------------------------------------------------+
-▼
-+----------------------------------------------------------------------+
-|                 A.R.C., BEHAVIORAL GOVERNANCE LAYER                  |
-|                                                                      |
-|  - Evaluate delegated authority against role and constraint stack    |
-|  - Validate scope, permissions, and execution context                |
-|  - Block, modify, or reroute actions that exceed constraints         |
-|  - Regulate memory access and delegation boundaries                  |
-+----------------------------------------------------------------------+
-▼
-+----------------------------------------------------------------------+
-|      L.R.C., INTERNAL REASONING GOVERNANCE (research direction)      |
-|                                                                      |
-|  - Designed to evaluate internal reasoning pathways during inference |
-|  - Designed to suppress or redirect pathways that violate constraints|
-|  - Designed to select only compliant reasoning trajectories          |
-|  - Designed to resolve conflicts between competing interpretations   |
-+----------------------------------------------------------------------+
-▼
-+----------------------------------------------------------------------+
-|                        MODEL REASONING ENGINE                        |
-|                   (Weights and training unchanged)                   |
-+----------------------------------------------------------------------+
-▼
-+----------------------------------------------------------------------+
-|                 POLICY-ALIGNED ACTION OR ESCALATION                  |
-|                                                                      |
-|  - Execute permitted actions within constraint boundaries            |
-|  - Defer, reroute, or escalate actions when constraints are violated |
-|  - Introduce alternative actions when primary paths are blocked      |
-+----------------------------------------------------------------------+
-▼
-+----------------------------------------------------------------------+
-|                      ENFORCEMENT + EVIDENCE                          |
-|                                                                      |
-|  - Record which constraints were applied                             |
-|  - Record when the decision was evaluated                            |
-|  - Record why the action was allowed, modified, or blocked           |
-+----------------------------------------------------------------------+
-`}
+{FLOW_DIAGRAM_DESKTOP}
             </pre>
           </div>
           <button className="font-sans font-bold text-[#4e4e4e] text-left mt-[12px] cursor-pointer arrow-link" type="button" onClick={goToEvidence}>

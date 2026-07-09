@@ -59,15 +59,36 @@ summary::-webkit-details-marker {
 }
 
 .flow-diagram-fit pre {
-  display: inline-block;
   margin: 0;
-  width: 72ch;
-  font-size: min(15px, calc(100cqw / 72));
   line-height: 1.2;
   text-align: center;
   white-space: pre;
   overflow: hidden;
   -webkit-text-size-adjust: 100%;
+}
+
+.flow-diagram-fit pre.flow-diagram-mobile {
+  display: inline-block;
+  width: 33ch;
+  font-size: min(12px, calc(100cqw / 33));
+}
+
+.flow-diagram-fit pre.flow-diagram-desktop {
+  display: none;
+  width: 100%;
+  max-width: 100%;
+  /* 71 cols tracks rendered width more tightly than 72ch on desktop monospace */
+  font-size: min(12px, calc(100cqw / 71));
+}
+
+@media (min-width: 768px) {
+  .flow-diagram-fit pre.flow-diagram-mobile {
+    display: none;
+  }
+
+  .flow-diagram-fit pre.flow-diagram-desktop {
+    display: inline-block;
+  }
 }
 
 /* Add space above bulleted lists */

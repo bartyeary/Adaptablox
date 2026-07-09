@@ -22,8 +22,22 @@ export default function RootLayout({
               console.log('=== Inline script executed - JavaScript is working! ===');
               
               // Set up a simple navigation system that works without React
-              // Start with 'about' to match React's initial state
-              let currentPage = 'about';
+              const PAGE_HASH = { about: 'about', overview: 'control', faqs: 'system', demo: 'demo' };
+              const HASH_PAGE = { about: 'about', control: 'overview', overview: 'overview', system: 'faqs', faqs: 'faqs', demo: 'demo' };
+
+              function pageFromHash() {
+                var key = (location.hash || '').replace(/^#/, '').toLowerCase();
+                return key ? HASH_PAGE[key] : null;
+              }
+
+              function setHashForPage(page) {
+                var hash = PAGE_HASH[page];
+                if (!hash) return;
+                var next = '#' + hash;
+                if (location.hash !== next) history.replaceState(null, '', next);
+              }
+
+              let currentPage = pageFromHash() || 'about';
               
               // Directly update segmented control button states in the DOM (independent of React)
               function updateSegmentedControlButtons(activePage) {
@@ -95,6 +109,7 @@ export default function RootLayout({
               function navigateToPage(page) {
                 console.log('Navigating to page:', page);
                 currentPage = page;
+                setHashForPage(page);
                 
                 // Directly manipulate the DOM to show/hide pages
                 // Find the wrapper divs that contain the pages
@@ -638,15 +653,24 @@ export default function RootLayout({
                 document.addEventListener('DOMContentLoaded', () => {
                   console.log('DOMContentLoaded fired');
                   setupClickHandlers();
+                  var hashPage = pageFromHash();
+                  if (hashPage) navigateToPage(hashPage);
                   // Initialize button states after a short delay to ensure DOM is ready
                   setTimeout(initializeButtonStates, 200);
                 });
               } else {
                 console.log('Document already loaded');
                 setupClickHandlers();
+                var hashPage = pageFromHash();
+                if (hashPage) navigateToPage(hashPage);
                 // Initialize button states after a short delay to ensure DOM is ready
                 setTimeout(initializeButtonStates, 200);
               }
+
+              window.addEventListener('hashchange', function() {
+                var hashPage = pageFromHash();
+                if (hashPage && hashPage !== currentPage) navigateToPage(hashPage);
+              });
             `,
           }}
         />
