@@ -111,9 +111,9 @@ export default function AdaptabloxOverview() {
           <p className="font-mono leading-[12px] md:leading-[18px] not-italic relative shrink-0 text-[#4e4e4e] text-[10px] md:text-[15px] text-center w-full max-w-[780px]" style={{ fontFamily: 'monospace' }}>
             All evaluation and enforcement occurs during runtime, not after output is produced. Below is a sequence of enforced decisions.
           </p>
-          <div className="[container-type:inline-size] -mx-[17px] w-[calc(100%+34px)] md:-mx-[24px] md:w-[calc(100%+48px)] overflow-x-hidden md:overflow-x-auto">
+          <div className="-mx-[17px] w-[calc(100%+34px)] md:-mx-[24px] md:w-[calc(100%+48px)] overflow-x-auto overscroll-x-contain [-webkit-overflow-scrolling:touch]">
             <pre
-              className="font-mono not-italic relative text-[#4e4e4e] w-full whitespace-pre text-center leading-[1.15] overflow-x-hidden [font-size:calc(100cqw/69.75)] md:text-[15px] md:leading-[18px]"
+              className="font-mono not-italic relative text-[#4e4e4e] w-max min-w-full mx-auto whitespace-pre text-center leading-[1.2] text-[13px] md:text-[15px] md:leading-[18px] px-[8px] md:px-0"
               data-node-id="42:802"
               style={{ fontFamily: 'monospace' }}
             >
