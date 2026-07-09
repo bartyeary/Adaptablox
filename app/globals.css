@@ -55,11 +55,12 @@ summary::-webkit-details-marker {
   min-width: 0;
   width: 100%;
   overflow-x: hidden;
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .flow-diagram-fit pre {
-  margin: 0;
+  margin: 0 auto;
   line-height: 1.2;
   text-align: center;
   white-space: pre;
@@ -68,9 +69,11 @@ summary::-webkit-details-marker {
 }
 
 .flow-diagram-fit pre.flow-diagram-mobile {
-  display: inline-block;
-  width: 33ch;
-  font-size: min(12px, calc(100cqw / 33));
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  /* Slight divisor bump — monospace glyphs are often wider than 1ch on mobile */
+  font-size: min(12px, calc(100cqw / 40));
 }
 
 .flow-diagram-fit pre.flow-diagram-desktop {

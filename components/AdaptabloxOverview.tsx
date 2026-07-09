@@ -7,64 +7,76 @@ import AxOutcomesWidget from '@/components/AxOutcomesWidget';
 const imgGroup28481 = "/assets/logo2.svg";
 const sectionClass = "content-stretch flex flex-col gap-[12px] items-start leading-[21px] pb-[8px] md:pb-[12px] pt-[14px] md:pt-[20px] px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full";
 
-const FLOW_DIAGRAM_MOBILE = `+-------------------------------+
-|   USER / ENVIRONMENT INPUT    |
-|   (Prompt, signal, context,   |
-|     ambient trigger, etc.)    |
-+-------------------------------+
+const FLOW_DIAGRAM_MOBILE = `+-------------------------------------+
+|                                     |
+|      USER / ENVIRONMENT INPUT       |
+|      (Prompt, signal, context,      |
+|        ambient trigger, etc.)       |
+|                                     |
++-------------------------------------+
 ▼
-+-------------------------------+
-|      A.R.C., BEHAVIORAL       |
-|       GOVERNANCE LAYER        |
-|                               |
-| - Evaluate delegated authority|
-|   against role & constraints  |
-| - Validate scope, permissions,|
-|   and execution context       |
-| - Block, modify, or reroute   |
-|   over-constraint actions     |
-| - Regulate memory & delegation|
-+-------------------------------+
++-------------------------------------+
+|                                     |
+|         A.R.C., BEHAVIORAL          |
+|          GOVERNANCE LAYER           |
+|                                     |
+|   - Evaluate delegated authority    |
+|     against role & constraints      |
+|   - Validate scope, permissions,    |
+|     and execution context           |
+|   - Block, modify, or reroute       |
+|     over-constraint actions         |
+|   - Regulate memory & delegation    |
+|                                     |
++-------------------------------------+
 ▼
-+-------------------------------+
-|  L.R.C., INTERNAL REASONING   |
-|  GOVERNANCE (research dir.)   |
-|                               |
-| - Evaluate reasoning pathways |
-|   during inference            |
-| - Suppress non-compliant      |
-|   reasoning pathways          |
-| - Select only compliant       |
-|   reasoning trajectories      |
-| - Resolve competing           |
-|   interpretations             |
-+-------------------------------+
++-------------------------------------+
+|                                     |
+|     L.R.C., INTERNAL REASONING      |
+|     GOVERNANCE (research dir.)      |
+|                                     |
+|   - Evaluate reasoning pathways     |
+|     during inference                |
+|   - Suppress non-compliant          |
+|     reasoning pathways              |
+|   - Select only compliant           |
+|     reasoning trajectories          |
+|   - Resolve competing               |
+|     interpretations                 |
+|                                     |
++-------------------------------------+
 ▼
-+-------------------------------+
-|    MODEL REASONING ENGINE     |
-|(Weights & training unchanged) |
-+-------------------------------+
++-------------------------------------+
+|                                     |
+|       MODEL REASONING ENGINE        |
+|   (Weights & training unchanged)    |
+|                                     |
++-------------------------------------+
 ▼
-+-------------------------------+
-|     POLICY-ALIGNED ACTION     |
-|         OR ESCALATION         |
-|                               |
-| - Execute permitted actions   |
-|   within constraint bounds    |
-| - Defer, reroute, or escalate |
-|   when constraints violated   |
-| - Offer alternatives when     |
-|   primary paths are blocked   |
-+-------------------------------+
++-------------------------------------+
+|                                     |
+|        POLICY-ALIGNED ACTION        |
+|            OR ESCALATION            |
+|                                     |
+|   - Execute permitted actions       |
+|     within constraint bounds        |
+|   - Defer, reroute, or escalate     |
+|     when constraints violated       |
+|   - Offer alternatives when         |
+|     primary paths are blocked       |
+|                                     |
++-------------------------------------+
 ▼
-+-------------------------------+
-|    ENFORCEMENT + EVIDENCE     |
-|                               |
-| - Record constraints applied  |
-| - Record when evaluated       |
-| - Record why allowed,         |
-|   modified, or blocked        |
-+-------------------------------+`;
++-------------------------------------+
+|                                     |
+|       ENFORCEMENT + EVIDENCE        |
+|                                     |
+|   - Record constraints applied      |
+|   - Record when evaluated           |
+|   - Record why allowed,             |
+|     modified, or blocked            |
+|                                     |
++-------------------------------------+`;
 
 const FLOW_DIAGRAM_DESKTOP = `+----------------------------------------------------------------------+
 |                       USER / ENVIRONMENT INPUT                       |
