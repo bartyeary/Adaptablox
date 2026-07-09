@@ -50,22 +50,24 @@ summary::-webkit-details-marker {
   transform: translateX(4px);
 }
 
-.flow-diagram-scroll {
+.flow-diagram-fit {
+  container-type: inline-size;
   min-width: 0;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior-x: contain;
-  touch-action: pan-x pan-y;
+  width: 100%;
+  overflow-x: hidden;
   text-align: center;
 }
 
-.flow-diagram-scroll pre {
+.flow-diagram-fit pre {
   display: inline-block;
-  width: max-content;
-  max-width: none;
-  overflow: visible;
   margin: 0;
+  width: 72ch;
+  font-size: min(15px, calc(100cqw / 72));
+  line-height: 1.2;
   text-align: center;
+  white-space: pre;
+  overflow: hidden;
+  -webkit-text-size-adjust: 100%;
 }
 
 /* Add space above bulleted lists */
