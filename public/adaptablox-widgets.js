@@ -69,7 +69,7 @@
     "background-image:" +
     "linear-gradient(to right,rgba(var(--ar),.13) 1px,transparent 1px)," +
     "linear-gradient(to bottom,rgba(var(--ar),.13) 1px,transparent 1px);" +
-    "background-size:10px 10px;" +
+    "background-size:10px 10px;background-position:-1px -1px;" +
     "-webkit-mask-image:radial-gradient(ellipse 95% 95% at 50% 52%," +
     "transparent 0%,transparent var(--grid-f1),rgba(0,0,0,.35) var(--grid-f2),rgba(0,0,0,.72) var(--grid-f3),#000 var(--grid-f4));" +
     "mask-image:radial-gradient(ellipse 95% 95% at 50% 52%," +

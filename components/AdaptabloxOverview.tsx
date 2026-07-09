@@ -84,7 +84,7 @@ export default function AdaptabloxOverview() {
         </div>
       </div>
       <div
-        className="bg-[#f7f9fc] content-stretch flex flex-col gap-[32px] items-start p-[13px] md:p-[18px] pb-[82px] md:pb-[118px] relative shadow-[2px_5px_9px_0px_rgba(0,0,0,0.07)] shrink-0 w-[800px] max-w-full mx-auto transition-all duration-250 ease-out min-h-[calc(100vh+21px)]"
+        className="bg-[#f7f9fc] content-stretch flex flex-col gap-[32px] items-start p-[13px] md:p-[18px] pb-[82px] md:pb-[118px] relative shadow-[2px_5px_9px_0px_rgba(0,0,0,0.07)] shrink-0 w-[800px] max-w-full min-w-0 mx-auto transition-all duration-250 ease-out min-h-[calc(100vh+21px)]"
         style={{
           marginTop: isAnimating ? '0px' : '-20px',
           transition: 'margin-top 0.25s ease-out',
@@ -106,14 +106,14 @@ export default function AdaptabloxOverview() {
           <AxOutcomesWidget />
         </section>
 
-        <section className={sectionClass} data-node-id="overview-how-it-works">
+        <section className={`${sectionClass} min-w-0`} data-node-id="overview-how-it-works">
           <SectionTitle>How it works</SectionTitle>
           <p className="font-mono leading-[12px] md:leading-[18px] not-italic relative shrink-0 text-[#4e4e4e] text-[10px] md:text-[15px] text-center w-full max-w-[780px]" style={{ fontFamily: 'monospace' }}>
             All evaluation and enforcement occurs during runtime, not after output is produced. Below is a sequence of enforced decisions.
           </p>
-          <div className="-mx-[17px] w-[calc(100%+34px)] md:-mx-[24px] md:w-[calc(100%+48px)] overflow-x-auto overscroll-x-contain [-webkit-overflow-scrolling:touch]">
+          <div className="flow-diagram-scroll min-w-0 w-[calc(100%+34px)] -mx-[17px] md:w-[calc(100%+48px)] md:-mx-[24px]">
             <pre
-              className="font-mono not-italic relative text-[#4e4e4e] w-max min-w-full mx-auto whitespace-pre text-center leading-[1.2] text-[13px] md:text-[15px] md:leading-[18px] px-[8px] md:px-0"
+              className="font-mono not-italic relative text-[#4e4e4e] whitespace-pre text-center leading-[1.2] text-[11px] sm:text-[12px] md:text-[15px] md:leading-[18px] py-[2px] px-[12px] md:px-0"
               data-node-id="42:802"
               style={{ fontFamily: 'monospace' }}
             >
