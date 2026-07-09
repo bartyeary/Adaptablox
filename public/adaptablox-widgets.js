@@ -67,8 +67,8 @@
     "50%{--grid-f1:30%;--grid-f2:44%;--grid-f3:58%;--grid-f4:78%}}" +
     ".grid-bg{position:absolute;inset:0;z-index:0;pointer-events:none;" +
     "background-image:" +
-    "linear-gradient(to right,rgba(var(--ar),.18) 1px,transparent 1px)," +
-    "linear-gradient(to bottom,rgba(var(--ar),.18) 1px,transparent 1px);" +
+    "linear-gradient(to right,rgba(var(--ar),.13) 1px,transparent 1px)," +
+    "linear-gradient(to bottom,rgba(var(--ar),.13) 1px,transparent 1px);" +
     "background-size:10px 10px;" +
     "-webkit-mask-image:radial-gradient(ellipse 95% 95% at 50% 52%," +
     "transparent 0%,transparent var(--grid-f1),rgba(0,0,0,.35) var(--grid-f2),rgba(0,0,0,.72) var(--grid-f3),#000 var(--grid-f4));" +
@@ -76,8 +76,8 @@
     "transparent 0%,transparent var(--grid-f1),rgba(0,0,0,.35) var(--grid-f2),rgba(0,0,0,.72) var(--grid-f3),#000 var(--grid-f4));" +
     "will-change:--grid-f1,--grid-f2,--grid-f3,--grid-f4;animation:grid-feather 16s ease-in-out infinite}" +
     ":host([theme='light']) .grid-bg{background-image:" +
-    "linear-gradient(to right,rgba(62,110,168,.16) 1px,transparent 1px)," +
-    "linear-gradient(to bottom,rgba(62,110,168,.16) 1px,transparent 1px)}" +
+    "linear-gradient(to right,rgba(62,110,168,.12) 1px,transparent 1px)," +
+    "linear-gradient(to bottom,rgba(62,110,168,.12) 1px,transparent 1px)}" +
     "@media (prefers-reduced-motion:reduce){.grid-bg{animation:none;--grid-f1:28%;--grid-f2:46%;--grid-f3:60%;--grid-f4:78%}}" +
     ".frame-content{position:absolute;inset:0;z-index:1}" +
     ".frame>*:not(.grid-bg):not(.frame-content):not(.tip){z-index:2}" +
