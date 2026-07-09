@@ -113,7 +113,7 @@ export default function AdaptabloxOverview() {
           </p>
           <div className="flow-diagram-scroll min-w-0 w-[calc(100%+34px)] -mx-[17px] md:w-[calc(100%+48px)] md:-mx-[24px]">
             <pre
-              className="font-mono not-italic relative text-[#4e4e4e] whitespace-pre text-center leading-[1.2] text-[11px] sm:text-[12px] md:text-[15px] md:leading-[18px] py-[2px] px-[12px] md:px-0"
+              className="font-mono not-italic relative text-[#4e4e4e] whitespace-pre text-center leading-[1.2] text-[11px] sm:text-[12px] md:text-[15px] md:leading-[18px] py-[2px]"
               data-node-id="42:802"
               style={{ fontFamily: 'monospace' }}
             >
