@@ -29,6 +29,7 @@ type FailureFamily = {
 };
 
 const scenarioClass = "content-stretch flex flex-col items-start relative shadow-[0px_4px_18px_0px_rgba(0,0,0,0.14)] rounded-[8px] overflow-hidden shrink-0 w-full";
+const scenarioSectionPadding = "px-[25px] md:px-[36px] py-[17px] md:py-[24px]";
 const sectionClass = "content-stretch flex flex-col gap-[12px] items-start leading-[21px] pb-[8px] md:pb-[12px] pt-[14px] md:pt-[20px] px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full";
 
 const failureFamilies: FailureFamily[] = [
@@ -287,7 +288,7 @@ function ScenarioCard({ scenario }: { scenario: Scenario }) {
           ))}
         </div>
       </div>
-      <div className="bg-[#FFFAFA] content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full">
+      <div className={`bg-[#FFFAFA] content-stretch flex flex-col gap-[17px] md:gap-[24px] items-start ${scenarioSectionPadding} relative shrink-0 w-full`}>
         <div className="font-sans leading-[24px] relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
           <p className="font-sans font-bold mb-0 text-[#ff4b4b]">The core failure</p>
           {scenario.coreFailure.map((text) => (
@@ -306,10 +307,10 @@ function ScenarioCard({ scenario }: { scenario: Scenario }) {
             ))}
           </ul>
         </div>
-        <div className="absolute bg-[#FF9A9A] bottom-[-1px] left-0 top-[-1px] w-[5px]" />
+        <div className="absolute bg-[#FF9A9A] bottom-[-1px] left-0 top-[-1px] w-[3px]" />
       </div>
-      <div className="bg-white content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative shrink-0 w-full">
-        <div className="absolute bottom-0 left-0 top-0 w-[5px]" style={{ background: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)' }} />
+      <div className={`bg-white content-stretch flex flex-col items-start ${scenarioSectionPadding} relative shrink-0 w-full`}>
+        <div className="absolute bottom-0 left-0 top-0 w-[3px]" style={{ background: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)' }} />
         <div className="font-sans leading-[24px] relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
           <p className="font-sans font-bold leading-[24px] mb-0">Runtime intervention</p>
           {scenario.interventionIntro && <p className="font-sans font-normal leading-[24px] mb-[1em]">{scenario.interventionIntro}</p>}
@@ -327,7 +328,7 @@ function ScenarioCard({ scenario }: { scenario: Scenario }) {
           ))}
         </div>
       </div>
-      <div className="bg-[#f7fdf9] border-l-[5px] border-l-[#85dba2] border-solid content-stretch flex flex-col items-start px-[25px] md:px-[36px] py-[17px] md:py-[24px] relative rounded-bl-[8px] rounded-br-[8px] shrink-0 w-full">
+      <div className={`bg-[#f7fdf9] border-l-[3px] border-l-[#85dba2] border-solid content-stretch flex flex-col items-start ${scenarioSectionPadding} relative rounded-bl-[8px] rounded-br-[8px] shrink-0 w-full`}>
         <div className="font-sans leading-[24px] relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
           <p className="font-sans font-bold mb-0 text-[#6aaf81]">Outcome</p>
           <p className="font-sans font-normal mb-0">{scenario.outcome}</p>

@@ -990,7 +990,7 @@
         "background-size:11.313px 11.313px;opacity:0;z-index:6;pointer-events:none}" +
         ":host([theme='light']) .hold-bar{background:repeating-linear-gradient(45deg,#fff 0px,#fff 4px,#D8DEE6 4px,#D8DEE6 8px);" +
         "background-size:11.313px 11.313px;border-color:#D2D8E1}" +
-        ".dl.held-tail{stroke:rgba(245,65,65,.55);stroke-width:1.6;fill:none}" +
+        ".dl.held-tail{stroke:#F54141;stroke-width:1.6;fill:none;opacity:.75}" +
         ".spill{position:absolute;width:13px;height:13px;border-radius:4px;transform:translate(-50%,-50%) scale(.6);" +
         "background:rgba(var(--ar),.16);border:1px solid rgba(var(--ar),.55);opacity:0;" +
         "transition:opacity .35s,transform .35s,border-color .35s;z-index:5}" +
@@ -1016,13 +1016,43 @@
     setup() {
       this._tok = 0;
       this._phase = 0;
+      this._layoutW = 0;
+      this._layoutH = 0;
+      this._cycleGoverned = undefined;
       this.every(10500, () => this.cycle());
       this.after(600, () => this.cycle());
+      this._onResize = () => {
+        clearTimeout(this._resizeTimer);
+        this._resizeTimer = setTimeout(() => {
+          const f = this.frame;
+          if (!f) return;
+          const W = f.clientWidth, H = f.clientHeight;
+          if (!W || !H) return;
+          if (W === this._layoutW && H === this._layoutH) return;
+          if (this._cycleGoverned === undefined) return;
+          this.cycle(true);
+        }, 80);
+      };
+      this._ro = new ResizeObserver(this._onResize);
+      this._ro.observe(this.frame);
     }
-    cycle() {
+    disconnectedCallback() {
+      if (this._ro) this._ro.disconnect();
+      clearTimeout(this._resizeTimer);
+      super.disconnectedCallback();
+    }
+    cycle(resume) {
       const tk = ++this._tok, ok = () => tk === this._tok;
-      const governed = this._phase++ % 2 === 1;
+      let governed;
+      if (resume && this._cycleGoverned !== undefined) {
+        governed = this._cycleGoverned;
+      } else {
+        governed = this._phase++ % 2 === 1;
+        this._cycleGoverned = governed;
+      }
       const f = this.frame, W = f.clientWidth, H = f.clientHeight;
+      this._layoutW = W;
+      this._layoutH = H;
       const svg = f.querySelector("#sq"), layer = f.querySelector("#layer");
       const cap = f.querySelector("#cap");
       const NS = "http://www.w3.org/2000/svg";
@@ -1159,13 +1189,14 @@
             );
 
             if (prevPt) {
+              const nextX = xs[4];
+              const nextY = ptY(4);
               const yViol = base - 1.5 * span;
               const endX = xs[5];
               const endY = yViol;
-              const dx = endX - prevPt.x;
-              const barY = prevPt.y + ((barX - prevPt.x) / dx) * (endY - prevPt.y);
-              drawSeg(prevPt.x, prevPt.y, barX, barY, "dl held-tail", true);
-              this.after(520, () => {
+              const barY = prevPt.y + (nextY - prevPt.y) * (barX - prevPt.x) / (nextX - prevPt.x);
+              drawSeg(prevPt.x, prevPt.y, barX, barY, "dl", false);
+              this.after(460, () => {
                 if (!ok()) return;
                 drawSeg(barX, barY, endX, endY, "dl held-tail", true);
               });
