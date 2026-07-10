@@ -592,7 +592,7 @@
               { duration: 950, easing: "cubic-bezier(.4,0,.3,1)", fill: "forwards" }
             );
           } else if (sc.name === "escalate") {
-            const hx = W * 0.72 - 5, hy = H * 0.17 - yMid - 5;
+            const hx = W * 0.72 - 5, hy = H * 0.17 - yMid + 11;
             anim = p.animate(
               [
                 { transform: "translate(" + (xm - 16) + "px,0)" },
