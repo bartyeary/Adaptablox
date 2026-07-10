@@ -226,7 +226,8 @@ export default function AdaptabloxOverview() {
           <p className="font-mono leading-[12px] md:leading-[18px] not-italic relative shrink-0 text-[#4e4e4e] text-[10px] md:text-[15px] text-center w-full max-w-[780px]" style={{ fontFamily: 'monospace' }}>
             All evaluation and enforcement occurs during runtime, not after output is produced. Below is a sequence of enforced decisions.
           </p>
-          <div className="flow-diagram-fit min-w-0 w-[calc(100%+34px)] -mx-[17px] md:-mx-[42px] md:w-[calc(100%+84px)]">
+          <div className="flow-diagram-fit min-w-0 w-full self-stretch md:w-[calc(100%+84px)] md:-mx-[42px]">
+            <div className="flow-diagram-mobile-outer">
             <pre
               className="flow-diagram-mobile font-mono not-italic relative text-[#4e4e4e] whitespace-pre text-center"
               data-node-id="42:802-mobile"
@@ -234,6 +235,7 @@ export default function AdaptabloxOverview() {
             >
 {FLOW_DIAGRAM_MOBILE}
             </pre>
+            </div>
             <pre
               className="flow-diagram-desktop font-mono not-italic relative text-[#4e4e4e] whitespace-pre text-center"
               data-node-id="42:802"

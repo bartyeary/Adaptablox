@@ -54,26 +54,26 @@ summary::-webkit-details-marker {
   container-type: inline-size;
   min-width: 0;
   width: 100%;
-  overflow-x: hidden;
-  display: flex;
-  justify-content: center;
+  overflow-x: clip;
+}
+
+.flow-diagram-mobile-outer {
+  width: 100%;
+  text-align: center;
 }
 
 .flow-diagram-fit pre {
-  margin: 0 auto;
+  margin: 0;
   line-height: 1.2;
   text-align: center;
   white-space: pre;
-  overflow: hidden;
   -webkit-text-size-adjust: 100%;
 }
 
 .flow-diagram-fit pre.flow-diagram-mobile {
-  display: block;
-  width: max-content;
-  max-width: 100%;
-  /* Slight divisor bump — monospace glyphs are often wider than 1ch on mobile */
-  font-size: min(12px, calc(100cqw / 40));
+  display: inline-block;
+  font-size: calc(100cqw / 39);
+  vertical-align: top;
 }
 
 .flow-diagram-fit pre.flow-diagram-desktop {
