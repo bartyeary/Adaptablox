@@ -510,7 +510,7 @@
         '<div class="track"></div><div class="alt"></div>' +
         '<div class="gate" data-tiptitle="The same governance" data-tip="One boundary, many outcomes. The situation decides which."></div>' +
         '<div class="human" data-tiptitle="Escalation" data-tip="Some decisions belong to a person. They arrive with full context attached.">' +
-        '<img src="/assets/human.svg" alt="" aria-hidden="true" width="33" height="30"></div>' +
+        '<img src="/assets/human.svg?v=2" alt="" aria-hidden="true" width="33" height="30"></div>' +
         '<div class="hlbl">human</div>' +
         '<div class="endr"></div><div class="endr2"></div>' +
         '<div class="olabel" id="ol" style="opacity:0"></div>'
