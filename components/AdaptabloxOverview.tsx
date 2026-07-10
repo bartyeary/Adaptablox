@@ -223,9 +223,12 @@ export default function AdaptabloxOverview() {
 
         <section className={`${sectionClass} min-w-0`} data-node-id="overview-how-it-works">
           <SectionTitle>How it works</SectionTitle>
-          <p className="font-mono leading-[12px] md:leading-[18px] not-italic relative shrink-0 text-[#4e4e4e] text-[10px] md:text-[15px] text-center w-full max-w-[780px]" style={{ fontFamily: 'monospace' }}>
+          <p className="font-sans font-normal relative shrink-0 text-[#4e4e4e] text-[15px] w-full max-w-[720px]" style={{ fontVariationSettings: "'wdth' 100" }}>
             All evaluation and enforcement occurs during runtime, not after output is produced. Below is a sequence of enforced decisions.
           </p>
+          <button className="font-sans font-bold text-[#4e4e4e] text-left mb-[12px] cursor-pointer arrow-link" type="button" onClick={goToEvidence}>
+            View Enforcement + Evidence <span className="arrow-link-arrow" aria-hidden="true">→</span>
+          </button>
           <div className="flow-diagram-fit min-w-0 w-full self-stretch md:w-[calc(100%+84px)] md:-mx-[42px]">
             <div className="flow-diagram-mobile-outer">
             <pre
@@ -244,9 +247,6 @@ export default function AdaptabloxOverview() {
 {FLOW_DIAGRAM_DESKTOP}
             </pre>
           </div>
-          <button className="font-sans font-bold text-[#4e4e4e] text-left mt-[12px] cursor-pointer arrow-link" type="button" onClick={goToEvidence}>
-            View Enforcement + Evidence <span className="arrow-link-arrow" aria-hidden="true">→</span>
-          </button>
         </section>
 
         <section className={sectionClass} data-node-id="overview-what-adaptablox-is-not">
