@@ -730,18 +730,29 @@
       vm.classList.remove("show");
       f.querySelector("#rid").textContent = "0x" + hex(6);
       const now = new Date();
+      const decision = pick(["allow", "modify", "escalate", "deny", "reroute"]);
+      const DECISION_COLOR = {
+        allow: "var(--green)",
+        deny: "#F54141",
+        reroute: "var(--violet)",
+        escalate: "var(--blue)",
+        modify: "#F0A84B",
+      };
       const DATA = [
-        ["decision", pick(["allow", "modify", "escalate", "deny", "reroute"])],
+        ["decision", decision],
         ["basis", "delegated authority"],
         ["evaluated", now.toISOString().slice(11, 19) + "Z"],
-        ["chain", "⛓ 0x" + hex(6) + "…"],
+        ["chain", "🔗 0x" + hex(6) + "…"],
       ];
       DATA.forEach((r, i) => {
         this.after(200 + i * 260, () => {
           if (!ok()) return;
           const d = document.createElement("div");
           d.className = "row";
-          d.innerHTML = '<span class="k">' + r[0] + '</span><span class="v">' + r[1] + "</span>";
+          const color = r[0] === "decision" ? DECISION_COLOR[r[1]] : "";
+          d.innerHTML =
+            '<span class="k">' + r[0] + '</span>' +
+            '<span class="v"' + (color ? ' style="color:' + color + '"' : "") + ">" + r[1] + "</span>";
           rows.appendChild(d);
           requestAnimationFrame(() => requestAnimationFrame(() => d.classList.add("show")));
         });
