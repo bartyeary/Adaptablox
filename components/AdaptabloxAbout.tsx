@@ -498,7 +498,7 @@ export default function AdaptabloxAbout() {
               <li className="ms-[23px]"><strong>Why</strong> the action was allowed, modified, rerouted, or blocked</li>
             </ul>
             <p className="mb-[1em]">
-              These records are cryptographically chained, so the history of enforcement decisions is tamper-evident. An auditor doesn't have to trust that governance happened. The record shows it, and shows that the record itself hasn't been altered.
+              These records can be cryptographically chained, so the history of enforcement decisions is tamper-evident. An auditor doesn't have to trust that governance happened. The record shows it, and shows that the record itself hasn't been altered.
             </p>
             <p className="mb-[0.5em]">This is the difference between governance as a promise and governance as a verifiable record:</p>
             <ul className="list-disc mb-0">
