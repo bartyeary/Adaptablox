@@ -179,8 +179,64 @@ export default function AdaptabloxDemo() {
             style={{ fontVariationSettings: "'wdth' 100" }}
           >
             <p className="mb-0">
-              These simulations show control being enforced during execution. Behavior changes because constraints change, and constraints are enforced as the system runs.
+              These demos show control being enforced during execution. Behavior changes because constraints change, and constraints are enforced as the system runs.
             </p>
+          </div>
+        </div>
+        <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full" data-node-id="demo-governed-ensemble">
+          <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-full">
+            <div className="bg-white overflow-clip relative rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full flex flex-col">
+              <div className="content-stretch flex flex-col gap-[12px] items-start pt-[17px] md:pt-[24px] px-[17px] md:px-[24px] pb-0 relative shrink-0 w-full">
+                <p className="font-sans font-[510] leading-[21px] relative shrink-0 text-[#4e4e4e] text-[20px] text-nowrap" style={{ fontVariationSettings: "'wdth' 100" }}>
+                  Governed Ensemble Prototype
+                </p>
+              </div>
+              <div className="relative w-full" style={{ paddingBottom: '63.58%' }}>
+                <iframe
+                  src="https://player.vimeo.com/video/1211901230?title=0&byline=0&portrait=0&badge=0&autopause=0"
+                  frameBorder="0"
+                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  title="Governed Ensemble Prototype"
+                  className="absolute inset-0 w-full h-full rounded-tl-[8px] rounded-tr-[8px]"
+                  style={{ border: 'none', display: 'block' }}
+                />
+              </div>
+              <p className="font-sans font-normal leading-[21px] text-[#4e4e4e] text-[12px] text-center w-full px-[15px] md:px-[21px] pb-[7px] md:pb-[10px]" style={{ fontVariationSettings: "'wdth' 100" }}>
+                A working prototype showing how multi-agent contributions are governed before they enter shared context or influence a synthesized response.
+              </p>
+            </div>
+          </div>
+          <div className="content-stretch flex flex-col gap-[12px] items-start pb-[8px] md:pb-[12px] pt-0 px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full">
+            <p className="font-sans font-medium relative shrink-0 text-[20px] text-nowrap">
+              What is enforced
+            </p>
+            <div className="font-sans font-normal leading-[0] min-w-full relative shrink-0 text-[15px] w-full" style={{ fontVariationSettings: "'wdth' 100" }}>
+              <ul className="list-disc mb-0">
+                <li className="mb-0 ms-[22.5px]">
+                  <span className="leading-[21px]">Agents operate within distinct role and constraint boundaries</span>
+                </li>
+                <li className="mb-0 ms-[22.5px]">
+                  <span className="leading-[21px]">Proposed contributions are accepted, modified, or blocked before admission</span>
+                </li>
+                <li className="mb-0 ms-[22.5px]">
+                  <span className="leading-[21px]">Governance interventions remain visible and attributable</span>
+                </li>
+                <li className="mb-0 ms-[22.5px]">
+                  <span className="leading-[21px]">Premature consensus and unresolved contradiction are detected before synthesis</span>
+                </li>
+                <li className="mb-0 ms-[22.5px]">
+                  <span className="leading-[21px]">Counter-agent perturbation restores structured disagreement when required</span>
+                </li>
+                <li className="mb-0 ms-[22.5px]">
+                  <span className="leading-[21px]">Final synthesis uses only governed shared context</span>
+                </li>
+                <li className="ms-[22.5px]">
+                  <span className="leading-[21px]">Confidence reflects both the result and the quality of the ensemble process</span>
+                </li>
+              </ul>
+              <p className="leading-[21px] mb-0 mt-[1em]">The system does not synthesize everything the agents say. It synthesizes what survives governance.</p>
+            </div>
           </div>
         </div>
         <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full" data-node-id="44:849">
