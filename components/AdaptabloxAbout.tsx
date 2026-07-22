@@ -28,7 +28,7 @@ type FailureFamily = {
   scenarios: Scenario[];
 };
 
-const scenarioClass = "content-stretch flex flex-col items-start relative shadow-[0px_4px_18px_0px_rgba(0,0,0,0.14)] rounded-[8px] overflow-hidden shrink-0 w-full";
+const scenarioClass = "content-stretch flex flex-col items-start relative border border-solid border-[rgba(78,78,78,0.12)] shadow-[0px_4px_18px_0px_rgba(0,0,0,0.14)] rounded-[8px] overflow-hidden shrink-0 w-full";
 const scenarioSectionPadding = "px-[25px] md:px-[36px] py-[17px] md:py-[24px]";
 const sectionClass = "content-stretch flex flex-col gap-[12px] items-start leading-[21px] pb-[8px] md:pb-[12px] pt-[14px] md:pt-[20px] px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full";
 
@@ -436,7 +436,7 @@ export default function AdaptabloxAbout() {
           <SectionTitle>Three ways agents fail</SectionTitle>
           <div className="content-stretch flex flex-col gap-[16px] items-start w-full">
             {failureFamilies.map((family) => (
-              <details className="failure-family-details bg-white rounded-[8px] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] w-full group" key={family.title}>
+              <details className="failure-family-details bg-white rounded-[8px] border border-solid border-[rgba(78,78,78,0.12)] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] w-full group" key={family.title}>
                 <summary className="cursor-pointer list-none px-[17px] md:px-[24px] py-[17px] md:py-[24px]">
                   <p className="font-sans text-[#4e4e4e] text-[18px] mb-[0.75em] flex items-center gap-[6px]">
                     <img src="/assets/alert.svg" alt="" className="shrink-0 w-[19px] h-[18px]" aria-hidden="true" />
