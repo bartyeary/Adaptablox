@@ -185,8 +185,8 @@ export default function AdaptabloxDemo() {
         </div>
         <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full" data-node-id="demo-governed-ensemble">
           <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-full">
-            <div className="bg-white overflow-clip relative rounded-[8px] border border-solid border-[rgba(78,78,78,0.12)] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full flex flex-col">
-              <div className="content-stretch flex flex-col gap-[12px] items-start pt-[17px] md:pt-[24px] px-[17px] md:px-[24px] pb-0 relative shrink-0 w-full">
+            <div className="bg-white overflow-clip relative rounded-[16px] border border-solid border-[rgba(78,78,78,0.12)] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full flex flex-col">
+              <div className="content-stretch flex flex-col gap-[12px] items-start pt-[6px] md:pt-[10px] px-[17px] md:px-[24px] pb-0 relative shrink-0 w-full">
                 <p className="font-sans font-[510] leading-[21px] relative shrink-0 text-[#4e4e4e] text-[20px] text-nowrap" style={{ fontVariationSettings: "'wdth' 100" }}>
                   Governed Ensemble Prototype
                 </p>
@@ -243,8 +243,8 @@ export default function AdaptabloxDemo() {
         </div>
         <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full" data-node-id="44:849">
           <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-full" data-node-id="44:823">
-            <div className="bg-white overflow-clip relative rounded-[8px] border border-solid border-[rgba(78,78,78,0.12)] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full flex flex-col" data-node-id="27:608">
-              <div className="content-stretch flex flex-col gap-[12px] items-start pt-[17px] md:pt-[24px] px-[17px] md:px-[24px] pb-0 relative shrink-0 w-full" data-node-id="44:818">
+            <div className="bg-white overflow-clip relative rounded-[16px] border border-solid border-[rgba(78,78,78,0.12)] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full flex flex-col" data-node-id="27:608">
+              <div className="content-stretch flex flex-col gap-[12px] items-start pt-[6px] md:pt-[10px] px-[17px] md:px-[24px] pb-0 relative shrink-0 w-full" data-node-id="44:818">
                 <p className="font-sans font-[510] leading-[21px] relative shrink-0 text-[#4e4e4e] text-[20px] text-nowrap" data-node-id="44:820" style={{ fontVariationSettings: "'wdth' 100" }}>
                   Super Agent Demo
                 </p>
@@ -295,8 +295,8 @@ export default function AdaptabloxDemo() {
         </div>
         <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full" data-node-id="44:848">
           <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-full" data-node-id="44:832">
-            <div className="bg-white overflow-clip relative rounded-[8px] border border-solid border-[rgba(78,78,78,0.12)] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full flex flex-col" data-node-id="27:620">
-              <div className="content-stretch flex flex-col gap-[12px] items-start pt-[17px] md:pt-[24px] px-[17px] md:px-[24px] pb-0 relative shrink-0 w-full" data-node-id="44:828">
+            <div className="bg-white overflow-clip relative rounded-[16px] border border-solid border-[rgba(78,78,78,0.12)] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full flex flex-col" data-node-id="27:620">
+              <div className="content-stretch flex flex-col gap-[12px] items-start pt-[6px] md:pt-[10px] px-[17px] md:px-[24px] pb-0 relative shrink-0 w-full" data-node-id="44:828">
                 <p className="font-sans font-[510] leading-[21px] relative shrink-0 text-[#4e4e4e] text-[20px] text-nowrap" data-node-id="44:830" style={{ fontVariationSettings: "'wdth' 100" }}>
                   Ambient AI Demo
                 </p>
