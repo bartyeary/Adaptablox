@@ -191,16 +191,18 @@ export default function AdaptabloxDemo() {
                   Governed Ensemble Prototype
                 </p>
               </div>
-              <div className="relative w-full" style={{ paddingBottom: '63.58%' }}>
-                <iframe
-                  src="https://player.vimeo.com/video/1211901230?title=0&byline=0&portrait=0&badge=0&autopause=0"
-                  frameBorder="0"
-                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  title="Governed Ensemble Prototype"
-                  className="absolute inset-0 w-full h-full rounded-tl-[8px] rounded-tr-[8px]"
-                  style={{ border: 'none', display: 'block' }}
-                />
+              <div className="p-[8px] w-full shrink-0">
+                <div className="relative w-full overflow-hidden rounded-[8px]" style={{ paddingBottom: '56.25%' }}>
+                  <iframe
+                    src="https://player.vimeo.com/video/1211901230?title=0&byline=0&portrait=0&badge=0&autopause=0"
+                    frameBorder="0"
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    title="Governed Ensemble Prototype"
+                    className="absolute inset-0 w-full h-full"
+                    style={{ border: 'none', display: 'block' }}
+                  />
+                </div>
               </div>
               <p className="font-sans font-normal leading-[21px] text-[#4e4e4e] text-[12px] text-center w-full px-[15px] md:px-[21px] pb-[7px] md:pb-[10px]" style={{ fontVariationSettings: "'wdth' 100" }}>
                 A working prototype showing how multi-agent contributions are governed before they enter shared context or influence a synthesized response.
@@ -247,16 +249,18 @@ export default function AdaptabloxDemo() {
                   Super Agent Demo
                 </p>
               </div>
-              <div className="relative w-full" style={{ paddingBottom: '63.58%' }}>
-                <iframe
-                  src="https://player.vimeo.com/video/1132838746?title=0&byline=0&portrait=0&badge=0&autopause=0"
-                  frameBorder="0"
-                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  title="A.R.C. System Overview"
-                  className="absolute inset-0 w-full h-full rounded-tl-[8px] rounded-tr-[8px]"
-                  style={{ border: 'none', display: 'block' }}
-                />
+              <div className="p-[8px] w-full shrink-0">
+                <div className="relative w-full overflow-hidden rounded-[8px]" style={{ paddingBottom: '56.25%' }}>
+                  <iframe
+                    src="https://player.vimeo.com/video/1132838746?title=0&byline=0&portrait=0&badge=0&autopause=0"
+                    frameBorder="0"
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    title="A.R.C. System Overview"
+                    className="absolute inset-0 w-full h-full"
+                    style={{ border: 'none', display: 'block' }}
+                  />
+                </div>
               </div>
               <p className="font-sans font-normal leading-[21px] text-[#4e4e4e] text-[12px] text-center w-full px-[15px] md:px-[21px] pb-[7px] md:pb-[10px]" data-node-id="27:610" style={{ fontVariationSettings: "'wdth' 100" }}>
                 A.R.C. System Overview: constraint hierarchy, escalation logic, and multi-agent synthesis.
@@ -297,16 +301,18 @@ export default function AdaptabloxDemo() {
                   Ambient AI Demo
                 </p>
               </div>
-              <div className="relative w-full" style={{ paddingBottom: '63.58%' }}>
-                <iframe
-                  src="https://player.vimeo.com/video/1118926409?title=0&byline=0&portrait=0&badge=0&autopause=0"
-                  frameBorder="0"
-                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  title="A.R.C. Ambient Assistant"
-                  className="absolute inset-0 w-full h-full rounded-tl-[8px] rounded-tr-[8px]"
-                  style={{ border: 'none', display: 'block' }}
-                />
+              <div className="p-[8px] w-full shrink-0">
+                <div className="relative w-full overflow-hidden rounded-[8px]" style={{ paddingBottom: '56.25%' }}>
+                  <iframe
+                    src="https://player.vimeo.com/video/1118926409?title=0&byline=0&portrait=0&badge=0&autopause=0"
+                    frameBorder="0"
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    title="A.R.C. Ambient Assistant"
+                    className="absolute inset-0 w-full h-full"
+                    style={{ border: 'none', display: 'block' }}
+                  />
+                </div>
               </div>
               <p className="font-sans font-normal leading-[21px] text-[#4e4e4e] text-[12px] text-center w-full px-[15px] md:px-[21px] pb-[7px] md:pb-[10px]" data-node-id="27:622" style={{ fontVariationSettings: "'wdth' 100" }}>
                 A.R.C. Ambient Assistant: behavioral tone modulation and real-time orchestration.
