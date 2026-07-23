@@ -26,6 +26,12 @@ html {
   color: inherit;
 }
 
+/* Prevent single-word orphans at end of wrapped lines */
+p,
+li {
+  text-wrap: pretty;
+}
+
 /* Failure family expand chevron */
 .failure-family-chevron {
   display: inline-flex;
