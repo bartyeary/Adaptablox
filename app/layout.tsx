@@ -3,8 +3,30 @@ import './globals.css'
 import { NavigationProvider } from '@/contexts/NavigationContext'
 
 export const metadata: Metadata = {
-  title: 'Adaptablox',
-  description: 'Autonomous AI authority enforcement',
+  metadataBase: new URL('https://www.adaptablox.com'),
+  title: 'Adaptablox — Runtime Governance for Autonomous AI',
+  description: 'Runtime governance for autonomous AI systems.',
+  openGraph: {
+    title: 'Adaptablox — Runtime Governance for Autonomous AI',
+    description: 'Runtime governance for autonomous AI systems.',
+    url: 'https://www.adaptablox.com',
+    siteName: 'Adaptablox',
+    type: 'website',
+    images: [
+      {
+        url: '/assets/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Adaptablox',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Adaptablox — Runtime Governance for Autonomous AI',
+    description: 'Runtime governance for autonomous AI systems.',
+    images: ['/assets/og-image.png'],
+  },
 }
 
 export default function RootLayout({
