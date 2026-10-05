@@ -1007,6 +1007,8 @@
         "transition:opacity .35s,transform .35s,border-color .35s;z-index:5}" +
         ".spill.in{opacity:1;transform:translate(-50%,-50%) scale(1)}" +
         ".spill.blocked{border-style:dashed;border-color:#F54141;background:rgba(245,65,65,.12)}" +
+        ".endp-ring{position:absolute;width:10px;height:10px;border-radius:50%;transform:translate(-50%,-50%) scale(1);" +
+        "border:1.5px solid #F54141;opacity:0;pointer-events:none;z-index:4;box-sizing:border-box}" +
         ".stick{position:absolute;transform:translate(-50%,0);font-size:10px;opacity:0;transition:opacity .3s;" +
         "color:var(--green);z-index:5}" +
         ".stick.in{opacity:1}.stick.blocked{color:#F54141}" +
@@ -1256,7 +1258,7 @@
           }
           prevPt = { x: curX, y: curY };
 
-          /* the punchline of the ungoverned run */
+          /* Ungoverned punchline: red terminus + concentric pulse past admissibility */
           if (!governed && i === 5) {
             this.after(500, () => {
               if (!ok()) return;
@@ -1270,6 +1272,24 @@
                 [{ opacity: 0 }, { opacity: 1, offset: 0.3 }, { opacity: 0.55 }],
                 { duration: 900, fill: "forwards" }
               );
+              if (REDUCED) return;
+              for (let n = 0; n < 2; n++) {
+                this.after(n * 260, () => {
+                  if (!ok()) return;
+                  const ring = document.createElement("div");
+                  ring.className = "endp-ring";
+                  ring.style.left = curX + "px";
+                  ring.style.top = curY + "px";
+                  layer.appendChild(ring);
+                  ring.animate(
+                    [
+                      { transform: "translate(-50%,-50%) scale(1)", opacity: 0.9 },
+                      { transform: "translate(-50%,-50%) scale(3.6)", opacity: 0 },
+                    ],
+                    { duration: 880, easing: "ease-out" }
+                  ).onfinish = () => ring.remove();
+                });
+              }
             });
           }
         });

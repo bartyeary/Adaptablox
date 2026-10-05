@@ -8,118 +8,88 @@ const imgGroup28481 = "/assets/logo2.svg";
 const sectionClass = "content-stretch flex flex-col gap-[12px] items-start leading-[21px] pb-[8px] md:pb-[12px] pt-[14px] md:pt-[20px] px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full";
 
 const FLOW_DIAGRAM_MOBILE = `+-------------------------------------+
-|                                     |
 |      USER / ENVIRONMENT INPUT       |
-|      (Prompt, signal, context,      |
-|        ambient trigger, etc.)       |
-|                                     |
 +-------------------------------------+
 ▼
 +-------------------------------------+
-|                                     |
-|         A.R.C., BEHAVIORAL          |
-|          GOVERNANCE LAYER           |
-|                                     |
-|   - Evaluate delegated authority    |
-|     against role & constraints      |
-|   - Validate scope, permissions,    |
-|     and execution context           |
-|   - Block, modify, or reroute       |
-|     over-constraint actions         |
-|   - Regulate memory & delegation    |
-|                                     |
+| A.R.C. · AGENT GOVERNANCE           |
+| Associate machine-readable role,    |
+| authority, and constraints with     |
+| each agent. Enforce through agent-  |
+| bound or environment-side control.  |
+| Gate actions, memory, delegation,   |
+| and runtime constraint changes.     |
 +-------------------------------------+
 ▼
 +-------------------------------------+
-|                                     |
-|     L.R.C., INTERNAL REASONING      |
-|     GOVERNANCE (research dir.)      |
-|                                     |
-|   - Evaluate reasoning pathways     |
-|     during inference                |
-|   - Suppress non-compliant          |
-|     reasoning pathways              |
-|   - Select only compliant           |
-|     reasoning trajectories          |
-|   - Resolve competing               |
-|     interpretations                 |
-|                                     |
+| L.R.C. · ACTIVATION GOVERNANCE      |
+| (research direction)                |
+| Observe activation data, identify   |
+| a pathway, apply its constraint     |
+| set, and modulate activations       |
+| without changing stored weights.    |
 +-------------------------------------+
 ▼
 +-------------------------------------+
-|                                     |
-|       MODEL REASONING ENGINE        |
-|   (Weights & training unchanged)    |
-|                                     |
+| D.S. · ENSEMBLE GOVERNANCE          |
+| Detect pathological similarity or   |
+| divergence, introduce a governed    |
+| counter-perspective, modify the     |
+| ensemble, and reprocess the task.   |
 +-------------------------------------+
 ▼
 +-------------------------------------+
-|                                     |
-|        POLICY-ALIGNED ACTION        |
-|            OR ESCALATION            |
-|                                     |
-|   - Execute permitted actions       |
-|     within constraint bounds        |
-|   - Defer, reroute, or escalate     |
-|     when constraints violated       |
-|   - Offer alternatives when         |
-|     primary paths are blocked       |
-|                                     |
+| O.A.C. · OUTPUT ADMISSIBILITY       |
+| Build a system-level output object  |
+| and independently test the whole,   |
+| sequence, and aggregate before      |
+| externalization.                    |
 +-------------------------------------+
 ▼
 +-------------------------------------+
-|                                     |
-|       ENFORCEMENT + EVIDENCE        |
-|                                     |
-|   - Record constraints applied      |
-|   - Record when evaluated           |
-|   - Record why allowed,             |
-|     modified, or blocked            |
-|                                     |
+| EXECUTE · MODIFY · BLOCK · HOLD     |
+| Record the constraints, decision,   |
+| disposition, time, and provenance.  |
 +-------------------------------------+`;
 
 const FLOW_DIAGRAM_DESKTOP = `+----------------------------------------------------------------------+
 |                       USER / ENVIRONMENT INPUT                       |
-|           (Prompt, signal, context, ambient trigger, etc.)           |
 +----------------------------------------------------------------------+
 ▼
 +----------------------------------------------------------------------+
-|                 A.R.C., BEHAVIORAL GOVERNANCE LAYER                  |
-|                                                                      |
-|  - Evaluate delegated authority against role and constraint stack    |
-|  - Validate scope, permissions, and execution context                |
-|  - Block, modify, or reroute actions that exceed constraints         |
-|  - Regulate memory access and delegation boundaries                  |
+|                    A.R.C. · AGENT GOVERNANCE                         |
+| Associate machine-readable role, authority, and constraint state     |
+| with each agent. Enforce through control logic operating with the    |
+| agent, through a separate runtime environment or service, or both.   |
+| Gate actions, memory, delegation, and runtime constraint changes.    |
 +----------------------------------------------------------------------+
 ▼
 +----------------------------------------------------------------------+
-|      L.R.C., INTERNAL REASONING GOVERNANCE (research direction)      |
-|                                                                      |
-|  - Designed to evaluate internal reasoning pathways during inference |
-|  - Designed to suppress or redirect pathways that violate constraints|
-|  - Designed to select only compliant reasoning trajectories          |
-|  - Designed to resolve conflicts between competing interpretations   |
+|       L.R.C. · ACTIVATION-PATHWAY GOVERNANCE (research direction)    |
+| Observe intermediate activation data, identify a pathway or subgraph,|
+| evaluate it against its constraint set, and modulate activations     |
+| during inference without retraining or changing stored weights.      |
 +----------------------------------------------------------------------+
 ▼
 +----------------------------------------------------------------------+
-|                        MODEL REASONING ENGINE                        |
-|                   (Weights and training unchanged)                   |
+|                  D.S. · MULTI-AGENT GOVERNANCE                       |
+| Detect pathological similarity or divergence across constrained      |
+| outputs. Introduce a governed counter-perspective, modify the        |
+| original ensemble, reprocess the task, and synthesize updated        |
+| outputs.                                                             |
 +----------------------------------------------------------------------+
 ▼
 +----------------------------------------------------------------------+
-|                 POLICY-ALIGNED ACTION OR ESCALATION                  |
-|                                                                      |
-|  - Execute permitted actions within constraint boundaries            |
-|  - Defer, reroute, or escalate actions when constraints are violated |
-|  - Introduce alternative actions when primary paths are blocked      |
+|                O.A.C. · SYSTEM-LEVEL ADMISSIBILITY                   |
+| Construct a system-level output object and independently test the    |
+| combination, sequence, aggregation, authority, and current state.    |
+| Only an admissible object may cross the externalization boundary.    |
 +----------------------------------------------------------------------+
 ▼
 +----------------------------------------------------------------------+
-|                      ENFORCEMENT + EVIDENCE                          |
-|                                                                      |
-|  - Record which constraints were applied                             |
-|  - Record when the decision was evaluated                            |
-|  - Record why the action was allowed, modified, or blocked           |
+|               EXECUTE · MODIFY · BLOCK · HOLD · ESCALATE             |
+| Record the constraints evaluated, result, disposition, time, and     |
+| contributing-agent provenance as verifiable enforcement evidence.    |
 +----------------------------------------------------------------------+`;
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
@@ -207,12 +177,13 @@ export default function AdaptabloxOverview() {
         data-node-id="27:684"
       >
         <section className={sectionClass} data-node-id="overview-control-layers" style={{ marginTop: '71px' }}>
-          <SectionTitle>How control is enforced</SectionTitle>
+          <SectionTitle>Defense in depth</SectionTitle>
           <div className="font-sans font-normal min-w-full relative shrink-0 text-[#4e4e4e] text-[15px] w-full max-w-[720px]" style={{ fontVariationSettings: "'wdth' 100" }}>
             <p className="mb-[1em]">
-              Adaptablox applies control where agentic systems actually operate:
-              <br />
-              At execution, in coordination, and inside inference.
+              Adaptablox defines four layers of control: individual agents, internal activation pathways, groups of agents, and the combined result before it is released or acted on.
+            </p>
+            <p className="mb-[1em]">
+              Each layer is designed to check a different part of the system and change or block what happens next.
             </p>
             <button className="font-sans font-bold text-[#4e4e4e] text-left cursor-pointer arrow-link" type="button" onClick={() => navigate('faqs')}>
               Adaptablox system <span className="arrow-link-arrow" aria-hidden="true">→</span>
@@ -224,10 +195,10 @@ export default function AdaptabloxOverview() {
         <section className={`${sectionClass} min-w-0`} data-node-id="overview-how-it-works">
           <SectionTitle>How it works</SectionTitle>
           <p className="font-sans font-normal relative shrink-0 text-[#4e4e4e] text-[15px] w-full max-w-[720px]" style={{ fontVariationSettings: "'wdth' 100" }}>
-            All evaluation and enforcement occurs during runtime, not after output is produced. Below is a sequence of enforced decisions.
+            Authority and rules remain associated with each agent as it operates. Control logic running with the agent, in its runtime environment, or both checks proposed actions. DS changes a group of agents and reruns its task when a defined failure condition is met. LRC explores constraints on internal activation pathways. OAC independently checks the combined result and gates its release or execution.
           </p>
           <button className="font-sans font-bold text-[#4e4e4e] text-left mb-[12px] cursor-pointer arrow-link" type="button" onClick={goToEvidence}>
-            View Enforcement + Evidence <span className="arrow-link-arrow" aria-hidden="true">→</span>
+            See the enforcement record <span className="arrow-link-arrow" aria-hidden="true">→</span>
           </button>
           <div className="flow-diagram-fit min-w-0 w-full self-stretch md:w-[calc(100%+84px)] md:-mx-[42px]">
             <div className="flow-diagram-mobile-outer">
@@ -254,16 +225,16 @@ export default function AdaptabloxOverview() {
           <div className="font-sans font-normal min-w-full relative shrink-0 text-[#4e4e4e] text-[15px] w-full max-w-[720px]" style={{ fontVariationSettings: "'wdth' 100" }}>
             <ul className="list-disc mb-0">
               <li className="mb-[0.75em] ms-[23px]">
-                <strong>Not a guardrail.</strong> Guardrails evaluate outputs after generation. Adaptablox evaluates admissibility <em>before</em> an action or output is allowed to cross the boundary, before it commits, sends, or externalizes.
+                <strong>Not a prompt guardrail.</strong> Prompts guide model behavior. Adaptablox represents authority and constraints as machine-readable rules enforced by control logic as the agent operates.
               </li>
               <li className="mb-[0.75em] ms-[23px]">
-                <strong>Not access governance.</strong> Access control decides who gets in. Adaptablox governs what happens after access is granted.
+                <strong>Not access governance alone.</strong> Permission to reach a resource does not determine whether a particular action or combination of outputs is allowed under current conditions. Adaptablox evaluates that behavior before permitting it.
               </li>
               <li className="mb-[0.75em] ms-[23px]">
-                <strong>Not model modification.</strong> No retraining, no fine-tuning, no weight changes.
+                <strong>Not retraining.</strong> LRC is designed to adjust activation data as the model processes an input, without permanently changing its stored weights.
               </li>
               <li className="ms-[23px]">
-                <strong>Not post-hoc filtering.</strong> We don't clean up results after the fact. We gate whether results are admissible at the moment they would be produced or released.
+                <strong>Not monitoring alone.</strong> The system is designed to record what each enforcement check evaluated, what it allowed or blocked, and why.
               </li>
             </ul>
           </div>

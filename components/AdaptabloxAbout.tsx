@@ -36,11 +36,11 @@ const failureFamilies: FailureFamily[] = [
   {
     title: 'The sequence is the violation.',
     summary:
-      "No single action breaks policy. The pattern does. A procurement agent issues rapid, conflicting purchase orders, each valid in isolation, incoherent in aggregate. A support agent's refunds are each defensible; across a hundred tickets, they're a financial exposure.",
+      "No single action breaks policy. The pattern does. A procurement agent issues conflicting orders that each pass their own checks. A support agent's refunds are individually permitted but together exceed a spending limit.",
     whyCurrentSystemsMissIt:
-      'authority is checked per request. Nothing evaluates whether an action remains admissible given the actions that came before it.',
+      'an action may be allowed on its own but violate policy when considered alongside earlier actions.',
     whatAdaptabloxDoes:
-      'every action is evaluated in the context of the sequence it belongs to. Incoherent or over-rapid sequences are blocked or deferred before they commit. A snapshot check cannot do this. Sequence-aware enforcement can.',
+      'OAC independently evaluates whether a proposed system result is admissible—allowed under current rules and conditions. It considers earlier results and enforcement decisions, then controls release or execution. An action permitted on its own can be changed, delayed, or blocked when the sequence violates system rules.',
     detailLine: 'Detailed scenarios',
     scenarios: [
       {
@@ -48,26 +48,25 @@ const failureFamilies: FailureFamily[] = [
         title: 'The helpful procurement agent',
         body: [
           'A procurement agent is authorized to negotiate vendor terms and execute agreements.',
-          'During a high-pressure interval, it begins issuing a series of rapid, conflicting purchase orders. Each action is valid in isolation, but the sequence is incoherent.',
+          'During a busy period, it issues conflicting purchase orders. Each order passes its own checks, but the orders cannot all be fulfilled as intended.',
           'No single action violates policy.',
           'The sequence does.',
         ],
         coreFailure: [
-          'The system cannot evaluate whether actions remain valid in the context of prior actions. It cannot detect that behavior has drifted outside its intended role.',
+          'The system checks each order without considering earlier orders or the limits on the overall purchase.',
         ],
         whyCurrentSystemsFail: [
-          'Authority is checked at the point of request, not enforced during execution',
-          "Per-step checks don't compose. Each transition is evaluated as if the steps before it never happened.",
-          'Agents operate without continuous constraint evaluation',
+          'Each order is checked in isolation',
+          'Related orders are not checked for conflicts before commitment',
         ],
         intervention: [
-          'Delegated scope is checked at each commit against recent related orders.',
-          'Incoherent or over-rapid sequences are blocked or deferred before send.',
-          'Owners are escalated with full sequence context when aggregate behavior exceeds role.',
-          'Audit shows how locally valid steps composed a globally invalid pattern.',
+          'Each proposed order is checked against the agent’s authority and related orders.',
+          'Conflicts or ordering rates that violate policy are blocked or delayed before commitment.',
+          'Cases requiring approval are sent to the responsible person with the order history.',
+          'The record explains why an order passed or failed the combined check.',
         ],
         outcome:
-          'Ordering pauses until the sequence matches delegated intent. Authority holds; stakeholders reconcile once, not after a pile of irreversible commits.',
+          'Orders that fail the combined check are held for correction or approval before commitment.',
       },
       {
         label: 'Fail Scenario',
@@ -75,25 +74,21 @@ const failureFamilies: FailureFamily[] = [
         body: [
           'A customer support agent begins issuing refunds and replacements during a surge in tickets.',
           'Each decision appears reasonable in isolation.',
-          'Across interactions, the behavior becomes inconsistent and financially exposed.',
+          'Together, the refunds exceed the agent’s spending limit.',
         ],
         coreFailure: [
-          'The system cannot maintain consistent policy enforcement across a sequence of decisions. It cannot detect that its behavior has drifted beyond acceptable bounds.',
+          'The system checks each refund without tracking the total amount authorized across tickets.',
         ],
         whyCurrentSystemsFail: [
-          'Decisions are evaluated independently, not as part of a governed sequence',
-          'The system lacks visibility into its own behavioral drift',
+          'Refunds are checked individually',
+          'Earlier refunds are not included in the spending check',
         ],
         intervention: [
-          'Every action is evaluated against a constraint stack before execution',
-          'Prior actions are incorporated into the current admissibility check',
-          'Constraint violations trigger immediate modification or blocking',
+          'Each refund is checked against the active spending rules',
+          'Earlier refunds are included in the check',
+          'Refunds that exceed the limit are changed or blocked before payment',
         ],
-        interventionOutro: [
-          'The system does not rely on the agent to remain consistent.',
-          'It enforces consistency directly.',
-        ],
-        outcome: 'Behavior remains consistent across interactions. Financial exposure is prevented before escalation occurs.',
+        outcome: 'Refunds that would exceed the configured spending limit are stopped before payment.',
       },
       {
         label: 'Fail Scenario',
@@ -105,36 +100,30 @@ const failureFamilies: FailureFamily[] = [
           'The system continues executing.',
         ],
         coreFailure: [
-          'The system cannot verify that the sequence of actions remains valid as a whole.',
-          'Each step is evaluated independently.',
-          'The system cannot detect that the plan has become incoherent over time.',
+          'The system checks each step without checking whether earlier steps still satisfy the plan’s dependencies.',
         ],
         whyCurrentSystemsFail: [
           'Actions are validated at the step level, not at the sequence level',
           'The system cannot detect when dependencies between steps are no longer satisfied',
         ],
-        interventionIntro: 'Adaptablox enforces constraint continuity at runtime.',
+        interventionIntro: 'Adaptablox checks the plan as conditions change.',
         intervention: [
           'Each action is evaluated in the context of prior actions',
           'Dependencies are checked before execution, not after failure',
           'Constraint violations trigger immediate modification, rerouting, or blocking',
         ],
-        interventionOutro: [
-          'The system does not assume that a valid step leads to a valid outcome.',
-          'It verifies that the sequence remains admissible at every step.',
-        ],
-        outcome: 'The workflow remains coherent across all steps. Invalid transitions are prevented before execution.',
+        outcome: 'Steps that fail the dependency or policy checks are held before execution.',
       },
     ],
   },
   {
     title: 'Agreement is not correctness.',
     summary:
-      'Multiple agents converge on the same answer, because they converged on the same assumption. Confidence rises as reasoning diversity collapses. The system produces a consistent, well-supported answer. It is wrong.',
+      'Several agents reach the same answer because they share the same faulty assumption. Their agreement raises confidence without adding independent support.',
     whyCurrentSystemsMissIt:
-      'consensus is treated as validation. Per-output checks evaluate each agent in isolation. Nothing evaluates coordination state to distinguish agreement from correctness, or to detect that diversity has collapsed.',
+      'checking each answer separately does not reveal whether the group has stopped considering different perspectives. Agreement alone does not establish correctness.',
     whatAdaptabloxDoes:
-      'agent outputs are evaluated for coordination quality before they are combined. Premature convergence and irreconcilable conflict are treated as coordination failures, and the system intervenes, restoring structured disagreement, before synthesis occurs.',
+      'DS compares outputs from agents operating under defined constraints. When agreement or disagreement meets a defined failure condition, a counter-agent with different constraints proposes a change to the original group. The group is changed, reruns the task, and combines only the revised outputs.',
     detailLine: 'Detailed scenarios',
     scenarios: [
       {
@@ -142,9 +131,9 @@ const failureFamilies: FailureFamily[] = [
         title: 'False consensus',
         body: [
           'Multiple agents are assigned to analyze the same problem from different roles.',
-          'Each agent produces a valid output. As the system aggregates responses, the agents begin reinforcing the same perspective.',
+          'Each output passes its individual checks, but the agents reinforce the same faulty assumption.',
           'Confidence increases. Diversity of reasoning collapses.',
-          'The system produces a consistent, well-supported answer.',
+          'The system produces an answer that appears well supported.',
           'It is wrong.',
         ],
         coreFailure: [
@@ -152,64 +141,52 @@ const failureFamilies: FailureFamily[] = [
           'Agreement is treated as validation.',
         ],
         whyCurrentSystemsFail: [
-          'No detection of convergence across agent outputs',
-          'Per-output checks cannot distinguish agreement from correctness across coordination state',
-          'Per-output checks cannot preserve reasoning diversity when agents converge',
+          'The group’s outputs are not compared for loss of independent perspectives',
+          'Agreement is used as a substitute for independent support',
         ],
-        interventionIntro: 'Adaptablox detects and resolves convergence at runtime.',
+        interventionIntro: 'DS intervenes when agreement or disagreement meets a defined failure condition.',
         intervention: [
-          'Outputs are evaluated for coordination quality before being combined',
-          'Convergent reasoning is identified as a coordination failure before synthesis',
-          'When coordination fails, the system intervenes to restore reasoning diversity',
+          'Outputs are compared for problematic similarity or unresolved disagreement',
+          'A counter-agent with different constraints recommends a change to the original group',
+          'The group is changed and reruns the task before its revised outputs are combined',
         ],
-        interventionOutro: [
-          'This evaluation occurs before outputs are combined, not after the result is produced.',
-          'The system does not rely on consensus.',
-          'It enforces structured disagreement when required.',
-        ],
-        outcome: 'Diverse reasoning paths are preserved. Invalid consensus is broken before a final output is produced.',
+        outcome: 'The group reconsiders the task under changed conditions before producing a combined answer.',
       },
     ],
   },
   {
     title: 'Compliant parts, non-compliant whole.',
     summary:
-      'An agent combines data from two systems. Each source is compliant in isolation. Together, they violate policy. Or an agent optimizes throughput in ways that are individually efficient and collectively unsafe.',
+      'Agents retrieve information they are each allowed to access. Combining their outputs reveals information that policy prohibits sharing.',
     whyCurrentSystemsMissIt:
-      'compliance is evaluated per source, per output, per step, never on the composition.',
+      'permission to access each source does not establish permission to release the combined information.',
     whatAdaptabloxDoes:
-      'composite results are evaluated for admissibility before they are produced or released. The system does not assume that compliant inputs produce compliant outputs. It evaluates the combination.',
+      'OAC creates a structured representation of the combined result, including who contributed what. An evaluator independent of the contributing agents checks it against system rules. A release gate can block the combination even when every contribution passed its own checks.',
     detailLine: 'Detailed scenarios',
     scenarios: [
       {
         label: 'Fail Scenario',
         title: 'Contextual compliance failure',
         body: [
-          'A data-access agent answers an internal query by combining data from two systems.',
-          'Each source is compliant in isolation.',
-          'Together, they violate policy.',
+          'Two agents retrieve data from separate systems to answer an internal query.',
+          'Each agent’s contribution is permitted on its own.',
+          'The combined answer reveals information that policy prohibits sharing.',
           'The system returns the result.',
         ],
         coreFailure: [
-          'The system allows cross-domain data use without enforcing contextual compliance boundaries.',
-          'It cannot evaluate whether data remains compliant when combined.',
+          'The system checks access to each source but does not check whether the combined answer may be released.',
         ],
         whyCurrentSystemsFail: [
-          'Policies exist outside execution paths',
-          'Memory and retrieval are not governed by constraints',
-          'Violations are detected after the fact through audit',
+          'Access checks cover each agent and source separately',
+          'No independent check of the combined answer controls its release',
         ],
-        interventionIntro: 'Adaptablox enforces compliance at runtime.',
+        interventionIntro: 'ARC governs access. OAC independently checks the combined result.',
         intervention: [
-          'Memory access is constrained by domain and context',
-          'Cross-domain combinations are evaluated before execution',
-          'Violating actions are blocked before results are generated',
+          'Each agent’s memory access is limited by its role and context',
+          'The combined answer is checked against system rules before release',
+          'Results that fail those checks are blocked at the release gate',
         ],
-        interventionOutro: [
-          'The system does not assume compliant inputs produce compliant outputs.',
-          'It enforces compliance at the moment of use.',
-        ],
-        outcome: 'Compliance is enforced during execution. Violations are prevented, not discovered.',
+        outcome: 'The combined answer is withheld when it violates the configured rules, even though each contribution was individually permitted.',
       },
       {
         label: 'Fail Scenario',
@@ -229,17 +206,13 @@ const failureFamilies: FailureFamily[] = [
           'Safety systems react after near-miss events',
           'No unified constraint enforcement exists at execution time',
         ],
-        interventionIntro: 'Adaptablox enforces constraint precedence at runtime.',
+        interventionIntro: 'Adaptablox applies safety rules before approving an action.',
         intervention: [
           'Safety constraints override optimization goals',
-          'Every action is evaluated against a hierarchical constraint stack',
+          'Each proposed action is checked against the active rules in priority order',
           'Violations trigger immediate blocking or escalation',
         ],
-        interventionOutro: [
-          'The system does not rely on monitoring to catch failures.',
-          'It blocks constraint-violating actions before execution.',
-        ],
-        outcome: 'Safety constraints are enforced at the moment of action. Optimization remains bounded within safe limits.',
+        outcome: 'Actions that fail the configured safety checks are blocked or escalated before execution.',
       },
     ],
   },
@@ -298,7 +271,7 @@ function ScenarioCard({ scenario }: { scenario: Scenario }) {
           ))}
         </div>
         <div className="font-sans leading-[24px] relative shrink-0 text-[#4e4e4e] text-[15px] w-full">
-          <p className="font-sans font-bold mb-0 text-[#ff4b4b]">Why current systems fail</p>
+          <p className="font-sans font-bold mb-0 text-[#ff4b4b]">Why this system fails</p>
           <ul className="list-disc mb-0">
             {scenario.whyCurrentSystemsFail.map((text) => (
               <li className="mb-0 ms-[23px]" key={text}>
@@ -394,18 +367,21 @@ export default function AdaptabloxAbout() {
         data-node-id="1:39"
       >
         <section className={sectionClass} data-node-id="about-hero-agentic-systems" style={{ marginTop: '71px' }}>
-          <SectionTitle>Agentic systems fail differently.</SectionTitle>
+          <SectionTitle>Govern the agent. Govern the system.</SectionTitle>
           <div className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-full max-w-[720px]" style={{ fontVariationSettings: "'wdth' 100" }}>
-            <p className="font-sans font-bold mb-[1em]">Every action is valid. The sequence isn't.</p>
+            <p className="font-sans font-bold mb-[1em]">Agentic AI changes what must be governed.</p>
             <p className="mb-[1em]">
-              Adaptablox is a runtime control layer that enforces delegated authority at the moment of execution, across actions, sequences of actions, and coordination between agents.
+              An AI system that can remember, delegate, use tools, and act on our behalf needs enforceable limits on its authority. A model can behave as intended while the surrounding system grants too much access—or combines individually permitted actions into an outcome that violates policy.
             </p>
-            <ul className="list-disc mb-[1em]">
-              <li className="mb-0 ms-[23px]">Not training.</li>
-              <li className="mb-0 ms-[23px]">Not prompting.</li>
-              <li className="mb-0 ms-[23px]">Not post-hoc monitoring.</li>
-              <li className="ms-[23px]">Enforcement, during execution.</li>
-            </ul>
+            <p className="mb-[1em]">
+              Alignment helps shape model behavior. Runtime governance defines and enforces what the system is allowed to do, under the conditions that apply now.
+            </p>
+            <p className="mb-[1em]">
+              Adaptablox is a runtime governance architecture for autonomous AI. It is designed to govern agent authority and memory, intervene when groups of agents reach false consensus or unresolved conflict, apply constraints to identified internal activation pathways, and independently evaluate combined outputs before they are released or acted on.
+            </p>
+            <p className="mb-[1em]">
+              Each layer addresses a different failure. Together, they connect defined authority, runtime intervention, and records of enforcement decisions.
+            </p>
             <div className="flex flex-col gap-[10px] mt-[10px]">
               <a className="font-sans font-bold text-[#4e4e4e] arrow-link" href="#failure-families">
                 See how agents fail <span className="arrow-link-arrow" aria-hidden="true">→</span>
@@ -418,17 +394,19 @@ export default function AdaptabloxAbout() {
           </div>
         </section>
 
-        <section className={sectionClass} data-node-id="about-why-adaptablox-exists">
-          <SectionTitle>Why Adaptablox exists</SectionTitle>
+        <section className={sectionClass} data-node-id="about-from-role-to-authority">
+          <SectionTitle>From role to authority</SectionTitle>
           <div className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-full max-w-[720px]" style={{ fontVariationSettings: "'wdth' 100" }}>
-            <p className="mb-[1em]">Autonomous agents don't fail the way software fails, and they don't fail the way models fail.</p>
+            <p className="font-sans font-bold mb-[1em]">An agent needs more than a role. It needs an authority boundary.</p>
             <p className="mb-[1em]">
-              Software fails when code is wrong. Models fail when outputs are wrong. Agents fail when <strong>behavior drifts</strong>, when a system composed of individually correct steps produces an outcome no one authorized.
+              Telling an agent “You are a procurement agent” gives it a purpose. It does not establish a spending limit, approved suppliers, or when human approval is required.
             </p>
             <p className="mb-[1em]">
-              Today, authority over agents is defined <em>before</em> execution (policies, prompts, permissions) or reconstructed <em>after</em> failure (logs, monitoring, audits). Enforcement today is per-request. Nothing evaluates the sequence, the composition, or the coordination state.
+              Adaptablox represents the agent's authority as machine-readable rules for actions, memory, tools, delegation, and escalation. These rules are maintained and enforced as the agent operates, and can change when its authority or circumstances change.
             </p>
-            <p className="mb-0">That gap is where agentic failures live. Adaptablox closes it.</p>
+            <p className="mb-0">
+              The prompt defines purpose. The governance layer defines and enforces authority.
+            </p>
           </div>
         </section>
 
@@ -444,7 +422,7 @@ export default function AdaptabloxAbout() {
                   </p>
                   <p className="font-sans font-normal text-[#4e4e4e] text-[15px] mb-[1em]">{family.summary}</p>
                   <p className="font-sans font-normal text-[#4e4e4e] text-[15px] mb-[0.5em]">
-                    <strong>Why current systems miss it:</strong> {family.whyCurrentSystemsMissIt}
+                    <strong>What individual checks miss:</strong> {family.whyCurrentSystemsMissIt}
                   </p>
                   <p className="font-sans font-normal text-[#4e4e4e] text-[15px] mb-[1em]">
                     <strong>What Adaptablox does:</strong> {family.whatAdaptabloxDoes}
@@ -471,40 +449,26 @@ export default function AdaptabloxAbout() {
           </div>
         </section>
 
-        <section className={sectionClass} data-node-id="about-regulators">
-          <SectionTitle>What regulators are about to ask</SectionTitle>
-          <div className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-full max-w-[720px]" style={{ fontVariationSettings: "'wdth' 100" }}>
-            <p className="font-sans font-bold mb-[1em]">Not what the model can do. Whether this agent should be allowed to do it now, in this context, under this authority.</p>
-            <p className="mb-[1em]">
-              Regulatory pressure on frontier models governs <em>capability</em>: what models may be built and who may access them. But once a model is deployed as an agent, capability governance stops answering the question that matters:
-            </p>
-            <p className="italic mb-[1em]">Was this specific action within this specific agent's delegated authority at the moment it was taken?</p>
-            <p className="mb-[1em]">
-              Prompts can't prove that. Policies on paper can't prove that. Logs written after the fact can describe what happened, but they can't show that authority was <em>enforced</em>.
-            </p>
-            <p className="mb-0">
-              Adaptablox is built for the question deployers will be asked: enforcement of delegated authority at execution time, with a persistent record of every enforcement decision. As regulatory attention moves from model capability to agent conduct, that layer stops being optional.
-            </p>
-          </div>
-        </section>
-
         <section className={sectionClass} data-node-id="enforcement-evidence" id="enforcement-evidence">
           <SectionTitle>Governance you can't verify is just policy.</SectionTitle>
           <div className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-full max-w-[720px]" style={{ fontVariationSettings: "'wdth' 100" }}>
-            <p className="mb-[0.5em]">Every runtime intervention Adaptablox makes produces a record:</p>
+            <p className="mb-[1em]">Teams need to review which rules were enforced before an agent acted or a result was released. Adaptablox is designed to create that evidence as part of each enforcement decision.</p>
+            <p className="mb-[0.5em]">The record can show:</p>
             <ul className="list-disc mb-[1em]">
-              <li className="mb-0 ms-[23px]"><strong>Which constraints</strong> were evaluated</li>
+              <li className="mb-0 ms-[23px]"><strong>Which rules</strong> were checked</li>
               <li className="mb-0 ms-[23px]"><strong>When</strong> the decision was made</li>
-              <li className="ms-[23px]"><strong>Why</strong> the action was allowed, modified, rerouted, or blocked</li>
+              <li className="mb-0 ms-[23px]"><strong>What was evaluated:</strong> an action, activation pathway, group of agents, or combined result</li>
+              <li className="mb-0 ms-[23px]"><strong>Who contributed what,</strong> where it came from, and each contributor's authority</li>
+              <li className="ms-[23px]"><strong>What was allowed, changed, delayed, escalated, or blocked,</strong> and why</li>
             </ul>
             <p className="mb-[1em]">
-              These records can be cryptographically chained, so the history of enforcement decisions is tamper-evident. An auditor doesn't have to trust that governance happened. The record shows it, and shows that the record itself hasn't been altered.
+              Cryptographic links between records can help reviewers detect changes to the history. The recorded decisions support a separate review of whether the controls were applied correctly.
             </p>
-            <p className="mb-[0.5em]">This is the difference between governance as a promise and governance as a verifiable record:</p>
+            <p className="mb-[0.5em]">That evidence supports practical questions:</p>
             <ul className="list-disc mb-0">
-              <li className="mb-0 ms-[23px]">A compliance officer can answer "show me every action this agent was blocked from taking in Q3."</li>
-              <li className="mb-0 ms-[23px]">An incident review can reconstruct exactly which constraint held, and when.</li>
-              <li className="ms-[23px]">A regulator can verify that authority was enforced, not just documented.</li>
+              <li className="mb-0 ms-[23px]">Which actions was this agent blocked from taking in Q3?</li>
+              <li className="mb-0 ms-[23px]">Which rule triggered an intervention, and when?</li>
+              <li className="ms-[23px]">Was the combined result checked before it was released?</li>
             </ul>
             <span dangerouslySetInnerHTML={{ __html: '<!-- HOLD: pending counsel review -->' }} />
           </div>
@@ -515,10 +479,10 @@ export default function AdaptabloxAbout() {
           <SectionTitle>Who this is for</SectionTitle>
           <div className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-full max-w-[720px]" style={{ fontVariationSettings: "'wdth' 100" }}>
             <p className="mb-[1em]">
-              Adaptablox is built for teams deploying autonomous agents where behavior carries consequence: financial services, healthcare, legal, and government, environments where "the agent seemed fine in testing" is not an acceptable control posture, and where every enforcement decision must be demonstrable after the fact.
+              Adaptablox is designed for teams deploying autonomous agents in financial services, healthcare, legal services, and government. These teams need enforceable limits and evidence of how those limits were applied.
             </p>
             <p className="mb-0">
-              If your agents can spend money, touch regulated data, or act across systems, the question is no longer whether they're capable. It's whether their authority is enforced.
+              If your agents can spend money, access regulated data, or act across systems, their authority needs to be enforced as they operate.
             </p>
           </div>
         </section>

@@ -98,22 +98,27 @@ export default function AdaptabloxFAQs() {
         <section className={sectionClass} data-node-id="system-control-layers" style={{ marginTop: '71px' }}>
           <SectionTitle>The system</SectionTitle>
           <div className="font-sans font-normal leading-[21px] min-w-full not-italic relative shrink-0 text-[#4e4e4e] text-[15px] w-full max-w-[720px]" style={{ fontVariationSettings: "'wdth' 100" }}>
-            <p className="mb-[1em]">Adaptablox applies control where agentic systems actually operate:</p>
+            <p className="mb-[1em]">Adaptablox defines four layers of runtime governance: individual agents, groups of agents, internal activation pathways, and combined system outputs. Each layer addresses a different kind of failure.</p>
           </div>
           <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full">
-            <SystemCard title="Execution, Agentic Runtime Control (ARC)">
+            <SystemCard title="Agent governance, Agent Role & Constraint (ARC)">
               <p className="mb-0">
-                Every action is evaluated against a constraint stack before it executes. Role boundaries define what is permitted. Prior actions inform the current admissibility check. Actions that exceed scope are blocked, modified, or rerouted, and memory access and delegation are governed by the same boundaries.
+                ARC maintains machine-readable role, authority, and constraint state for each agent. Control logic running with the agent, in a separate runtime service, or both checks proposed actions and memory operations before allowing them. These rules can govern delegation, escalation, and temporary permissions, and can change while the agent operates.
               </p>
             </SystemCard>
-            <SystemCard title="Coordination, Disagreement Scaffolding (DS)">
+            <SystemCard title="Ensemble governance, Disagreement Scaffolding (DS)">
               <p className="mb-0">
-                Agent outputs are evaluated for coordination quality before being combined. Premature convergence, irreconcilable conflict, and deadlock are detected and resolved before synthesis. The system does not rely on consensus; it enforces the conditions under which agreement is valid.
+                Agents operating under defined constraints produce independent outputs. DS compares them for a deadlock condition: problematic similarity or excessive disagreement. A counter-agent with different constraints recommends a change to at least one agent in the original ensemble, such as changing its retrieval scope or constraints. The changed ensemble reruns the original task, and only its revised outputs are combined.
               </p>
             </SystemCard>
-            <SystemCard title="Reasoning, Latent Runtime Control (LRC)" subtitle="research direction">
+            <SystemCard title="Activation governance, Latent Role & Constraint (LRC)" subtitle="research direction">
               <p className="mb-0">
-                LRC extends the same constraint model inside the inference process, evaluating reasoning trajectories rather than only their outputs. It is designed to constrain reasoning paths that lead toward non-compliant behavior, without modifying model weights. LRC is an active research and development direction that deepens the control stack.
+                LRC is designed to observe activation data as a model processes an input, identify an internal pathway, feature, or circuit, and assign constraints to it. It evaluates that pathway against its constraints and adjusts its activations when needed—for example, by blocking or scaling them—without retraining or permanently changing the model’s stored weights.
+              </p>
+            </SystemCard>
+            <SystemCard title="System governance, Output Admissibility Control (OAC)">
+              <p className="mb-0">
+                OAC creates a system-level output object: a structured representation of the proposed combined result and its contributing agents. An evaluator independent of those agents checks the whole against system rules, including authority, sequence, timing, and cumulative effects. Individually permitted contributions can still form an inadmissible whole. An execution gate controls whether the result is released, changed, delayed, escalated, or blocked before it is sent, stored, or acted on.
               </p>
             </SystemCard>
           </div>
@@ -126,30 +131,38 @@ export default function AdaptabloxFAQs() {
         <section className={sectionClass} data-node-id="system-faq-cards">
           <SectionTitle>Questions</SectionTitle>
           <div className="content-start flex flex-wrap gap-[18px] items-start justify-center relative shrink-0 w-full">
-            <SystemCard title="How does A.R.C. differ from access governance?">
-              <p className="mb-[1em]">Access governance controls who can access a resource.</p>
-              <p className="mb-[1em]">A.R.C. controls what happens after access is granted.</p>
-              <p className="mb-0">Actions are evaluated and constrained at execution.</p>
+            <SystemCard title="How does ARC differ from identity and access management?">
+              <p className="mb-[1em]">Identity and access management authenticates an actor and grants permissions to a resource.</p>
+              <p className="mb-[1em]">ARC attaches role and constraint state to the operating agent and evaluates its proposed behavior, including actions, memory access, and delegation.</p>
+              <p className="mb-0">Being allowed to reach a tool is not the same as being allowed to take this action with it.</p>
             </SystemCard>
-            <SystemCard title="Does A.R.C. improve model accuracy?">
+            <SystemCard title="How does ARC work with agent routing?">
+              <p className="mb-[1em]">An agent’s role can help determine which tasks it receives.</p>
+              <p className="mb-0">Once a task is assigned, ARC checks the agent’s proposed actions against its active authority and constraints.</p>
+            </SystemCard>
+            <SystemCard title="Does ARC improve model accuracy?">
               <p className="mb-[1em]">No.</p>
-              <p className="mb-[1em]">A.R.C. does not change the model.</p>
-              <p className="mb-0">It enforces whether actions are allowed at runtime.</p>
+              <p className="mb-[1em]">ARC does not make a model know more or reason better.</p>
+              <p className="mb-0">It determines whether an agent operating under a defined role and constraint set may perform a proposed action.</p>
             </SystemCard>
-            <SystemCard title="How are agent responses synthesized?">
-              <p className="mb-[1em]">Outputs are evaluated before being combined.</p>
-              <p className="mb-[1em]">Non-compliant responses are removed.</p>
-              <p className="mb-0">Synthesis occurs under constraint.</p>
+            <SystemCard title="Is DS just debate, voting, or a critic agent?">
+              <p className="mb-[1em]">No. DS compares the outputs of constrained agents and intervenes when agreement or disagreement meets a defined failure condition.</p>
+              <p className="mb-[1em]">A counter-agent with different constraints recommends a change to the original ensemble.</p>
+              <p className="mb-0">The changed ensemble reruns the original task before its revised outputs are combined.</p>
             </SystemCard>
-            <SystemCard title="Does L.R.C. change the model's weights?">
+            <SystemCard title="Does LRC change the model's weights?">
               <p className="mb-[1em]">No.</p>
-              <p className="mb-[1em]">It is designed to constrain reasoning during inference.</p>
-              <p className="mb-0">Control is applied without retraining.</p>
+              <p className="mb-[1em]">LRC is designed to evaluate and modulate intermediate activation data during inference.</p>
+              <p className="mb-0">The stored model parameters remain unchanged.</p>
             </SystemCard>
-            <SystemCard title="Why govern internal reasoning at all? Isn't output control enough?">
-              <p className="mb-[1em]">No.</p>
-              <p className="mb-[1em]">Output control happens too late.</p>
-              <p className="mb-0">L.R.C. is designed to constrain reasoning before output.</p>
+            <SystemCard title="How is LRC different from interpretability or steering?">
+              <p className="mb-[1em]">Interpretability identifies or explains internal features and circuits. Steering changes activations.</p>
+              <p className="mb-0">LRC is designed to assign constraints to an identified pathway, check its activation behavior, and intervene when it falls outside those constraints.</p>
+            </SystemCard>
+            <SystemCard title="Why is OAC separate from agent-level compliance?">
+              <p className="mb-[1em]">Because permissible parts can form an impermissible whole.</p>
+              <p className="mb-[1em]">Admissible means allowed under the current rules and conditions. Two individually permitted outputs may violate those rules when combined. Sequence, repetition, timing, or cumulative effects can also change whether a result is allowed.</p>
+              <p className="mb-0">OAC independently checks the proposed system result and gates its release or execution.</p>
             </SystemCard>
           </div>
         </section>

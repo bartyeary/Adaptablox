@@ -5,10 +5,10 @@ import { NavigationProvider } from '@/contexts/NavigationContext'
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.adaptablox.com'),
   title: 'Adaptablox — Runtime Governance for Autonomous AI',
-  description: 'Runtime governance for autonomous AI systems.',
+  description: 'Machine-enforced runtime governance for autonomous AI across agents, internal activation pathways, multi-agent ensembles, and system-level outputs.',
   openGraph: {
     title: 'Adaptablox — Runtime Governance for Autonomous AI',
-    description: 'Runtime governance for autonomous AI systems.',
+    description: 'Machine-enforced runtime governance across agents, activation pathways, ensembles, and system-level outputs.',
     url: 'https://www.adaptablox.com',
     siteName: 'Adaptablox',
     type: 'website',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Adaptablox — Runtime Governance for Autonomous AI',
-    description: 'Runtime governance for autonomous AI systems.',
+    description: 'Machine-enforced runtime governance across agents, activation pathways, ensembles, and system-level outputs.',
     images: ['/assets/og-image.png'],
   },
 }
@@ -705,4 +705,3 @@ export default function RootLayout({
     </html>
   )
 }
-

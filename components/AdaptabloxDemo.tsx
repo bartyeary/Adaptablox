@@ -179,7 +179,7 @@ export default function AdaptabloxDemo() {
             style={{ fontVariationSettings: "'wdth' 100" }}
           >
             <p className="mb-0">
-              These demos show control being enforced during execution. Behavior changes because constraints change, and constraints are enforced as the system runs.
+              These demos show how runtime controls check proposed actions and contributions, and how changing the rules changes agent behavior.
             </p>
           </div>
         </div>
@@ -205,7 +205,7 @@ export default function AdaptabloxDemo() {
                 </div>
               </div>
               <p className="font-sans font-normal leading-[21px] text-[#4e4e4e] text-[12px] text-center w-full px-[15px] md:px-[21px] pb-[7px] md:pb-[10px]" style={{ fontVariationSettings: "'wdth' 100" }}>
-                A working prototype showing how multi-agent contributions are governed before they enter shared context or influence a synthesized response.
+                A working prototype that checks agents’ contributions before they enter shared context or influence the combined answer.
               </p>
             </div>
           </div>
@@ -219,25 +219,24 @@ export default function AdaptabloxDemo() {
                   <span className="leading-[21px]">Agents operate within distinct role and constraint boundaries</span>
                 </li>
                 <li className="mb-0 ms-[22.5px]">
-                  <span className="leading-[21px]">Proposed contributions are accepted, modified, or blocked before admission</span>
+                  <span className="leading-[21px]">Contributions are accepted, changed, or blocked before entering shared context</span>
                 </li>
                 <li className="mb-0 ms-[22.5px]">
-                  <span className="leading-[21px]">Governance interventions remain visible and attributable</span>
+                  <span className="leading-[21px]">Interventions show what changed and which agent was affected</span>
                 </li>
                 <li className="mb-0 ms-[22.5px]">
-                  <span className="leading-[21px]">Premature consensus and unresolved contradiction are detected before synthesis</span>
+                  <span className="leading-[21px]">Outputs are checked for premature agreement and unresolved conflict before they are combined</span>
                 </li>
                 <li className="mb-0 ms-[22.5px]">
-                  <span className="leading-[21px]">Counter-agent perturbation restores structured disagreement when required</span>
+                  <span className="leading-[21px]">A counter-agent introduces a different constrained perspective when intervention is triggered</span>
                 </li>
                 <li className="mb-0 ms-[22.5px]">
-                  <span className="leading-[21px]">Final synthesis uses only governed shared context</span>
+                  <span className="leading-[21px]">The final answer uses only shared context that passed the governance checks</span>
                 </li>
                 <li className="ms-[22.5px]">
                   <span className="leading-[21px]">Confidence reflects both the result and the quality of the ensemble process</span>
                 </li>
               </ul>
-              <p className="leading-[21px] mb-0 mt-[1em]">The system does not synthesize everything the agents say. It synthesizes what survives governance.</p>
             </div>
           </div>
         </div>
@@ -280,16 +279,15 @@ export default function AdaptabloxDemo() {
                   <span className="leading-[21px]">Actions are evaluated before they are allowed to execute</span>
                 </li>
                 <li className="mb-0 ms-[22.5px]">
-                  <span className="leading-[21px]">Outputs are checked for alignment before being combined</span>
+                  <span className="leading-[21px]">Outputs are checked against the active rules before being combined</span>
                 </li>
                 <li className="mb-0 ms-[22.5px]">
-                  <span className="leading-[21px]">Premature convergence is identified and prevented before synthesis</span>
+                  <span className="leading-[21px]">Outputs are checked for problematic agreement before being combined</span>
                 </li>
                 <li className="ms-[22.5px]">
                   <span className="leading-[21px]">Conflicting actions are resolved before execution</span>
                 </li>
               </ul>
-              <p className="leading-[21px] mb-0 mt-[1em]">Evaluation occurs before any action is allowed.</p>
             </div>
           </div>
         </div>
@@ -344,29 +342,22 @@ export default function AdaptabloxDemo() {
                 </li>
               </ul>
               <p className="leading-[21px] mb-0">&nbsp;</p>
-              <p className="leading-[21px] mb-0">Behavior is adjusted at runtime.</p>
-              <p className="leading-[21px] mb-0">&nbsp;</p>
               <p className="leading-[21px] mb-0">Tone and behavior shift automatically as context changes.</p>
               <p className="leading-[21px] mb-0">Memory access is constrained by domain boundaries.</p>
               <p className="leading-[21px] mb-0">Actions valid in one environment are blocked or deferred in another.</p>
-              <p className="leading-[21px] mb-0">The system does not rely on user correction to remain compliant.</p>
               <p className="leading-[21px] mb-0">&nbsp;</p>
               <p className="leading-[21px] mb-0">No retraining occurs between contexts.</p>
-              <p className="leading-[21px] mb-0">&nbsp;</p>
-              <p className="leading-[21px] mb-0">Control is enforced as conditions change. Behavior adapts because constraints change.</p>
             </div>
           </div>
         </div>
         <div className="content-stretch flex flex-col gap-[12px] items-start pb-[8px] md:pb-[12px] pt-0 px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="44:843">
           <p className="font-sans font-medium relative shrink-0 text-[20px]" data-node-id="44:845">
-            What these demos do not show
+            How the controls are applied
           </p>
           <div className="font-sans font-normal leading-[0] min-w-full relative shrink-0 text-[15px] w-full" data-node-id="44:846" style={{ fontVariationSettings: "'wdth' 100" }}>
-            <p className="leading-[21px] mb-0">These are not prompt variations or tuned responses. No fine-tuning or retraining is used.</p>
+            <p className="leading-[21px] mb-0">The demos apply runtime controls without fine-tuning or retraining the model.</p>
             <p className="leading-[21px] mb-0">&nbsp;</p>
-            <p className="leading-[21px] mb-0">Governance is applied before proposed contributions are admitted into shared context or synthesized into a final response. It is not limited to filtering the completed result after generation.</p>
-            <p className="leading-[21px] mb-0">&nbsp;</p>
-            <p className="leading-[21px] mb-0">Control is not applied after results are produced. It is enforced during execution.</p>
+            <p className="leading-[21px] mb-0">Contributions are checked before they enter shared context or are combined into a final response.</p>
           </div>
         </div>
         <div className="content-stretch flex flex-col gap-[12px] items-start pb-[8px] md:pb-[12px] pt-0 px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="44:854">
@@ -375,29 +366,23 @@ export default function AdaptabloxDemo() {
           </p>
           <div className="font-sans font-normal leading-[0] min-w-full relative shrink-0 text-[15px] w-full" data-node-id="44:857" style={{ fontVariationSettings: "'wdth' 100" }}>
             <p className="leading-[21px] mb-0">
-              As AI systems operate with greater autonomy, control must be enforced during execution.
+              Autonomous systems need enforceable limits as they operate.
             </p>
             <p className="leading-[21px] mb-0">&nbsp;</p>
-            <p className="leading-[21px] mb-0">Governance cannot depend on prompts, policies, or post-hoc review.</p>
-            <p className="leading-[21px] mb-0">&nbsp;</p>
-            <p className="leading-[21px] mb-0">Adaptablox ensures:</p>
+            <p className="leading-[21px] mb-0">The runtime controls illustrated here:</p>
             <ul className="list-disc mb-0">
               <li className="mb-0 ms-[22.5px]">
-                <span className="leading-[21px]">Autonomy remains within defined authority.</span>
+                <span className="leading-[21px]">Check proposed actions against the agent’s authority.</span>
               </li>
               <li className="mb-0 ms-[22.5px]">
-                <span className="leading-[21px]">Reasoning remains within constraint.</span>
+                <span className="leading-[21px]">Evaluate contributions before they enter shared context.</span>
               </li>
               <li className="ms-[22.5px]">
-                <span className="leading-[21px]">Invalid actions are prevented before they occur.</span>
+                <span className="leading-[21px]">Block actions that fail the configured checks before execution.</span>
               </li>
             </ul>
             <p className="leading-[21px] mb-0">&nbsp;</p>
-            <p className="leading-[21px] mb-0">Failures are not logged after the fact.</p>
-            <p className="leading-[21px] mb-0">They are blocked before execution.</p>
-            <p className="leading-[21px] mb-0">&nbsp;</p>
-            <p className="leading-[21px] mb-0">The model remains the same.</p>
-            <p className="leading-[21px] mb-0">The behavior does not.</p>
+            <p className="leading-[21px] mb-0">Changing the rules changes what the system permits, while the underlying model remains the same.</p>
           </div>
         </div>
         <div className="content-stretch flex flex-col gap-[12px] items-center pb-[17px] md:pb-[24px] pt-0 px-[17px] md:px-[24px] relative shrink-0 w-full">
@@ -409,4 +394,3 @@ export default function AdaptabloxDemo() {
     </div>
   );
 }
-
