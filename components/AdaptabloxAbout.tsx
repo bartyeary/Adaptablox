@@ -371,26 +371,47 @@ export default function AdaptabloxAbout() {
           <div className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-full max-w-[720px]" style={{ fontVariationSettings: "'wdth' 100" }}>
             <p className="font-sans font-bold mb-[1em]">Agentic AI changes what must be governed.</p>
             <p className="mb-[1em]">
-              An AI system that can remember, delegate, use tools, and act on our behalf needs enforceable limits on its authority. A model can behave as intended while the surrounding system grants too much access—or combines individually permitted actions into an outcome that violates policy.
+              An AI system that can remember, delegate, use tools, and take action needs enforceable limits on its authority.
             </p>
-            <p className="mb-[1em]">
-              Alignment helps shape model behavior. Runtime governance defines and enforces what the system is allowed to do, under the conditions that apply now.
+            <p className="mb-0">
+              A model can behave as intended while the surrounding system grants too much access—or combines individually permitted actions into an outcome that violates policy.
             </p>
-            <p className="mb-[1em]">
-              Adaptablox is a runtime governance architecture for autonomous AI. It is designed to govern agent authority and memory, intervene when groups of agents reach false consensus or unresolved conflict, apply constraints to identified internal activation pathways, and independently evaluate combined outputs before they are released or acted on.
+          </div>
+        </section>
+
+        <section className={sectionClass} data-node-id="about-alignment-and-governance">
+          <SectionTitle>Alignment is not governance.</SectionTitle>
+          <div className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-full max-w-[720px]" style={{ fontVariationSettings: "'wdth' 100" }}>
+            <p className="mb-[1em]">Alignment helps shape model behavior.</p>
+            <p className="font-sans font-bold mb-0">
+              Runtime governance defines and enforces what the system is allowed to do, under the conditions that apply now.
             </p>
-            <p className="mb-[1em]">
-              Each layer addresses a different failure. Together, they connect defined authority, runtime intervention, and records of enforcement decisions.
-            </p>
+            <AxSequenceWidget />
             <div className="flex flex-col gap-[10px] mt-[10px]">
               <a className="font-sans font-bold text-[#4e4e4e] arrow-link" href="#failure-families">
                 See how agents fail <span className="arrow-link-arrow" aria-hidden="true">→</span>
               </a>
+              <button className="font-sans font-bold text-[#4e4e4e] text-left cursor-pointer arrow-link" type="button" onClick={() => navigate('demo')}>
+                Watch the demos <span className="arrow-link-arrow" aria-hidden="true">→</span>
+              </button>
             </div>
-            <AxSequenceWidget />
-            <button className="font-sans font-bold text-[#4e4e4e] text-left cursor-pointer arrow-link mt-[16px]" type="button" onClick={() => navigate('demo')}>
-              Watch the demos <span className="arrow-link-arrow" aria-hidden="true">→</span>
-            </button>
+          </div>
+        </section>
+
+        <section className={sectionClass} data-node-id="about-governance-layers">
+          <SectionTitle>Governance at four layers.</SectionTitle>
+          <div className="font-sans font-normal min-w-full relative shrink-0 text-[15px] w-full max-w-[720px]" style={{ fontVariationSettings: "'wdth' 100" }}>
+            <p className="mb-[1em]">Adaptablox is a runtime governance architecture for autonomous AI.</p>
+            <p className="mb-[1em]">It is designed to govern:</p>
+            <ul className="list-disc mb-[1em] space-y-[12px]">
+              <li className="ms-[23px]"><strong>Agent authority</strong> — define roles, constraints, memory access, and permissible actions.</li>
+              <li className="ms-[23px]"><strong>Multi-agent reasoning</strong> — intervene when agents converge falsely or remain in unresolved conflict.</li>
+              <li className="ms-[23px]"><strong>Model pathways</strong> — apply runtime constraints to identified internal activation pathways.</li>
+              <li className="ms-[23px]"><strong>System outputs</strong> — independently evaluate combined or sequential actions before they are released or executed.</li>
+            </ul>
+            <p className="font-sans font-bold mb-0">
+              Each layer addresses a different failure. Together, they connect authority, runtime intervention, system-level admissibility, and records of enforcement decisions.
+            </p>
           </div>
         </section>
 
