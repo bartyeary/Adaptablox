@@ -4,8 +4,10 @@ import { useEffect, useState } from 'react';
 import { useNavigation } from '@/contexts/NavigationContext';
 import AxSequenceWidget from '@/components/AxSequenceWidget';
 import AxReceiptWidget from '@/components/AxReceiptWidget';
+import AxAuthorityWidget from '@/components/AxAuthorityWidget';
 
 const imgGroup28481 = "/assets/logo2.svg";
+const SHOW_AUTHORITY_WIDGET = false;
 
 type Scenario = {
   label: string;
@@ -425,6 +427,7 @@ export default function AdaptabloxAbout() {
             <p className="mb-[1em]">
               Adaptablox represents the agent's authority as machine-readable rules for actions, memory, tools, delegation, and escalation. These rules are maintained and enforced as the agent operates, and can change when its authority or circumstances change.
             </p>
+            {SHOW_AUTHORITY_WIDGET && <AxAuthorityWidget />}
             <p className="mb-0">
               The prompt defines purpose. The governance layer defines and enforces authority.
             </p>

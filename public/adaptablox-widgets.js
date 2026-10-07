@@ -1,6 +1,6 @@
 /* ============================================================
    Adaptablox Interaction System
-   Six self-contained, embeddable widgets. Zero dependencies.
+   Self-contained, embeddable widgets. Zero dependencies.
 
    Usage:
      <script src="adaptablox-widgets.js"></script>
@@ -1082,7 +1082,7 @@
       };
       this.after(140, () => {
         if (!ok()) return;
-        setCap(governed ? "Runtime intervention" : "Multi-agent sequence drift");
+        setCap(governed ? "Runtime intervention" : "Sequence drift");
       });
 
       const span = H * 0.27;
@@ -1483,6 +1483,332 @@
     }
   }
 
+
+  /* ============================================================
+     8 · <ax-authority> — role on one side, authority on the other
+     A reusable agent card that makes the relationship between a
+     natural-language role/instruction and its ARC authority boundary
+     visible. The same proposed actions begin unresolved on the front,
+     then resolve against agent-specific machine-readable constraints
+     on the back before the carousel advances to another agent.
+     ============================================================ */
+  class AxAuthority extends AxWidget {
+    defaultHeight() { return 430; }
+
+    css() {
+      return (
+        ".authority-wrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:38px 22px 30px;overflow:hidden}" +
+        ".carousel{position:relative;width:min(520px,94%);height:338px;perspective:1100px;transform-style:preserve-3d}" +
+        ".card-shell{position:absolute;inset:0;will-change:transform,opacity;transform:translateX(0);opacity:1}" +
+        ".card{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .56s cubic-bezier(.4,0,.3,1);will-change:transform}" +
+        ".card.flipped{transform:rotateY(180deg)}" +
+        ".face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:16px;overflow:hidden;" +
+        "border:1px solid rgba(var(--ar),.22);background:linear-gradient(170deg,rgba(var(--ar),.075),rgba(var(--wr),.018)),var(--frame-bg);" +
+        "box-shadow:inset 0 1px 0 rgba(var(--wr),.045)}" +
+        ":host([theme='light']) .face{background:linear-gradient(170deg,rgba(var(--ar),.045),rgba(255,255,255,.96)),#fff}" +
+        ".back{transform:rotateY(180deg)}" +
+        ".face-inner{height:100%;display:grid;grid-template-columns:132px 1fr;gap:18px;padding:28px 28px 24px}" +
+        ".visual{display:flex;align-items:center;justify-content:center;position:relative;min-width:0}" +
+        ".portrait,.shield{width:92px;height:92px;display:block}" +
+        ".portrait *,.shield *{vector-effect:non-scaling-stroke}" +
+        ".portrait .soft,.shield .soft{stroke:rgba(var(--ar),.28)}" +
+        ".portrait .strong,.shield .strong{stroke:var(--blue)}" +
+        ".portrait .fill,.shield .fill{fill:rgba(var(--ar),.08)}" +
+        ".shield-mark{fill:rgba(var(--ar),.14);stroke:var(--blue)}" +
+        ".copy{min-width:0;display:flex;flex-direction:column}" +
+        ".eyebrow{font-size:9.5px;font-weight:600;letter-spacing:.19em;text-transform:uppercase;color:var(--faint);margin-bottom:10px}" +
+        ".title{font-size:17px;line-height:1.2;font-weight:600;letter-spacing:-.01em;color:var(--text);margin-bottom:8px}" +
+        ".prompt{font-family:var(--mono);font-size:11px;line-height:1.5;color:var(--muted);padding:9px 11px;border-radius:9px;" +
+        "border:1px solid rgba(var(--ar),.16);background:rgba(var(--ar),.035);margin-bottom:14px}" +
+        ".rules{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;margin-bottom:13px}" +
+        ".rule{display:flex;justify-content:space-between;gap:8px;min-width:0;font-family:var(--mono);font-size:9.5px;line-height:1.35}" +
+        ".rk{color:var(--faint);white-space:nowrap}.rv{color:var(--text);text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}" +
+        ".actions{display:grid;gap:7px;margin-top:auto}" +
+        ".action{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;min-height:29px;padding:6px 9px;border-radius:8px;" +
+        "border:1px solid rgba(var(--ar),.12);background:rgba(var(--wr),.014)}" +
+        ".an{font-size:10.5px;line-height:1.3;color:var(--muted);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}" +
+        ".status{display:inline-flex;align-items:center;justify-content:flex-end;gap:5px;min-width:76px;font-family:var(--mono);font-size:9.5px;font-weight:600;" +
+        "letter-spacing:.04em;color:var(--faint);opacity:.75;transition:color .28s,opacity .28s,transform .28s}" +
+        ".status.resolve{opacity:1;transform:translateX(-2px)}" +
+        ".status.allow{color:var(--green)}.status.block{color:#F54141}.status.escalate{color:var(--blue)}.status.modify{color:#F0A84B}" +
+        ".flip{position:absolute;right:14px;bottom:13px;width:42px;height:42px;border:0;background:transparent;padding:0;cursor:pointer;display:grid;place-items:center;z-index:4}" +
+        ".flip:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:10px}" +
+        ".mark{position:relative;width:20px;height:20px;border:1px solid rgba(var(--ar),.58);border-radius:5px;display:grid;place-items:center;background:rgba(var(--ar),.05)}" +
+        ".mark:before{content:'';width:5px;height:5px;border-radius:50%;background:var(--blue);box-shadow:0 0 8px rgba(var(--ar),.5)}" +
+        ".ripple{position:absolute;inset:50% auto auto 50%;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;border:1px solid var(--blue);opacity:0;pointer-events:none}" +
+        ".ripple.go{animation:auth-ripple .68s ease-out 1}" +
+        "@keyframes auth-ripple{0%{transform:scale(.7);opacity:.85}100%{transform:scale(2.6);opacity:0}}" +
+        ".hint{position:absolute;left:14px;bottom:16px;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}" +
+        ".agent-index{position:absolute;left:50%;bottom:7px;transform:translateX(-50%);display:flex;gap:7px;z-index:5}" +
+        ".agent-index i{display:block;width:5px;height:5px;border-radius:50%;background:rgba(var(--ar),.22);transition:all .3s}" +
+        ".agent-index i.on{background:var(--blue);box-shadow:0 0 8px rgba(var(--ar),.35);transform:scale(1.15)}" +
+        ".slide-out{animation:auth-slide-out .72s cubic-bezier(.4,0,.3,1) forwards}" +
+        ".slide-in{animation:auth-slide-in .72s cubic-bezier(.4,0,.3,1) forwards}" +
+        "@keyframes auth-slide-out{from{transform:translateX(0);opacity:1}to{transform:translateX(-18%);opacity:0}}" +
+        "@keyframes auth-slide-in{from{transform:translateX(18%);opacity:0}to{transform:translateX(0);opacity:1}}" +
+        "@media(max-width:560px){.authority-wrap{padding:34px 12px 26px}.carousel{height:360px;width:100%}.face-inner{grid-template-columns:88px 1fr;gap:12px;padding:22px 17px 20px}.portrait,.shield{width:68px;height:68px}.title{font-size:15px}.prompt{font-size:10px;margin-bottom:10px}.rules{grid-template-columns:1fr;gap:4px;margin-bottom:10px}.action{min-height:28px}.status{min-width:70px}.hint{display:none}}" +
+        "@media(max-width:390px){.carousel{height:380px}.face-inner{grid-template-columns:1fr;padding-top:18px}.visual{position:absolute;right:18px;top:14px}.portrait,.shield{width:54px;height:54px}.copy{padding-top:0}.eyebrow{padding-right:62px}.title{padding-right:62px}.prompt{margin-right:0}.rules{padding-right:0}.an{font-size:10px}}" +
+        "@media(prefers-reduced-motion:reduce){.card{transition:none}.ripple.go,.slide-out,.slide-in{animation:none}.status{transition:none}}"
+      );
+    }
+
+    html() {
+      return (
+        '<div class="cap">Role → authority</div>' +
+        '<div class="authority-wrap">' +
+          '<div class="carousel" id="carousel" aria-live="polite">' +
+            '<div class="card-shell" id="shell">' +
+              '<div class="card" id="card">' +
+                '<section class="face front" aria-label="Agent role">' +
+                  '<div class="face-inner">' +
+                    '<div class="visual" id="frontVisual"></div>' +
+                    '<div class="copy">' +
+                      '<div class="eyebrow" id="frontEye">Prompt / role</div>' +
+                      '<div class="title" id="frontTitle"></div>' +
+                      '<div class="prompt" id="prompt"></div>' +
+                      '<div class="actions" id="frontActions"></div>' +
+                    '</div>' +
+                  '</div>' +
+                  '<div class="hint">click to inspect authority</div>' +
+                  '<button class="flip" id="flipFront" type="button" aria-label="Show ARC authority boundary">' +
+                    '<span class="mark" aria-hidden="true"></span><span class="ripple" aria-hidden="true"></span>' +
+                  '</button>' +
+                '</section>' +
+                '<section class="face back" aria-label="ARC authority boundary">' +
+                  '<div class="face-inner">' +
+                    '<div class="visual" id="backVisual"></div>' +
+                    '<div class="copy">' +
+                      '<div class="eyebrow">ARC · authority boundary</div>' +
+                      '<div class="title" id="backTitle"></div>' +
+                      '<div class="rules" id="rules"></div>' +
+                      '<div class="actions" id="backActions"></div>' +
+                    '</div>' +
+                  '</div>' +
+                  '<div class="hint">machine-readable runtime control</div>' +
+                  '<button class="flip" id="flipBack" type="button" aria-label="Return to agent role">' +
+                    '<span class="mark" aria-hidden="true"></span><span class="ripple" aria-hidden="true"></span>' +
+                  '</button>' +
+                '</section>' +
+              '</div>' +
+            '</div>' +
+            '<div class="agent-index" id="agentIndex" aria-hidden="true"><i></i><i></i><i></i></div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="sub">different agents · different authority · same governance pattern</div>'
+      );
+    }
+
+    setup() {
+      this.agents = [
+        {
+          key: "procurement",
+          name: "Procurement agent",
+          prompt: "You are a procurement agent. Source and purchase approved equipment.",
+          rules: [
+            ["spend", "≤ $5,000"],
+            ["suppliers", "approved registry"],
+            ["memory", "procurement only"],
+            ["delegate", "approved agents"],
+            ["escalate", "above authority"]
+          ],
+          actions: [
+            ["Review approved supplier catalog", "allow"],
+            ["Purchase from unapproved vendor", "block"],
+            ["Commit a $12,000 order", "escalate"],
+            ["Request a lower-cost alternative", "modify"]
+          ]
+        },
+        {
+          key: "research",
+          name: "Research agent",
+          prompt: "You are a research agent. Gather evidence and synthesize findings for the team.",
+          rules: [
+            ["sources", "approved + public"],
+            ["memory", "project corpus"],
+            ["publish", "internal by default"],
+            ["tools", "read-only research"],
+            ["escalate", "external release"]
+          ],
+          actions: [
+            ["Search approved public sources", "allow"],
+            ["Open a restricted personnel dataset", "block"],
+            ["Publish findings externally", "escalate"],
+            ["Store a redacted research note", "modify"]
+          ]
+        },
+        {
+          key: "operations",
+          name: "Operations agent",
+          prompt: "You are an operations agent. Diagnose services and restore normal operation.",
+          rules: [
+            ["systems", "observability + ops"],
+            ["tools", "approved runbooks"],
+            ["credentials", "no mutation"],
+            ["change", "reversible first"],
+            ["escalate", "critical service"]
+          ],
+          actions: [
+            ["Inspect service logs", "allow"],
+            ["Rotate production credentials", "block"],
+            ["Restart a critical service", "escalate"],
+            ["Apply a reversible mitigation", "modify"]
+          ]
+        }
+      ];
+
+      this._idx = 0;
+      this._busy = false;
+      this._token = 0;
+      this._autoStarted = false;
+      this.card = this.frame.querySelector("#card");
+      this.shell = this.frame.querySelector("#shell");
+      this.indexDots = [...this.frame.querySelectorAll("#agentIndex i")];
+      this.flipFront = this.frame.querySelector("#flipFront");
+      this.flipBack = this.frame.querySelector("#flipBack");
+
+      this.flipFront.addEventListener("click", () => this.flipToBack(true));
+      this.flipBack.addEventListener("click", () => this.flipToFront(true));
+      this.renderAgent(0);
+
+      if (REDUCED) return;
+      this.every(7600, () => {
+        if (!this._busy && !this.card.classList.contains("flipped")) this.flipToBack(false);
+      });
+    }
+
+    onVisible() {
+      if (REDUCED || this._autoStarted) return;
+      this._autoStarted = true;
+    }
+
+    portraitSvg(key) {
+      const variants = {
+        procurement: '<path class="strong" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M24 55c0-15 10-25 22-25s22 10 22 25v12H24z"/><circle class="strong" cx="46" cy="28" r="11" fill="none" stroke-width="1.5"/><circle class="fill soft" cx="42" cy="25" r="2.3" stroke-width="1"/><circle class="fill soft" cx="50" cy="25" r="2.3" stroke-width="1"/><path class="soft" d="M40 33h12M18 65h56M30 65v8M62 65v8" fill="none" stroke-width="1.2" stroke-linecap="round"/>',
+        research: '<circle class="strong" cx="46" cy="30" r="12" fill="none" stroke-width="1.5"/><path class="strong" fill="none" stroke-width="1.5" stroke-linecap="round" d="M23 70c2-16 11-25 23-25s21 9 23 25"/><path class="soft" fill="none" stroke-width="1.2" stroke-linecap="round" d="M33 22l-7-6M59 22l7-6M34 31h6M52 31h6M46 48v18M29 56h34"/><circle class="fill soft" cx="37" cy="30" r="2" stroke-width="1"/><circle class="fill soft" cx="55" cy="30" r="2" stroke-width="1"/>',
+        operations: '<rect class="strong" x="25" y="20" width="42" height="50" rx="10" fill="none" stroke-width="1.5"/><path class="soft" fill="none" stroke-width="1.2" stroke-linecap="round" d="M34 31h24M34 40h24M34 49h16M34 58h20"/><circle class="fill strong" cx="60" cy="58" r="3" stroke-width="1"/><path class="strong" fill="none" stroke-width="1.5" stroke-linecap="round" d="M18 34h7M67 34h7M18 56h7M67 56h7"/>'
+      };
+      return '<svg class="portrait" viewBox="0 0 92 92" role="img" aria-label="' + key + ' agent illustration">' + variants[key] + '</svg>';
+    }
+
+    shieldSvg() {
+      return '<svg class="shield" viewBox="0 0 92 92" role="img" aria-label="Authority shield">' +
+        '<path class="strong fill" d="M46 12l27 10v20c0 18-10 31-27 39C29 73 19 60 19 42V22z" stroke-width="1.5"/>' +
+        '<rect class="shield-mark" x="35" y="32" width="22" height="22" rx="5" stroke-width="1.2"/>' +
+        '<circle cx="46" cy="43" r="3.2" fill="var(--blue)"/>' +
+        '<path class="soft" d="M46 20v8M30 28l6 5M62 28l-6 5" fill="none" stroke-width="1.1" stroke-linecap="round"/>' +
+      '</svg>';
+    }
+
+    statusMarkup(kind, unresolved) {
+      if (unresolved) return '<span class="status">? unresolved</span>';
+      const map = {
+        allow: ["✓", "allow"],
+        block: ["×", "block"],
+        escalate: ["↑", "escalate"],
+        modify: ["~", "modify"]
+      };
+      const v = map[kind];
+      return '<span class="status ' + kind + '"><span>' + v[0] + '</span><span>' + v[1] + '</span></span>';
+    }
+
+    renderAgent(i) {
+      const a = this.agents[i];
+      this.frame.querySelector("#frontVisual").innerHTML = this.portraitSvg(a.key);
+      this.frame.querySelector("#backVisual").innerHTML = this.shieldSvg();
+      this.frame.querySelector("#frontTitle").textContent = a.name;
+      this.frame.querySelector("#backTitle").textContent = a.name;
+      this.frame.querySelector("#prompt").textContent = '“' + a.prompt + '”';
+      this.frame.querySelector("#rules").innerHTML = a.rules.map(r => '<div class="rule"><span class="rk">' + r[0] + '</span><span class="rv">' + r[1] + '</span></div>').join("");
+      this.frame.querySelector("#frontActions").innerHTML = a.actions.map(x => '<div class="action"><span class="an">' + x[0] + '</span>' + this.statusMarkup(x[1], true) + '</div>').join("");
+      this.frame.querySelector("#backActions").innerHTML = a.actions.map((x, n) => '<div class="action"><span class="an">' + x[0] + '</span><span class="status" data-kind="' + x[1] + '" data-status="' + n + '">? unresolved</span></div>').join("");
+      this.indexDots.forEach((d, n) => d.classList.toggle("on", n === i));
+    }
+
+    pulse(btn) {
+      const r = btn.querySelector(".ripple");
+      r.classList.remove("go");
+      void r.offsetWidth;
+      r.classList.add("go");
+    }
+
+    flipToBack(manual) {
+      if (this._busy || this.card.classList.contains("flipped")) return;
+      this._busy = true;
+      const tk = ++this._token;
+      this.pulse(this.flipFront);
+      const flipDelay = REDUCED ? 0 : 150;
+      this.after(flipDelay, () => {
+        if (tk !== this._token) return;
+        this.card.classList.add("flipped");
+        const settle = REDUCED ? 0 : 620;
+        this.after(settle, () => this.resolveStatuses(tk, manual));
+      });
+    }
+
+    resolveStatuses(tk, manual) {
+      const nodes = [...this.frame.querySelectorAll("#backActions [data-status]")];
+      nodes.forEach((el, n) => {
+        this.after(REDUCED ? 0 : n * 240, () => {
+          if (tk !== this._token) return;
+          const kind = el.dataset.kind;
+          const map = { allow:["✓","allow"], block:["×","block"], escalate:["↑","escalate"], modify:["~","modify"] };
+          el.className = "status " + kind + " resolve";
+          el.innerHTML = '<span>' + map[kind][0] + '</span><span>' + map[kind][1] + '</span>';
+        });
+      });
+      const end = REDUCED ? 20 : nodes.length * 240 + 900;
+      this.after(end, () => {
+        if (tk !== this._token) return;
+        this._busy = false;
+        if (!manual && !REDUCED) this.flipToFront(false);
+      });
+    }
+
+    flipToFront(manual) {
+      if (this._busy || !this.card.classList.contains("flipped")) return;
+      this._busy = true;
+      const tk = ++this._token;
+      this.pulse(this.flipBack);
+      this.after(REDUCED ? 0 : 150, () => {
+        if (tk !== this._token) return;
+        this.card.classList.remove("flipped");
+        this.after(REDUCED ? 0 : 620, () => {
+          if (tk !== this._token) return;
+          this._busy = false;
+          if (!manual && !REDUCED) this.advance();
+        });
+      });
+    }
+
+    advance() {
+      if (this._busy) return;
+      this._busy = true;
+      const tk = ++this._token;
+      const next = (this._idx + 1) % this.agents.length;
+      if (REDUCED) {
+        this._idx = next;
+        this.renderAgent(this._idx);
+        this._busy = false;
+        return;
+      }
+      this.shell.classList.remove("slide-in");
+      this.shell.classList.add("slide-out");
+      this.after(720, () => {
+        if (tk !== this._token) return;
+        this._idx = next;
+        this.renderAgent(this._idx);
+        this.shell.classList.remove("slide-out");
+        void this.shell.offsetWidth;
+        this.shell.classList.add("slide-in");
+        this.after(720, () => {
+          if (tk !== this._token) return;
+          this.shell.classList.remove("slide-in");
+          this._busy = false;
+        });
+      });
+    }
+  }
+
   /* ---------- register ---------- */
   customElements.define("ax-drift", AxDrift);
   customElements.define("ax-sequence", AxSequence);
@@ -1492,4 +1818,5 @@
   customElements.define("ax-receipt", AxReceipt);
   customElements.define("ax-replay", AxReplay);
   customElements.define("ax-flow", AxFlow);
+  customElements.define("ax-authority", AxAuthority);
 })();
