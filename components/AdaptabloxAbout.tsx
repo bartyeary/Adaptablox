@@ -7,7 +7,7 @@ import AxReceiptWidget from '@/components/AxReceiptWidget';
 import AxAuthorityWidget from '@/components/AxAuthorityWidget';
 
 const imgGroup28481 = "/assets/logo2.svg";
-const SHOW_AUTHORITY_WIDGET = false;
+const SHOW_AUTHORITY_WIDGET = true;
 
 type Scenario = {
   label: string;

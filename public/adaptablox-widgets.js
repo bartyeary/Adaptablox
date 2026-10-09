@@ -1486,324 +1486,379 @@
 
   /* ============================================================
      8 · <ax-authority> — role on one side, authority on the other
-     A reusable agent card that makes the relationship between a
-     natural-language role/instruction and its ARC authority boundary
-     visible. The same proposed actions begin unresolved on the front,
-     then resolve against agent-specific machine-readable constraints
-     on the back before the carousel advances to another agent.
+     A flip card per agent. Front: the natural-language instructions and
+     how each proposed action resolves. Back: the machine-readable ARC
+     constraint behind it. Cycles procurement → research → operations;
+     clicking the card flips it.
      ============================================================ */
   class AxAuthority extends AxWidget {
-    defaultHeight() { return 430; }
+    defaultHeight() { return 245; }
 
     css() {
+      const tones =
+        ".tone-blue{--t-light:#D8E8FF;--t-strong:#AFD0FD}" +
+        ".tone-green{--t-light:#CCFBC9;--t-strong:#A1E69E}" +
+        ".tone-yellow{--t-light:#FFF4C2;--t-strong:#FAD890}";
       return (
-        ".authority-wrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:38px 22px 30px;overflow:hidden}" +
-        ".carousel{position:relative;width:min(520px,94%);height:338px;perspective:1100px;transform-style:preserve-3d}" +
-        ".card-shell{position:absolute;inset:0;will-change:transform,opacity;transform:translateX(0);opacity:1}" +
-        ".card{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .56s cubic-bezier(.4,0,.3,1);will-change:transform}" +
+        tones +
+        ".cap{transition:opacity .18s ease}.cap.fade{opacity:0}" +
+        ".auth-stage{position:absolute;inset:0;container-type:inline-size}" +
+        ".card-shell{position:absolute;top:43px;left:0;right:0;margin:0 auto;width:min(512px,calc(100% - 32px));perspective:1400px}" +
+        ".card{display:grid;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.4,0,.3,1);cursor:pointer;outline:none;border-radius:12px}" +
+        ".card:focus-visible{box-shadow:0 0 0 2px var(--blue)}" +
         ".card.flipped{transform:rotateY(180deg)}" +
-        ".face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:16px;overflow:hidden;" +
-        "border:1px solid rgba(var(--ar),.22);background:linear-gradient(170deg,rgba(var(--ar),.075),rgba(var(--wr),.018)),var(--frame-bg);" +
-        "box-shadow:inset 0 1px 0 rgba(var(--wr),.045)}" +
-        ":host([theme='light']) .face{background:linear-gradient(170deg,rgba(var(--ar),.045),rgba(255,255,255,.96)),#fff}" +
+        ".face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;min-height:178px;" +
+        "display:grid;grid-template-columns:141px minmax(0,1fr);gap:16px;padding:8px;background:#fff;border-radius:12px;" +
+        "box-shadow:0 1px 2px rgba(25,55,100,.06),0 3px 9px rgba(25,55,100,.07)}" +
         ".back{transform:rotateY(180deg)}" +
-        ".face-inner{height:100%;display:grid;grid-template-columns:132px 1fr;gap:18px;padding:28px 28px 24px}" +
-        ".visual{display:flex;align-items:center;justify-content:center;position:relative;min-width:0}" +
-        ".portrait,.shield{width:92px;height:92px;display:block}" +
-        ".portrait *,.shield *{vector-effect:non-scaling-stroke}" +
-        ".portrait .soft,.shield .soft{stroke:rgba(var(--ar),.28)}" +
-        ".portrait .strong,.shield .strong{stroke:var(--blue)}" +
-        ".portrait .fill,.shield .fill{fill:rgba(var(--ar),.08)}" +
-        ".shield-mark{fill:rgba(var(--ar),.14);stroke:var(--blue)}" +
-        ".copy{min-width:0;display:flex;flex-direction:column}" +
-        ".eyebrow{font-size:9.5px;font-weight:600;letter-spacing:.19em;text-transform:uppercase;color:var(--faint);margin-bottom:10px}" +
-        ".title{font-size:17px;line-height:1.2;font-weight:600;letter-spacing:-.01em;color:var(--text);margin-bottom:8px}" +
-        ".prompt{font-family:var(--mono);font-size:11px;line-height:1.5;color:var(--muted);padding:9px 11px;border-radius:9px;" +
-        "border:1px solid rgba(var(--ar),.16);background:rgba(var(--ar),.035);margin-bottom:14px}" +
-        ".rules{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;margin-bottom:13px}" +
-        ".rule{display:flex;justify-content:space-between;gap:8px;min-width:0;font-family:var(--mono);font-size:9.5px;line-height:1.35}" +
-        ".rk{color:var(--faint);white-space:nowrap}.rv{color:var(--text);text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}" +
-        ".actions{display:grid;gap:7px;margin-top:auto}" +
-        ".action{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;min-height:29px;padding:6px 9px;border-radius:8px;" +
-        "border:1px solid rgba(var(--ar),.12);background:rgba(var(--wr),.014)}" +
-        ".an{font-size:10.5px;line-height:1.3;color:var(--muted);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}" +
-        ".status{display:inline-flex;align-items:center;justify-content:flex-end;gap:5px;min-width:76px;font-family:var(--mono);font-size:9.5px;font-weight:600;" +
-        "letter-spacing:.04em;color:var(--faint);opacity:.75;transition:color .28s,opacity .28s,transform .28s}" +
-        ".status.resolve{opacity:1;transform:translateX(-2px)}" +
-        ".status.allow{color:var(--green)}.status.block{color:#F54141}.status.escalate{color:var(--blue)}.status.modify{color:#F0A84B}" +
-        ".flip{position:absolute;right:14px;bottom:13px;width:42px;height:42px;border:0;background:transparent;padding:0;cursor:pointer;display:grid;place-items:center;z-index:4}" +
-        ".flip:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:10px}" +
-        ".mark{position:relative;width:20px;height:20px;border:1px solid rgba(var(--ar),.58);border-radius:5px;display:grid;place-items:center;background:rgba(var(--ar),.05)}" +
-        ".mark:before{content:'';width:5px;height:5px;border-radius:50%;background:var(--blue);box-shadow:0 0 8px rgba(var(--ar),.5)}" +
-        ".ripple{position:absolute;inset:50% auto auto 50%;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;border:1px solid var(--blue);opacity:0;pointer-events:none}" +
-        ".ripple.go{animation:auth-ripple .68s ease-out 1}" +
-        "@keyframes auth-ripple{0%{transform:scale(.7);opacity:.85}100%{transform:scale(2.6);opacity:0}}" +
-        ".hint{position:absolute;left:14px;bottom:16px;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}" +
-        ".agent-index{position:absolute;left:50%;bottom:7px;transform:translateX(-50%);display:flex;gap:7px;z-index:5}" +
-        ".agent-index i{display:block;width:5px;height:5px;border-radius:50%;background:rgba(var(--ar),.22);transition:all .3s}" +
-        ".agent-index i.on{background:var(--blue);box-shadow:0 0 8px rgba(var(--ar),.35);transform:scale(1.15)}" +
-        ".slide-out{animation:auth-slide-out .72s cubic-bezier(.4,0,.3,1) forwards}" +
-        ".slide-in{animation:auth-slide-in .72s cubic-bezier(.4,0,.3,1) forwards}" +
-        "@keyframes auth-slide-out{from{transform:translateX(0);opacity:1}to{transform:translateX(-18%);opacity:0}}" +
-        "@keyframes auth-slide-in{from{transform:translateX(18%);opacity:0}to{transform:translateX(0);opacity:1}}" +
-        "@media(max-width:560px){.authority-wrap{padding:34px 12px 26px}.carousel{height:360px;width:100%}.face-inner{grid-template-columns:88px 1fr;gap:12px;padding:22px 17px 20px}.portrait,.shield{width:68px;height:68px}.title{font-size:15px}.prompt{font-size:10px;margin-bottom:10px}.rules{grid-template-columns:1fr;gap:4px;margin-bottom:10px}.action{min-height:28px}.status{min-width:70px}.hint{display:none}}" +
-        "@media(max-width:390px){.carousel{height:380px}.face-inner{grid-template-columns:1fr;padding-top:18px}.visual{position:absolute;right:18px;top:14px}.portrait,.shield{width:54px;height:54px}.copy{padding-top:0}.eyebrow{padding-right:62px}.title{padding-right:62px}.prompt{margin-right:0}.rules{padding-right:0}.an{font-size:10px}}" +
-        "@media(prefers-reduced-motion:reduce){.card{transition:none}.ripple.go,.slide-out,.slide-in{animation:none}.status{transition:none}}"
+        ".tile{border-radius:6px;display:grid;place-items:center;min-height:162px}" +
+        ".front .tile{background:var(--t-light)}.back .tile{background:var(--t-strong)}" +
+        ".tile svg{display:block}" +
+        ".eye{transform-box:fill-box;transform-origin:center;animation:eye-blink 4.2s infinite}" +
+        "@keyframes eye-blink{0%,29%,33%,85%,89%,100%{transform:scaleY(1)}31%,87%{transform:scaleY(.12)}}" +
+        ".copy{min-width:0;display:flex;flex-direction:column;padding:7px 4px 0 0;font-family:var(--mono)}" +
+        ".lbl{font-size:10px;line-height:14px;letter-spacing:.06em;text-transform:uppercase;color:#99a0ac}" +
+        ".prompt{margin-top:3px;font-size:11px;line-height:20px;color:#1e2024}" +
+        ".rules{display:grid;grid-template-columns:max-content minmax(0,1fr);column-gap:14px;grid-template-rows:repeat(3,21px);" +
+        "grid-auto-flow:column;align-items:center;margin-top:-1px}" +
+        ".rule{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:10px;color:#1e2024}" +
+        ".rule .k{font-size:9px;letter-spacing:.05em;text-transform:uppercase;color:#99a0ac;margin-right:6px}" +
+        ".rule-line{margin:auto 0 4px;border-top:1px dashed #d2ddf0}" +
+        ".acts{display:grid;padding-bottom:1px}" +
+        ".act{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:20.5px;font-size:11px;color:#99a0ac}" +
+        ".an{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}" +
+        ".front .act{opacity:0;transform:translateX(10px);transition:opacity .32s ease,transform .32s ease}" +
+        ".front .act.in{opacity:1;transform:none}" +
+        ".st{flex:none;display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:500;letter-spacing:.07em;" +
+        "text-transform:uppercase;opacity:0;transform:translateX(4px);transition:opacity .3s ease,transform .3s ease}" +
+        ".st.in{opacity:1;transform:none;animation:st-blink .5s step-end}" +
+        "@keyframes st-blink{0%{opacity:1}12%{opacity:.1}24%{opacity:1}36%{opacity:.1}48%{opacity:1}60%{opacity:.1}72%,100%{opacity:1}}" +
+        ".st.accept{color:#158E51}.st.block{color:#DF463B}.st.escalate{color:#FFA023}.st.modulate{color:#A411FF}" +
+        ".st svg{display:block}" +
+        ".q{flex:none;width:14px;height:14px;border-radius:50%;background:#999;color:#fff;text-align:center;" +
+        "font:700 10px/14px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}" +
+        ".slide-out{animation:auth-out .48s cubic-bezier(.4,0,.3,1) forwards}" +
+        ".slide-in{animation:auth-in .48s cubic-bezier(.4,0,.3,1) forwards}" +
+        "@keyframes auth-out{from{transform:translateX(0);opacity:1}to{transform:translateX(-6%);opacity:0}}" +
+        "@keyframes auth-in{from{transform:translateX(6%);opacity:0}to{transform:translateX(0);opacity:1}}" +
+        "@container (max-width:540px){" +
+        ".card-shell{top:38px;width:calc(100% - 24px)}" +
+        ".face{grid-template-columns:var(--thumb) minmax(0,1fr);grid-template-rows:none;column-gap:12px;row-gap:0;min-height:0;padding:10px 12px 10px 10px;--thumb:108px}" +
+        ".tile{grid-column:1;grid-row:1;width:var(--thumb);height:var(--thumb);min-height:0}" +
+        ".tile svg{width:58%;height:auto}" +
+        ".copy{display:contents}" +
+        ".head{grid-column:2;grid-row:1;min-width:0;padding-top:2px}" +
+        ".rule-line,.acts{grid-column:1/-1}" +
+        ".prompt{font-size:10.5px;line-height:18px}" +
+        ".rules{grid-template-columns:minmax(0,1fr);grid-template-rows:none;grid-auto-flow:row;margin:0 0 4px}" +
+        ".rule{line-height:20px}" +
+        ".rule-line{margin:10px 0 4px}" +
+        ".act{align-items:flex-start;padding:2px 0;font-size:10.5px}" +
+        ".an{white-space:normal;line-height:16px}.st{line-height:16px;font-size:10px}}" +
+        "@media (prefers-reduced-motion:reduce){.card,.st,.cap,.front .act{transition:none}.slide-out,.slide-in,.st.in,.eye{animation:none}}"
       );
     }
 
     html() {
       return (
-        '<div class="cap">Role → authority</div>' +
-        '<div class="authority-wrap">' +
-          '<div class="carousel" id="carousel" aria-live="polite">' +
-            '<div class="card-shell" id="shell">' +
-              '<div class="card" id="card">' +
-                '<section class="face front" aria-label="Agent role">' +
-                  '<div class="face-inner">' +
-                    '<div class="visual" id="frontVisual"></div>' +
-                    '<div class="copy">' +
-                      '<div class="eyebrow" id="frontEye">Prompt / role</div>' +
-                      '<div class="title" id="frontTitle"></div>' +
-                      '<div class="prompt" id="prompt"></div>' +
-                      '<div class="actions" id="frontActions"></div>' +
-                    '</div>' +
+        '<div class="cap" id="cap"></div>' +
+        '<div class="auth-stage">' +
+          '<div class="card-shell" id="shell">' +
+            '<div class="card" id="card" role="button" tabindex="0" aria-label="Flip between agent instructions and ARC constraint">' +
+              '<section class="face front" aria-label="Agent instructions">' +
+                '<div class="tile" id="fTile"></div>' +
+                '<div class="copy">' +
+                  '<div class="head">' +
+                    '<div class="lbl">Instructions</div>' +
+                    '<div class="prompt" id="prompt"></div>' +
                   '</div>' +
-                  '<div class="hint">click to inspect authority</div>' +
-                  '<button class="flip" id="flipFront" type="button" aria-label="Show ARC authority boundary">' +
-                    '<span class="mark" aria-hidden="true"></span><span class="ripple" aria-hidden="true"></span>' +
-                  '</button>' +
-                '</section>' +
-                '<section class="face back" aria-label="ARC authority boundary">' +
-                  '<div class="face-inner">' +
-                    '<div class="visual" id="backVisual"></div>' +
-                    '<div class="copy">' +
-                      '<div class="eyebrow">ARC · authority boundary</div>' +
-                      '<div class="title" id="backTitle"></div>' +
-                      '<div class="rules" id="rules"></div>' +
-                      '<div class="actions" id="backActions"></div>' +
-                    '</div>' +
-                  '</div>' +
-                  '<div class="hint">machine-readable runtime control</div>' +
-                  '<button class="flip" id="flipBack" type="button" aria-label="Return to agent role">' +
-                    '<span class="mark" aria-hidden="true"></span><span class="ripple" aria-hidden="true"></span>' +
-                  '</button>' +
-                '</section>' +
-              '</div>' +
+                  '<div class="rule-line"></div>' +
+                  '<div class="acts" id="fActs"></div>' +
+                '</div>' +
+              '</section>' +
+              '<section class="face back" aria-label="ARC constraint">' +
+                '<div class="tile" id="bTile"></div>' +
+                '<div class="copy">' +
+                  '<div class="head"><div class="rules" id="rules"></div></div>' +
+                  '<div class="rule-line"></div>' +
+                  '<div class="acts" id="bActs"></div>' +
+                '</div>' +
+              '</section>' +
             '</div>' +
-            '<div class="agent-index" id="agentIndex" aria-hidden="true"><i></i><i></i><i></i></div>' +
           '</div>' +
-        '</div>' +
-        '<div class="sub">different agents · different authority · same governance pattern</div>'
+        '</div>'
       );
     }
 
     setup() {
       this.agents = [
         {
-          key: "procurement",
           name: "Procurement agent",
+          tone: "blue",
           prompt: "You are a procurement agent. Source and purchase approved equipment.",
           rules: [
-            ["spend", "≤ $5,000"],
-            ["suppliers", "approved registry"],
+            ["rules", "spend < $5,000"],
+            ["suppliers", "approved"],
             ["memory", "procurement only"],
             ["delegate", "approved agents"],
             ["escalate", "above authority"]
           ],
           actions: [
-            ["Review approved supplier catalog", "allow"],
+            ["Review approved supplier catalog", "accept"],
             ["Purchase from unapproved vendor", "block"],
             ["Commit a $12,000 order", "escalate"],
-            ["Request a lower-cost alternative", "modify"]
+            ["Request a lower-cost alternative", "modulate"]
           ]
         },
         {
-          key: "research",
           name: "Research agent",
+          tone: "green",
           prompt: "You are a research agent. Gather evidence and synthesize findings for the team.",
           rules: [
-            ["sources", "approved + public"],
+            ["sources", "approved+public"],
             ["memory", "project corpus"],
             ["publish", "internal by default"],
-            ["tools", "read-only research"],
+            ["tools", "read only research"],
             ["escalate", "external release"]
           ],
           actions: [
-            ["Search approved public sources", "allow"],
+            ["Search approved public sources", "accept"],
             ["Open a restricted personnel dataset", "block"],
             ["Publish findings externally", "escalate"],
-            ["Store a redacted research note", "modify"]
+            ["Store a redacted research note", "modulate"]
           ]
         },
         {
-          key: "operations",
           name: "Operations agent",
+          tone: "yellow",
           prompt: "You are an operations agent. Diagnose services and restore normal operation.",
           rules: [
-            ["systems", "observability + ops"],
+            ["systems", "observability"],
             ["tools", "approved runbooks"],
             ["credentials", "no mutation"],
             ["change", "reversible first"],
             ["escalate", "critical service"]
           ],
           actions: [
-            ["Inspect service logs", "allow"],
+            ["Inspect service logs", "accept"],
             ["Rotate production credentials", "block"],
             ["Restart a critical service", "escalate"],
-            ["Apply a reversible mitigation", "modify"]
+            ["Apply a reversible mitigation", "modulate"]
           ]
         }
       ];
 
+      const f = this.frame;
+      this.shell = f.querySelector("#shell");
+      this.card = f.querySelector("#card");
+      this.capEl = f.querySelector("#cap");
       this._idx = 0;
-      this._busy = false;
-      this._token = 0;
-      this._autoStarted = false;
-      this.card = this.frame.querySelector("#card");
-      this.shell = this.frame.querySelector("#shell");
-      this.indexDots = [...this.frame.querySelectorAll("#agentIndex i")];
-      this.flipFront = this.frame.querySelector("#flipFront");
-      this.flipBack = this.frame.querySelector("#flipBack");
+      this._flipped = false;
+      this._sliding = false;
+      this._tk = 0;
+      this._rowTk = 0;
+      this._stTk = 0;
+      this._pending = null;
 
-      this.flipFront.addEventListener("click", () => this.flipToBack(true));
-      this.flipBack.addEventListener("click", () => this.flipToFront(true));
+      this.card.addEventListener("click", () => this.manualFlip());
+      this.card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          this.manualFlip();
+        }
+      });
+
       this.renderAgent(0);
+      this.capEl.textContent = this.agents[0].name;
+      this.revealFrontRows();
 
-      if (REDUCED) return;
-      this.every(7600, () => {
-        if (!this._busy && !this.card.classList.contains("flipped")) this.flipToBack(false);
+      this._ro = new ResizeObserver(() => this.fitHeight());
+      this._ro.observe(this.card);
+      this._ro.observe(this.frame);
+
+      if (!REDUCED) this.schedule(this.frontHold(), () => this.autoStep());
+    }
+
+    disconnectedCallback() {
+      if (this._ro) this._ro.disconnect();
+      super.disconnectedCallback();
+    }
+
+    /* Host height follows the card so the narrow (stacked) layout never clips. */
+    fitHeight() {
+      const need = Math.ceil(this.shell.offsetTop + this.card.offsetHeight + 24);
+      const h = Math.max(need, 200) + "px";
+      if (this.style.height !== h) this.style.height = h;
+    }
+
+    frontHold() { return 4400; }
+    backHold() { return 3800; }
+
+    /* Steps that come due off screen wait; onVisible restarts them with their full hold. */
+    schedule(ms, fn) {
+      const tk = this._tk;
+      this._pending = { ms, fn };
+      this.after(ms, () => {
+        if (tk !== this._tk || !this._active) return;
+        this._pending = null;
+        fn();
       });
     }
 
     onVisible() {
-      if (REDUCED || this._autoStarted) return;
-      this._autoStarted = true;
+      if (REDUCED || !this._pending || this._sliding) return;
+      const p = this._pending;
+      this._tk++;
+      if (!this._flipped) this.revealFrontRows();
+      else this.revealStatuses();
+      this.schedule(p.ms, p.fn);
     }
 
-    portraitSvg(key) {
-      const variants = {
-        procurement: '<path class="strong" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M24 55c0-15 10-25 22-25s22 10 22 25v12H24z"/><circle class="strong" cx="46" cy="28" r="11" fill="none" stroke-width="1.5"/><circle class="fill soft" cx="42" cy="25" r="2.3" stroke-width="1"/><circle class="fill soft" cx="50" cy="25" r="2.3" stroke-width="1"/><path class="soft" d="M40 33h12M18 65h56M30 65v8M62 65v8" fill="none" stroke-width="1.2" stroke-linecap="round"/>',
-        research: '<circle class="strong" cx="46" cy="30" r="12" fill="none" stroke-width="1.5"/><path class="strong" fill="none" stroke-width="1.5" stroke-linecap="round" d="M23 70c2-16 11-25 23-25s21 9 23 25"/><path class="soft" fill="none" stroke-width="1.2" stroke-linecap="round" d="M33 22l-7-6M59 22l7-6M34 31h6M52 31h6M46 48v18M29 56h34"/><circle class="fill soft" cx="37" cy="30" r="2" stroke-width="1"/><circle class="fill soft" cx="55" cy="30" r="2" stroke-width="1"/>',
-        operations: '<rect class="strong" x="25" y="20" width="42" height="50" rx="10" fill="none" stroke-width="1.5"/><path class="soft" fill="none" stroke-width="1.2" stroke-linecap="round" d="M34 31h24M34 40h24M34 49h16M34 58h20"/><circle class="fill strong" cx="60" cy="58" r="3" stroke-width="1"/><path class="strong" fill="none" stroke-width="1.5" stroke-linecap="round" d="M18 34h7M67 34h7M18 56h7M67 56h7"/>'
-      };
-      return '<svg class="portrait" viewBox="0 0 92 92" role="img" aria-label="' + key + ' agent illustration">' + variants[key] + '</svg>';
+    autoStep() {
+      if (!this._flipped) {
+        this.setFlip(true);
+        this.schedule(this.backHold(), () => this.autoStep());
+      } else {
+        this.advance(() => this.schedule(this.frontHold(), () => this.autoStep()));
+      }
     }
 
-    shieldSvg() {
-      return '<svg class="shield" viewBox="0 0 92 92" role="img" aria-label="Authority shield">' +
-        '<path class="strong fill" d="M46 12l27 10v20c0 18-10 31-27 39C29 73 19 60 19 42V22z" stroke-width="1.5"/>' +
-        '<rect class="shield-mark" x="35" y="32" width="22" height="22" rx="5" stroke-width="1.2"/>' +
-        '<circle cx="46" cy="43" r="3.2" fill="var(--blue)"/>' +
-        '<path class="soft" d="M46 20v8M30 28l6 5M62 28l-6 5" fill="none" stroke-width="1.1" stroke-linecap="round"/>' +
+    manualFlip() {
+      if (this._sliding) return;
+      this._tk++;
+      this.setFlip(!this._flipped);
+      if (!REDUCED) this.schedule(9000, () => this.autoStep());
+    }
+
+    setFlip(flipped, instant) {
+      this._flipped = flipped;
+      if (instant) this.card.style.transition = "none";
+      this.card.classList.toggle("flipped", flipped);
+      if (instant) {
+        void this.card.offsetWidth;
+        this.card.style.transition = "";
+      }
+      this.setCap(flipped ? "ARC constraint" : this.agents[this._idx].name, instant ? 180 : 300);
+      if (flipped) this.revealStatuses();
+      else this.revealFrontRows();
+    }
+
+    /* "?" rows slide in one by one each time the agent side turns into view. */
+    revealFrontRows() {
+      const rows = [...this.frame.querySelectorAll("#fActs .act")];
+      const tk = ++this._rowTk;
+      rows.forEach((el) => el.classList.remove("in"));
+      rows.forEach((el, n) => {
+        if (REDUCED) { el.classList.add("in"); return; }
+        this.after(340 + n * 170, () => {
+          if (tk === this._rowTk && !this._flipped) el.classList.add("in");
+        });
+      });
+    }
+
+    /* The caption swaps when the card turns edge-on (300ms into the 600ms flip). */
+    setCap(text, swapAt) {
+      this._capTarget = text;
+      if (REDUCED) { this.capEl.textContent = text; return; }
+      if (this.capEl.textContent === text && !this.capEl.classList.contains("fade")) return;
+      this.capEl.classList.add("fade");
+      this.after(swapAt || 180, () => {
+        if (this._capTarget !== text) return;
+        this.capEl.textContent = text;
+        this.capEl.classList.remove("fade");
+      });
+    }
+
+    advance(done) {
+      this._sliding = true;
+      const shell = this.shell;
+      shell.classList.remove("slide-in");
+      shell.classList.add("slide-out");
+      this.after(480, () => {
+        this._idx = (this._idx + 1) % this.agents.length;
+        this.renderAgent(this._idx);
+        this.setFlip(false, true);
+        shell.classList.remove("slide-out");
+        void shell.offsetWidth;
+        shell.classList.add("slide-in");
+        this.after(480, () => {
+          shell.classList.remove("slide-in");
+          this._sliding = false;
+          done();
+        });
+      });
+    }
+
+    faceSvg() {
+      return '<svg width="98" height="98" viewBox="0 0 98 98" aria-hidden="true">' +
+        '<circle cx="49" cy="49" r="44.5" fill="none" stroke="var(--t-strong)" stroke-width="9"/>' +
+        '<rect class="eye" x="27" y="28" width="14" height="27" rx="7" fill="var(--t-strong)"/>' +
+        '<rect class="eye" x="57" y="28" width="14" height="27" rx="7" fill="var(--t-strong)"/>' +
       '</svg>';
     }
 
-    statusMarkup(kind, unresolved) {
-      if (unresolved) return '<span class="status">? unresolved</span>';
-      const map = {
-        allow: ["✓", "allow"],
-        block: ["×", "block"],
-        escalate: ["↑", "escalate"],
-        modify: ["~", "modify"]
-      };
-      const v = map[kind];
-      return '<span class="status ' + kind + '"><span>' + v[0] + '</span><span>' + v[1] + '</span></span>';
+    markSvg() {
+      return '<svg width="89" height="89" viewBox="0 0 48 48" aria-hidden="true">' +
+        '<path d="M23.8125 7.94475L9.76422 15.9724V32.0276L23.8125 40.0552L37.8608 32.0276V15.9724L23.8125 7.94475ZM44.8125 36.0011L23.8125 48L2.8125 36.0011V11.9989L23.8125 0L44.8125 11.9989V36.0011Z" fill="var(--t-light)"/>' +
+        '<circle cx="23.8" cy="24" r="6" fill="var(--t-light)"/>' +
+      '</svg>';
+    }
+
+    statusMarkup(kind) {
+      const icon = {
+        accept: "<span>✓</span>",
+        block: "<span>×</span>",
+        escalate: "<span>↑</span>",
+        modulate: '<svg width="5" height="8" viewBox="1.5 0 6.4 10" style="margin-left:-1px" aria-hidden="true"><polyline points="5.6,1 3,5 7,5 4.4,9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+      }[kind];
+      return '<span class="st ' + kind + '">' + kind + icon + '</span>';
+    }
+
+    /* Status order is reshuffled per card and never repeats the previous card's order. */
+    shuffleActions(list) {
+      let out, key;
+      do {
+        out = list.slice();
+        for (let i = out.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [out[i], out[j]] = [out[j], out[i]];
+        }
+        key = out.map((x) => x[1]).join();
+      } while (key === this._lastOrder);
+      this._lastOrder = key;
+      return out;
     }
 
     renderAgent(i) {
       const a = this.agents[i];
-      this.frame.querySelector("#frontVisual").innerHTML = this.portraitSvg(a.key);
-      this.frame.querySelector("#backVisual").innerHTML = this.shieldSvg();
-      this.frame.querySelector("#frontTitle").textContent = a.name;
-      this.frame.querySelector("#backTitle").textContent = a.name;
-      this.frame.querySelector("#prompt").textContent = '“' + a.prompt + '”';
-      this.frame.querySelector("#rules").innerHTML = a.rules.map(r => '<div class="rule"><span class="rk">' + r[0] + '</span><span class="rv">' + r[1] + '</span></div>').join("");
-      this.frame.querySelector("#frontActions").innerHTML = a.actions.map(x => '<div class="action"><span class="an">' + x[0] + '</span>' + this.statusMarkup(x[1], true) + '</div>').join("");
-      this.frame.querySelector("#backActions").innerHTML = a.actions.map((x, n) => '<div class="action"><span class="an">' + x[0] + '</span><span class="status" data-kind="' + x[1] + '" data-status="' + n + '">? unresolved</span></div>').join("");
-      this.indexDots.forEach((d, n) => d.classList.toggle("on", n === i));
-    }
-
-    pulse(btn) {
-      const r = btn.querySelector(".ripple");
-      r.classList.remove("go");
-      void r.offsetWidth;
-      r.classList.add("go");
-    }
-
-    flipToBack(manual) {
-      if (this._busy || this.card.classList.contains("flipped")) return;
-      this._busy = true;
-      const tk = ++this._token;
-      this.pulse(this.flipFront);
-      const flipDelay = REDUCED ? 0 : 150;
-      this.after(flipDelay, () => {
-        if (tk !== this._token) return;
-        this.card.classList.add("flipped");
-        const settle = REDUCED ? 0 : 620;
-        this.after(settle, () => this.resolveStatuses(tk, manual));
+      const f = this.frame;
+      const tone = "tone-" + a.tone;
+      [f.querySelector("#fTile"), f.querySelector("#bTile")].forEach((t) => {
+        t.className = "tile " + tone;
       });
+      f.querySelector("#fTile").innerHTML = this.faceSvg();
+      f.querySelector("#bTile").innerHTML = this.markSvg();
+      f.querySelector("#prompt").textContent = a.prompt;
+      f.querySelector("#rules").innerHTML = a.rules
+        .map((r) => '<div class="rule"><span class="k">' + r[0] + "</span>" + r[1] + "</div>")
+        .join("");
+      const actions = this.shuffleActions(a.actions);
+      f.querySelector("#fActs").innerHTML = actions
+        .map((x) => '<div class="act"><span class="an">' + x[0] + '</span><span class="q" aria-label="unresolved">?</span></div>')
+        .join("");
+      f.querySelector("#bActs").innerHTML = actions
+        .map((x) => '<div class="act"><span class="an">' + x[0] + "</span>" + this.statusMarkup(x[1]) + "</div>")
+        .join("");
     }
 
-    resolveStatuses(tk, manual) {
-      const nodes = [...this.frame.querySelectorAll("#backActions [data-status]")];
-      nodes.forEach((el, n) => {
-        this.after(REDUCED ? 0 : n * 240, () => {
-          if (tk !== this._token) return;
-          const kind = el.dataset.kind;
-          const map = { allow:["✓","allow"], block:["×","block"], escalate:["↑","escalate"], modify:["~","modify"] };
-          el.className = "status " + kind + " resolve";
-          el.innerHTML = '<span>' + map[kind][0] + '</span><span>' + map[kind][1] + '</span>';
-        });
-      });
-      const end = REDUCED ? 20 : nodes.length * 240 + 900;
-      this.after(end, () => {
-        if (tk !== this._token) return;
-        this._busy = false;
-        if (!manual && !REDUCED) this.flipToFront(false);
-      });
-    }
-
-    flipToFront(manual) {
-      if (this._busy || !this.card.classList.contains("flipped")) return;
-      this._busy = true;
-      const tk = ++this._token;
-      this.pulse(this.flipBack);
-      this.after(REDUCED ? 0 : 150, () => {
-        if (tk !== this._token) return;
-        this.card.classList.remove("flipped");
-        this.after(REDUCED ? 0 : 620, () => {
-          if (tk !== this._token) return;
-          this._busy = false;
-          if (!manual && !REDUCED) this.advance();
-        });
-      });
-    }
-
-    advance() {
-      if (this._busy) return;
-      this._busy = true;
-      const tk = ++this._token;
-      const next = (this._idx + 1) % this.agents.length;
-      if (REDUCED) {
-        this._idx = next;
-        this.renderAgent(this._idx);
-        this._busy = false;
-        return;
-      }
-      this.shell.classList.remove("slide-in");
-      this.shell.classList.add("slide-out");
-      this.after(720, () => {
-        if (tk !== this._token) return;
-        this._idx = next;
-        this.renderAgent(this._idx);
-        this.shell.classList.remove("slide-out");
-        void this.shell.offsetWidth;
-        this.shell.classList.add("slide-in");
-        this.after(720, () => {
-          if (tk !== this._token) return;
-          this.shell.classList.remove("slide-in");
-          this._busy = false;
+    revealStatuses() {
+      const sts = [...this.frame.querySelectorAll("#bActs .st")];
+      const tk = ++this._stTk;
+      sts.forEach((el) => el.classList.remove("in"));
+      sts.forEach((el, n) => {
+        if (REDUCED) { el.classList.add("in"); return; }
+        this.after(340 + n * 170, () => {
+          if (tk === this._stTk && this._flipped) el.classList.add("in");
         });
       });
     }
