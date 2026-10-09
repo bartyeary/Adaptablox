@@ -1556,8 +1556,8 @@
         ".rule{line-height:20px}" +
         ".rule-line{margin:10px 0 4px}" +
         ".act{padding:2px 0;font-size:10.5px}" +
-        ".an{line-height:16px}.st{line-height:16px;font-size:12px}.stx{display:none}" +
-        ".st svg{width:6px;height:10px}}" +
+        ".an{line-height:16px}.st{line-height:16px;font-size:10px}}" +
+        "@container (max-width:337px){.st{font-size:12px}.stx{display:none}.st svg{width:6px;height:10px}}" +
         "@media (prefers-reduced-motion:reduce){.card,.st,.cap,.front .act{transition:none}.slide-out,.slide-in,.st.in,.eye{animation:none}}"
       );
     }
