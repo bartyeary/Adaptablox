@@ -1528,11 +1528,14 @@
         ".acts{display:grid;grid-template-columns:minmax(0,1fr);min-width:0;padding-bottom:1px}" +
         ".act{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:20.5px;font-size:11px;color:#99a0ac}" +
         ".an{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}" +
+        ".back .an{transition:color .42s ease}.back .act.done .an{color:#1e2024}" +
         ".front .act{opacity:0;transform:translateX(10px);transition:opacity .32s ease,transform .32s ease}" +
         ".front .act.in{opacity:1;transform:none}" +
+        ".front .act .q{transform:scale(0);transition:transform .34s cubic-bezier(.34,1.7,.64,1) .2s}" +
+        ".front .act.in .q{transform:scale(1)}" +
         ".st{flex:none;display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:500;letter-spacing:.07em;" +
-        "text-transform:uppercase;opacity:0;transform:translateX(4px);transition:opacity .3s ease,transform .3s ease}" +
-        ".st.in{opacity:1;transform:none;animation:st-blink .5s step-end}" +
+        "text-transform:uppercase;opacity:0;transform:translateX(4px);transition:opacity .42s ease,transform .42s ease}" +
+        ".st.in{opacity:1;transform:none;animation:st-blink .7s step-end}" +
         "@keyframes st-blink{0%{opacity:1}12%{opacity:.1}24%{opacity:1}36%{opacity:.1}48%{opacity:1}60%{opacity:.1}72%,100%{opacity:1}}" +
         ".st.accept{color:#158E51}.st.block{color:#DF463B}.st.escalate{color:#FFA023}.st.modulate{color:#A411FF}" +
         ".st svg{display:block}" +
@@ -1558,7 +1561,7 @@
         ".act{padding:2px 0;font-size:10.5px}" +
         ".an{line-height:16px}.st{line-height:16px;font-size:10px}}" +
         "@container (max-width:337px){.st{font-size:12px}.stx{display:none}.st svg{width:6px;height:10px}}" +
-        "@media (prefers-reduced-motion:reduce){.card,.st,.cap,.front .act{transition:none}.slide-out,.slide-in,.st.in,.eye{animation:none}}"
+        "@media (prefers-reduced-motion:reduce){.card,.st,.cap,.front .act,.front .act .q{transition:none}.slide-out,.slide-in,.st.in,.eye{animation:none}}"
       );
     }
 
@@ -1874,11 +1877,18 @@
     revealStatuses() {
       const sts = [...this.frame.querySelectorAll("#bActs .st")];
       const tk = ++this._stTk;
-      sts.forEach((el) => el.classList.remove("in"));
+      const show = (el) => {
+        el.classList.add("in");
+        el.parentElement.classList.add("done");
+      };
+      sts.forEach((el) => {
+        el.classList.remove("in");
+        el.parentElement.classList.remove("done");
+      });
       sts.forEach((el, n) => {
-        if (REDUCED) { el.classList.add("in"); return; }
-        this.after(340 + n * 170, () => {
-          if (tk === this._stTk && this._flipped) el.classList.add("in");
+        if (REDUCED) { show(el); return; }
+        this.after(420 + n * 250, () => {
+          if (tk === this._stTk && this._flipped) show(el);
         });
       });
     }
