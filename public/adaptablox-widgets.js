@@ -1514,6 +1514,7 @@
         ".tile{border-radius:6px;display:grid;place-items:center;min-height:162px}" +
         ".front .tile{background:var(--t-light)}.back .tile{background:var(--t-strong)}" +
         ".tile svg{display:block}" +
+        ".eyes{transition:transform .4s cubic-bezier(.3,.7,.3,1)}" +
         ".eye{transform-box:fill-box;transform-origin:center;animation:eye-blink 4.2s infinite}" +
         "@keyframes eye-blink{0%,29%,33%,85%,89%,100%{transform:scaleY(1)}31%,87%{transform:scaleY(.12)}}" +
         ".copy{min-width:0;display:flex;flex-direction:column;padding:7px 4px 0 0;font-family:var(--mono)}" +
@@ -1524,7 +1525,7 @@
         ".rule{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:10px;color:#1e2024}" +
         ".rule .k{font-size:9px;letter-spacing:.05em;text-transform:uppercase;color:#99a0ac;margin-right:6px}" +
         ".rule-line{margin:auto 0 4px;border-top:1px dashed #d2ddf0}" +
-        ".acts{display:grid;padding-bottom:1px}" +
+        ".acts{display:grid;grid-template-columns:minmax(0,1fr);min-width:0;padding-bottom:1px}" +
         ".act{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:20.5px;font-size:11px;color:#99a0ac}" +
         ".an{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}" +
         ".front .act{opacity:0;transform:translateX(10px);transition:opacity .32s ease,transform .32s ease}" +
@@ -1535,7 +1536,8 @@
         "@keyframes st-blink{0%{opacity:1}12%{opacity:.1}24%{opacity:1}36%{opacity:.1}48%{opacity:1}60%{opacity:.1}72%,100%{opacity:1}}" +
         ".st.accept{color:#158E51}.st.block{color:#DF463B}.st.escalate{color:#FFA023}.st.modulate{color:#A411FF}" +
         ".st svg{display:block}" +
-        ".q{flex:none;width:14px;height:14px;border-radius:50%;background:#999;color:#fff;text-align:center;" +
+        ".ico{display:inline-flex;justify-content:center;width:.69em}" +
+        ".q{flex:none;width:14px;height:14px;border-radius:50%;background:#b3b3b3;color:#fff;text-align:center;" +
         "font:700 10px/14px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}" +
         ".slide-out{animation:auth-out .48s cubic-bezier(.4,0,.3,1) forwards}" +
         ".slide-in{animation:auth-in .48s cubic-bezier(.4,0,.3,1) forwards}" +
@@ -1543,7 +1545,7 @@
         "@keyframes auth-in{from{transform:translateX(6%);opacity:0}to{transform:translateX(0);opacity:1}}" +
         "@container (max-width:540px){" +
         ".card-shell{top:38px;width:calc(100% - 24px)}" +
-        ".face{grid-template-columns:var(--thumb) minmax(0,1fr);grid-template-rows:none;column-gap:12px;row-gap:0;min-height:0;padding:10px 12px 10px 10px;--thumb:108px}" +
+        ".face{grid-template-columns:var(--thumb) minmax(0,1fr);grid-template-rows:none;column-gap:12px;row-gap:0;min-height:0;padding:10px 12px 10px 10px;--thumb:clamp(48px,100cqw - 232px,108px)}" +
         ".tile{grid-column:1;grid-row:1;width:var(--thumb);height:var(--thumb);min-height:0}" +
         ".tile svg{width:58%;height:auto}" +
         ".copy{display:contents}" +
@@ -1553,8 +1555,9 @@
         ".rules{grid-template-columns:minmax(0,1fr);grid-template-rows:none;grid-auto-flow:row;margin:0 0 4px}" +
         ".rule{line-height:20px}" +
         ".rule-line{margin:10px 0 4px}" +
-        ".act{align-items:flex-start;padding:2px 0;font-size:10.5px}" +
-        ".an{white-space:normal;line-height:16px}.st{line-height:16px;font-size:10px}}" +
+        ".act{padding:2px 0;font-size:10.5px}" +
+        ".an{line-height:16px}.st{line-height:16px;font-size:12px}.stx{display:none}" +
+        ".st svg{width:6px;height:10px}}" +
         "@media (prefers-reduced-motion:reduce){.card,.st,.cap,.front .act{transition:none}.slide-out,.slide-in,.st.in,.eye{animation:none}}"
       );
     }
@@ -1676,7 +1679,22 @@
       this._ro.observe(this.card);
       this._ro.observe(this.frame);
 
-      if (!REDUCED) this.schedule(this.frontHold(), () => this.autoStep());
+      if (!REDUCED) {
+        this.schedule(this.frontHold(), () => this.autoStep());
+        this.glance();
+      }
+    }
+
+    /* Eyes drift to a random nearby spot every so often, returning to center about a third of the time. */
+    glance() {
+      const eyes = this.frame.querySelector("#fTile .eyes");
+      if (eyes && this._active && !this._flipped) {
+        const center = Math.random() < 0.35;
+        const dx = center ? 0 : (Math.random() * 2 - 1) * 4.5;
+        const dy = center ? 0 : (Math.random() * 2 - 1) * 3;
+        eyes.style.transform = "translate(" + dx.toFixed(1) + "px," + dy.toFixed(1) + "px)";
+      }
+      this.after(1100 + Math.random() * 2200, () => this.glance());
     }
 
     disconnectedCallback() {
@@ -1792,8 +1810,10 @@
     faceSvg() {
       return '<svg width="98" height="98" viewBox="0 0 98 98" aria-hidden="true">' +
         '<circle cx="49" cy="49" r="44.5" fill="none" stroke="var(--t-strong)" stroke-width="9"/>' +
-        '<rect class="eye" x="27" y="28" width="14" height="27" rx="7" fill="var(--t-strong)"/>' +
-        '<rect class="eye" x="57" y="28" width="14" height="27" rx="7" fill="var(--t-strong)"/>' +
+        '<g class="eyes">' +
+          '<rect class="eye" x="27" y="28" width="14" height="27" rx="7" fill="var(--t-strong)"/>' +
+          '<rect class="eye" x="57" y="28" width="14" height="27" rx="7" fill="var(--t-strong)"/>' +
+        '</g>' +
       '</svg>';
     }
 
@@ -1806,12 +1826,12 @@
 
     statusMarkup(kind) {
       const icon = {
-        accept: "<span>✓</span>",
-        block: "<span>×</span>",
-        escalate: "<span>↑</span>",
-        modulate: '<svg width="5" height="8" viewBox="1.5 0 6.4 10" style="margin-left:-1px" aria-hidden="true"><polyline points="5.6,1 3,5 7,5 4.4,9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+        accept: "✓",
+        block: "×",
+        escalate: "↑",
+        modulate: '<svg width="5" height="8" viewBox="1.5 0 6.4 10" aria-hidden="true"><polyline points="5.6,1 3,5 7,5 4.4,9" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>'
       }[kind];
-      return '<span class="st ' + kind + '">' + kind + icon + '</span>';
+      return '<span class="st ' + kind + '" aria-label="' + kind + '"><span class="stx">' + kind + '</span><span class="ico">' + icon + "</span></span>";
     }
 
     /* Status order is reshuffled per card and never repeats the previous card's order. */
