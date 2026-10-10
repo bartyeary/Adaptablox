@@ -96,7 +96,16 @@
     "color:#9fc0ff;margin-bottom:2px}" +
     /* off-screen widgets freeze all CSS animation — zero idle cost */
     ".frame.paused, .frame.paused *, .frame.paused *::before, .frame.paused *::after{" +
-    "animation-play-state:paused !important}";
+    "animation-play-state:paused !important}" +
+    ".ax-pp{position:absolute;top:9px;right:11px;z-index:9;width:18px;height:18px;padding:0;border-radius:50%;" +
+    "display:grid;place-items:center;cursor:pointer;color:var(--faint);background:var(--frame-bg);" +
+    "border:1px solid currentColor;opacity:.75;transition:opacity .15s,color .15s}" +
+    ".ax-pp:hover{opacity:1;color:var(--muted)}" +
+    ".ax-pp:focus-visible{outline:2px solid var(--blue);outline-offset:2px;opacity:1}" +
+    ".ax-pp svg{display:block;position:static;inset:auto;width:8px;height:8px}";
+
+  const PP_PAUSE = '<svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><rect x="1.2" y="1" width="1.8" height="6" rx=".5" fill="currentColor"/><rect x="5" y="1" width="1.8" height="6" rx=".5" fill="currentColor"/></svg>';
+  const PP_PLAY = '<svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><path d="M2.2 1.1v5.8a.4.4 0 0 0 .6.35l4.6-2.9a.4.4 0 0 0 0-.7L2.8.75a.4.4 0 0 0-.6.35z" fill="currentColor"/></svg>';
 
   /* Base class: frame, visibility gating, local tooltip, replay affordance */
   class AxWidget extends HTMLElement {
@@ -104,6 +113,8 @@
       super();
       this._active = false;
       this._timers = [];
+      this._pend = new Set();
+      this._userPaused = false;
       this._raf = null;
     }
     connectedCallback() {
@@ -131,14 +142,16 @@
       this._bindTips();
       this.setup();
       this._inView = false;
-      const updateActive = () => {
-        this._active = this._inView && !document.hidden;
+      const updateActive = (fromToggle) => {
+        this._active = this._inView && !document.hidden && !this._userPaused;
         this.frame.classList.toggle("paused", !this._active);
         if (this._active) {
           this._maybeLoop();
-          this.onVisible();
+          if (!fromToggle) this.onVisible();
         }
       };
+      this._updateActive = updateActive;
+      if (!REDUCED) this._addPauseToggle();
       this._io = new IntersectionObserver(
         (es) =>
           es.forEach((e) => {
@@ -155,6 +168,8 @@
       this._io && this._io.disconnect();
       document.removeEventListener("visibilitychange", this._visHandler);
       this._timers.forEach(clearTimeout);
+      this._pend.forEach((rec) => clearTimeout(rec.id));
+      this._pend.clear();
       this._active = false;
       if (this._raf) cancelAnimationFrame(this._raf);
     }
@@ -180,10 +195,60 @@
     get T() {
       return THEMES[this.getAttribute("theme") === "light" ? "light" : "dark"];
     }
+    /* Timers freeze with their remaining time while the user has paused the widget. */
     after(ms, fn) {
-      const t = setTimeout(fn, ms);
-      this._timers.push(t);
-      return t;
+      const rec = { left: ms, start: 0, id: 0 };
+      rec.fire = () => {
+        this._pend.delete(rec);
+        fn();
+      };
+      this._pend.add(rec);
+      if (!this._userPaused) this._arm(rec);
+      return rec;
+    }
+    _arm(rec) {
+      rec.start = performance.now();
+      rec.id = setTimeout(rec.fire, rec.left);
+    }
+    _addPauseToggle() {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "ax-pp";
+      const render = () => {
+        btn.innerHTML = this._userPaused ? PP_PLAY : PP_PAUSE;
+        btn.setAttribute("aria-label", this._userPaused ? "Play animation" : "Pause animation");
+        btn.setAttribute("aria-pressed", String(this._userPaused));
+      };
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        this.setPaused(!this._userPaused);
+        render();
+      });
+      render();
+      this.frame.appendChild(btn);
+    }
+    setPaused(paused) {
+      if (paused === this._userPaused) return;
+      this._userPaused = paused;
+      const root = this.shadowRoot;
+      if (paused) {
+        const now = performance.now();
+        this._pend.forEach((rec) => {
+          clearTimeout(rec.id);
+          rec.left = Math.max(0, rec.left - (now - rec.start));
+        });
+        this._held = root.getAnimations
+          ? root.getAnimations().filter((a) => a.playState === "running" && !(window.CSSAnimation && a instanceof CSSAnimation))
+          : [];
+        this._held.forEach((a) => a.pause());
+      } else {
+        this._pend.forEach((rec) => this._arm(rec));
+        (this._held || []).forEach((a) => {
+          if (a.playState === "paused") a.play();
+        });
+        this._held = null;
+      }
+      this._updateActive(true);
     }
     every(ms, fn) {
       const loop = () => {
@@ -765,6 +830,7 @@
         let i = 0;
         const t = setInterval(() => {
           if (!ok()) { clearInterval(t); return; }
+          if (this._userPaused) return;
           i += 2;
           hashEl.textContent = full.slice(0, i);
           if (i >= hashLen) {
