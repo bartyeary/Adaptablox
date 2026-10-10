@@ -1577,7 +1577,7 @@
                 '<div class="tile" id="fTile"></div>' +
                 '<div class="copy">' +
                   '<div class="head">' +
-                    '<div class="lbl">Instructions</div>' +
+                    '<div class="lbl" id="agentName"></div>' +
                     '<div class="prompt" id="prompt"></div>' +
                   '</div>' +
                   '<div class="rule-line"></div>' +
@@ -1677,7 +1677,7 @@
       });
 
       this.renderAgent(0);
-      this.capEl.textContent = this.agents[0].name;
+      this.capEl.textContent = "Prompt Instructions";
       this.revealFrontRows();
 
       this._ro = new ResizeObserver(() => this.fitHeight());
@@ -1761,7 +1761,7 @@
         void this.card.offsetWidth;
         this.card.style.transition = "";
       }
-      this.setCap(flipped ? "ARC constraint" : this.agents[this._idx].name, instant ? 180 : 300);
+      this.setCap(flipped ? "ARC constraint" : "Prompt Instructions", instant ? 180 : 300);
       if (flipped) this.revealStatuses();
       else this.revealFrontRows();
     }
@@ -1863,6 +1863,7 @@
       });
       f.querySelector("#fTile").innerHTML = this.faceSvg();
       f.querySelector("#bTile").innerHTML = this.markSvg();
+      f.querySelector("#agentName").textContent = a.name;
       f.querySelector("#prompt").textContent = a.prompt;
       f.querySelector("#rules").innerHTML = a.rules
         .map((r) => '<div class="rule"><span class="k">' + r[0] + "</span>" + r[1] + "</div>")
