@@ -222,8 +222,8 @@
       btn.addEventListener("click", (e) => {
         e.stopPropagation();
         this.setPaused(!this._userPaused);
-        render();
       });
+      this._ppRender = render;
       render();
       this.frame.appendChild(btn);
     }
@@ -248,6 +248,7 @@
         });
         this._held = null;
       }
+      if (this._ppRender) this._ppRender();
       this._updateActive(true);
     }
     every(ms, fn) {
@@ -1813,6 +1814,7 @@
     }
 
     manualFlip() {
+      if (this._userPaused) this.setPaused(false);
       if (this._sliding) return;
       this._tk++;
       this.setFlip(!this._flipped);
