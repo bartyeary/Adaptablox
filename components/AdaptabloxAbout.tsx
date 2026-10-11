@@ -499,7 +499,8 @@ export default function AdaptabloxAbout() {
               <li className="mb-0 ms-[23px]"><strong>When</strong> the decision was made</li>
               <li className="mb-0 ms-[23px]"><strong>What was evaluated:</strong> an action, activation pathway, group of agents, or combined result</li>
               <li className="mb-0 ms-[23px]"><strong>Who contributed what,</strong> where it came from, and each contributor's authority</li>
-              <li className="ms-[23px]"><strong>What was allowed, changed, delayed, escalated, or blocked,</strong> and why</li>
+              <li className="mb-0 ms-[23px]"><strong>What was allowed, changed, delayed, escalated, or blocked,</strong> and why</li>
+              <li className="ms-[23px]"><strong>What authority and constraints were active,</strong> and what triggered any changes</li>
             </ul>
             <p className="mb-[1em]">
               Cryptographic links between records can help reviewers detect changes to the history. The recorded decisions support a separate review of whether the controls were applied correctly.

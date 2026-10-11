@@ -81,7 +81,7 @@
     "@media (prefers-reduced-motion:reduce){.grid-bg{animation:none;--grid-f1:28%;--grid-f2:46%;--grid-f3:60%;--grid-f4:78%}}" +
     ".frame-content{position:absolute;inset:0;z-index:1}" +
     ".frame>*:not(.grid-bg):not(.frame-content):not(.tip){z-index:2}" +
-    ".cap{position:absolute;left:16px;top:13px;font-size:9.5px;font-weight:600;letter-spacing:.2em;" +
+    ".cap{position:absolute;left:16px;top:9px;height:18px;line-height:18px;white-space:nowrap;font-size:9.5px;font-weight:600;letter-spacing:.2em;" +
     "text-transform:uppercase;color:var(--faint);z-index:8;pointer-events:none;" +
     "text-shadow:0 0 6px var(--frame-bg),0 0 14px var(--frame-bg),0 0 24px var(--frame-bg),0 0 36px var(--frame-bg),0 0 48px var(--frame-bg)}" +
     ".th-cap{text-shadow:0 0 6px var(--frame-bg),0 0 14px var(--frame-bg),0 0 24px var(--frame-bg),0 0 36px var(--frame-bg),0 0 48px var(--frame-bg)}" +
@@ -440,7 +440,7 @@
       const cx = W / 2, cy = H / 2 + 6;
       const SIG = [
         ["Authority", "Was this action actually delegated to this agent, with what limits, valid right now?"],
-        ["Context", "What surrounds the request — the workflow, the trigger, what came before it."],
+        ["Context", "What surrounds the request — the workflow, the trigger, prior actions, and their accumulated effects."],
         ["Policy", "Live organizational rules, versioned and evaluated at the moment of the action."],
         ["Time", "Freeze windows, expirations, hours — when matters as much as what."],
         ["Environment", "Where the action lands. The same command means different things in different places."],
