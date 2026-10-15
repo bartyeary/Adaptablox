@@ -19,33 +19,22 @@ const PATENTS: { title: string; number: string; date: string; href?: string }[] 
   },
 ];
 
+const FOOTER_STRIPE = {
+  backgroundImage: 'repeating-linear-gradient(45deg, #C8C9CC 0px, #C8C9CC 8px, #9A9B9F 8px, #9A9B9F 16px)',
+  backgroundSize: '22.627px 22.627px',
+  backgroundPosition: '0 0',
+  imageRendering: 'crisp-edges' as const,
+};
+
 export function SiteFooter() {
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-center pb-[17px] md:pb-[24px] pt-0 px-[17px] md:px-[24px] relative shrink-0 w-full">
       <div className="flex items-center gap-[12px] w-full max-w-[720px]">
-        <div
-          className="h-[4px] flex-1 min-w-[24px] overflow-hidden"
-          style={{
-            backgroundImage: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)',
-            backgroundSize: '22.627px 22.627px',
-            backgroundPosition: '0 0',
-            imageRendering: 'crisp-edges',
-          }}
-          aria-hidden="true"
-        />
+        <div className="h-[4px] flex-1 min-w-[24px] overflow-hidden" style={FOOTER_STRIPE} aria-hidden="true" />
         <p className="font-sans font-normal leading-[21px] relative shrink-0 text-[#4e4e4e] text-[13px] text-center whitespace-nowrap">
           © 2026 Adaptablox. Patents Pending.
         </p>
-        <div
-          className="h-[4px] flex-1 min-w-[24px] overflow-hidden"
-          style={{
-            backgroundImage: 'repeating-linear-gradient(45deg, #FFC107 0px, #FFC107 8px, #67686D 8px, #67686D 16px)',
-            backgroundSize: '22.627px 22.627px',
-            backgroundPosition: '0 0',
-            imageRendering: 'crisp-edges',
-          }}
-          aria-hidden="true"
-        />
+        <div className="h-[4px] flex-1 min-w-[24px] overflow-hidden" style={FOOTER_STRIPE} aria-hidden="true" />
       </div>
       <div className="w-full max-w-[720px] overflow-x-auto">
         <table className="w-full border-collapse font-sans text-[12px] leading-[18px] text-[#4e4e4e] text-left">
