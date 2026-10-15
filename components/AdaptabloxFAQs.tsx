@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigation } from '@/contexts/NavigationContext';
 import AxSignalsWidget from '@/components/AxSignalsWidget';
+import { SiteFooter } from '@/components/SiteFooter';
 
 const imgGroup28481 = "/assets/logo2.svg";
 const sectionClass = "content-stretch flex flex-col gap-[12px] items-start pb-[8px] md:pb-[12px] pt-[14px] md:pt-[20px] px-[17px] md:px-[24px] relative shrink-0 w-full text-[#4e4e4e]";
@@ -167,11 +168,7 @@ export default function AdaptabloxFAQs() {
           </div>
         </section>
 
-        <div className="content-stretch flex flex-col gap-[12px] items-center pb-[17px] md:pb-[24px] pt-0 px-[17px] md:px-[24px] relative shrink-0 w-full">
-          <p className="font-sans font-normal leading-[21px] relative shrink-0 text-[#4e4e4e] text-[13px] text-center">
-            © 2026 Adaptablox. Patents Pending.
-          </p>
-        </div>
+        <SiteFooter />
       </div>
     </div>
   );

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useNavigation } from '@/contexts/NavigationContext';
+import { SiteFooter } from '@/components/SiteFooter';
 
 const imgGroup28481 = "/assets/logo2.svg";
 
@@ -385,11 +386,7 @@ export default function AdaptabloxDemo() {
             <p className="leading-[21px] mb-0">Changing the rules changes what the system permits, while the underlying model remains the same.</p>
           </div>
         </div>
-        <div className="content-stretch flex flex-col gap-[12px] items-center pb-[17px] md:pb-[24px] pt-0 px-[17px] md:px-[24px] relative shrink-0 w-full">
-          <p className="font-sans font-normal leading-[21px] relative shrink-0 text-[#4e4e4e] text-[13px] text-center">
-            © 2026 Adaptablox. Patents Pending.
-          </p>
-        </div>
+        <SiteFooter />
       </div>
     </div>
   );
