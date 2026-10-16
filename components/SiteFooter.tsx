@@ -17,6 +17,11 @@ const PATENTS: { title: string; number: string; date: string; href?: string }[] 
     date: 'October 8, 2026',
     href: 'https://patents.justia.com/patent/20260310948',
   },
+  {
+    title: 'OAC: Output Admissibility Control of Artificial Intelligence Agent Ensembles',
+    number: 'Pending publication',
+    date: '—',
+  },
 ];
 
 export function SiteFooter() {
