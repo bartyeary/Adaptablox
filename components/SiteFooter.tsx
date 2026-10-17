@@ -67,6 +67,12 @@ export function SiteFooter() {
           </tbody>
         </table>
       </div>
+      <p className="font-sans font-normal leading-[21px] relative shrink-0 text-[#4e4e4e] text-[13px] text-center">
+        Partnership and licensing inquiries:{' '}
+        <a href="mailto:bart@adaptablox.com" className="underline underline-offset-2 hover:text-[#2a2a2a]">
+          bart@adaptablox.com
+        </a>
+      </p>
     </div>
   );
 }
