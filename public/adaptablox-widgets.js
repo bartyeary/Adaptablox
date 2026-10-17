@@ -1690,7 +1690,7 @@
           tone: "green",
           prompt: "You are a research agent. Gather evidence and synthesize findings for the team.",
           rules: [
-            ["sources", "approved+public"],
+            ["sources", "approved + public"],
             ["memory", "project corpus"],
             ["publish", "internal by default"],
             ["tools", "read only research"],
