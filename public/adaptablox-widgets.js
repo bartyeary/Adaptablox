@@ -1639,7 +1639,7 @@
         '<div class="cap" id="cap"></div>' +
         '<div class="auth-stage">' +
           '<div class="card-shell" id="shell">' +
-            '<div class="card" id="card" role="button" tabindex="0" aria-label="Flip between agent instructions and ARC constraint">' +
+            '<div class="card" id="card" role="button" tabindex="0" aria-label="Flip between agent instructions and external ARC constraint">' +
               '<section class="face front" aria-label="Agent instructions">' +
                 '<div class="tile" id="fTile"></div>' +
                 '<div class="copy">' +
@@ -1651,7 +1651,7 @@
                   '<div class="acts" id="fActs"></div>' +
                 '</div>' +
               '</section>' +
-              '<section class="face back" aria-label="ARC constraint">' +
+              '<section class="face back" aria-label="External ARC constraint">' +
                 '<div class="tile" id="bTile"></div>' +
                 '<div class="copy">' +
                   '<div class="head"><div class="rules" id="rules"></div></div>' +
@@ -1829,7 +1829,7 @@
         void this.card.offsetWidth;
         this.card.style.transition = "";
       }
-      this.setCap(flipped ? "ARC constraint" : "Prompt Instructions", instant ? 180 : 300);
+      this.setCap(flipped ? "External ARC constraint" : "Prompt Instructions", instant ? 180 : 300);
       if (flipped) this.revealStatuses();
       else this.revealFrontRows();
     }
