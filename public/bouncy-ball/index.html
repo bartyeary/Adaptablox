@@ -655,6 +655,9 @@
   .thought2 > * { position: absolute; background: #fff; transform: scale(0); }
   .thought2 .t-dot.big   { width: calc(var(--d) * 0.16); height: calc(var(--d) * 0.16); left: calc(var(--d) * -0.09); bottom: calc(var(--d) * 1.26); }
   .thought2 .t-dot.small { width: calc(var(--d) * 0.11); height: calc(var(--d) * 0.11); left: calc(var(--d) * -0.14); bottom: calc(var(--d) * 1.09); }
+  /* idle hint: "Scroll down" at the top, "Keep scrolling" later */
+  .thought0 { position: absolute; left: 0; bottom: 0; width: 0; height: 0; will-change: transform; }
+  .thought0 > * { position: absolute; background: #fff; transform: scale(0); }
   /* the afterthought: grows the bubble to the right, then the words fade in */
   .t-more {
     display: inline-block; overflow: hidden; white-space: nowrap; vertical-align: bottom;
@@ -909,6 +912,11 @@
       <i class="t-dot small"></i>
       <i class="t-dot big"></i>
       <div class="t-pill"><span class="t-first">I’m a procurement agent</span><span class="t-more" id="tMore"><span>&nbsp;… with rules</span></span></div>
+    </div>
+    <div class="thought0" id="thought0" aria-hidden="true">
+      <i class="t-dot small"></i>
+      <i class="t-dot big"></i>
+      <div class="t-pill">Scroll down</div>
     </div>
     <div class="agent pink" id="agentPink" aria-hidden="true">
       <div class="shadow a-shadow"></div>
@@ -2743,11 +2751,32 @@
       tMore.classList.toggle('on', more);
       tMore.style.maxWidth = more ? tMore.firstElementChild.offsetWidth + 'px' : '0px';
     }
+
+    // idle: a few seconds without scrolling and the ball nudges the viewer on, "Scroll down" at the top
+    // and "Keep scrolling" later, unless it is already thinking something else. Once the camera pulls
+    // back to the other agents, every ball keeps a thought up to the end, so the hint stops there.
+    const atTop = progTarget < INTRO_HIDE;
+    const otherThought = thoughtP > 0 || thought2P > 0 || (blocked && !escalated) ||
+      (approving && cam.p2 < 0.3);   // the approval check stays up until the camera moves on
+    const hintWant = !otherThought && cam.Z < 1.01 && progTarget < pullS0 &&
+      now - Math.max(hintFrom, lastScrollAt) > (atTop ? HINT_IDLE_TOP : HINT_IDLE) ? 1 : 0;
+    if (!hintP && hintWant) hintPill.textContent = atTop ? 'Scroll down' : 'Keep scrolling';   // only swap while hidden
+    hintP = clamp(hintP + (hintWant ? dt / 0.75 : -dt / 0.25), 0, 1);
+    hintParts.forEach((el, i) => {
+      const local = clamp((hintP - i * 0.16) / 0.68, 0, 1);
+      el.style.transform = `scale(${(local ? easeOutBack(local) : 0).toFixed(4)})`;
+    });
+    hint.style.transform = `translate3d(0, ${(-thoughtY).toFixed(2)}px, 0)`;
   }
   const t2 = $('thought2'), tMore = $('tMore');
   let t2FullAt = 0;
   const t2Parts = [t2.querySelector('.small'), t2.querySelector('.big'), t2.querySelector('.t-pill')];
   let thought2P = 0;
+  const hint = $('thought0'), hintParts = [...hint.children], hintPill = hint.querySelector('.t-pill');
+  const HINT_IDLE_TOP = 3000;   // ms at the top without scrolling before "Scroll down" appears
+  const HINT_IDLE = 5000;       // ms anywhere else before "Keep scrolling" appears
+  const hintFrom = clock();
+  let hintP = 0;
 
   // ---- Glide -----------------------------------------------------------
   // Critically damped smoothing (no overshoot). GLIDE is roughly how long the ground keeps
@@ -2933,6 +2962,7 @@
         let guard = 0;
         while (!reached() && guard++ < 3000) { finishAll(); if (simulateTo(progTarget + 100, reached)) break; }
         lastMoveAt = -1e9; energy = 0;
+        lastScrollAt = clock();   // a jump counts as scrolling, so the idle hint waits again
       } finally {
         seeking = false;
         document.documentElement.style.cursor = '';

@@ -13,7 +13,12 @@ export default function Home() {
   const { activePage, navigate } = useNavigation();
   const [pageFromEvent, setPageFromEvent] = useState<Page | null>(null);
   const activePageRef = useRef(activePage);
-  
+  // The static HTML is rendered with the animation hidden and absent, so it only shows and mounts after
+  // hydration: on a #bouncy deep link the first client render must match that HTML, and React won't
+  // correct the wrapper's display style while hydrating
+  const [hydrated, setHydrated] = useState(false);
+  useEffect(() => setHydrated(true), []);
+
   // Keep ref in sync with activePage
   useEffect(() => {
     activePageRef.current = activePage;
@@ -191,9 +196,9 @@ export default function Home() {
       </div>
       <div
         data-wrapper="bouncy"
-        style={{ display: activePage === 'bouncy' ? 'block' : 'none' }}
+        style={{ display: hydrated && activePage === 'bouncy' ? 'block' : 'none' }}
       >
-        {activePage === 'bouncy' && <BouncyBallView />}
+        {hydrated && activePage === 'bouncy' && <BouncyBallView />}
       </div>
     </div>
   );
