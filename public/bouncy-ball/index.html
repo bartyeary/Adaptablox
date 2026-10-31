@@ -12,7 +12,7 @@
 <title>Bouncy Ball</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400&family=Nunito:wght@600;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400&family=Nunito:wght@600;700;800&display=swap">
 <style>
   /* Layout: one fixed stage over an isometric ground grid; a tall invisible scroll track behind it
      feeds the bounce and slides the ground, while the ball stays centred. */
@@ -350,18 +350,18 @@
   }
   .fc-label {
     background: #a1afcc; color: #2f4c8a; text-align: center; padding: 0.55em 0.4em;
-    font-family: var(--font-chat); font-weight: 500; text-transform: uppercase; letter-spacing: 0.09em; font-size: clamp(9px, 1.3vw, 15px); white-space: nowrap;
+    font-family: var(--font-chat); font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; font-size: clamp(9px, 1.3vw, 15px); white-space: nowrap;
   }
   .fin-tag {
     margin: 0; text-align: center; color: #fff; opacity: 0;
     font-family: var(--font-chat); font-weight: 500; letter-spacing: 0.04em; font-size: clamp(18px, 2.5vw, 31px);
     text-wrap: balance;
   }
-  /* on narrow screens the tagline splits into two even lines */
-  @media (max-width: 720px) { .fin-tag { max-width: 24em; } }
+  /* once the cards stack 2 × 2, the tagline splits into two even lines (above that it stays on one) */
   @media (max-width: 640px) {
     .fin-cards { grid-template-columns: repeat(2, minmax(0, 170px)); }
     .fc-label { white-space: normal; }
+    .fin-tag { max-width: 24em; }
   }
   .fit { position: absolute; inset: 0; transform-origin: 50% 75%; }
   .decide { position: absolute; left: 0; bottom: 0; width: 0; height: 0; }
