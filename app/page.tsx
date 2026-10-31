@@ -6,10 +6,12 @@ import AdaptabloxOverview from '@/components/AdaptabloxOverview';
 import AdaptabloxAbout from '@/components/AdaptabloxAbout';
 import AdaptabloxFAQs from '@/components/AdaptabloxFAQs';
 import AdaptabloxDemo from '@/components/AdaptabloxDemo';
+import BouncyBallView from '@/components/BouncyBallView';
+import { type Page, isPage } from '@/lib/navigationHash';
 
 export default function Home() {
   const { activePage, navigate } = useNavigation();
-  const [pageFromEvent, setPageFromEvent] = useState<'overview' | 'about' | 'faqs' | 'demo' | null>(null);
+  const [pageFromEvent, setPageFromEvent] = useState<Page | null>(null);
   const activePageRef = useRef(activePage);
   
   // Keep ref in sync with activePage
@@ -21,7 +23,7 @@ export default function Home() {
 
   // Expose navigate function to window for inline script - do this IMMEDIATELY
   useEffect(() => {
-    const reactNavigate = (page: 'overview' | 'about' | 'faqs' | 'demo') => {
+    const reactNavigate = (page: Page) => {
       console.log('__reactNavigate called with:', page, 'current activePage:', activePageRef.current);
       if (page !== activePageRef.current) {
         console.log('Navigating from', activePageRef.current, 'to', page);
@@ -48,9 +50,9 @@ export default function Home() {
       console.log('=== Navigation event received! ===', customEvent.detail);
       const page = customEvent.detail?.page;
       console.log('Page from event:', page);
-      if (page === 'overview' || page === 'about' || page === 'faqs' || page === 'demo') {
+      if (isPage(page)) {
         console.log('Calling navigate with:', page);
-        navigate(page as 'overview' | 'about' | 'faqs' | 'demo');
+        navigate(page);
         console.log('Navigate called');
       } else {
         console.log('Invalid page:', page);
@@ -69,11 +71,11 @@ export default function Home() {
       const pageContainer = document.querySelector('[data-page-container]');
       if (pageContainer) {
         const domActivePage = pageContainer.getAttribute('data-active-page');
-        if (domActivePage && (domActivePage === 'overview' || domActivePage === 'about' || domActivePage === 'faqs' || domActivePage === 'demo')) {
+        if (domActivePage && isPage(domActivePage)) {
           // Only sync if different from current activePage (use ref to avoid stale closure)
           if (domActivePage !== activePageRef.current) {
             console.log('=== SYNC: Syncing activePage from DOM:', domActivePage, 'current React state:', activePageRef.current, '===');
-            navigate(domActivePage as 'overview' | 'about' | 'faqs' | 'demo');
+            navigate(domActivePage);
             console.log('=== SYNC: navigate() called ===');
           }
         } else {
@@ -104,9 +106,9 @@ export default function Home() {
         if (mutation.type === 'attributes' && mutation.attributeName === 'data-active-page') {
           const newPage = (mutation.target as HTMLElement).getAttribute('data-active-page');
           console.log('MutationObserver detected data-active-page change:', newPage, 'current React state:', activePageRef.current);
-          if (newPage && newPage !== activePageRef.current && (newPage === 'overview' || newPage === 'about' || newPage === 'faqs' || newPage === 'demo')) {
+          if (newPage && newPage !== activePageRef.current && isPage(newPage)) {
             console.log('DOM activePage changed to:', newPage, 'syncing with React state');
-            navigate(newPage as 'overview' | 'about' | 'faqs' | 'demo');
+            navigate(newPage);
           }
         }
       });
@@ -186,6 +188,12 @@ export default function Home() {
         data-always-render="true"
       >
         <AdaptabloxDemo />
+      </div>
+      <div
+        data-wrapper="bouncy"
+        style={{ display: activePage === 'bouncy' ? 'block' : 'none' }}
+      >
+        {activePage === 'bouncy' && <BouncyBallView />}
       </div>
     </div>
   );

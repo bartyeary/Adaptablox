@@ -1,10 +1,15 @@
-export type Page = 'overview' | 'about' | 'faqs' | 'demo';
+export type Page = 'overview' | 'about' | 'faqs' | 'demo' | 'bouncy';
+
+export function isPage(value: unknown): value is Page {
+  return value === 'overview' || value === 'about' || value === 'faqs' || value === 'demo' || value === 'bouncy';
+}
 
 const PAGE_TO_HASH: Record<Page, string> = {
   about: 'about',
   overview: 'control',
   faqs: 'system',
   demo: 'demo',
+  bouncy: 'bouncy',
 };
 
 const HASH_TO_PAGE: Record<string, Page> = {
@@ -14,6 +19,7 @@ const HASH_TO_PAGE: Record<string, Page> = {
   system: 'faqs',
   faqs: 'faqs',
   demo: 'demo',
+  bouncy: 'bouncy',
 };
 
 export function pageToHash(page: Page): string {

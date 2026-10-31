@@ -44,8 +44,8 @@ export default function RootLayout({
               console.log('=== Inline script executed - JavaScript is working! ===');
               
               // Set up a simple navigation system that works without React
-              const PAGE_HASH = { about: 'about', overview: 'control', faqs: 'system', demo: 'demo' };
-              const HASH_PAGE = { about: 'about', control: 'overview', overview: 'overview', system: 'faqs', faqs: 'faqs', demo: 'demo' };
+              const PAGE_HASH = { about: 'about', overview: 'control', faqs: 'system', demo: 'demo', bouncy: 'bouncy' };
+              const HASH_PAGE = { about: 'about', control: 'overview', overview: 'overview', system: 'faqs', faqs: 'faqs', demo: 'demo', bouncy: 'bouncy' };
 
               function pageFromHash() {
                 var key = (location.hash || '').replace(/^#/, '').toLowerCase();
