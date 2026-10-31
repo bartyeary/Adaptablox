@@ -10,7 +10,7 @@ const tabClass = 'content-stretch flex items-center justify-center px-[12px] py-
 const tabLabelClass = 'font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap text-white';
 
 /**
- * The scroll-driven bouncy ball animation (public/bouncy-ball.html), shown full-screen under the site header.
+ * The scroll-driven bouncy ball animation (public/bouncy-ball/index.html), shown full-screen under the site header.
  * It runs in an iframe because the page drives everything from its own window scroll and global styles.
  */
 export default function BouncyBallView() {
@@ -46,7 +46,7 @@ export default function BouncyBallView() {
       </div>
       <iframe
         key={replay}
-        src="/bouncy-ball.html"
+        src="/bouncy-ball/"
         title="Adaptablox animation"
         className="absolute left-0 right-0 bottom-0 top-[71px] w-full border-0"
         style={{ height: 'calc(100% - 71px)' }}
