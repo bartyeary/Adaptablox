@@ -14,7 +14,7 @@ export default function Home() {
   const [pageFromEvent, setPageFromEvent] = useState<Page | null>(null);
   const activePageRef = useRef(activePage);
   // The static HTML is rendered with the animation hidden and absent, so it only shows and mounts after
-  // hydration: on a #bouncy deep link the first client render must match that HTML, and React won't
+  // hydration: on a #spot deep link the first client render must match that HTML, and React won't
   // correct the wrapper's display style while hydrating
   const [hydrated, setHydrated] = useState(false);
   useEffect(() => setHydrated(true), []);

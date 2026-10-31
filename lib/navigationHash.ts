@@ -9,7 +9,7 @@ const PAGE_TO_HASH: Record<Page, string> = {
   overview: 'control',
   faqs: 'system',
   demo: 'demo',
-  bouncy: 'bouncy',
+  bouncy: 'spot',
 };
 
 const HASH_TO_PAGE: Record<string, Page> = {
@@ -19,6 +19,7 @@ const HASH_TO_PAGE: Record<string, Page> = {
   system: 'faqs',
   faqs: 'faqs',
   demo: 'demo',
+  spot: 'bouncy',
   bouncy: 'bouncy',
 };
 
