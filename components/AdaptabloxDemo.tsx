@@ -55,12 +55,12 @@ export default function AdaptabloxDemo() {
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-center relative size-full min-h-screen" data-name="adaptablox - demo" data-node-id="27:483" style={{ background: "radial-gradient(66.15% 98.68% at -6.3% -5.34%, #F2F4F8 0%, #DCDEE6 100%)" }}>
       <div className="bg-[rgba(135,137,145,0.68)] backdrop-blur-sm h-[71px] overflow-clip fixed top-0 left-0 right-0 z-50 w-full" data-node-id="27:484" style={{ background: "rgba(135, 137, 145, 0.68)" }}>
-        <button type="button" onClick={() => navigate('bouncy')} aria-label="Play the Adaptablox animation" className="absolute left-[17px] top-[17px] h-[36px] w-[189px] hidden md:block cursor-pointer border-none bg-transparent p-0" data-name="logo" data-node-id="27:495">
+        <button type="button" onClick={() => navigate('bouncy')} aria-label="Play the Adaptablox animation" className="absolute left-[17px] top-[17px] h-[36px] w-[189px] hidden min-[560px]:block cursor-pointer border-none bg-transparent p-0" data-name="logo" data-node-id="27:495">
           <div className="absolute h-[35px] left-0 top-[1.5px] w-[188px]" data-node-id="27:496">
             <img alt="Adaptablox Logo" className="block max-w-none size-full" src={imgGroup28481} />
           </div>
         </button>
-        <button type="button" onClick={() => navigate('bouncy')} aria-label="Play the Adaptablox animation" className="absolute left-[14px] max-[374px]:left-[10px] top-[17px] h-[40px] flex items-center md:hidden cursor-pointer border-none bg-transparent p-0" data-name="logo-icon">
+        <button type="button" onClick={() => navigate('bouncy')} aria-label="Play the Adaptablox animation" className="absolute left-[14px] max-[374px]:left-[10px] top-[17px] h-[40px] flex items-center min-[560px]:hidden cursor-pointer border-none bg-transparent p-0" data-name="logo-icon">
           <img alt="Adaptablox" className="block h-[32px] w-auto" src={imgLogoIcon} />
         </button>
         <div className="absolute right-[12px] max-[374px]:right-[8px] md:right-[17px] top-[17px] bg-[#82848e] content-stretch flex gap-[6px] max-[374px]:gap-[2px] items-center p-[3px] rounded-[12px] z-[60]" data-name="control" data-node-id="27:486">
