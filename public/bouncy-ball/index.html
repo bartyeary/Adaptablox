@@ -2774,6 +2774,17 @@
     if (mergeTarget && !chatGone) { chatGone = true; chatOut(); }
     else if (!mergeTarget && chatGone) { chatGone = false; chatIn(); }
     arcOut = clamp(arcOut + (mergeTarget ? 1 : -1) * dt / 1.1, 0, 1);
+    // once the rules panel has slid away, the gap closes by itself (backing out of the merge resets it)
+    const closeEnd = closeStart + GAP_SCROLL;
+    if (!mergeTarget) closeAutoDone = false;
+    else if (!closeAutoDone && arcOut >= 1 && lastScrollDir < 0) closeAutoDone = true;   // scrolling back up hands control back
+    else if (!closeAutoDone && arcOut >= 1) {
+      const rate = progTarget < closeStart ? AUTO_SKIP_RATE : AUTO_MOVE_RATE;   // px per ms
+      progTarget = Math.min(closeEnd, progTarget + rate * dt * 1000);
+      groundTarget = groundFor(progTarget);
+      lastScrollAt = now;   // counts as scrolling, so the idle hint stays away
+      if (progTarget >= closeEnd) closeAutoDone = true;
+    }
     if (fe > 0.001) updateFrame();
     // blur pulses slowly between soft and a little softer
     if (fe > 0.001) {
@@ -2789,6 +2800,20 @@
     });
     thoughtY += (ballY - thoughtY) * (1 - Math.exp(-dt * 12));   // trails the bounce a little
     thought.style.transform = `translate3d(0, ${(-thoughtY).toFixed(2)}px, 0)`;
+
+    // once the "?" has had a beat, the story carries on by itself: through the rest of the pause, the gap
+    // opening and the registry sliding up beside the ball (scrolling back above the tape resets it)
+    const arcEnd = relAt + GAP_SCROLL + ARC_DELAY + ARC_SCROLL;
+    if (progTarget < P_BALL) { askedAt = 0; arcAutoDone = false; }
+    else if (!askedAt && thoughtP >= 1) askedAt = now;
+    if (!arcAutoDone && askedAt && lastScrollDir < 0) arcAutoDone = true;   // scrolling back up hands control back
+    if (!arcAutoDone && askedAt && relAt !== Infinity && now - askedAt > ASK_HOLD) {
+      const rate = progTarget < relAt ? AUTO_SKIP_RATE : AUTO_MOVE_RATE;   // px per ms
+      progTarget = Math.min(arcEnd, progTarget + rate * dt * 1000);
+      groundTarget = groundFor(progTarget);
+      lastScrollAt = now;   // counts as scrolling, so the idle hint stays away
+      if (progTarget >= arcEnd) arcAutoDone = true;
+    }
 
     // with the gap closed, the ball thinks out loud: "I'm a procurement agent"
     thought2P = clamp(thought2P + (gapClosedAgain && !frameOut && Math.abs(groundPos - G_BALL) < 2 ? dt / 0.75 : -dt / 0.25), 0, 1);
@@ -2820,6 +2845,9 @@
     });
     hint.style.transform = `translate3d(0, ${(-thoughtY).toFixed(2)}px, 0)`;
   }
+  const ASK_HOLD = 900;                                  // ms the "?" holds before the gap opens by itself
+  const AUTO_SKIP_RATE = 3, AUTO_MOVE_RATE = 0.75;       // px per ms: quickly through held stretches, then at a watchable pace while things move
+  let askedAt = 0, arcAutoDone = false, closeAutoDone = false;
   const t2 = $('thought2'), tMore = $('tMore');
   let t2FullAt = 0;
   const t2Parts = [t2.querySelector('.small'), t2.querySelector('.big'), t2.querySelector('.t-pill')];
