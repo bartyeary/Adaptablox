@@ -88,8 +88,8 @@
   .w-swap { display: inline-grid; justify-items: start; vertical-align: top; }
   .w-swap > .w { grid-area: 1 / 1; }
   @media (min-width: 721px) { #head6, #head10, #head11 { white-space: nowrap; } }   /* one line, as in the design */
-  /* one word at a time: fade in while rising 20px (starts once the viewer has scrolled a little) */
-  /* hidden until the scroll reaches the trigger point; the script plays them in (and back out) */
+  /* one word at a time: fade in while rising 20px */
+  /* hidden until their moment comes; the script plays them in (and back out) */
   .headline .w { display: inline-block; opacity: 0; transform: translateY(20px); }
 
   .chat {
@@ -683,7 +683,7 @@
   .thought0 > * { position: absolute; background: #fff; transform: scale(0); }
   /* the afterthought: grows the bubble to the right, then the words fade in */
   .t-more {
-    display: inline-block; overflow: hidden; white-space: nowrap; vertical-align: bottom;
+    display: inline-block; overflow: hidden; white-space: nowrap; vertical-align: bottom; color: var(--headline-accent);
     max-width: 0; opacity: 0;
     transition: max-width .6s cubic-bezier(.3, .7, .3, 1), opacity .4s ease .2s;
   }
@@ -1192,7 +1192,7 @@
   let groundTarget = 0, groundPos = 0, gridW = 0, gridH = 0, dpr = 1;
 
   // ---- Scroll story (positions in px scrolled from the top) -------------
-  //   INTRO_AT   the headline and bubbles start; they play through on their own timing
+  //   on load    the headline and bubbles start; they play through on their own timing
   //   → P_BALL   the ground moves steadily with the scroll until the hazard tape is under the ball
   //   P_BALL → release   ground and tape pause; the intro stays pinned; the ball wonders "?"
   //   release    = P_REL, or later if the intro hasn't finished playing by then
@@ -1493,9 +1493,7 @@
     }
   }
 
-  // ---- Intro: triggered by the scroll, then plays on its own ------------
-  // Scrolling down past INTRO_AT plays it in; scrolling back above INTRO_HIDE plays it back out
-  // in reverse (last bubble first, then the words), returning to just the ball and the grid.
+  // ---- Intro: plays on its own as soon as the page loads ----------------
   const intro = $('intro'), chatItems = [...$('chat').children];
   const words1 = [...$('head1').querySelectorAll('.w')];   // "A role is not authority"
   const words2 = [...$('head2').querySelectorAll('.w')];   // "Who decides what an agent can do?"
@@ -1543,14 +1541,13 @@
         { duration: reduce ? 300 : WORD_DUR, delay: start + order * WORD_GAP, easing: EASE_IN });
     });
   }
-  const INTRO_AT = 320;                                    // px scrolled before it starts
-  const INTRO_HIDE = 220;                                  // scrolling back above this hides it again
+  const INTRO_HIDE = 220;                                  // above this the viewer counts as being at the top of the scroll
   const WORD_DELAY = 80, WORD_GAP = 150, WORD_DUR = 650;
   const CHAT_DELAY = 900, CHAT_GAP = 1100, CHAT_DUR = 1150;
   const INTRO_DONE = CHAT_DELAY + 2 * CHAT_GAP + CHAT_DUR; // ms until the last bubble lands
   const EASE_IN = 'cubic-bezier(.2, .7, .2, 1)', EASE_CHAT = 'cubic-bezier(.16, .84, .3, 1)';
   const EASE_OUT = 'cubic-bezier(.5, 0, .75, .3)';
-  let introState = 'hidden', playedAt = 0, hideEnd = 0;   // hidden | showing | shown | hiding
+  let introState = 'hidden', playedAt = 0;   // hidden | showing | shown
   const anims = new Map();
   function measureChat() {}
   // line the backside labels up with the first letter of the centred "External Governance" title
@@ -1577,43 +1574,13 @@
 
   function showIntro(now) {
     introState = 'showing'; playedAt = now; headState = 1;
-    [...words2, ...words3].forEach(w => animateTo(w, [{ opacity: 0, transform: 'translateY(20px)' }], { duration: 200 }));
     words1.forEach((w, i) => animateTo(w, [{ opacity: 1, transform: 'translateY(0px)' }],
       { duration: reduce ? 300 : WORD_DUR, delay: WORD_DELAY + i * WORD_GAP, easing: EASE_IN }));
     chatItems.forEach((li, j) => {
-      const d = chatDrop(li);
-      const cs = getComputedStyle(li);
-      const fresh = parseFloat(cs.opacity) < 0.02;
-      // a fresh bubble starts at the bottom of the screen; one caught mid-exit rises from where it is
-      animateTo(li, fresh
-        ? [{ opacity: 0, transform: `translateY(${d}px)`, offset: 0 }, { opacity: 0.45, offset: 0.35 }, { opacity: 1, transform: 'translateY(0px)' }]
-        : [{ opacity: 1, transform: 'translateY(0px)' }],
+      // each bubble starts at the bottom of the screen
+      animateTo(li, [{ opacity: 0, transform: `translateY(${chatDrop(li)}px)`, offset: 0 }, { opacity: 0.45, offset: 0.35 }, { opacity: 1, transform: 'translateY(0px)' }],
         { duration: reduce ? 400 : CHAT_DUR, delay: CHAT_DELAY + j * CHAT_GAP, easing: EASE_CHAT });
     });
-  }
-  function hideIntro(now) {
-    introState = 'hiding';
-    relAt = Infinity;
-    const n = chatItems.length;
-    chatItems.forEach((li, j) => {
-      const order = n - 1 - j;   // last bubble leaves first
-      animateTo(li, [{ opacity: 0.45, offset: 0.65 }, { opacity: 0, transform: `translateY(${chatDrop(li)}px)` }],
-        { duration: reduce ? 250 : 650, delay: order * 140, easing: EASE_OUT });
-    });
-    const wordsStart = n * 140 + 150;
-    const all = [...words1, ...words2, ...words3, wExt, wEnf, ...words4, ...words5, ...words6, ...words7, ...words8, ...words9, ...words10, ...words11, ...words12, ...words13];
-    const visible = all.filter(isShown);
-    visible.forEach((w, i) => {
-      const order = visible.length - 1 - i;   // last word leaves first
-      animateTo(w, [{ opacity: 0, transform: 'translateY(20px)' }],
-        { duration: reduce ? 200 : 380, delay: wordsStart + order * 80, easing: 'ease-in' });
-    });
-    // words not showing yet may still have an entrance queued (e.g. a headline swap in progress):
-    // replace those with a hidden state too, so nothing appears after the intro has gone
-    all.filter(w => !visible.includes(w)).forEach(w =>
-      animateTo(w, [{ opacity: 0, transform: 'translateY(20px)' }], { duration: 1 }));
-    headState = 1; headGone = false;
-    hideEnd = now + wordsStart + visible.length * 80 + 400;
   }
 
   // ---- ARC registry panel ---------------------------------------------
@@ -2670,9 +2637,8 @@
   function updateIntro(now, dt, ballY) {
     [progPos, progVel] = smoothDamp(progPos, progTarget, progVel, GLIDE, dt);   // same glide as the ground
     const p = progPos;
-    if ((introState === 'hidden' || introState === 'hiding') && progTarget >= INTRO_AT) showIntro(now);
-    else if ((introState === 'showing' || introState === 'shown') && progTarget < INTRO_HIDE) hideIntro(now);
-    else if (introState === 'hiding' && now > hideEnd) introState = 'hidden';
+    if (introState === 'hidden') showIntro(now);
+    else if (introState === 'shown' && progTarget < INTRO_HIDE) relAt = P_REL;   // back at the top: release from the usual place
     // when the ground pauses with the tape under the ball, the headline changes to the question
     const wordsIn = introState === 'shown' || (introState === 'showing' && now - playedAt > WORD_DELAY + words1.length * WORD_GAP + WORD_DUR);
     if (wordsIn && headState === 1 && progTarget >= P_BALL + SWAP_DELAY && groundPos > G_BALL - 15) swapHeadline(2);
