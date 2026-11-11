@@ -2058,7 +2058,7 @@
     const s = Math.min(1, (W - 2 * M) / ((R - L) * D));
     const x = Math.max(M - (W / 2 + L * D * s), Math.min(0, (W - M) - (W / 2 + R * D * s)));
     const st = seeking ? 0.001 : 0.55;
-    [fitS, fitSV] = smoothDamp(fitS, s, fitSV, st, dt);
+    [fitS, fitSV] = smoothDamp(fitS, s, fitSV, st, dt, 0.0002);   // finer, or the last 1% of the scale lands as a jump
     [fitX, fitXV] = smoothDamp(fitX, x, fitXV, st, dt);
     const id = Math.abs(fitS - 1) < 0.001 && Math.abs(fitX) < 0.3;
     fitEl.style.transform = id ? '' : `translateX(${fitX.toFixed(1)}px) scale(${fitS.toFixed(4)})`;
@@ -2829,14 +2829,15 @@
   // coasting after the scroll stops; larger is more buttery, smaller is more direct.
   const GLIDE = reduce ? 0.15 : 0.42;   // seconds
   let groundVel = 0, progVel = 0;
-  function smoothDamp(cur, target, vel, smoothTime, dt) {
+  // eps: how close counts as arrived (it then lands exactly); the default suits pixels, a scale factor needs finer
+  function smoothDamp(cur, target, vel, smoothTime, dt, eps = 0.01) {
     const omega = 2 / smoothTime, x = omega * dt;
     const exp = 1 / (1 + x + 0.48 * x * x + 0.235 * x * x * x);
     const change = cur - target;
     const temp = (vel + omega * change) * dt;
     vel = (vel - omega * temp) * exp;
     let out = target + (change + temp) * exp;
-    if (Math.abs(out - target) < 0.01 && Math.abs(vel) < 0.5) { out = target; vel = 0; }
+    if (Math.abs(out - target) < eps && Math.abs(vel) < eps * 50) { out = target; vel = 0; }
     return [out, vel];
   }
 
