@@ -9,6 +9,10 @@ const imgLogoIcon = "/assets/logoIcon.svg";
 const tabClass = 'content-stretch flex items-center justify-center px-[12px] py-[5px] relative rounded-[8px] shrink-0 cursor-pointer border-none outline-none transition-opacity bg-transparent hover:opacity-80';
 const tabLabelClass = 'font-sans font-medium leading-[24px] not-italic relative shrink-0 text-[15px] text-nowrap text-white';
 
+// Vercel serves the folder at /bouncy-ball/ (and 404s on /index.html); `next dev` doesn't serve a public
+// folder's index.html at its folder URL, so locally it needs the file itself
+const animationSrc = process.env.NODE_ENV === 'development' ? '/bouncy-ball/index.html' : '/bouncy-ball/';
+
 /**
  * The scroll-driven bouncy ball animation (public/bouncy-ball/index.html), shown full-screen under the site header.
  * It runs in an iframe because the page drives everything from its own window scroll and global styles.
@@ -46,7 +50,7 @@ export default function BouncyBallView() {
       </div>
       <iframe
         key={replay}
-        src="/bouncy-ball/"
+        src={animationSrc}
         title="Adaptablox animation"
         className="absolute left-0 right-0 bottom-0 top-[71px] w-full border-0"
         style={{ height: 'calc(100% - 71px)' }}
