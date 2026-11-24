@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigation } from '@/contexts/NavigationContext';
 import { SiteFooter } from '@/components/SiteFooter';
-import { FaketownEmbed } from '@/components/FaketownEmbed';
+import { FaketownEmbed, FAKETOWN_URL } from '@/components/FaketownEmbed';
 
 const imgGroup28481 = "/assets/logo2.svg";
 const imgLogoIcon = "/assets/logoIcon.svg";
@@ -367,7 +367,9 @@ export default function AdaptabloxDemo() {
               <FaketownEmbed />
             </div>
             <p className="font-sans font-normal leading-[21px] text-[#4e4e4e] text-[12px] text-center w-full px-[15px] md:px-[21px] pb-[7px] md:pb-[10px]" style={{ fontVariationSettings: "'wdth' 100" }}>
-              A town of AI-driven characters whose personas, moods and memories run on A.R.C. control layers.
+              <a href={FAKETOWN_URL} target="_blank" rel="noopener noreferrer" className="hover:text-[#2a2a2a]">
+                A town of AI-driven characters whose personas, moods and memories run on A.R.C. control layers.&nbsp;↗
+              </a>
             </p>
           </div>
         </div>
