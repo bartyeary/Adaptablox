@@ -1,12 +1,12 @@
 // The game is its own Vercel project (~/Desktop/faketown-godot/deploy). Its address opens on a small
-// start screen (logo, password, "Enter Faketown") that works inside this frame; the ~60 MB game itself
+// start screen (logo, password, "PLAY") that works inside this frame; the ~60 MB game itself
 // loads only after that button. Locally, run its `node dev_server.mjs` (port 8060).
 export const FAKETOWN_URL =
   process.env.NODE_ENV === 'development' ? 'http://localhost:8060/' : 'https://faketown.vercel.app/';
 
 export function FaketownEmbed() {
   return (
-    <div className="relative w-full overflow-hidden rounded-[8px] bg-[#0F1422]" style={{ paddingBottom: '56.25%' }}>
+    <div className="relative w-full overflow-hidden rounded-[8px] bg-[#2F3C5B]" style={{ paddingBottom: '56.25%' }}>
       {/* Hidden on phones, where a lazy frame isn't loaded at all */}
       <iframe
         src={FAKETOWN_URL}
