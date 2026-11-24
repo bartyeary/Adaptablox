@@ -6,7 +6,9 @@ export const FAKETOWN_URL =
 
 export function FaketownEmbed() {
   return (
-    <div className="relative w-full overflow-hidden rounded-[8px] bg-[#2F3C5B]" style={{ paddingBottom: 'calc(56.25% + 10px)' }}>
+    // 16:9 inside a 12px margin, so the game (which fills the frame less 12px) has even padding:
+    // height = (width - 24px) * 9/16 + 24px = 56.25% of the width + 10.5px
+    <div className="relative w-full overflow-hidden rounded-[8px] bg-[#2F3C5B]" style={{ paddingBottom: 'calc(56.25% + 10.5px)' }}>
       {/* Hidden on phones, where a lazy frame isn't loaded at all */}
       <iframe
         src={FAKETOWN_URL}
