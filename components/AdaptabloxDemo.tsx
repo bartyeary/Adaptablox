@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigation } from '@/contexts/NavigationContext';
 import { SiteFooter } from '@/components/SiteFooter';
+import { FaketownEmbed } from '@/components/FaketownEmbed';
 
 const imgGroup28481 = "/assets/logo2.svg";
 const imgLogoIcon = "/assets/logoIcon.svg";
@@ -353,6 +354,21 @@ export default function AdaptabloxDemo() {
               <p className="leading-[21px] mb-0">&nbsp;</p>
               <p className="leading-[21px] mb-0">No retraining occurs between contexts.</p>
             </div>
+          </div>
+        </div>
+        <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-full" data-node-id="demo-faketown">
+          <div className="bg-white overflow-clip relative rounded-[16px] border border-solid border-[rgba(78,78,78,0.12)] shadow-[1px_2px_5px_0px_rgba(0,0,0,0.06)] shrink-0 w-full flex flex-col">
+            <div className="content-stretch flex flex-col gap-[12px] items-start pt-[18px] md:pt-[22px] px-[17px] md:px-[24px] pb-[12px] relative shrink-0 w-full">
+              <p className="font-sans font-[510] leading-[21px] relative shrink-0 text-[#4e4e4e] text-[20px] text-nowrap" style={{ fontVariationSettings: "'wdth' 100" }}>
+                Faketown
+              </p>
+            </div>
+            <div className="p-[8px] w-full shrink-0">
+              <FaketownEmbed />
+            </div>
+            <p className="font-sans font-normal leading-[21px] text-[#4e4e4e] text-[12px] text-center w-full px-[15px] md:px-[21px] pb-[7px] md:pb-[10px]" style={{ fontVariationSettings: "'wdth' 100" }}>
+              A town of AI-driven characters whose personas, moods and memories run on A.R.C. control layers.
+            </p>
           </div>
         </div>
         <div className="content-stretch flex flex-col gap-[12px] items-start pb-[8px] md:pb-[12px] pt-0 px-[17px] md:px-[24px] relative shrink-0 text-[#4e4e4e] w-full" data-node-id="44:843">
