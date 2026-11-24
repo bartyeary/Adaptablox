@@ -6,7 +6,7 @@ export const FAKETOWN_URL =
 
 export function FaketownEmbed() {
   return (
-    <div className="relative w-full overflow-hidden rounded-[8px] bg-[#2F3C5B]" style={{ paddingBottom: '56.25%' }}>
+    <div className="relative w-full overflow-hidden rounded-[8px] bg-[#2F3C5B]" style={{ paddingBottom: 'calc(56.25% + 10px)' }}>
       {/* Hidden on phones, where a lazy frame isn't loaded at all */}
       <iframe
         src={FAKETOWN_URL}
