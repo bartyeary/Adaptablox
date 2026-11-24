@@ -3,24 +3,25 @@ const PATENTS: { title: string; number: string; date: string; href?: string }[] 
     title: 'ARC: Agentic Control Layer for Enhanced Memory Management and Data Security',
     number: 'US 2026/0310809 A1',
     date: 'October 8, 2026',
-    href: 'https://patents.justia.com/patent/20260310809',
+    href: 'https://eureka.patsnap.com/patent/US20260310809A1',
   },
   {
     title: 'DS: Multi-Agent Artificial Intelligence Deadlock Detection and Resolution',
     number: 'US 2026/0310934 A1',
     date: 'October 8, 2026',
-    href: 'https://patents.justia.com/patent/20260310934',
+    href: 'https://eureka.patsnap.com/patent/US20260310934A1',
   },
   {
     title: 'LRC: Runtime Control of Internal Activation Pathways in Artificial Neural Networks',
     number: 'US 2026/0310948 A1',
     date: 'October 8, 2026',
-    href: 'https://patents.justia.com/patent/20260310948',
+    href: 'https://eureka.patsnap.com/patent/US20260310948A1',
   },
   {
     title: 'OAC: Output Admissibility Control of Artificial Intelligence Agent Ensembles',
-    number: 'Pending publication',
-    date: '—',
+    number: 'US 2026/0368565 A1',
+    date: 'November 19, 2026',
+    href: 'https://eureka.patsnap.com/patent/US20260368565A1',
   },
 ];
 
